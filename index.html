@@ -1,0 +1,549 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pâtisserie Dzung | Bánh Mì & Vietnamese Street Food</title>
+  
+  <!-- SEO & Social Meta -->
+  <meta name="description" content="Pâtisserie Dzung - Điểm hẹn ẩm thực giao thoa giữa Bánh Mì giòn rụm nghệ nhân và các món ăn vặt đường phố Việt Nam đặc sắc trong không gian đêm Sài Gòn sang trọng, ấm cúng." />
+  <meta property="og:title" content="Pâtisserie Dzung | Bánh Mì & Vietnamese Street Food" />
+  <meta property="og:description" content="Khám phá Bánh Mì truyền thống vỏ giòn pate nhà làm, cùng những món ăn vặt đường phố Việt Nam chuẩn vị tại Pâtisserie Dzung." />
+  <meta property="og:image" content="assets/images/hero-anan-reference.jpg" />
+  <meta property="og:type" content="restaurant" />
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="assets/images/logo.png" />
+  
+  <!-- Google Fonts: Playfair Display, Cinzel, Plus Jakarta Sans -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800;900&family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,400;1,600&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <!-- ==========================================================================
+       SITE HEADER (Sticky, Glassmorphism & Neon Logo)
+       ========================================================================== -->
+  <header class="site-header">
+    <div class="brand-wrapper">
+      <a href="#hero" class="brand-link">
+        <img src="assets/images/logo.png" alt="Pâtisserie Dzung Logo" class="brand-logo-img" />
+      </a>
+      <div class="brand-info">
+        <a href="#hero" class="brand-name">
+          Pâtisserie <span class="neon-accent">Dzung</span>
+        </a>
+        <span class="brand-tagline">Bánh Mì & Vietnamese Street Food</span>
+      </div>
+    </div>
+
+    <nav>
+      <ul class="nav-menu">
+        <li><a href="#hero" class="nav-link active">Home</a></li>
+        <li><a href="#story" class="nav-link">Story</a></li>
+        <li><a href="#menu" class="nav-link">Menu</a></li>
+        <li><a href="#gallery" class="nav-link">Gallery</a></li>
+        <li><a href="#reviews" class="nav-link">Press</a></li>
+        <li><a href="#contact" class="nav-link">Contact</a></li>
+      </ul>
+    </nav>
+
+    <div class="header-actions">
+      <button class="cart-toggle-btn" id="cart-toggle" title="Xem giỏ món đã chọn" aria-label="Giỏ hàng">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="9" cy="21" r="1"></circle>
+          <circle cx="20" cy="21" r="1"></circle>
+          <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+        </svg>
+        <span class="cart-badge" style="display: none;">0</span>
+      </button>
+
+      <button class="btn-book-nav" data-open-reservation>
+        Đặt Bàn
+      </button>
+
+      <div class="mobile-toggle" aria-label="Mở menu di động">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </div>
+  </header>
+
+  <!-- ==========================================================================
+       HERO SECTION (Matching Anan Saigon reference style)
+       ========================================================================== -->
+  <section class="hero-section" id="hero">
+    <!-- Background Slider -->
+    <div class="hero-slider-container">
+      <div class="hero-slide active" style="background-image: url('assets/images/hero-anan-reference.jpg');">
+        <div class="hero-slide-overlay"></div>
+      </div>
+      <div class="hero-slide" style="background-image: url('https://images.unsplash.com/photo-1555396273-367ea4eb4db5?auto=format&fit=crop&w=1920&q=80');">
+        <div class="hero-slide-overlay"></div>
+      </div>
+      <div class="hero-slide" style="background-image: url('https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=1920&q=80');">
+        <div class="hero-slide-overlay"></div>
+      </div>
+    </div>
+
+    <!-- Center Content: Floating Glassmorphism Reservation CTA -->
+    <div class="hero-center-content">
+      <p class="hero-subtitle">Hương Vị Đường Phố Sài Gòn • Nghệ Thuật Bánh Mì</p>
+      <h1 class="hero-title">PÂTISSERIE <span>DZUNG</span></h1>
+      
+      <div class="hero-cta-group">
+        <button class="btn-hero-reservation" data-open-reservation>
+          RESERVATION
+        </button>
+        <a href="#menu" class="btn-hero-menu">
+          EXPLORE MENU
+        </a>
+      </div>
+    </div>
+
+    <!-- Bottom Content: Michelin Style Badges & Accolades -->
+    <div class="hero-bottom-content">
+      <div class="hero-badges-wrapper">
+        <div class="hero-badges-row">
+          <div class="award-badge-circle" title="Vỏ bánh mì giòn xốp mỗi ngày">
+            <span class="badge-flower-icon">✿</span>
+            <span class="badge-title">GIÒN TAN</span>
+            <span class="badge-year">2026</span>
+          </div>
+
+          <div class="award-badge-circle" title="Đặc sản đường phố chuẩn vị Sài Gòn">
+            <span class="badge-flower-icon">✿</span>
+            <span class="badge-title">ĐẶC SẢN</span>
+            <span class="badge-year">2025</span>
+          </div>
+
+          <div class="award-badge-circle" title="Top điểm đến ẩm thực đường phố được yêu thích">
+            <span class="badge-flower-icon">✿</span>
+            <span class="badge-title">TOP STREET</span>
+            <span class="badge-year">2024</span>
+          </div>
+
+          <div class="award-badge-circle" title="Nguyên liệu tươi mới mỗi ngày">
+            <span class="badge-flower-icon">✿</span>
+            <span class="badge-title">TƯƠI SẠCH</span>
+            <span class="badge-year">2023</span>
+          </div>
+        </div>
+
+        <div class="hero-highlights-text">
+          <span>AUTHENTIC VIETNAMESE STREET FOOD & ARTISAN BÁNH MÌ</span>
+          <span>THE BEST STREET FLAVOR DESTINATION IN VIETNAM</span>
+          <span>SAIGON NIGHT AMBIANCE & TRADITIONAL HERITAGE</span>
+        </div>
+      </div>
+
+      <!-- Arrow Controls -->
+      <div class="hero-controls">
+        <button class="hero-arrow-btn hero-prev-btn" aria-label="Ảnh trước">
+          &#10094;
+        </button>
+        <button class="hero-arrow-btn hero-next-btn" aria-label="Ảnh tiếp">
+          &#10095;
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       STORY / ABOUT SECTION
+       ========================================================================== -->
+  <section id="story">
+    <div class="container">
+      <div class="story-grid">
+        <div class="story-image-box">
+          <img src="assets/images/hero-anan-reference.jpg" alt="Không gian ấm cúng tại Patisserie Dzung" class="story-img-main" />
+          <div class="story-floating-badge">
+            <div class="floating-number">100%</div>
+            <div class="floating-text">Thủ Công & Tươi Mỗi Ngày</div>
+          </div>
+        </div>
+
+        <div class="story-content">
+          <span class="section-tagline">Câu Chuyện Của Chúng Tôi</span>
+          <h2 class="section-title">KHI BÁNH MÌ GẶP GỠ ĐỒ ĂN VẶT SÀI GÒN</h2>
+          <div class="section-divider" style="margin-left: 0;"></div>
+
+          <p class="story-lead">
+            Tại <strong>Pâtisserie Dzung</strong>, chúng tôi tôn vinh linh hồn ẩm thực đường phố Việt Nam bằng tâm huyết của người làm bánh nghệ nhân.
+          </p>
+
+          <p class="story-text">
+            Mỗi ổ bánh mì ra lò đều mang lớp vỏ mỏng giòn rụm đặc trưng, ruột xốp thơm bơ và hòa quyện cùng lớp pate gan làm thủ công theo bí quyết gia truyền. Kết hợp với những món ăn vặt đường phố thân quen như bánh tráng nướng giòn tan, nem chua rán phố cổ hay chả ram tôm đất, Pâtisserie Dzung mang đến trải nghiệm vị giác vừa thân thuộc vừa tinh tế giữa lòng phố thị.
+          </p>
+
+          <div class="story-features">
+            <div class="feature-item">
+              <span class="feature-icon">🥖</span>
+              <div>
+                <h4 class="feature-title">Vỏ Bánh Nóng Giòn</h4>
+                <p class="feature-desc">Nướng mới liên tục suốt ngày, vỏ giòn xốp rụm.</p>
+              </div>
+            </div>
+
+            <div class="feature-item">
+              <span class="feature-icon">🥩</span>
+              <div>
+                <h4 class="feature-title">Pate Gan Thượng Hạng</h4>
+                <p class="feature-desc">Công thức bí truyền thơm béo, đậm đà khó quên.</p>
+              </div>
+            </div>
+
+            <div class="feature-item">
+              <span class="feature-icon">🍢</span>
+              <div>
+                <h4 class="feature-title">Street Food Đích Thực</h4>
+                <p class="feature-desc">Món ăn vặt 3 miền tinh hoa, gia vị chuẩn vị gốc.</p>
+              </div>
+            </div>
+
+            <div class="feature-item">
+              <span class="feature-icon">✨</span>
+              <div>
+                <h4 class="feature-title">Không Gian Đêm Ấm Áp</h4>
+                <p class="feature-desc">Ánh đèn vàng neon chill, bàn ghế gỗ mộc hiện đại.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       INTERACTIVE MENU SECTION
+       ========================================================================== -->
+  <section id="menu" style="background: rgba(14, 14, 18, 0.7);">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tagline">Thực Đơn Tinh Tuyển</span>
+        <h2 class="section-title">BÁNH MÌ & STREET FOOD VIỆT NAM</h2>
+        <div class="section-divider"></div>
+      </div>
+
+      <!-- Filter Tabs -->
+      <div class="menu-tabs-wrapper">
+        <button class="menu-tab-btn active" data-category="all">Tất Cả Món</button>
+        <button class="menu-tab-btn" data-category="banhmi">🥖 Bánh Mì Việt Nam</button>
+        <button class="menu-tab-btn" data-category="streetfood">🍢 Đồ Ăn Vặt Đường Phố</button>
+        <button class="menu-tab-btn" data-category="rolls">🥗 Món Cuốn & Khai Vị</button>
+        <button class="menu-tab-btn" data-category="drinks">☕ Đồ Uống & Tráng Miệng</button>
+      </div>
+
+      <!-- Menu Grid Rendered by JavaScript -->
+      <div class="menu-grid" id="menu-items-grid">
+        <!-- Javascript will inject items here -->
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       ATMOSPHERE / GALLERY SECTION
+       ========================================================================== -->
+  <section id="gallery">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tagline">Không Gian & Trải Nghiệm</span>
+        <h2 class="section-title">SAIGON NIGHT VIBE</h2>
+        <div class="section-divider"></div>
+      </div>
+
+      <div class="gallery-grid">
+        <div class="gallery-item span-2">
+          <img src="assets/images/hero-anan-reference.jpg" alt="Mặt tiền quán về đêm lung linh ánh đèn" class="gallery-img" />
+          <div class="gallery-overlay">
+            <span class="gallery-caption">Ánh Đèn Vàng Neon & Không Gian Về Đêm</span>
+          </div>
+        </div>
+
+        <div class="gallery-item">
+          <img src="https://images.unsplash.com/photo-1626804475297-41608ea09aeb?auto=format&fit=crop&w=800&q=80" alt="Bánh Mì nóng giòn vừa ra lò" class="gallery-img" />
+          <div class="gallery-overlay">
+            <span class="gallery-caption">Bánh Mì Nóng Giòn Mỗi Ngày</span>
+          </div>
+        </div>
+
+        <div class="gallery-item">
+          <img src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?auto=format&fit=crop&w=800&q=80" alt="Bàn ăn ấm cúng cùng bạn bè" class="gallery-img" />
+          <div class="gallery-overlay">
+            <span class="gallery-caption">Góc Bàn Ăn Ấm Cúng</span>
+          </div>
+        </div>
+
+        <div class="gallery-item">
+          <img src="https://images.unsplash.com/photo-1555126634-323283e090fa?auto=format&fit=crop&w=800&q=80" alt="Món ăn vặt thơm nức mũi" class="gallery-img" />
+          <div class="gallery-overlay">
+            <span class="gallery-caption">Street Food Sài Gòn</span>
+          </div>
+        </div>
+
+        <div class="gallery-item">
+          <img src="https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?auto=format&fit=crop&w=800&q=80" alt="Cà phê trứng kem béo ngậy" class="gallery-img" />
+          <div class="gallery-overlay">
+            <span class="gallery-caption">Cà Phê Trứng Nghệ Nhân</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       PRESS & REVIEWS SECTION
+       ========================================================================== -->
+  <section id="reviews" style="background: rgba(10, 10, 12, 0.9);">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tagline">Đánh Giá & Trải Nghiệm</span>
+        <h2 class="section-title">THỰC KHÁCH NÓI VỀ CHÚNG TÔI</h2>
+        <div class="section-divider"></div>
+      </div>
+
+      <div class="reviews-grid">
+        <div class="review-card">
+          <div class="review-stars">★★★★★</div>
+          <p class="review-quote">
+            "Vỏ bánh mì ở Patisserie Dzung thực sự đỉnh cao! Giòn tan rôm rốp mà ruột vẫn mềm xốp. Pate béo thơm ngậy không bị khô, ăn cùng dưa chua và sốt đậm đà. Không gian buổi tối lên đèn nhìn cực kỳ có chất!"
+          </p>
+          <div class="reviewer-info">
+            <div class="reviewer-avatar">AN</div>
+            <div>
+              <div class="reviewer-name">Anh Nhật Hoàng</div>
+              <div class="reviewer-meta">Food Blogger • Google Local Guide 4.9★</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="review-card">
+          <div class="review-stars">★★★★★</div>
+          <p class="review-quote">
+            "Bánh tráng nướng và nem chua rán ở đây giòn rụm, gia vị rất tròn vị đường phố nhưng được chế biến sạch sẽ và bày trí đẹp mắt. Thêm ly cà phê muối nữa là hoàn hảo cho một buổi tối hẹn hò chill cùng bạn bè."
+          </p>
+          <div class="reviewer-info">
+            <div class="reviewer-avatar">ML</div>
+            <div>
+              <div class="reviewer-name">Mai Linh Trần</div>
+              <div class="reviewer-meta">Thực khách thân thiết • TripAdvisor</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="review-card">
+          <div class="review-stars">★★★★★</div>
+          <p class="review-quote">
+            "Bước vào quán có cảm giác rất ấm cúng giống những quán bistro đêm nổi tiếng ở Sài Gòn. Đồ ăn ra nhanh, nhân viên dễ thương và vị bánh mì xíu mại ngon khó cưỡng. Nhất định sẽ quay lại thường xuyên!"
+          </p>
+          <div class="reviewer-info">
+            <div class="reviewer-avatar">DK</div>
+            <div>
+              <div class="reviewer-name">David Kang</div>
+              <div class="reviewer-meta">Du khách quốc tế • Saigon Food Tour</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       RESERVATION BANNER CTA
+       ========================================================================== -->
+  <section style="padding: 3rem 1.5rem 6rem;">
+    <div class="container">
+      <div class="reservation-banner">
+        <h2 class="reservation-banner-title">ĐẶT BÀN TRƯỚC TẠI PÂTISSERIE DZUNG</h2>
+        <p class="reservation-banner-desc">
+          Hãy giữ chỗ trước để trải nghiệm không gian ấm cúng, thưởng thức bánh mì giòn tan nóng hổi và những món ăn vặt đường phố tuyệt hảo cùng người thân và bạn bè.
+        </p>
+        <button class="btn-hero-reservation" data-open-reservation style="padding: 1rem 3rem;">
+          ĐẶT BÀN NGAY
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       FOOTER & CONTACT
+       ========================================================================== -->
+  <footer class="footer-section" id="contact">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <img src="assets/images/logo.png" alt="Pâtisserie Dzung Logo" class="brand-logo-img" />
+          <p class="footer-brand-desc">
+            Pâtisserie Dzung - Nơi tôn vinh ẩm thực đường phố Việt Nam và bánh mì thủ công giòn tan thượng hạng. Không gian đêm Sài Gòn ấm áp và đầy cảm xúc.
+          </p>
+          <div class="footer-socials">
+            <a href="#" class="social-link" title="Facebook" aria-label="Facebook">f</a>
+            <a href="#" class="social-link" title="Instagram" aria-label="Instagram">ig</a>
+            <a href="#" class="social-link" title="TikTok" aria-label="TikTok">tk</a>
+            <a href="#" class="social-link" title="Zalo" aria-label="Zalo">zl</a>
+          </div>
+        </div>
+
+        <div>
+          <h4 class="footer-title">Khám Phá</h4>
+          <div class="footer-links">
+            <a href="#hero" class="footer-link">Trang Chủ</a>
+            <a href="#story" class="footer-link">Câu Chuyện Quán</a>
+            <a href="#menu" class="footer-link">Thực Đơn Món Ăn</a>
+            <a href="#gallery" class="footer-link">Không Gian Quán</a>
+            <a href="#reviews" class="footer-link">Báo Chí & Đánh Giá</a>
+          </div>
+        </div>
+
+        <div>
+          <h4 class="footer-title">Giờ Mở Cửa</h4>
+          <div class="contact-info-list">
+            <div>
+              <strong style="color: #fff;">Thứ Hai - Thứ Sáu:</strong><br>
+              07:00 AM - 22:30 PM
+            </div>
+            <div>
+              <strong style="color: #fff;">Thứ Bảy - Chủ Nhật:</strong><br>
+              07:00 AM - 23:00 PM
+            </div>
+            <div style="color: var(--color-gold);">
+              * Luôn có bánh mì nóng giòn mới ra lò mỗi 30 phút.
+            </div>
+          </div>
+        </div>
+
+        <div>
+          <h4 class="footer-title">Liên Hệ</h4>
+          <div class="contact-info-list">
+            <div class="contact-info-item">
+              <span class="contact-icon">📍</span>
+              <span>124 Nguyễn Thái Bình, Quận 1, TP. Hồ Chí Minh, Việt Nam</span>
+            </div>
+            <div class="contact-info-item">
+              <span class="contact-icon">📞</span>
+              <span>Hotline Đặt Bàn: <strong>+84 901 234 567</strong></span>
+            </div>
+            <div class="contact-info-item">
+              <span class="contact-icon">✉️</span>
+              <span>booking@patisseriedzung.vn</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div>
+          &copy; 2026 Pâtisserie Dzung. All Rights Reserved. Designed with passion for Vietnamese street food.
+        </div>
+        <div style="display: flex; gap: 1.5rem;">
+          <a href="#" class="footer-link">Chính Sách Bảo Mật</a>
+          <a href="#" class="footer-link">Điều Khoản Dịch Vụ</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ==========================================================================
+       MODAL 1: RESERVATION / ĐẶT BÀN
+       ========================================================================== -->
+  <div class="modal-backdrop" id="reservation-modal">
+    <div class="modal-card">
+      <button class="modal-close-btn" id="close-reservation-btn" aria-label="Đóng">&times;</button>
+      <h3 class="modal-title">ĐẶT BÀN TRƯỚC</h3>
+      <p class="modal-subtitle">Trải nghiệm không gian ẩm thực ấm áp tại Pâtisserie Dzung</p>
+
+      <form id="reservation-form">
+        <div class="form-group">
+          <label class="form-label" for="res-name">Họ và Tên Quý Khách *</label>
+          <input type="text" id="res-name" class="form-input" placeholder="Ví dụ: Lê Bảo Chánh Trúc" required />
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label class="form-label" for="res-phone">Số Điện Thoại *</label>
+            <input type="tel" id="res-phone" class="form-input" placeholder="0901 234 567" required />
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="res-guests">Số Lượng Khách *</label>
+            <select id="res-guests" class="form-select" required>
+              <option value="1 - 2 người">1 - 2 người (Bàn đôi)</option>
+              <option value="3 - 4 người" selected>3 - 4 người (Bàn tiêu chuẩn)</option>
+              <option value="5 - 8 người">5 - 8 người (Bàn tiệc nhóm)</option>
+              <option value="Trên 8 người">Trên 8 người (Liên hệ riêng)</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label class="form-label" for="res-date">Ngày Dùng Bữa *</label>
+            <input type="date" id="res-date" class="form-input" required />
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="res-time">Giờ Đến *</label>
+            <select id="res-time" class="form-select" required>
+              <option value="11:30">11:30 (Trưa)</option>
+              <option value="12:30">12:30 (Trưa)</option>
+              <option value="17:30">17:30 (Chiều tối)</option>
+              <option value="18:30" selected>18:30 (Tối chill)</option>
+              <option value="19:30">19:30 (Tối ngắm phố)</option>
+              <option value="20:30">20:30 (Đêm muộn)</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="res-seating">Khu Vực Ngồi Ưa Thích</label>
+          <select id="res-seating" class="form-select">
+            <option value="Phố view">Bàn gần cửa kính view ngắm phố Sài Gòn</option>
+            <option value="Trong nhà">Khu vực bàn sofa trong nhà máy lạnh</option>
+            <option value="Quầy bar">Quầy bar bếp mở ngắm nướng bánh</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="res-note">Ghi Chú Thêm</label>
+          <textarea id="res-note" class="form-textarea" rows="2" placeholder="Yêu cầu dị ứng món, dịp sinh nhật, kỷ niệm..."></textarea>
+        </div>
+
+        <button type="submit" class="btn-modal-submit">
+          XÁC NHẬN ĐẶT BÀN
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <!-- ==========================================================================
+       MODAL 2: QUICK ORDER / GIỎ MÓN ĂN
+       ========================================================================== -->
+  <div class="modal-backdrop" id="cart-modal">
+    <div class="modal-card">
+      <button class="modal-close-btn" id="close-cart-btn" aria-label="Đóng">&times;</button>
+      <h3 class="modal-title">DANH SÁCH MÓN ĐÃ CHỌN</h3>
+      <p class="modal-subtitle">Bánh Mì & Đồ Ăn Vặt Pâtisserie Dzung</p>
+
+      <div id="cart-items-list" style="margin-bottom: 1.5rem; max-height: 280px; overflow-y: auto;">
+        <!-- Injected by JavaScript -->
+      </div>
+
+      <div style="display: flex; justify-content: space-between; align-items: center; padding: 1.2rem 0; border-top: 1px solid rgba(229, 179, 88, 0.3);">
+        <span style="font-weight: 700; font-size: 1.1rem; color: #fff;">TỔNG CỘNG:</span>
+        <span id="cart-total-price" style="font-weight: 800; font-size: 1.4rem; color: var(--color-gold-bright);">0₫</span>
+      </div>
+
+      <button class="btn-modal-submit" onclick="checkoutOrder()">
+        GỬI ĐƠN MÓN / LIÊN HỆ ĐẶT
+      </button>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="js/menu-data.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
