@@ -1,19 +1,119 @@
 /**
  * PATISSERIE DZUNG - MAIN JAVASCRIPT
- * Handles Hero Carousel, Menu Filtering, Cart/Order, Reservation Modal, Smooth Scrolling
+ * Multilingual Engine (fr default, vi, en, zh), Slider, Menu Filter, Cart & Reservation
  */
 
+let currentLang = 'fr'; // DEFAULT LANGUAGE: French as requested
+let currentCategory = 'all';
+let cart = [];
+
 document.addEventListener('DOMContentLoaded', () => {
+  initLanguage();
   initNavbar();
   initHeroSlider();
-  renderMenu('all');
+  renderMenu(currentCategory);
   initMenuTabs();
   initReservationModal();
   initCart();
 });
 
 /* ==========================================================================
-   1. NAVBAR & MOBILE MENU
+   1. MULTILINGUAL ENGINE (i18n)
+   ========================================================================== */
+function initLanguage() {
+  const savedLang = localStorage.getItem('patisserie_dzung_lang');
+  currentLang = savedLang && TRANSLATIONS[savedLang] ? savedLang : 'fr';
+
+  updateLanguageUI(currentLang);
+  applyTranslations(currentLang);
+
+  const langBtn = document.getElementById('lang-btn');
+  const langMenu = document.getElementById('lang-menu');
+  const langOptions = document.querySelectorAll('.lang-option');
+
+  if (langBtn && langMenu) {
+    langBtn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      langMenu.classList.toggle('active');
+    });
+
+    document.addEventListener('click', () => {
+      langMenu.classList.remove('active');
+    });
+  }
+
+  langOptions.forEach(opt => {
+    opt.addEventListener('click', (e) => {
+      e.preventDefault();
+      const lang = opt.getAttribute('data-lang');
+      if (lang && TRANSLATIONS[lang]) {
+        switchLanguage(lang);
+      }
+      if (langMenu) langMenu.classList.remove('active');
+    });
+  });
+}
+
+function switchLanguage(lang) {
+  currentLang = lang;
+  localStorage.setItem('patisserie_dzung_lang', lang);
+  updateLanguageUI(lang);
+  applyTranslations(lang);
+  renderMenu(currentCategory);
+  renderCartItems();
+}
+
+function updateLanguageUI(lang) {
+  document.documentElement.lang = lang;
+
+  const flagMap = {
+    fr: { flag: '🇫🇷', code: 'FR' },
+    vi: { flag: '🇻🇳', code: 'VI' },
+    en: { flag: '🇬🇧', code: 'EN' },
+    zh: { flag: '🇨🇳', code: 'ZH' }
+  };
+
+  const currentFlagElem = document.querySelector('.lang-current-flag');
+  const currentCodeElem = document.querySelector('.lang-current-code');
+  if (currentFlagElem) currentFlagElem.textContent = flagMap[lang].flag;
+  if (currentCodeElem) currentCodeElem.textContent = flagMap[lang].code;
+
+  document.querySelectorAll('.lang-option').forEach(opt => {
+    if (opt.getAttribute('data-lang') === lang) {
+      opt.classList.add('active');
+    } else {
+      opt.classList.remove('active');
+    }
+  });
+}
+
+function applyTranslations(lang) {
+  if (typeof TRANSLATIONS === 'undefined' || !TRANSLATIONS[lang]) return;
+  const t = TRANSLATIONS[lang];
+
+  // Text content replacements
+  document.querySelectorAll('[data-i18n]').forEach(el => {
+    const key = el.getAttribute('data-i18n');
+    if (t[key] !== undefined) {
+      if (el.tagName === 'INPUT' || el.tagName === 'TEXTAREA') {
+        el.value = t[key];
+      } else {
+        el.innerHTML = t[key];
+      }
+    }
+  });
+
+  // Placeholder replacements
+  document.querySelectorAll('[data-i18n-placeholder]').forEach(el => {
+    const key = el.getAttribute('data-i18n-placeholder');
+    if (t[key] !== undefined) {
+      el.setAttribute('placeholder', t[key]);
+    }
+  });
+}
+
+/* ==========================================================================
+   2. NAVBAR & MOBILE MENU
    ========================================================================== */
 function initNavbar() {
   const header = document.querySelector('.site-header');
@@ -21,7 +121,6 @@ function initNavbar() {
   const navMenu = document.querySelector('.nav-menu');
   const navLinks = document.querySelectorAll('.nav-link');
 
-  // Sticky navbar with blur on scroll
   window.addEventListener('scroll', () => {
     if (window.scrollY > 40) {
       header.classList.add('scrolled');
@@ -31,13 +130,11 @@ function initNavbar() {
     updateActiveNavLink();
   });
 
-  // Mobile menu toggle
   if (mobileToggle && navMenu) {
     mobileToggle.addEventListener('click', () => {
       navMenu.classList.toggle('active');
     });
 
-    // Close mobile menu when clicking any nav link
     navLinks.forEach(link => {
       link.addEventListener('click', () => {
         navMenu.classList.remove('active');
@@ -45,7 +142,6 @@ function initNavbar() {
     });
   }
 
-  // Active link highlighter on scroll
   function updateActiveNavLink() {
     const scrollPosition = window.scrollY + 120;
     const sections = document.querySelectorAll('section[id]');
@@ -68,7 +164,7 @@ function initNavbar() {
 }
 
 /* ==========================================================================
-   2. HERO SLIDER (Carousel)
+   3. HERO SLIDER
    ========================================================================== */
 function initHeroSlider() {
   const slides = document.querySelectorAll('.hero-slide');
@@ -122,53 +218,65 @@ function initHeroSlider() {
     });
   }
 
-  // Pause on hover
   const heroSection = document.querySelector('.hero-section');
   if (heroSection) {
     heroSection.addEventListener('mouseenter', stopAutoSlide);
     heroSection.addEventListener('mouseleave', startAutoSlide);
   }
 
-  // Start initial auto slide
   startAutoSlide();
 }
 
 /* ==========================================================================
-   3. MENU FILTER & RENDER
+   4. MENU FILTER & MULTILINGUAL RENDER
    ========================================================================== */
 function renderMenu(category = 'all') {
+  currentCategory = category;
   const menuContainer = document.getElementById('menu-items-grid');
   if (!menuContainer || typeof MENU_ITEMS === 'undefined') return;
+
+  const t = (typeof TRANSLATIONS !== 'undefined' && TRANSLATIONS[currentLang]) 
+    ? TRANSLATIONS[currentLang] 
+    : {};
+
+  const btnAddText = t.btn_add_dish || '+ Thêm';
 
   const filteredItems = category === 'all' 
     ? MENU_ITEMS 
     : MENU_ITEMS.filter(item => item.category === category);
 
-  menuContainer.innerHTML = filteredItems.map(item => `
-    <div class="dish-card" data-category="${item.category}">
-      <div class="dish-image-wrapper">
-        <img class="dish-img" src="${item.image}" alt="${item.name}" loading="lazy" onerror="this.src='assets/images/hero-anan-reference.jpg'" />
-        ${item.badge ? `<span class="dish-badge ${item.badge}">${item.badgeText}</span>` : ''}
-      </div>
-      <div class="dish-info">
-        <div>
-          <div class="dish-header">
-            <h3 class="dish-name">${item.name}</h3>
-            <span class="dish-price">${item.priceDisplay}</span>
-          </div>
-          <p class="dish-desc">${item.desc}</p>
+  menuContainer.innerHTML = filteredItems.map(item => {
+    const name = item.name[currentLang] || item.name.fr || item.name.vi;
+    const desc = item.desc[currentLang] || item.desc.fr || item.desc.vi;
+    const badgeText = item.badgeText ? (item.badgeText[currentLang] || item.badgeText.fr || item.badgeText.vi) : '';
+    const tags = item.tags[currentLang] || item.tags.fr || item.tags.vi || [];
+
+    return `
+      <div class="dish-card" data-category="${item.category}">
+        <div class="dish-image-wrapper">
+          <img class="dish-img" src="${item.image}" alt="${name}" loading="lazy" onerror="this.src='assets/images/hero-anan-reference.jpg'" />
+          ${item.badge && badgeText ? `<span class="dish-badge ${item.badge}">${badgeText}</span>` : ''}
         </div>
-        <div class="dish-footer">
-          <div class="dish-tags">
-            ${item.tags.map(tag => `<span>#${tag}</span>`).join(' ')}
+        <div class="dish-info">
+          <div>
+            <div class="dish-header">
+              <h3 class="dish-name">${name}</h3>
+              <span class="dish-price">${item.priceDisplay}</span>
+            </div>
+            <p class="dish-desc">${desc}</p>
           </div>
-          <button class="btn-add-dish" onclick="addToCart('${item.id}')">
-            <span>+ Thêm</span>
-          </button>
+          <div class="dish-footer">
+            <div class="dish-tags">
+              ${tags.map(tag => `<span>#${tag}</span>`).join(' ')}
+            </div>
+            <button class="btn-add-dish" onclick="addToCart('${item.id}')">
+              <span>${btnAddText}</span>
+            </button>
+          </div>
         </div>
       </div>
-    </div>
-  `).join('');
+    `;
+  }).join('');
 }
 
 function initMenuTabs() {
@@ -184,7 +292,7 @@ function initMenuTabs() {
 }
 
 /* ==========================================================================
-   4. RESERVATION MODAL
+   5. RESERVATION MODAL
    ========================================================================== */
 function initReservationModal() {
   const modal = document.getElementById('reservation-modal');
@@ -226,17 +334,16 @@ function initReservationModal() {
       const time = document.getElementById('res-time').value;
 
       closeModal();
-      showToast(`✨ Đặt bàn thành công cho quý khách ${guestName}! (${guests} người vào lúc ${time} ngày ${date})`);
+      const t = TRANSLATIONS[currentLang] || TRANSLATIONS.fr;
+      showToast(`${t.toast_res_success || '✨ '}${guestName}! (${guests} - ${time}, ${date})`);
       form.reset();
     });
   }
 }
 
 /* ==========================================================================
-   5. QUICK ORDER & CART
+   6. QUICK ORDER & CART
    ========================================================================== */
-let cart = [];
-
 function initCart() {
   const cartBtn = document.getElementById('cart-toggle');
   const cartModal = document.getElementById('cart-modal');
@@ -274,20 +381,23 @@ function addToCart(dishId) {
   const dish = MENU_ITEMS.find(item => item.id === dishId);
   if (!dish) return;
 
+  const dishName = dish.name[currentLang] || dish.name.fr || dish.name.vi;
+
   const existingItem = cart.find(item => item.id === dishId);
   if (existingItem) {
     existingItem.quantity += 1;
   } else {
     cart.push({
       id: dish.id,
-      name: dish.name,
+      nameObj: dish.name,
       price: dish.price,
       quantity: 1
     });
   }
 
   updateCartBadge();
-  showToast(`🥖 Đã thêm "${dish.name}" vào danh sách gọi món!`);
+  const t = TRANSLATIONS[currentLang] || TRANSLATIONS.fr;
+  showToast(`${t.toast_added || '🥖 '}"${dishName}"`);
 }
 
 function updateCartBadge() {
@@ -304,8 +414,10 @@ function renderCartItems() {
   const totalElem = document.getElementById('cart-total-price');
   if (!cartContainer || !totalElem) return;
 
+  const t = TRANSLATIONS[currentLang] || TRANSLATIONS.fr;
+
   if (cart.length === 0) {
-    cartContainer.innerHTML = '<p style="text-align: center; color: var(--color-text-muted); padding: 2rem 0;">Danh sách gọi món hiện đang trống.<br>Hãy chọn các món bánh mì và street food hấp dẫn bên dưới nhé!</p>';
+    cartContainer.innerHTML = `<p style="text-align: center; color: var(--color-text-muted); padding: 2rem 0;">${t.cart_empty}</p>`;
     totalElem.textContent = '0₫';
     return;
   }
@@ -314,10 +426,11 @@ function renderCartItems() {
   cartContainer.innerHTML = cart.map(item => {
     const itemTotal = item.price * item.quantity;
     total += itemTotal;
+    const name = item.nameObj ? (item.nameObj[currentLang] || item.nameObj.fr || item.nameObj.vi) : item.name;
     return `
       <div style="display: flex; justify-content: space-between; align-items: center; padding: 0.8rem 0; border-bottom: 1px solid rgba(255,255,255,0.08);">
         <div>
-          <div style="font-weight: 700; color: #fff; font-size: 0.95rem;">${item.name}</div>
+          <div style="font-weight: 700; color: #fff; font-size: 0.95rem;">${name}</div>
           <div style="font-size: 0.8rem; color: var(--color-gold);">${item.price.toLocaleString('vi-VN')}₫ x ${item.quantity}</div>
         </div>
         <div style="display: flex; align-items: center; gap: 0.5rem;">
@@ -347,7 +460,8 @@ function changeCartQty(dishId, delta) {
 
 function checkoutOrder() {
   if (cart.length === 0) {
-    showToast('⚠️ Bạn chưa chọn món nào trong thực đơn!');
+    const t = TRANSLATIONS[currentLang] || TRANSLATIONS.fr;
+    showToast(currentLang === 'fr' ? '⚠️ Votre panier est vide !' : '⚠️ Bạn chưa chọn món nào trong thực đơn!');
     return;
   }
 
@@ -357,17 +471,22 @@ function checkoutOrder() {
     document.body.style.overflow = 'auto';
   }
 
-  const itemsList = cart.map(i => `${i.name} (x${i.quantity})`).join(', ');
   const total = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+  const msg = currentLang === 'fr' 
+    ? `🎉 Commande reçue (${total.toLocaleString('vi-VN')}₫) ! L'équipe Pâtisserie Dzung va vous contacter rapidement.`
+    : (currentLang === 'zh'
+        ? `🎉 订单已接收（${total.toLocaleString('vi-VN')}₫）！Pâtisserie Dzung 将尽快与您联系确认。`
+        : (currentLang === 'en'
+            ? `🎉 Order received (${total.toLocaleString('vi-VN')}₫)! Pâtisserie Dzung team will contact you shortly.`
+            : `🎉 Đã tiếp nhận đơn hàng (${total.toLocaleString('vi-VN')}₫)! Nhân viên Patisserie Dzung sẽ liên hệ xác nhận ngay.`));
 
-  // In production, can redirect to Zalo / WhatsApp / Hotline with prefilled message
-  showToast(`🎉 Đã tiếp nhận đơn hàng (${total.toLocaleString('vi-VN')}₫)! Nhân viên Patisserie Dzung sẽ liên hệ xác nhận ngay.`);
+  showToast(msg);
   cart = [];
   updateCartBadge();
 }
 
 /* ==========================================================================
-   6. TOAST NOTIFICATIONS
+   7. TOAST NOTIFICATIONS
    ========================================================================== */
 function showToast(message) {
   let toast = document.querySelector('.toast-notice');
@@ -382,5 +501,5 @@ function showToast(message) {
 
   setTimeout(() => {
     toast.classList.remove('show');
-  }, 4000);
+  }, 4200);
 }
