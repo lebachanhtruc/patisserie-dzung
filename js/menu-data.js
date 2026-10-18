@@ -253,6 +253,38 @@ const MENU_ITEMS = [
     },
     image: 'https://images.unsplash.com/photo-1551782450-a2132b4ba21d?auto=format&fit=crop&w=800&q=80'
   },
+  {
+    id: 'sn-05',
+    category: 'streetfood',
+    price: 40000,
+    priceDisplay: '40.000₫',
+    badge: 'signature',
+    name: {
+      fr: 'Bánh Tráng Trộn Spécial Saigon (Salade de Papier de Riz)',
+      vi: 'Bánh Tráng Trộn Sài Gòn Đặc Biệt',
+      en: 'Saigon Signature Bánh Tráng Trộn (Rice Paper Salad)',
+      zh: '西贡经典招牌凉拌米纸（Bánh Tráng Trộn）'
+    },
+    badgeText: {
+      fr: 'Incontournable',
+      vi: 'Đặc Sản',
+      en: 'Must Try',
+      zh: '地道风味'
+    },
+    desc: {
+      fr: 'Lanières de papier de riz assaisonnées au sel de Tây Ninh, bœuf séché épicé, œufs de caille fondants, crevettes rouges séchées, julienne de mangue verte, herbes rau răm et jus de calamansi acidulé.',
+      vi: 'Bánh tráng sợi dẻo dai hòa quyện muối tôm Tây Ninh, khô bò cay nồng, trứng cút lòng đào, tép đỏ thơm, xoài xanh chua giòn, rau răm và nước sốt tắc chua ngọt.',
+      en: 'Chewy rice paper strips tossed with Tay Ninh shrimp salt, spicy beef jerky, soft quail eggs, dried baby shrimp, green mango shreds, Vietnamese coriander, and tangy calamansi dressing.',
+      zh: '韧劲米纸丝拌入西宁特产虾盐、香辣牛肉干、溏心鹌鹑蛋、香脆小红虾、青芒果丝与新鲜越南芫荽，淋上金桔酸甜酱汁。'
+    },
+    tags: {
+      fr: ['Street Food Culte', 'Épicé & Acidulé'],
+      vi: ['Ăn Vặt Cực Đỉnh', 'Chua Cay Mặn Ngọt'],
+      en: ['Iconic Street Snack', 'Sweet & Spicy'],
+      zh: ['西贡国民小吃', '酸辣开胃']
+    },
+    image: 'https://images.unsplash.com/photo-1541832676-9b763b0239ab?auto=format&fit=crop&w=800&q=80'
+  },
 
   // 🥗 ROULEAUX & ENTRÉES
   {
@@ -313,6 +345,38 @@ const MENU_ITEMS = [
       zh: ['极致酥脆', '越南中部名产']
     },
     image: 'https://images.unsplash.com/photo-1563245372-f21724e3856d?auto=format&fit=crop&w=800&q=80'
+  },
+  {
+    id: 'roll-03',
+    category: 'rolls',
+    price: 45000,
+    priceDisplay: '45.000₫',
+    badge: 'bestseller',
+    name: {
+      fr: 'Bánh Tráng Cuốn (Rouleaux de Papier de Riz Sauce Beurre & Tamarin)',
+      vi: 'Bánh Tráng Cuốn Sốt Bơ Me',
+      en: 'Bánh Tráng Cuốn (Rice Paper Rolls with Tamarind Butter Dip)',
+      zh: '越式酱香米纸卷（Bánh Tráng Cuốn）'
+    },
+    badgeText: {
+      fr: 'Coup de Cœur',
+      vi: 'Best Seller',
+      en: 'Best Seller',
+      zh: '人气热销'
+    },
+    desc: {
+      fr: 'Feuille de riz souple enroulée avec bœuf séché, œufs de caille, échalotes frites, crevettes séchées et herbes rau răm. Servi avec une double sauce beurre onctueux et tamarin caramélisé.',
+      vi: 'Bánh tráng dẻo cuốn nhân khô bò, trứng cút, hành phi giòn tan, ruốc tép và rau răm thơm nồng, chấm đẫm sốt bơ trứng béo ngậy cùng sốt me chua ngọt.',
+      en: 'Soft chewy rice paper rolled with beef jerky, quail eggs, crispy shallots, dried shrimp and Vietnamese coriander, served with rich egg butter dip and tangy sweet tamarind glaze.',
+      zh: '柔韧薄米纸卷入香辣牛肉干、卤鹌鹑蛋、香酥红葱头与鲜香虾米，佐以浓郁鸡蛋黄油酱与酸甜罗望子酱。'
+    },
+    tags: {
+      fr: ['Sauce Beurre Me', 'Gourmand'],
+      vi: ['Sốt Bơ Béo Ngậy', 'Ăn Là Mê'],
+      en: ['Tamarind Butter', 'Street Favorite'],
+      zh: ['黄油罗望子酱', '越吃越上头']
+    },
+    image: 'https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=800&q=80'
   },
 
   // ☕ BOISSONS & DESSERTS
@@ -433,6 +497,38 @@ const MENU_ITEMS = [
       zh: ['传统甜品', '浓郁椰浆']
     },
     image: 'https://images.unsplash.com/photo-1579954115545-a95591f28bfc?auto=format&fit=crop&w=800&q=80'
+  },
+  {
+    id: 'dr-05',
+    category: 'drinks',
+    price: 45000,
+    priceDisplay: '45.000₫',
+    badge: 'signature',
+    name: {
+      fr: 'Chè Thái aux Fruits Tropicaux & Lait de Coco',
+      vi: 'Chè Thái Sầu Riêng Thập Cẩm',
+      en: 'Vietnamese Chè Thái with Durian & Tropical Fruits',
+      zh: '榴莲热带水果越式杂锦甜汤（Chè Thái）'
+    },
+    badgeText: {
+      fr: 'Chè Vietnamien',
+      vi: 'Chè Đặc Sắc',
+      en: 'Signature Chè',
+      zh: '招牌甜汤'
+    },
+    desc: {
+      fr: 'Dessert traditionnel vietnamien rafraîchissant garni de perles d’eau de châtaigne croquantes, gelée pandan parfumée, pulpe de durian fondante, jacquier et lait de coco glacé onctueux.',
+      vi: 'Món chè trứ danh với thạch hạt lựu củ năng giòn sần sật, sương sa lá dứa, mít nghệ chín vàng, cơm sầu riêng béo thơm chan nước cốt dừa đá lạnh.',
+      en: 'Famous Vietnamese sweet dessert soup layered with crunchy water chestnut ruby pearls, pandan jelly, sweet jackfruit, creamy durian pulp, and rich iced coconut milk.',
+      zh: '经典越式甜汤，汇聚爽脆马蹄红宝石、斑兰果冻、香甜波罗蜜与浓郁榴莲果肉，淋上冰镇鲜椰浆。'
+    },
+    tags: {
+      fr: ['Dessert Rafraîchissant', 'Chè VN'],
+      vi: ['Đặc Sản Chè VN', 'Thơm Béo Cốt Dừa'],
+      en: ['Iconic Vietnamese Chè', 'Tropical Sweet'],
+      zh: ['地道越式甜点', '浓郁椰香榴莲']
+    },
+    image: 'https://images.unsplash.com/photo-1551024709-8f23befc6f87?auto=format&fit=crop&w=800&q=80'
   }
 ];
 
