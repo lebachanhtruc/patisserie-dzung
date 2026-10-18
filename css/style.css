@@ -109,7 +109,7 @@ img {
 }
 
 .brand-logo-img {
-  height: 56px;
+  height: 64px;
   width: auto;
   background: transparent;
   padding: 0;
@@ -118,9 +118,13 @@ img {
   transition: var(--transition-smooth);
 }
 
+.site-header.scrolled .brand-logo-img {
+  height: 52px;
+}
+
 .brand-logo-img:hover {
-  transform: scale(1.04);
-  filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.5));
+  transform: scale(1.05);
+  filter: drop-shadow(0 0 12px rgba(255, 255, 255, 0.6));
 }
 
 .brand-info {
