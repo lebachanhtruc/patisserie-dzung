@@ -85,17 +85,17 @@ img {
   left: 0;
   width: 100%;
   z-index: 1000;
-  padding: 1.25rem 3rem;
+  padding: 1.1rem 3.5rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
   transition: var(--transition-smooth);
-  background: linear-gradient(180deg, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0) 100%);
+  background: linear-gradient(180deg, rgba(0,0,0,0.88) 0%, rgba(0,0,0,0) 100%);
 }
 
 .site-header.scrolled {
-  padding: 0.85rem 3rem;
-  background: rgba(10, 10, 12, 0.92);
+  padding: 0.65rem 3.5rem;
+  background: rgba(10, 10, 12, 0.95);
   backdrop-filter: var(--glass-blur);
   -webkit-backdrop-filter: var(--glass-blur);
   border-bottom: 1px solid rgba(229, 179, 88, 0.15);
@@ -105,26 +105,32 @@ img {
 .brand-wrapper {
   display: flex;
   align-items: center;
-  gap: 1rem;
+}
+
+.brand-link {
+  display: inline-flex;
+  align-items: center;
+  line-height: 0;
 }
 
 .brand-logo-img {
-  height: 64px;
+  height: 82px;
   width: auto;
+  max-width: 230px;
   background: transparent;
   padding: 0;
   border-radius: 0;
-  filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.4));
+  filter: drop-shadow(0 2px 10px rgba(0, 0, 0, 0.5));
   transition: var(--transition-smooth);
 }
 
 .site-header.scrolled .brand-logo-img {
-  height: 52px;
+  height: 60px;
 }
 
 .brand-logo-img:hover {
-  transform: scale(1.05);
-  filter: drop-shadow(0 0 12px rgba(255, 255, 255, 0.6));
+  transform: scale(1.04);
+  filter: drop-shadow(0 0 14px rgba(255, 255, 255, 0.5));
 }
 
 .brand-info {
@@ -1136,6 +1142,9 @@ section {
 }
 
 .footer-brand .brand-logo-img {
+  height: 85px;
+  width: auto;
+  max-width: 240px;
   margin-bottom: 1.2rem;
 }
 
@@ -1437,6 +1446,13 @@ section {
   }
   .hero-section {
     padding: 5rem 1.5rem 2rem;
+  }
+  .brand-logo-img {
+    height: 62px;
+    max-width: 175px;
+  }
+  .site-header.scrolled .brand-logo-img {
+    height: 50px;
   }
   .mobile-toggle {
     display: flex;
