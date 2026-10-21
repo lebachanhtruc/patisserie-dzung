@@ -538,7 +538,7 @@ const MENU_ITEMS = [
       en: ['Milky Latte', 'Sweet & Smooth', 'Mild Coffee'],
       zh: ['奶香浓郁', '微苦甘甜', '西贡风味']
     },
-    image: 'assets/images/menu-drink-n47.png'
+    image: 'assets/images/menu-drink-n47-bac-xiu.png'
   },
   {
     id: 'dr-n48',
