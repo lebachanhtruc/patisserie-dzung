@@ -329,7 +329,7 @@ const MENU_ITEMS = [
       en: ['Popular', 'Milk Tea', 'Refreshing'],
       zh: ['人气热销', '香浓丝滑', '招牌奶茶']
     },
-    image: 'assets/images/menu-drink-n40.png'
+    image: 'assets/images/menu-drink-n40.jpg'
   },
   {
     id: 'dr-n41',
@@ -350,10 +350,10 @@ const MENU_ITEMS = [
       zh: '招牌特调'
     },
     desc: {
-      fr: 'Recette signature généreusement garnie de perles de tapioca dorées, gelée de coco croquante, pudding aux œufs et crème fouettée gourmande.',
-      vi: 'Phiên bản trà sữa đặc biệt cao cấp ngập tràn full topping: trân châu hoàng kim, thạch dừa giòn sần sật, pudding trứng mềm béo và lớp kem béo ngậy.',
-      en: 'Signature special milk tea loaded with golden pearls, coconut jelly, silky egg pudding, and velvety rich cream.',
-      zh: '豪华招牌特调奶茶：满杯金黄珍珠、爽脆椰果、嫩滑鸡蛋布丁与香浓奶霜，料足过瘾。'
+      fr: 'Recette signature généreusement garnie de flan crémeux, gelées assorties, orge perlé et pudding décoratif 3D.',
+      vi: 'Trà sữa đặc biệt đỉnh cao với full topping ngập tràn: thạch tạo hình 3D xinh xắn, bánh flan béo ngậy, hạt bo bo dẻo thơm và các loại thạch thanh mát.',
+      en: 'Signature bucket milk tea packed with luxurious toppings: cute 3D jelly pudding, rich egg flan, artisanal jellies, and chewy pearl barley.',
+      zh: '招牌特制大桶奶茶，配料豪华丰盛：萌趣3D立体奶冻、浓郁焦糖布丁、Q弹薏米仁与精选特色奶冻，超大份量满满幸福感。'
     },
     tags: {
       fr: ['Spécial', 'Full Toppings', 'Pudding'],
@@ -361,7 +361,7 @@ const MENU_ITEMS = [
       en: ['Special', 'Full Toppings', 'Rich'],
       zh: ['满杯配料', '特调风味', '招牌力荐']
     },
-    image: 'assets/images/menu-drink-n41.png'
+    image: 'assets/images/menu-drink-n41.jpg'
   },
   {
     id: 'dr-n42',
@@ -420,7 +420,7 @@ const MENU_ITEMS = [
       en: ['Chocolate Milo', 'Crushed Ice', 'Sweet'],
       zh: ['香浓可可', '冰沙甜品', '香脆爽口']
     },
-    image: 'assets/images/menu-drink-n43.png'
+    image: 'assets/images/menu-drink-n43.jpg'
   },
   {
     id: 'dr-n44',
@@ -479,7 +479,7 @@ const MENU_ITEMS = [
       en: ['Condensed Milk', 'Iconic Coffee', 'Creamy'],
       zh: ['香甜炼乳', '经典越式', '冰爽醇香']
     },
-    image: 'assets/images/menu-drink-n45.png'
+    image: 'assets/images/menu-drink-n45.jpg'
   },
   {
     id: 'dr-n46',
@@ -511,7 +511,7 @@ const MENU_ITEMS = [
       en: ['Salted Cream', 'Velvety', 'Trending'],
       zh: ['海盐奶盖', '咸甜交织', '热门推荐']
     },
-    image: 'assets/images/menu-drink-n46.png'
+    image: 'assets/images/menu-drink-n46.jpg'
   },
   {
     id: 'dr-n47',
@@ -570,7 +570,7 @@ const MENU_ITEMS = [
       en: ['Popular', 'Fresh Kumquat', 'Refreshing'],
       zh: ['人气推荐', '鲜榨金桔', '清凉解渴']
     },
-    image: 'assets/images/menu-drink-n48.png'
+    image: 'assets/images/menu-drink-n48.jpg'
   },
 
   // 🥮 MÓN BÁNH TRUYỀN THỐNG VN (PÂTISSERIES TRADITIONNELLES VN)
