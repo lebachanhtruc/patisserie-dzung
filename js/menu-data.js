@@ -229,7 +229,7 @@ const MENU_ITEMS = [
       en: ['Full Topping', 'Tamarind Butter', 'Best Seller'],
       zh: ['全配料', '黄油罗望子', '招牌热销']
     },
-    image: 'assets/images/menu-banh-trang-n11.png'
+    image: 'assets/images/menu-banh-trang-n11-full.jpg'
   },
   {
     id: 'sn-n12',
