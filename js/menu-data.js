@@ -35,7 +35,7 @@ const MENU_ITEMS = [
       en: ['Popular', 'Salted Pork', 'Combo Drink'],
       zh: ['人气推荐', '特制咸肉', '含饮料']
     },
-    image: 'assets/images/gallery-banh-mi-dac-biet.jpg'
+    image: 'assets/images/menu-banh-mi-n1-thit-muoi.jpg'
   },
   {
     id: 'bm-n2',
@@ -67,7 +67,7 @@ const MENU_ITEMS = [
       en: ['Salted Egg Yolk', 'Meatballs', 'Combo Drink'],
       zh: ['咸蛋黄', '多汁肉丸', '含饮料']
     },
-    image: 'assets/images/gallery-banh-mi-xiu-mai.jpg'
+    image: 'assets/images/menu-banh-mi-n2-xiu-mai.jpg'
   },
   {
     id: 'bm-n3',
@@ -99,7 +99,7 @@ const MENU_ITEMS = [
       en: ['Garlic Butter', 'Shredded Chicken', 'Combo Drink'],
       zh: ['蒜香牛油', '手撕鸡肉', '含饮料']
     },
-    image: 'assets/images/gallery-banh-mi-ga.jpg'
+    image: 'assets/images/menu-banh-mi-n3-ga-xe.jpg'
   },
   {
     id: 'bm-n4',
@@ -131,7 +131,7 @@ const MENU_ITEMS = [
       en: ['Chili Salt', 'Pork Floss', 'Combo Drink'],
       zh: ['香辣辣椒盐', '猪肉松', '含饮料']
     },
-    image: 'assets/images/menu-banh-mi-muoi-ot.jpg'
+    image: 'assets/images/menu-banh-mi-n4-muoi-ot.jpg'
   },
   {
     id: 'bm-n5',
@@ -163,7 +163,7 @@ const MENU_ITEMS = [
       en: ['Popular', 'Charcoal Grilled', 'Combo Drink'],
       zh: ['人气热销', '炭火现烤', '含饮料']
     },
-    image: 'assets/images/menu-banh-mi-thit-nuong.jpg'
+    image: 'assets/images/menu-banh-mi-n5-thit-nuong.jpg'
   },
 
   // 🍢 STREET FOOD & SNACKS
