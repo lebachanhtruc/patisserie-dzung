@@ -4,82 +4,82 @@
  */
 
 const MENU_ITEMS = [
-  // 🥖 BÁNH MÌ VIETNAMIEN
+  // 🥖 BÁNH MÌ VIETNAMIEN (5 MÓN THỰC ĐƠN CHÍNH THỨC CỦA TIỆM)
   {
-    id: 'bm-01',
+    id: 'bm-n1',
     category: 'banhmi',
     price: 65000,
     priceDisplay: '65.000₫',
     badge: 'signature',
     name: {
-      fr: 'Bánh Mì Signature Pâtisserie Dzung',
-      vi: 'Bánh Mì Pâtisserie Đặc Biệt',
-      en: 'Pâtisserie Dzung Signature Bánh Mì',
-      zh: 'Pâtisserie Dzung 招牌特色法包'
+      fr: 'N1. Baguette Spéciale au Porc Salé',
+      vi: 'N1. Bánh Mì Thịt Muối Đặc Biệt',
+      en: 'N1. Special Salted Pork Bánh Mì',
+      zh: 'N1. 特制咸肉法包'
     },
     badgeText: {
-      fr: 'Signature',
-      vi: 'Đặc Biệt',
-      en: 'Signature',
-      zh: '招牌推荐'
+      fr: 'Populaire',
+      vi: 'Popular',
+      en: 'Popular',
+      zh: '人气推荐'
     },
     desc: {
-      fr: 'Baguette artisanale croustillante, pâté de foie maison onctueux, beurre frais battu, porc xá xíu mariné, mortadelle vietnamienne, daïkon et carottes marinés croquants, coriandre fraîche et piment.',
-      vi: 'Vỏ bánh nướng giòn rụm theo công thức Pháp - Việt, pate gan thủ công thượng hạng, bơ trứng béo ngậy, thịt xá xíu, chả lụa bì, dưa chua giòn sần sật, rau mùi tươi và ớt cay nồng.',
-      en: 'Crispy artisanal baguette, homemade savory liver pâté, rich whipped butter, char siu pork, Vietnamese ham, crunchy pickled daikon & carrots, fresh cilantro and chili.',
-      zh: '法越工艺现烤香脆法包，搭配手工特制肝酱、香浓黄油、叉烧肉、越式火腿、爽口腌萝卜、新鲜芫荽与鲜辣椒。'
+      fr: 'Baguette artisanale croustillante garnie de porc salé spécial maison, pâté de foie onctueux, beurre frais, pickles croquants et herbes fraîches. Combo Bánh Mì + Boisson.',
+      vi: 'Vỏ bánh mì giòn rụm kết hợp thịt muối đặc biệt đậm đà, pate gan béo ngậy, bơ thơm lừng, dưa chua thanh mát và ngò rí. Combo gồm Bánh Mì + Nước Uống.',
+      en: 'Crispy artisan baguette stuffed with special house salted pork, rich savory pâté, fresh whipped butter, crisp pickles and cilantro. Combo includes Bánh Mì + Drink.',
+      zh: '现烤香脆法包，搭配独家特制咸肉、醇厚手工肝酱、香滑黄油与爽口酸甜腌萝卜。法包+饮料特惠套餐。'
     },
     tags: {
-      fr: ['Best Seller', 'Pâté Maison', 'Épicé Doux'],
-      vi: ['Best Seller', 'Pate Nhà Làm', 'Cay Vừa'],
-      en: ['Best Seller', 'Housemade Pâté', 'Mild Spicy'],
-      zh: ['热销推荐', '手工肝酱', '微辣']
+      fr: ['Populaire', 'Porc Salé', 'Combo Boisson'],
+      vi: ['Popular', 'Thịt Muối Đặc Biệt', 'Combo Nước'],
+      en: ['Popular', 'Salted Pork', 'Combo Drink'],
+      zh: ['人气推荐', '特制咸肉', '含饮料']
     },
-    image: 'https://images.unsplash.com/photo-1626804475297-41608ea09aeb?auto=format&fit=crop&w=800&q=80'
+    image: 'assets/images/gallery-banh-mi-dac-biet.jpg'
   },
   {
-    id: 'bm-02',
+    id: 'bm-n2',
+    category: 'banhmi',
+    price: 65000,
+    priceDisplay: '65.000₫',
+    badge: 'signature',
+    name: {
+      fr: "N2. Baguette aux Boulettes et Jaune d'Œuf Salé",
+      vi: 'N2. Bánh Mì Xíu Mại Trứng Muối',
+      en: 'N2. Meatball & Salted Egg Yolk Bánh Mì',
+      zh: 'N2. 咸蛋黄肉丸法包'
+    },
+    badgeText: {
+      fr: 'Gourmand',
+      vi: 'Đặc Biệt',
+      en: "Chef's Choice",
+      zh: '浓香主打'
+    },
+    desc: {
+      fr: "Boulettes de porc tendres et juteuses mijotées dans une sauce tomate parfumée, cœur coulant de jaune d'œuf salé savoureux, herbes et pickles. Combo Bánh Mì + Boisson.",
+      vi: 'Xíu mại viên tôm thịt mềm mọng nước sốt đậm đà, bọc nhân trứng muối bùi béo dẻo quánh, ăn cùng pate béo và rau thơm giòn ngọt. Combo gồm Bánh Mì + Nước Uống.',
+      en: 'Tender pork meatballs simmered in rich aromatic sauce, filled with creamy savory salted egg yolk, house pâté and fresh herbs. Combo includes Bánh Mì + Drink.',
+      zh: '鲜嫩多汁手工肉丸包裹浓香咸蛋黄，淋上秘制番茄卤汁，搭配清爽香菜与脆口腌菜。法包+饮料特惠套餐。'
+    },
+    tags: {
+      fr: ["Jaune d'Œuf Salé", 'Boulettes', 'Combo Boisson'],
+      vi: ['Trứng Muối', 'Xíu Mại', 'Combo Nước'],
+      en: ['Salted Egg Yolk', 'Meatballs', 'Combo Drink'],
+      zh: ['咸蛋黄', '多汁肉丸', '含饮料']
+    },
+    image: 'assets/images/gallery-banh-mi-xiu-mai.jpg'
+  },
+  {
+    id: 'bm-n3',
     category: 'banhmi',
     price: 60000,
     priceDisplay: '60.000₫',
-    badge: 'bestseller',
-    name: {
-      fr: 'Bánh Mì au Porc Croustillant (Heo Quay)',
-      vi: 'Bánh Mì Heo Quay Da Giòn',
-      en: 'Crispy Roasted Pork Belly Bánh Mì',
-      zh: '脆皮烧肉越式法包'
-    },
-    badgeText: {
-      fr: 'Best Seller',
-      vi: 'Best Seller',
-      en: 'Best Seller',
-      zh: '人气必点'
-    },
-    desc: {
-      fr: 'Poitrine de porc rôtie à la peau ultra-croustillante, jus de cuisson aux cinq-épices caramélisé, légumes aigre-doux et herbes aromatiques de Saigon.',
-      vi: 'Thịt ba rọi heo quay nướng lửa hồng với lớp da giòn rôm rốp, chan nước sốt ngũ vị đậm đà, đồ chua củ cải cà rốt ngâm chua ngọt thanh mát.',
-      en: 'Golden crispy pork belly roasted to perfection, rich five-spice savory reduction sauce, pickled daikon & carrots, and fragrant herbs.',
-      zh: '明火现烤五花烧肉，外皮金黄酥脆，淋上特调五香酱汁，搭配清爽腌制酸甜萝卜与新鲜香草。'
-    },
-    tags: {
-      fr: ['Peau Croustillante', 'Saveurs de Saigon'],
-      vi: ['Da Giòn Rụm', 'Đậm Vị Sài Gòn'],
-      en: ['Crispy Crackling', 'Saigon Classic'],
-      zh: ['金黄脆皮', '西贡地道风味']
-    },
-    image: 'https://images.unsplash.com/photo-1627308595229-7830a5c91f9f?auto=format&fit=crop&w=800&q=80'
-  },
-  {
-    id: 'bm-03',
-    category: 'banhmi',
-    price: 55000,
-    priceDisplay: '55.000₫',
     badge: null,
     name: {
-      fr: 'Bánh Mì Porc Grillé à la Citronnelle & Miel',
-      vi: 'Bánh Mì Thịt Nướng Sả Mật Ong',
-      en: 'Honey Lemongrass Grilled Pork Bánh Mì',
-      zh: '蜂蜜柠檬草炭烤猪肉法包'
+      fr: 'N3. Baguette au Poulet Effiloché, Beurre et Ail',
+      vi: 'N3. Bánh Mì Gà Xé Bơ Tỏi',
+      en: 'N3. Shredded Chicken with Garlic Butter Bánh Mì',
+      zh: 'N3. 蒜香牛油手撕鸡法包'
     },
     badgeText: {
       fr: '',
@@ -88,50 +88,82 @@ const MENU_ITEMS = [
       zh: ''
     },
     desc: {
-      fr: 'Épaule de porc marinée à la citronnelle fraîche et miel de fleur, grillée sur charbon de bois, huile à la ciboule et sauce douce-pimentée.',
-      vi: 'Thịt nạc vai ướp sả ớt, mật ong hoa nhãn nướng than hoa thơm nức mũi, rưới mỡ hành lá phi thơm và sốt tương đen cay ngọt.',
-      en: 'Tender pork shoulder marinated in fresh lemongrass and wild blossom honey, flame-grilled over charcoal, scallion oil and sweet chili sauce.',
-      zh: '精选嫩猪梅肉腌以新鲜香茅与百花蜂蜜，炭火慢烤香气四溢，佐以香葱油与甜辣酱。'
+      fr: "Poulet effiloché moelleux et tendre sauté au beurre d'ail doré parfumé, garniture fraîche de carottes marinées, concombre croquant et coriandre. Combo Bánh Mì + Boisson.",
+      vi: 'Thịt gà xé sợi dai ngọt tự nhiên quyện sốt bơ tỏi phi vàng thơm lừng nức mũi, thêm dưa leo tươi mát, ngò rí và sốt đậm đà. Combo gồm Bánh Mì + Nước Uống.',
+      en: 'Tender shredded chicken tossed in aromatic golden garlic butter, layered with crisp pickles, cucumber, and house special sauce. Combo includes Bánh Mì + Drink.',
+      zh: '细嫩手撕鸡肉融入金黄浓香蒜油，蒜香浓郁扑鼻，搭配清甜黄瓜、爽脆腌萝卜与特调酱汁。法包+饮料特惠套餐。'
     },
     tags: {
-      fr: ['Grillé au Charbon', 'Citronnelle'],
-      vi: ['Nướng Than Hoa', 'Thơm Mùi Sả'],
-      en: ['Charcoal Grilled', 'Aromatic'],
-      zh: ['炭火现烤', '香茅清香']
+      fr: ['Beurre Ail', 'Poulet Effiloché', 'Combo Boisson'],
+      vi: ['Bơ Tỏi Phi', 'Gà Xé', 'Combo Nước'],
+      en: ['Garlic Butter', 'Shredded Chicken', 'Combo Drink'],
+      zh: ['蒜香牛油', '手撕鸡肉', '含饮料']
     },
-    image: 'https://images.unsplash.com/photo-1549488344-1f9b8d2bd1f3?auto=format&fit=crop&w=800&q=80'
+    image: 'assets/images/gallery-banh-mi-ga.jpg'
   },
   {
-    id: 'bm-04',
+    id: 'bm-n4',
     category: 'banhmi',
-    price: 85000,
-    priceDisplay: '85.000₫',
-    badge: 'chef',
+    price: 55000,
+    priceDisplay: '55.000₫',
+    badge: 'signature',
     name: {
-      fr: 'Bánh Mì Chảo à la Poêle Gourmet',
-      vi: 'Bánh Mì Chảo Thượng Hạng',
-      en: 'Gourmet Sizzling Pan Bánh Mì Chảo',
-      zh: '顶级铁板热腾法包拼盘'
+      fr: "N4. Baguette Grillée au Sel Pimenté et à l'Effiloché de Porc Séché",
+      vi: 'N4. Bánh Mì Muối Ớt Chà Bông',
+      en: 'N4. Grilled Baguette with Chili Salt & Pork Floss',
+      zh: 'N4. 辣椒盐肉松烤法包'
     },
     badgeText: {
-      fr: 'Choix du Chef',
-      vi: "Chef's Choice",
-      en: "Chef's Choice",
-      zh: '主厨精选'
+      fr: 'Spécialité',
+      vi: 'Món Hot',
+      en: 'Specialty',
+      zh: '地道小吃'
     },
     desc: {
-      fr: 'Servi dans une poêle brûlante : 2 œufs au plat au jaune coulant, tranche de pâté poêlée, boulettes xíu mại à la tomate, saucisse fraîche et fromage fondant. Servi avec une baguette chaude.',
-      vi: 'Chảo gang nóng hổi gồm 2 trứng ốp la lòng đào, pate gan áp chảo cháy xém, xíu mại tôm thịt sốt cà chua, xúc xích tươi và phô mai bò cười.',
-      en: 'Sizzling cast-iron skillet with 2 sunny-side eggs, seared homemade liver pâté, shrimp & pork meatballs in tomato glaze, sausage and melted cheese. Served with hot baguette.',
-      zh: '滚烫铸铁盘盛装：双颗流心太阳蛋、香煎焦香肝酱、茄汁鲜虾肉丸、德式香肠与浓郁芝士，配以刚出炉香脆法包。'
+      fr: 'Baguette toastée et aplatie au charbon badigeonnée de sel pimenté, recouverte de porc séché (chà bông) aérien, ciboule et sauce onctueuse. Combo Bánh Mì + Boisson.',
+      vi: 'Bánh mì ép nướng giòn rụm phết sốt muối ớt cay tê tê đậm đà, ngập tràn chà bông heo tơi xốp, mỡ hành phi và tương sốt béo ngậy. Combo gồm Bánh Mì + Nước Uống.',
+      en: 'Crispy pressed grilled baguette brushed with spicy chili salt, topped with savory pork floss (chà bông), scallion oil, and rich drizzle. Combo includes Bánh Mì + Drink.',
+      zh: '香脆压烤法棍涂抹特制香辣沙茶辣椒盐，铺满蓬松咸香猪肉松与翠绿葱油，酥脆微辣。法包+饮料特惠套餐。'
     },
     tags: {
-      fr: ['Chaud & Gourmand', 'Complet'],
-      vi: ['Ăn Kèm Bánh Mì Nóng', 'Đầy Đặn'],
-      en: ['Sizzling Hot', 'Hearty Meal'],
-      zh: ['现做热腾', '料足丰盛']
+      fr: ['Sel Pimenté', 'Porc Séché', 'Combo Boisson'],
+      vi: ['Muối Ớt Cay Tê', 'Chà Bông Heo', 'Combo Nước'],
+      en: ['Chili Salt', 'Pork Floss', 'Combo Drink'],
+      zh: ['香辣辣椒盐', '猪肉松', '含饮料']
     },
-    image: 'https://images.unsplash.com/photo-1525351484163-7529414344d8?auto=format&fit=crop&w=800&q=80'
+    image: 'assets/images/menu-banh-mi-muoi-ot.jpg'
+  },
+  {
+    id: 'bm-n5',
+    category: 'banhmi',
+    price: 60000,
+    priceDisplay: '60.000₫',
+    badge: 'bestseller',
+    name: {
+      fr: 'N5. Baguette au Porc Grillé',
+      vi: 'N5. Bánh Mì Thịt Nướng',
+      en: 'N5. Grilled Pork Bánh Mì',
+      zh: 'N5. 烤猪肉法棍三明治'
+    },
+    badgeText: {
+      fr: 'Populaire',
+      vi: 'Popular',
+      en: 'Popular',
+      zh: '人气热销'
+    },
+    desc: {
+      fr: 'Porc mariné à la citronnelle fraîche et miel, grillé sur la braise, sauce barbecue douce-pimentée, concombre et pickles croquants. Combo Bánh Mì + Boisson.',
+      vi: 'Thịt heo nạc dăm ướp sả ớt mật ong nướng than hoa thơm lừng, rưới nước sốt tương đen cay ngọt truyền thống, dưa leo và đồ chua giòn rụm. Combo gồm Bánh Mì + Nước Uống.',
+      en: 'Flame-grilled lemongrass pork marinated with wild blossom honey, drizzled with sweet-chili sauce, fresh pickles and herbs. Combo includes Bánh Mì + Drink.',
+      zh: '炭火慢烤经典香茅猪肉，外焦里嫩肉香四溢，搭配爽脆酸甜腌菜与特调秘制甜辣酱。法包+饮料特惠套餐。'
+    },
+    tags: {
+      fr: ['Populaire', 'Porc Grillé', 'Combo Boisson'],
+      vi: ['Popular', 'Nướng Than Hoa', 'Combo Nước'],
+      en: ['Popular', 'Charcoal Grilled', 'Combo Drink'],
+      zh: ['人气热销', '炭火现烤', '含饮料']
+    },
+    image: 'assets/images/menu-banh-mi-thit-nuong.jpg'
   },
 
   // 🍢 STREET FOOD & SNACKS
