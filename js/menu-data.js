@@ -298,156 +298,279 @@ const MENU_ITEMS = [
 
 
 
-  // ☕ BOISSONS & DESSERTS
+  // ☕ ĐỒ UỐNG (BOISSONS / DRINKS / 饮品 - 9 MÓN CHÍNH THỨC)
   {
-    id: 'dr-01',
+    id: 'dr-n40',
     category: 'drinks',
-    price: 45000,
-    priceDisplay: '45.000₫',
-    badge: 'signature',
-    name: {
-      fr: 'Café aux Œufs Traditionnel de Hanoï (Cà Phê Trứng)',
-      vi: 'Cà Phê Trứng Hà Nội',
-      en: 'Hanoi Traditional Egg Coffee (Cà Phê Trứng)',
-      zh: '河内经典法式蛋黄奶沫咖啡'
-    },
-    badgeText: {
-      fr: 'Signature',
-      vi: 'Signature',
-      en: 'Signature Drink',
-      zh: '经典招牌'
-    },
-    desc: {
-      fr: 'Café Robusta vietnamien intense surmonté d’une crème de jaune d’œuf battue en mousse aérée comme un sabayon, douce et vanillée.',
-      vi: 'Cốt cà phê Robusta Việt Nam đậm đà hòa quyện cùng lớp kem trứng đánh bông mịn như mây, thơm ngậy vị vani và mật ong không hề tanh.',
-      en: 'Bold Vietnamese Robusta coffee crowned with an airy, velvety whipped egg yolk custard cream infused with vanilla and honey.',
-      zh: '浓郁越式罗布斯塔咖啡，覆以细腻如云朵般的香草蜂蜜打发蛋黄奶泡，香甜丝滑无腥味。'
-    },
-    tags: {
-      fr: ['Onctueux', 'Recette Historique'],
-      vi: ['Béo Ngậy', 'Đặc Sản Hà Nội'],
-      en: ['Velvety Rich', 'Hanoi Heritage'],
-      zh: ['醇厚丝滑', '河内传奇']
-    },
-    image: 'https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?auto=format&fit=crop&w=800&q=80'
-  },
-  {
-    id: 'dr-02',
-    category: 'drinks',
-    price: 42000,
-    priceDisplay: '42.000₫',
+    price: 10,
+    priceDisplay: '10$',
     badge: 'bestseller',
     name: {
-      fr: 'Café à la Crème Salée de Hué (Cà Phê Muối)',
-      vi: 'Cà Phê Muối Cố Đô Xứ Huế',
-      en: 'Imperial Hué Salted Cream Coffee (Cà Phê Muối)',
-      zh: '顺化皇城咸奶油黑咖啡'
+      fr: 'N40. Thé au Lait (Milk Tea)',
+      vi: 'N40. Trà Sữa',
+      en: 'N40. Milk Tea',
+      zh: 'N40. 经典奶茶'
+    },
+    badgeText: {
+      fr: 'Populaire',
+      vi: 'Popular',
+      en: 'Popular',
+      zh: '人气热销'
+    },
+    desc: {
+      fr: 'Thé au lait classique onctueux et parfumé, infusé à partir de thé noir de qualité supérieure. Choix de saveurs et extra toppings disponibles.',
+      vi: 'Trà sữa thơm ngậy béo bùi từ trà đen hảo hạng kết hợp sữa tươi, ngọt thanh dịu mát. Tùy chọn vị trà sữa và thêm Extra Topping trân châu, thạch hấp dẫn.',
+      en: 'Classic rich and velvety milk tea brewed with premium black tea leaves. Choice of flavor and delicious extra toppings available.',
+      zh: '精选上等红茶萃取，奶香浓郁丝滑，甜而不腻。多种风味可选，可自选添加珍珠与丰富配料。'
+    },
+    tags: {
+      fr: ['Populaire', 'Thé au Lait', 'Gourmand'],
+      vi: ['Popular', 'Trà Sữa', 'Đậm Vị Trà'],
+      en: ['Popular', 'Milk Tea', 'Refreshing'],
+      zh: ['人气热销', '香浓丝滑', '招牌奶茶']
+    },
+    image: 'assets/images/menu-drink-n40.png'
+  },
+  {
+    id: 'dr-n41',
+    category: 'drinks',
+    price: 12,
+    priceDisplay: '12$',
+    badge: 'signature',
+    name: {
+      fr: 'N41. Thé au Lait Spécial',
+      vi: 'N41. Trà Sữa Đặc Biệt',
+      en: 'N41. Special Milk Tea',
+      zh: 'N41. 特制奶茶'
+    },
+    badgeText: {
+      fr: 'Spécial',
+      vi: 'Đặc Biệt',
+      en: 'Special',
+      zh: '招牌特调'
+    },
+    desc: {
+      fr: 'Recette signature généreusement garnie de perles de tapioca dorées, gelée de coco croquante, pudding aux œufs et crème fouettée gourmande.',
+      vi: 'Phiên bản trà sữa đặc biệt cao cấp ngập tràn full topping: trân châu hoàng kim, thạch dừa giòn sần sật, pudding trứng mềm béo và lớp kem béo ngậy.',
+      en: 'Signature special milk tea loaded with golden pearls, coconut jelly, silky egg pudding, and velvety rich cream.',
+      zh: '豪华招牌特调奶茶：满杯金黄珍珠、爽脆椰果、嫩滑鸡蛋布丁与香浓奶霜，料足过瘾。'
+    },
+    tags: {
+      fr: ['Spécial', 'Full Toppings', 'Pudding'],
+      vi: ['Đặc Biệt', 'Full Topping', 'Béo Ngậy'],
+      en: ['Special', 'Full Toppings', 'Rich'],
+      zh: ['满杯配料', '特调风味', '招牌力荐']
+    },
+    image: 'assets/images/menu-drink-n41.png'
+  },
+  {
+    id: 'dr-n42',
+    category: 'drinks',
+    price: 9,
+    priceDisplay: '9$',
+    badge: null,
+    name: {
+      fr: 'N42. Thé aux Fruits',
+      vi: 'N42. Trà Trái Cây',
+      en: 'N42. Fruit Tea',
+      zh: 'N42. 缤纷水果茶'
+    },
+    badgeText: { fr: '', vi: '', en: '', zh: '' },
+    desc: {
+      fr: 'Infusion rafraîchissante de thé au jasmin mariée à une sélection de fruits frais tropicaux juteux, légère et désaltérante.',
+      vi: 'Trà hoa quả nhiệt đới tươi mát chiết xuất từ cốt trà lài thơm ngát kết hợp cùng các loại trái cây tươi mọng nước, thanh nhiệt giải khát tuyệt hảo.',
+      en: 'Refreshing tropical fruit iced tea brewed with fragrant jasmine tea and infused with juicy fresh fruits. Vibrant and revitalizing.',
+      zh: '清香茉莉绿茶茶汤搭配精选鲜切热带多汁水果，果香馥郁，清爽解渴消暑。'
+    },
+    tags: {
+      fr: ['Fruits Frais', 'Désaltérant', 'Léger'],
+      vi: ['Trái Cây Tươi', 'Thanh Mát', 'Giải Khát'],
+      en: ['Fresh Fruits', 'Refreshing', 'Crisp'],
+      zh: ['鲜切水果', '清爽解腻', '维C满满']
+    },
+    image: 'assets/images/menu-drink-n42.png'
+  },
+  {
+    id: 'dr-n43',
+    category: 'drinks',
+    price: 10,
+    priceDisplay: '10$',
+    badge: 'signature',
+    name: {
+      fr: 'N43. Milo Glacé Gourmand',
+      vi: 'N43. Milo Dầm',
+      en: 'N43. Crushed Ice Milo',
+      zh: 'N43. 冰沙美禄'
+    },
+    badgeText: {
+      fr: 'Gourmand',
+      vi: 'Món Hot',
+      en: 'Popular',
+      zh: '经典甜点'
+    },
+    desc: {
+      fr: 'Dessert glacé réconfortant à base de glace pilée, sauce chocolat cacao Milo onctueuse, poudre Milo parfumée et biscuits croquants.',
+      vi: 'Món tráng miệng tuổi thơ đậm chất đường phố: đá bào nhuyễn dầm cùng sốt Milo cacao đặc sánh, bột Milo thơm nức, bánh cookie giòn tan và trân châu.',
+      en: 'Nostalgic street sweet treat featuring crushed ice drizzled with thick chocolate Milo fudge, extra Milo powder, crunchy cookie bits, and pearls.',
+      zh: '地道怀旧街头冰品：细绵冰沙浇淋浓稠美禄可可酱，撒上大量美禄可可粉与香脆曲奇脆片。'
+    },
+    tags: {
+      fr: ['Chocolat Milo', 'Glace Pilée', 'Cacao'],
+      vi: ['Milo Dầm', 'Đậm Vị Cacao', 'Ăn Vặt Hot'],
+      en: ['Chocolate Milo', 'Crushed Ice', 'Sweet'],
+      zh: ['香浓可可', '冰沙甜品', '香脆爽口']
+    },
+    image: 'assets/images/menu-drink-n43.png'
+  },
+  {
+    id: 'dr-n44',
+    category: 'drinks',
+    price: 7,
+    priceDisplay: '7$',
+    badge: null,
+    name: {
+      fr: 'N44. Café Noir Glacé',
+      vi: 'N44. Cà Phê Đá',
+      en: 'N44. Iced Black Coffee',
+      zh: 'N44. 越式冰黑咖啡'
+    },
+    badgeText: { fr: '', vi: '', en: '', zh: '' },
+    desc: {
+      fr: 'Café vietnamien authentique extrait au filtre phin traditionnel, intense, corsé et profond avec une belle persistance en bouche.',
+      vi: 'Cà phê phin nguyên chất truyền thống Việt Nam, hương thơm nồng nàn, vị đắng đậm đà mạnh mẽ với hậu vị ngọt tinh tế quyến rũ.',
+      en: 'Traditional Vietnamese drip coffee served over ice, bold, intense, and aromatic with a pleasant bittersweet finish.',
+      zh: '传统越式慢滴黑咖啡，香气浓郁醇厚，苦度适中带自然回甘，提神醒脑。'
+    },
+    tags: {
+      fr: ['Café Filtre Phin', 'Corsé', 'Authentique'],
+      vi: ['Phin Truyền Thống', 'Đậm Đà', 'Tỉnh Táo'],
+      en: ['Traditional Phin', 'Bold & Strong', 'Coffee'],
+      zh: ['传统滴漏', '浓郁苦香', '提神原味']
+    },
+    image: 'assets/images/menu-drink-n44.png'
+  },
+  {
+    id: 'dr-n45',
+    category: 'drinks',
+    price: 7,
+    priceDisplay: '7$',
+    badge: 'bestseller',
+    name: {
+      fr: 'N45. Café au Lait Glacé',
+      vi: 'N45. Cà Phê Sữa Đá',
+      en: 'N45. Iced Milk Coffee',
+      zh: 'N45. 冰炼乳咖啡'
+    },
+    badgeText: {
+      fr: 'Incontournable',
+      vi: 'Best Seller',
+      en: 'Best Seller',
+      zh: '招牌推荐'
+    },
+    desc: {
+      fr: 'Le grand classique vietnamien : café filtre phin puissant adouci par du lait concentré sucré onctueux sur un lit de glaçons.',
+      vi: 'Biểu tượng ẩm thực đường phố Việt Nam: cốt cà phê phin đen sánh đậm hòa quyện cùng sữa đặc ngọt béo và đá mát lạnh, tạo nên hương vị say đắm.',
+      en: 'The world-famous Vietnamese iced coffee: robust dark roast coffee perfectly balanced with creamy sweetened condensed milk over crushed ice.',
+      zh: '风靡全球的经典越式滴漏咖啡：浓郁炭焙香与香甜炼乳黄金配比，醇厚甜美，回味悠长。'
+    },
+    tags: {
+      fr: ['Lait Concentré', 'Classique', 'Glace'],
+      vi: ['Cà Phê Sữa Đá', 'Sữa Đặc Béo', 'Quốc Hồn Quốc Túy'],
+      en: ['Condensed Milk', 'Iconic Coffee', 'Creamy'],
+      zh: ['香甜炼乳', '经典越式', '冰爽醇香']
+    },
+    image: 'assets/images/menu-drink-n45.png'
+  },
+  {
+    id: 'dr-n46',
+    category: 'drinks',
+    price: 7,
+    priceDisplay: '7$',
+    badge: 'signature',
+    name: {
+      fr: 'N46. Café Salé',
+      vi: 'N46. Cà Phê Muối',
+      en: 'N46. Salted Coffee',
+      zh: 'N46. 海盐咖啡'
     },
     badgeText: {
       fr: 'Tendance',
       vi: 'Hot Trend',
-      en: 'Hot Trend',
-      zh: '当季热门'
+      en: 'Trending',
+      zh: '人气海盐'
     },
     desc: {
-      fr: 'Café filtre traditionnel à la saveur intense associé à une délicate crème fouettée légèrement salée, créant un équilibre parfait en bouche.',
-      vi: 'Cà phê phin truyền thống thơm nồng kết hợp với lớp kem muối mặn mặn béo ngậy, tạo nên hậu vị cân bằng quyến rũ khó quên.',
-      en: 'Traditional slow-drip phin coffee blended with a lightly salted velvety cream top, producing an addictive sweet-savory balance.',
-      zh: '传统慢滴慢滤浓黑咖啡，顶部淋上一层微咸浓郁奶盖，甜苦与微咸完美平衡。'
+      fr: "Café traditionnel intense surmonté d'une onctueuse crème fouettée au sel marin, créant une harmonie sucrée-salée irrésistible.",
+      vi: 'Cà phê phin đậm đặc kết hợp với lớp kem sữa muối mặn mà béo ngậy phía trên, vị mặn nhẹ đánh thức vị giác và cân bằng vị đắng ngọt hài hòa.',
+      en: 'Bold slow-drip coffee crowned with a velvety lightly salted milk cream layer, bringing out a rich, buttery sweet-savory harmony.',
+      zh: '香浓滴漏咖啡搭配顶部细腻绵密微咸海盐奶盖，微咸烘托出咖啡的浓醇与焦糖甜香。'
     },
     tags: {
-      fr: ['Équilibre Sucré-Salé', 'Tendance'],
-      vi: ['Hậu Vị Muối Kem', 'Đậm Vị'],
-      en: ['Salted Cream', 'Rich Aftertaste'],
-      zh: ['海盐奶盖', '回味无穷']
+      fr: ['Crème Salée', 'Harmonieuse', 'Tendance'],
+      vi: ['Kem Muối Biển', 'Béo Mặn Hài Hòa', 'Hot Trend'],
+      en: ['Salted Cream', 'Velvety', 'Trending'],
+      zh: ['海盐奶盖', '咸甜交织', '热门推荐']
     },
-    image: 'https://images.unsplash.com/photo-1517701550927-30cf4ba1dba5?auto=format&fit=crop&w=800&q=80'
+    image: 'assets/images/menu-drink-n46.png'
   },
   {
-    id: 'dr-03',
+    id: 'dr-n47',
     category: 'drinks',
-    price: 45000,
-    priceDisplay: '45.000₫',
+    price: 7,
+    priceDisplay: '7$',
     badge: null,
     name: {
-      fr: 'Thé Glacé Pêche, Orange & Citronnelle',
-      vi: 'Trà Đào Cam Sả Mát Lạnh',
-      en: 'Iced Peach Orange Lemongrass Tea',
-      zh: '清爽蜜桃橙香柠檬草冰茶'
+      fr: 'N47. Bạc Xỉu (Lait avec Nuage de Café)',
+      vi: 'N47. Bạc Xỉu',
+      en: 'N47. Bạc Xỉu (Vietnamese-Style Latte)',
+      zh: 'N47. 越式拿铁（Bạc Xỉu）'
     },
     badgeText: { fr: '', vi: '', en: '', zh: '' },
     desc: {
-      fr: 'Infusion de thé noir parfumé à la citronnelle fraîche pilée, jus d’orange frais et quartiers de pêche croquants.',
-      vi: 'Trà đen thanh dịu kết hợp cùng sả tươi đập dập, nước cốt cam sành mọng nước và miếng đào ngâm vàng giòn sần sật.',
-      en: 'Refreshing black tea brewed with crushed lemongrass stalks, fresh squeezed orange juice, and crisp sweet peach slices.',
-      zh: '清香红茶萃取，融入鲜捣柠檬草清香与现榨橙汁，附大片酥脆蜜桃果肉。'
+      fr: "Boisson douce et crémeuse composée de beaucoup de lait doux et d'une délicate touche de café parfumé. Idéale pour les amateurs de douceur.",
+      vi: 'Thức uống thanh tao dành cho người yêu vị ngọt dịu: nhiều sữa tươi và sữa đặc béo ngậy, điểm xuyết một chút cốt cà phê phin thơm nhẹ nhàng.',
+      en: 'A sweet and milky treat beloved in Saigon: rich sweetened milk base topped with a gentle splash of aromatic drip coffee.',
+      zh: '西贡经典的温柔滋味：浓郁香滑牛奶与炼乳为底，点缀微量芬芳咖啡，奶香馥郁，甘甜适口。'
     },
     tags: {
-      fr: ['Désaltérant', 'Fruits Frais'],
-      vi: ['Thanh Nhiệt', 'Đào Miếng Giòn'],
-      en: ['Refreshing', 'Crisp Peach'],
-      zh: ['清爽解腻', '酥脆蜜桃果肉']
+      fr: ['Doux & Lacté', 'Style Latte', 'Délicat'],
+      vi: ['Bạc Xỉu Sài Gòn', 'Ngọt Dịu', 'Nhiều Sữa'],
+      en: ['Milky Latte', 'Sweet & Smooth', 'Mild Coffee'],
+      zh: ['奶香浓郁', '微苦甘甜', '西贡风味']
     },
-    image: 'https://images.unsplash.com/photo-1556679343-c7306c1976bc?auto=format&fit=crop&w=800&q=80'
+    image: 'assets/images/menu-drink-n47.png'
   },
   {
-    id: 'dr-04',
+    id: 'dr-n48',
     category: 'drinks',
-    price: 38000,
-    priceDisplay: '38.000₫',
-    badge: null,
+    price: 6,
+    priceDisplay: '6$',
+    badge: 'bestseller',
     name: {
-      fr: 'Soupe Douce au Pamplemousse & Lait de Coco (Chè Bưởi)',
-      vi: 'Chè Bưởi An Giang Thơm Nước Cốt Dừa',
-      en: 'Sweet Pomelo Pith Soup with Coconut Milk (Chè Bưởi)',
-      zh: '椰香绿豆爽脆柚子甜汤（Chè Bưởi）'
-    },
-    badgeText: { fr: '', vi: '', en: '', zh: '' },
-    desc: {
-      fr: 'Écorce de pamplemousse confite croquante mijotée avec des graines de soja mungo douces, nappée de lait de coco crémeux et parfumé.',
-      vi: 'Cùi bưởi giòn sần sật đã được khử đắng kỹ lưỡng nấu cùng đậu xanh bùi bùi và chan đẫm nước cốt dừa béo thơm ngát.',
-      en: 'Crispy crunchy candied pomelo rind cooked with tender mung beans and drizzled with fragrant rich coconut cream.',
-      zh: '去苦工序精制的爽脆柚皮肉，与软糯绿豆仁慢熬成羹，淋上香浓椰浆。'
-    },
-    tags: {
-      fr: ['Dessert Traditionnel', 'Lait de Coco'],
-      vi: ['Ngọt Thanh', 'Cùi Bưởi Giòn'],
-      en: ['Vietnamese Sweet', 'Crunchy Pith'],
-      zh: ['传统甜品', '浓郁椰浆']
-    },
-    image: 'https://images.unsplash.com/photo-1579954115545-a95591f28bfc?auto=format&fit=crop&w=800&q=80'
-  },
-  {
-    id: 'dr-05',
-    category: 'drinks',
-    price: 45000,
-    priceDisplay: '45.000₫',
-    badge: 'signature',
-    name: {
-      fr: 'Chè Thái aux Fruits Tropicaux & Lait de Coco',
-      vi: 'Chè Thái Sầu Riêng Thập Cẩm',
-      en: 'Vietnamese Chè Thái with Durian & Tropical Fruits',
-      zh: '榴莲热带水果越式杂锦甜汤（Chè Thái）'
+      fr: 'N48. Thé Glacé au Kumquat',
+      vi: 'N48. Trà Tắc',
+      en: 'N48. Kumquat Ice Tea',
+      zh: 'N48. 金桔冰茶'
     },
     badgeText: {
-      fr: 'Chè Vietnamien',
-      vi: 'Chè Đặc Sắc',
-      en: 'Signature Chè',
-      zh: '招牌甜汤'
+      fr: 'Populaire',
+      vi: 'Popular',
+      en: 'Popular',
+      zh: '解暑首选'
     },
     desc: {
-      fr: 'Dessert traditionnel vietnamien rafraîchissant garni de perles d’eau de châtaigne croquantes, gelée pandan parfumée, pulpe de durian fondante, jacquier et lait de coco glacé onctueux.',
-      vi: 'Món chè trứ danh với thạch hạt lựu củ năng giòn sần sật, sương sa lá dứa, mít nghệ chín vàng, cơm sầu riêng béo thơm chan nước cốt dừa đá lạnh.',
-      en: 'Famous Vietnamese sweet dessert soup layered with crunchy water chestnut ruby pearls, pandan jelly, sweet jackfruit, creamy durian pulp, and rich iced coconut milk.',
-      zh: '经典越式甜汤，汇聚爽脆马蹄红宝石、斑兰果冻、香甜波罗蜜与浓郁榴莲果肉，淋上冰镇鲜椰浆。'
+      fr: 'Thé au jasmin infusé glacé relevé par le jus acidulé et vivifiant de kumquats frais, ultra rafraîchissant et parfait en toute saison.',
+      vi: 'Trà lài ướp hương thơm mát hòa cùng nước cốt tắc (quất) tươi chua thanh, ngọt dịu giải nhiệt tức thì, thức uống đường phố quen thuộc số 1.',
+      en: 'Crisp iced jasmine tea infused with freshly squeezed tart kumquat juice and a hint of sweetness. The ultimate thirst-quencher.',
+      zh: '清幽茉莉冰茶融入新鲜现榨酸甜小金桔汁，果酸爽口生津，冰凉解暑消渴。'
     },
     tags: {
-      fr: ['Dessert Rafraîchissant', 'Chè VN'],
-      vi: ['Đặc Sản Chè VN', 'Thơm Béo Cốt Dừa'],
-      en: ['Iconic Vietnamese Chè', 'Tropical Sweet'],
-      zh: ['地道越式甜点', '浓郁椰香榴莲']
+      fr: ['Populaire', 'Kumquat Frais', 'Rafraîchissant'],
+      vi: ['Popular', 'Trà Tắc Tươi', 'Giải Nhiệt'],
+      en: ['Popular', 'Fresh Kumquat', 'Refreshing'],
+      zh: ['人气推荐', '鲜榨金桔', '清凉解渴']
     },
-    image: 'https://images.unsplash.com/photo-1551024709-8f23befc6f87?auto=format&fit=crop&w=800&q=80'
+    image: 'assets/images/menu-drink-n48.png'
   },
 
   // 🥮 MÓN BÁNH TRUYỀN THỐNG VN (PÂTISSERIES TRADITIONNELLES VN)
