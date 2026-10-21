@@ -388,7 +388,7 @@ const MENU_ITEMS = [
       en: ['Fresh Fruits', 'Refreshing', 'Crisp'],
       zh: ['鲜切水果', '清爽解腻', '维C满满']
     },
-    image: 'assets/images/menu-drink-n42.png'
+    image: 'assets/images/menu-drink-n42-tra-trai-cay.png'
   },
   {
     id: 'dr-n43',
