@@ -254,7 +254,7 @@ function renderMenu(category = 'all') {
     return `
       <div class="dish-card" data-category="${item.category}">
         <div class="dish-image-wrapper">
-          <img class="dish-img" src="${item.image}" alt="${name}" loading="lazy" onerror="this.src='assets/images/hero-anan-reference.jpg'" />
+          <img class="dish-img" src="${item.image}" alt="${name}" loading="lazy" onerror="this.src='assets/images/story-dzung.jpg'" />
           ${item.badge && badgeText ? `<span class="dish-badge ${item.badge}">${badgeText}</span>` : ''}
         </div>
         <div class="dish-info">
