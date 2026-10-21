@@ -22,7 +22,7 @@ const TRANSLATIONS = {
     hero_btn_menu: "DÉCOUVRIR LE MENU",
     hero_highlight_1: "AUTHENTIQUE STREET FOOD VIETNAMIENNE & BÁNH MÌ ARTISANAL",
     hero_highlight_2: "LA MEILLEURE EXPÉRIENCE DE SAVEURS DE RUE AU VIETNAM",
-    hero_highlight_3: "AMBIANCE NOCTURNE DE SAIGON & HÉRITAGE TRADITIONNEL",
+    hero_highlight_3: "AMBIANCE NOCTURNE DU VIETNAM & HÉRITAGE TRADITIONNEL",
 
     // Story Section
     story_tagline: "Notre Histoire",
@@ -132,7 +132,7 @@ const TRANSLATIONS = {
     hero_btn_reservation: "ĐẶT BÀN",
     hero_btn_menu: "XEM THỰC ĐƠN",
     hero_highlight_1: "AUTHENTIC VIETNAMESE STREET FOOD & ARTISAN BÁNH MÌ",
-    hero_highlight_2: "ĐIỂM HẸN ẨM THỰC ĐƯỜNG PHỐ SÀI GÒN ĐÍCH THỰC",
+    hero_highlight_2: "ĐIỂM HẸN ẨM THỰC ĐƯỜNG PHỐ VIỆT NAM ĐÍCH THỰC",
     hero_highlight_3: "NƠI GIAO THOA VỊ TRUYỀN THỐNG VÀ HIỆN ĐẠI",
 
     // Story Section
@@ -244,7 +244,7 @@ const TRANSLATIONS = {
     hero_btn_menu: "EXPLORE MENU",
     hero_highlight_1: "AUTHENTIC VIETNAMESE STREET FOOD & ARTISAN BÁNH MÌ",
     hero_highlight_2: "THE BEST STREET FLAVOR DESTINATION IN VIETNAM",
-    hero_highlight_3: "SAIGON NIGHT AMBIANCE & TRADITIONAL HERITAGE",
+    hero_highlight_3: "VIETNAM STREET AMBIANCE & TRADITIONAL HERITAGE",
 
     // Story Section
     story_tagline: "Our Story",
@@ -355,7 +355,7 @@ const TRANSLATIONS = {
     hero_btn_menu: "浏览菜单",
     hero_highlight_1: "正宗越南街头美食与手工法包",
     hero_highlight_2: "越南顶尖街头风味美食体验",
-    hero_highlight_3: "西贡夜色氛围与传统风味传承",
+    hero_highlight_3: "越南夜色氛围与传统风味传承",
 
     // Story Section
     story_tagline: "关于我们",
