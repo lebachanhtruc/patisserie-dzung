@@ -197,7 +197,7 @@ const MENU_ITEMS = [
       en: ['Shrimp Satay', 'Spicy', 'Street Snack'],
       zh: ['沙茶虾味', '浓香微辣', '街头小吃']
     },
-    image: 'assets/images/menu-banh-trang-n10.png'
+    image: 'assets/images/menu-banh-trang-n10-full.jpg'
   },
   {
     id: 'sn-n11',
