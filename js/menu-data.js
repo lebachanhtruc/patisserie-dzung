@@ -573,95 +573,68 @@ const MENU_ITEMS = [
     image: 'assets/images/menu-drink-n48.jpg'
   },
 
-  // 🥮 MÓN BÁNH TRUYỀN THỐNG VN (PÂTISSERIES TRADITIONNELLES VN)
+  // 🥮 MÓN BÁNH TRUYỀN THỐNG VN (PÂTISSERIES TRADITIONNELLES VN - 2 MÓN CHÍNH THỨC)
   {
-    id: 'roll-01',
+    id: 'pst-01',
     category: 'rolls',
-    price: 50000,
-    priceDisplay: '50.000₫',
-    badge: 'chef',
+    price: 6,
+    priceDisplay: '6$',
+    badge: 'signature',
     name: {
-      fr: 'Rouleaux de Printemps Frais aux Crevettes & Porc (Gỏi Cuốn)',
-      vi: 'Gỏi Cuốn Tôm Thịt Truyền Thống',
-      en: 'Traditional Vietnamese Fresh Spring Rolls (Gỏi Cuốn)',
-      zh: '越南鲜虾猪肉鲜米春卷（Gỏi Cuốn）'
+      fr: 'Gâteau Étage Pandan & Haricot Mungo (Bánh Da Lợn)',
+      vi: 'Bánh Da Lợn',
+      en: 'Steamed Pandan & Mung Bean Layer Cake (Bánh Da Lợn)',
+      zh: '斑斓绿豆九层糕（Bánh Da Lợn）'
     },
     badgeText: {
-      fr: 'Frais & Léger',
-      vi: 'Tươi Mát',
-      en: 'Fresh & Light',
-      zh: '清爽健康'
+      fr: 'Traditionnel',
+      vi: 'Đặc Sản',
+      en: 'Traditional',
+      zh: '传统招牌'
     },
     desc: {
-      fr: 'Feuille de riz translucide garnie de crevettes pochées, poitrine de porc, vermicelles de riz et herbes fraîches. Trempés dans une onctueuse sauce cacahuète maison.',
-      vi: 'Cuốn bánh tráng mềm trong vắt bọc tôm sú tươi luộc đỏ au, thịt ba chỉ, bún tươi, hẹ lá và rau thơm nhiệt đới, chấm sốt tương đen đậu phộng béo bùi.',
-      en: 'Delicate translucent rice paper rolled with fresh steamed prawns, pork belly, rice vermicelli and fresh herbs, served with homemade peanut dipping sauce.',
-      zh: '薄透米纸包裹新鲜大虾、薄切五花肉、米粉与清香香草，配以秘制香浓花生沾酱。'
+      fr: 'Gâteau traditionnel vietnamien cuit à la vapeur, composé de fines couches superposées de tapioca au parfum de pandan et de haricot mungo au lait de coco onctueux. Texture douce, élastique et parfumée.',
+      vi: 'Bánh da lợn truyền thống dẻo dai thơm lừng với từng lớp lá dứa xanh ngát xen kẽ lớp đậu xanh cốt dừa béo ngậy ngọt thanh, ăn thanh mát mềm mịn.',
+      en: 'Traditional Vietnamese steamed layer cake featuring vibrant pandan jelly layers alternating with rich, velvety mung bean and coconut cream paste. Delicately sweet, chewy, and refreshing.',
+      zh: '经典越式传统蒸糕，晶莹剔透的斑斓粉层与香浓细腻的椰奶绿豆泥层层相间，口感软糯Q弹，清甜爽口。'
     },
     tags: {
-      fr: ['Frais', 'Healthy', 'Sauce Cacahuète'],
-      vi: ['Tươi Mát', 'Healthy', 'Chấm Tương Bơ Đậu'],
-      en: ['Fresh & Healthy', 'Peanut Sauce'],
-      zh: ['清爽不腻', '健康轻食', '特调花生酱']
+      fr: ['Traditionnel', 'Pandan & Coco', 'Moelleux & Doux'],
+      vi: ['Bánh Truyền Thống', 'Lá Dứa Đậu Xanh', 'Dẻo Thơm'],
+      en: ['Traditional Cake', 'Pandan & Coconut', 'Chewy & Sweet'],
+      zh: ['传统名点', '斑斓椰香', '软糯香甜']
     },
-    image: 'https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=800&q=80'
+    image: 'https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&w=800&q=80'
   },
   {
-    id: 'roll-02',
+    id: 'pst-02',
     category: 'rolls',
-    price: 65000,
-    priceDisplay: '65.000₫',
-    badge: null,
-    name: {
-      fr: 'Chả Ram Tôm Đất Croustillants du Centre',
-      vi: 'Chả Ram Tôm Đất Xứ Nẫu Giòn Tan',
-      en: 'Central Vietnam Crispy Mini Prawn Rolls (Chả Ram)',
-      zh: '中部特色酥脆迷你鲜虾春卷'
-    },
-    badgeText: { fr: '', vi: '', en: '', zh: '' },
-    desc: {
-      fr: 'Petites crevettes fraîches enveloppées dans une fine feuille de riz croustillante, frites jusqu’à perfection dorée. Servies avec herbes et sauce nuoc-mâm aigre-douce.',
-      vi: 'Tôm đất tươi ngọt gói bánh tráng phơi sương chiên vàng giòn rụm nhiều giờ, cuốn rau sống chấm nước mắm tỏi ớt chua ngọt kẹo.',
-      en: 'Sweet wild prawns wrapped in paper-thin rice sheets, fried to an exceptional prolonged crunch, dipped in sweet-sour garlic chili fish sauce.',
-      zh: '鲜甜野生小土虾裹以薄米纸炸至酥脆，配新鲜生菜包食，蘸以酸甜蒜辣鱼露。'
-    },
-    tags: {
-      fr: ['Ultra Croustillant', 'Centre du Vietnam'],
-      vi: ['Giòn Rụm Lâu', 'Đặc Sản Miền Trung'],
-      en: ['Super Crunchy', 'Central Delicacy'],
-      zh: ['极致酥脆', '越南中部名产']
-    },
-    image: 'https://images.unsplash.com/photo-1563245372-f21724e3856d?auto=format&fit=crop&w=800&q=80'
-  },
-  {
-    id: 'roll-03',
-    category: 'rolls',
-    price: 45000,
-    priceDisplay: '45.000₫',
+    price: 6,
+    priceDisplay: '6$',
     badge: 'bestseller',
     name: {
-      fr: 'Bánh Tráng Cuốn (Rouleaux de Papier de Riz Sauce Beurre & Tamarin)',
-      vi: 'Bánh Tráng Cuốn Sốt Bơ Me',
-      en: 'Bánh Tráng Cuốn (Rice Paper Rolls with Tamarind Butter Dip)',
-      zh: '越式酱香米纸卷（Bánh Tráng Cuốn）'
+      fr: 'Gâteau Traditionnel Phu Thê / Xu Xuê',
+      vi: 'Bánh Xu Xuê (Bánh Phu Thê)',
+      en: 'Vietnamese Husband & Wife Cake (Bánh Xu Xuê)',
+      zh: '传统夫妻饼 / 喜饼（Bánh Xu Xuê）'
     },
     badgeText: {
-      fr: 'Coup de Cœur',
-      vi: 'Best Seller',
-      en: 'Best Seller',
-      zh: '人气热销'
+      fr: 'Populaire',
+      vi: 'Món Hot',
+      en: 'Popular',
+      zh: '人气必尝'
     },
     desc: {
-      fr: 'Feuille de riz souple enroulée avec bœuf séché, œufs de caille, échalotes frites, crevettes séchées et herbes rau răm. Servi avec une double sauce beurre onctueux et tamarin caramélisé.',
-      vi: 'Bánh tráng dẻo cuốn nhân khô bò, trứng cút, hành phi giòn tan, ruốc tép và rau răm thơm nồng, chấm đẫm sốt bơ trứng béo ngậy cùng sốt me chua ngọt.',
-      en: 'Soft chewy rice paper rolled with beef jerky, quail eggs, crispy shallots, dried shrimp and Vietnamese coriander, served with rich egg butter dip and tangy sweet tamarind glaze.',
-      zh: '柔韧薄米纸卷入香辣牛肉干、卤鹌鹑蛋、香酥红葱头与鲜香虾米，佐以浓郁鸡蛋黄油酱与酸甜罗望子酱。'
+      fr: 'Pâtisserie emblématique des mariages vietnamiens : pâte de tapioca translucide et croquante parsemée de lanières de noix de coco fraîche, enveloppant une farce fondante de haricot mungo délicatement parfumée.',
+      vi: 'Món bánh cổ truyền tượng trưng cho sự gắn kết ngọt ngào: vỏ bánh bột năng trong suốt giòn dai điểm sợi dừa non sần sật, ôm trọn nhân đậu xanh tán nhuyễn bùi bùi thơm thoảng hương hoa bưởi.',
+      en: 'Traditional festive delicacy symbolizing harmony: translucent chewy tapioca jelly embedded with crunchy young coconut shreds, wrapping a fragrant sweet mung bean filling.',
+      zh: '越南极具象征意义的传统喜庆点心：晶莹剔透、爽脆Q弹的外皮中糅合鲜嫩椰丝，包裹着香甜绵密细腻的绿豆蓉馅心。'
     },
     tags: {
-      fr: ['Sauce Beurre Me', 'Gourmand'],
-      vi: ['Sốt Bơ Béo Ngậy', 'Ăn Là Mê'],
-      en: ['Tamarind Butter', 'Street Favorite'],
-      zh: ['黄油罗望子酱', '越吃越上头']
+      fr: ['Gâteau de Fête', 'Noix de Coco', 'Délicat'],
+      vi: ['Bánh Cổ Truyền', 'Dừa Non Giòn Sần Sật', 'Ngọt Dịu'],
+      en: ['Festive Cake', 'Young Coconut', 'Delicate'],
+      zh: ['喜庆糕点', '清脆鲜椰丝', '香甜软糯']
     },
     image: 'https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=800&q=80'
   }
