@@ -74,9 +74,9 @@ const TRANSLATIONS = {
     review_3_meta: "Critique Foodie • 5★ sur Google Maps",
 
     // Reservation CTA Banner
-    banner_title: "RÉSERVEZ UNE TABLE CHEZ PÂTISSERIE DZUNG",
-    banner_desc: "Réservez votre table à l'avance pour savourer nos baguettes fraîchement dorées et nos spécialités de rue authentiques dans une atmosphère nocturne élégante và chaleureuse.",
-    banner_btn: "RÉSERVER MAINTENANT",
+    banner_title: "COMMANDEZ EN LIGNE OU VENEZ NOUS VOIR",
+    banner_desc: "Savourez nos baguettes vietnamiennes fraîches et croustillantes, nos snacks de rue authentiques et nos boissons rafraîchissantes à Brossard, QC.",
+    banner_btn: "VOIR LE MENU & COMMANDER",
 
     // Footer
     footer_desc: "Pâtisserie Dzung — Le sanctuaire de la street food vietnamienne et de la haute tradition du Bánh Mì artisanal. L'ambiance nocturne envoûtante de Saigon au cœur de la ville.",
@@ -195,12 +195,12 @@ const TRANSLATIONS = {
     footer_desc: "Pâtisserie Dzung - Nơi tôn vinh ẩm thực đường phố Việt Nam và bánh mì thủ công giòn tan thượng hạng tại Brossard, Quebec.",
     footer_explore: "Khám Phá",
     footer_hours: "Giờ Mở Cửa",
-    footer_hours_week: "Thứ Tư - Chủ Nhật: 10:30 AM - 20:00 PM",
-    footer_hours_weekend: "Đóng Cửa: Thứ Hai & Thứ Ba",
-    footer_hours_note: "* Luôn có bánh mì nóng giòn mới ra lò mỗi ngày.",
+    footer_hours_week: "Thứ Tư – Chủ Nhật: 10:30 Sáng – 8:00 Tối",
+    footer_hours_weekend: "Thứ Hai & Thứ Ba: Nghỉ (Closed)",
+    footer_hours_note: "* Luôn có bánh mì nóng giòn & đồ ăn sẵn sàng phục vụ.",
     footer_contact: "Liên Hệ",
     footer_address: "5918 Avenue Auteuil, Brossard, QC J4Z 1N2, Canada",
-    footer_phone: "Điện Thoại: (514) 880-8388",
+    footer_phone: "Hotline / Zalo: (514) 880-8388",
     footer_rights: "© 2026 Pâtisserie Dzung. All Rights Reserved. Designed with passion for Vietnamese street food.",
     footer_privacy: "Chính Sách Bảo Mật",
     footer_terms: "Điều Khoản Dịch Vụ",
