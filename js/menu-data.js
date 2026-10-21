@@ -166,156 +166,134 @@ const MENU_ITEMS = [
     image: 'assets/images/menu-banh-mi-n5-thit-nuong.jpg'
   },
 
-  // 🍢 STREET FOOD & SNACKS
+  // 🍢 ĐỒ ĂN VẶT ĐƯỜNG PHỐ (STREET FOOD & SNACKS - 4 MÓN CHÍNH THỨC)
   {
-    id: 'sn-01',
+    id: 'sn-n10',
     category: 'streetfood',
-    price: 45000,
-    priceDisplay: '45.000₫',
+    price: 10,
+    priceDisplay: '10$',
     badge: 'signature',
     name: {
-      fr: 'Galette de Riz Grillée Đà Lạt (Pizza Vietnamienne)',
-      vi: 'Bánh Tráng Nướng Đà Lạt Đặc Biệt',
-      en: 'Đà Lạt Grilled Rice Paper (Vietnamese Pizza)',
-      zh: '大叻炭烤香脆米纸（越南披萨）'
+      fr: 'N10. Feuilles de Riz au Saté de Crevettes',
+      vi: 'N10. Bánh Tráng Sa Tế Tôm',
+      en: 'N10. Rice Paper with Shrimp Satay',
+      zh: 'N10. 沙茶虾米拌米纸'
     },
     badgeText: {
-      fr: 'Pizza Vietnamienne',
-      vi: 'Pizza Việt Nam',
-      en: 'Vietnamese Pizza',
-      zh: '越南特色披萨'
+      fr: 'Populaire',
+      vi: 'Món Hot',
+      en: 'Popular',
+      zh: '热销街味'
     },
     desc: {
-      fr: 'Galette de riz grillée au charbon croustillante, œuf battu, ciboulette, crevettes séchées, bœuf séché émincé, fromage filant et sauce tamarin pimentée.',
-      vi: 'Bánh tráng nướng than hoa vàng giòn tan, phủ trứng gà, hành hoa, tép đỏ rim ngọt, khô bò sợi, phô mai kéo sợi và tương ớt sốt me cay ngọt.',
-      en: 'Charcoal-grilled crispy rice paper topped with egg, scallions, sweet baby shrimp, beef jerky shreds, mozzarella cheese and spicy tamarind drizzle.',
-      zh: '炭火慢烤香脆米纸，铺满鲜鸡蛋、青葱、蜜汁小红虾、手撕牛肉干、拉丝芝士与酸甜罗望子辣酱。'
+      fr: 'Fines lanières de feuilles de riz assaisonnées au saté pimenté de crevettes séchées, sel de Tây Ninh et échalotes croustillantes. Extra topping au choix.',
+      vi: 'Bánh tráng sợi dẻo dai hòa quyện sa tế tôm cay nồng đậm đà, tép rim ngọt, muối tôm Tây Ninh hảo hạng và hành phi giòn rụm. Có thể thêm Extra Topping tùy chọn.',
+      en: 'Chewy rice paper strips tossed in aromatic spicy shrimp satay oil, savory baby shrimp, Tây Ninh shrimp salt and crispy fried shallots. Extra toppings available.',
+      zh: '柔韧米纸条拌入香辣浓郁沙茶虾油、特级西宁虾盐与酥脆红葱酥，香辣开胃。可自选添加丰富配料。'
     },
     tags: {
-      fr: ['Croustillant', 'Spécialité Đà Lạt'],
-      vi: ['Nóng Giòn', 'Đặc Sản Đà Lạt'],
-      en: ['Crispy Snack', 'Da Lat Specialty'],
-      zh: ['现烤脆香', '大叻名吃']
+      fr: ['Saté Crevettes', 'Épicé', 'Street Food'],
+      vi: ['Sa Tế Tôm', 'Cay Đậm Đà', 'Ăn Vặt Sài Gòn'],
+      en: ['Shrimp Satay', 'Spicy', 'Street Snack'],
+      zh: ['沙茶虾味', '浓香微辣', '街头小吃']
     },
-    image: 'https://images.unsplash.com/photo-1555126634-323283e090fa?auto=format&fit=crop&w=800&q=80'
+    image: 'assets/images/menu-banh-trang-n10.png'
   },
   {
-    id: 'sn-02',
+    id: 'sn-n11',
     category: 'streetfood',
-    price: 55000,
-    priceDisplay: '55.000₫',
+    price: 25,
+    priceDisplay: '25$',
     badge: 'bestseller',
     name: {
-      fr: 'Nems Chua Frits Croustillants de Hanoï',
-      vi: 'Nem Chua Rán Phố Cổ Hà Nội',
-      en: 'Hanoi Crispy Fried Fermented Pork Rolls',
-      zh: '河内古街香炸发酵猪肉卷'
+      fr: 'N11. Rouleaux de Riz Garnis Complets',
+      vi: 'N11. Bánh Tráng Cuốn Full Topping',
+      en: 'N11. Rice Paper Rolls with Full Toppings',
+      zh: 'N11. 全配料米纸卷'
     },
     badgeText: {
       fr: 'Best Seller',
       vi: 'Best Seller',
       en: 'Best Seller',
-      zh: '人气小吃'
+      zh: '全料招牌'
     },
     desc: {
-      fr: 'Rouleaux de porc fermenté panés et dorés, croustillants dehors et moelleux dedans, servis avec concombres croquants et sauce chili artisanale.',
-      vi: 'Nem chua tẩm bột chiên xù vàng ruộm, bên ngoài giòn rụm bên trong dẻo dai bùi béo, ăn kèm dưa leo mát lạnh và tương ớt rim đặc chế.',
-      en: 'Golden breaded fried fermented pork rolls, crunchy crust with chewy savory filling, served with fresh cucumber and housemade chili sauce.',
-      zh: '裹上面包糠金黄油炸，外酥里嫩带独特发酵肉香，搭配爽脆黄瓜片与秘制甜辣酱。'
+      fr: 'Plateau complet de rouleaux de riz garnis de bœuf séché, œufs de caille, crevettes séchées, ciboule et double sauce beurre onctueux et tamarin acidulé.',
+      vi: 'Mẹt bánh tráng cuốn ngập tràn đầy đủ topping: bò khô hảo hạng, trứng cút bùi béo, ruốc tép, hành phi, rau răm và chấm sốt bơ me chua ngọt béo ngậy thần thánh.',
+      en: 'Loaded rice paper roll feast packed with savory beef jerky, quail eggs, dried baby shrimp, fragrant herbs, and the signature rich egg butter & tamarind dipping sauce.',
+      zh: '全配料豪华米纸卷拼盘：精选牛肉干、香卤鹌鹑蛋、香脆虾皮、翠绿芫荽，搭配秘制香浓黄油蛋黄酱与酸甜罗望子蘸汁。'
     },
     tags: {
-      fr: ['Recette de Hanoï', 'Incontournable'],
-      vi: ['Chuẩn Vị Hà Nội', 'Món Ăn Vặt Hot'],
-      en: ['Hanoi Recipe', 'Popular Street Food'],
-      zh: ['河内地道', '热门街头美味']
+      fr: ['Full Topping', 'Sauce Beurre Me', 'Incontournable'],
+      vi: ['Full Topping', 'Sốt Bơ Me', 'Best Seller'],
+      en: ['Full Topping', 'Tamarind Butter', 'Best Seller'],
+      zh: ['全配料', '黄油罗望子', '招牌热销']
     },
-    image: 'https://images.unsplash.com/photo-1563379091339-03b21ab4a4f8?auto=format&fit=crop&w=800&q=80'
+    image: 'assets/images/menu-banh-trang-n11.png'
   },
   {
-    id: 'sn-03',
+    id: 'sn-n12',
     category: 'streetfood',
-    price: 65000,
-    priceDisplay: '65.000₫',
-    badge: null,
-    name: {
-      fr: 'Boulettes & Snacks Caramélisés à la Sauce Nuoc-mâm',
-      vi: 'Cá Viên Chiên Nước Mắm Tỏi Ớt',
-      en: 'Street Skewers Glazed in Garlic Fish Sauce',
-      zh: '蒜蓉鱼露裹汁街头炸丸拼盘'
-    },
-    badgeText: { fr: '', vi: '', en: '', zh: '' },
-    desc: {
-      fr: 'Assortiment de boulettes de poisson, bœuf, saucisse et tofu frit enrobés d’une sauce caramel au nuoc-mâm aillée et pimentée, maïs doux et liserons d’eau croquants.',
-      vi: 'Mẹt cá viên, bò viên, xúc xích, đậu hũ phô mai chiên phồng xóc đẫm sốt nước mắm tỏi ớt kẹo sệt, thơm nức bơ bắp và rau muống giòn.',
-      en: 'Assortment of fried fish balls, beef balls, sausages, and cheese tofu tossed in sweet-savory caramelized garlic fish sauce with butter corn.',
-      zh: '精选鱼丸、牛肉丸、热狗肠与芝士豆腐，炸至金黄后翻炒浓郁蒜蓉鱼露焦糖汁，加入甜玉米粒。'
-    },
-    tags: {
-      fr: ['Caramélisé', 'Street Food Saigon'],
-      vi: ['Đậm Đà Cay Ngọt', 'Món Nhậu Vặt'],
-      en: ['Sweet & Savory', 'Night Market Treat'],
-      zh: ['浓郁甜辣', '夜市经典']
-    },
-    image: 'https://images.unsplash.com/photo-1541832676-9b763b0239ab?auto=format&fit=crop&w=800&q=80'
-  },
-  {
-    id: 'sn-04',
-    category: 'streetfood',
-    price: 35000,
-    priceDisplay: '35.000₫',
-    badge: null,
-    name: {
-      fr: 'Maïs Sauté au Beurre & Petites Crevettes',
-      vi: 'Bắp Xào Bơ Tép Hành Phi',
-      en: 'Sweet Corn Sautéed with Butter & Dried Shrimp',
-      zh: '黄油小虾米香炒甜玉米'
-    },
-    badgeText: { fr: '', vi: '', en: '', zh: '' },
-    desc: {
-      fr: 'Grains de maïs doux sautés au beurre avec petites crevettes rouges séchées et échalotes croustillantes. Un grand classique des rues de Saigon.',
-      vi: 'Hạt bắp ngọt xào thơm phức cùng bơ béo ngậy, tép ruốc mặn ngọt và hành phi giòn tan, món ăn vặt đường phố Sài Gòn quen thuộc.',
-      en: 'Sweet corn kernels pan-tossed in fragrant butter, sweet-salty dried baby shrimp, and crispy fried shallots. Saigon iconic street classic.',
-      zh: '香甜玉米粒搭配黄油大火翻炒，加入咸甜红虾皮与酥脆炸红葱头，西贡经典街边美味。'
-    },
-    tags: {
-      fr: ['Gourmand', 'Beurre'],
-      vi: ['Béo Thơm', 'Dễ Ăn'],
-      en: ['Buttery', 'Snack Favorite'],
-      zh: ['浓郁黄油香', '老少皆宜']
-    },
-    image: 'https://images.unsplash.com/photo-1551782450-a2132b4ba21d?auto=format&fit=crop&w=800&q=80'
-  },
-  {
-    id: 'sn-05',
-    category: 'streetfood',
-    price: 40000,
-    priceDisplay: '40.000₫',
+    price: 15,
+    priceDisplay: '15$',
     badge: 'signature',
     name: {
-      fr: 'Bánh Tráng Trộn Spécial Saigon (Salade de Papier de Riz)',
-      vi: 'Bánh Tráng Trộn Sài Gòn Đặc Biệt',
-      en: 'Saigon Signature Bánh Tráng Trộn (Rice Paper Salad)',
-      zh: '西贡经典招牌凉拌米纸（Bánh Tráng Trộn）'
+      fr: 'N12. Kit Feuilles de Riz à Mélanger (DIY)',
+      vi: 'N12. Bánh Tráng Tự Trộn',
+      en: 'N12. DIY Mixed Rice Paper Kit',
+      zh: 'N12. 自拌米纸套餐'
     },
     badgeText: {
-      fr: 'Incontournable',
-      vi: 'Đặc Sản',
-      en: 'Must Try',
-      zh: '地道风味'
+      fr: 'Kit Maison',
+      vi: 'DIY Kit',
+      en: 'DIY Kit',
+      zh: 'DIY 自拌'
     },
     desc: {
-      fr: 'Lanières de papier de riz assaisonnées au sel de Tây Ninh, bœuf séché épicé, œufs de caille fondants, crevettes rouges séchées, julienne de mangue verte, herbes rau răm et jus de calamansi acidulé.',
-      vi: 'Bánh tráng sợi dẻo dai hòa quyện muối tôm Tây Ninh, khô bò cay nồng, trứng cút lòng đào, tép đỏ thơm, xoài xanh chua giòn, rau răm và nước sốt tắc chua ngọt.',
-      en: 'Chewy rice paper strips tossed with Tay Ninh shrimp salt, spicy beef jerky, soft quail eggs, dried baby shrimp, green mango shreds, Vietnamese coriander, and tangy calamansi dressing.',
-      zh: '韧劲米纸丝拌入西宁特产虾盐、香辣牛肉干、溏心鹌鹑蛋、香脆小红虾、青芒果丝与新鲜越南芫荽，淋上金桔酸甜酱汁。'
+      fr: 'Kit prêt-à-mélanger chez soi : feuilles de riz prédécoupées, boîtes individuelles de bœuf séché, calmars, œufs de caille, mangue verte, saté et sauce secrète.',
+      vi: 'Set hộp kit bánh tráng tự trộn tại nhà chuẩn vị: bánh tráng cắt sẵn dẻo ngon, các hộp topping riêng biệt gồm bò khô, khô mực, trứng cút, tép đỏ, xoài, sa tế và nước sốt đặc biệt.',
+      en: 'Complete DIY mixed rice paper kit to toss at home: pre-cut chewy rice paper, separate containers of beef jerky, shredded squid, quail eggs, green mango, satay oil, and secret house dressing.',
+      zh: '家庭自拌米纸便携套盒：分装剪裁好的柔韧米纸、风味牛肉干、鱿鱼丝、鹌鹑蛋、酸甜青芒丝、独家秘制拌酱与香辣沙茶油。'
     },
     tags: {
-      fr: ['Street Food Culte', 'Épicé & Acidulé'],
-      vi: ['Ăn Vặt Cực Đỉnh', 'Chua Cay Mặn Ngọt'],
-      en: ['Iconic Street Snack', 'Sweet & Spicy'],
-      zh: ['西贡国民小吃', '酸辣开胃']
+      fr: ['Kit DIY', 'Frais & Ludique', 'À Partager'],
+      vi: ['Tự Trộn Tại Nhà', 'Đầy Đủ Topping', 'Tiện Lợi'],
+      en: ['DIY Kit', 'Fun to Mix', 'Fresh'],
+      zh: ['DIY套盒', '自拌美味', '新鲜丰富']
     },
-    image: 'https://images.unsplash.com/photo-1541832676-9b763b0239ab?auto=format&fit=crop&w=800&q=80'
+    image: 'assets/images/menu-banh-trang-n12.png'
+  },
+  {
+    id: 'sn-n13',
+    category: 'streetfood',
+    price: 20,
+    priceDisplay: '20$ - 25$',
+    badge: 'bestseller',
+    name: {
+      fr: 'N13. Rouleaux de Riz Garnis Assouplies à la Rosée',
+      vi: 'N13. Bánh Tráng Cuốn Phơi Sương',
+      en: 'N13. Dew-wetted Rice Paper Rolls',
+      zh: 'N13. 露水米纸卷'
+    },
+    badgeText: {
+      fr: '2 Tailles',
+      vi: '2 Size',
+      en: '2 Sizes',
+      zh: '双规格'
+    },
+    desc: {
+      fr: "Feuilles de riz assouplies à la rosée de Trảng Bàng, moelleuses et parfumées, garnies d'ingrédients savoureux avec trempette au beurre et calamansi. 2 tailles : Petite 20$ / Grande 25$.",
+      vi: 'Bánh tráng phơi sương Trảng Bàng dẻo thơm đặc trưng cuốn kèm các loại nhân thịt đậm đà, chấm nước sốt tắc bơ hành phi chua cay béo ngậy. Có 2 kích cỡ: Size nhỏ 20$ / Size lớn 25$.',
+      en: 'Special dewy soft Trảng Bàng rice paper rolls filled with savory meats and herbs, paired with rich calamansi butter & shallot dip. Available in 2 sizes: Small 20$ / Large 25$.',
+      zh: '特制越式露水软米纸卷，口感柔韧软糯，包裹鲜香肉料与香草，配酸甜金桔黄油葱油蘸酱。提供2种规格：小份 20$ / 大份 25$。'
+    },
+    tags: {
+      fr: ['Petite 20$', 'Grande 25$', 'Feuilles Rosée'],
+      vi: ['Size Nhỏ 20$', 'Size Lớn 25$', 'Phơi Sương'],
+      en: ['Small 20$', 'Large 25$', 'Dew-wetted'],
+      zh: ['小份20$', '大份25$', '露水米纸']
+    },
+    image: 'assets/images/menu-banh-trang-n13.png'
   },
 
 
