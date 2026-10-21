@@ -409,6 +409,13 @@ function updateCartBadge() {
   badge.style.display = totalCount > 0 ? 'flex' : 'none';
 }
 
+function formatPrice(amount) {
+  if (amount < 1000) {
+    return Number.isInteger(amount) ? `${amount}$` : `${amount.toFixed(2)}$`;
+  }
+  return `${amount.toLocaleString('vi-VN')}₫`;
+}
+
 function renderCartItems() {
   const cartContainer = document.getElementById('cart-items-list');
   const totalElem = document.getElementById('cart-total-price');
@@ -418,7 +425,7 @@ function renderCartItems() {
 
   if (cart.length === 0) {
     cartContainer.innerHTML = `<p style="text-align: center; color: var(--color-text-muted); padding: 2rem 0;">${t.cart_empty}</p>`;
-    totalElem.textContent = '0₫';
+    totalElem.textContent = '0$';
     return;
   }
 
@@ -431,7 +438,7 @@ function renderCartItems() {
       <div style="display: flex; justify-content: space-between; align-items: center; padding: 0.8rem 0; border-bottom: 1px solid rgba(255,255,255,0.08);">
         <div>
           <div style="font-weight: 700; color: #fff; font-size: 0.95rem;">${name}</div>
-          <div style="font-size: 0.8rem; color: var(--color-gold);">${item.price.toLocaleString('vi-VN')}₫ x ${item.quantity}</div>
+          <div style="font-size: 0.8rem; color: var(--color-gold);">${formatPrice(item.price)} x ${item.quantity}</div>
         </div>
         <div style="display: flex; align-items: center; gap: 0.5rem;">
           <button style="background: rgba(255,255,255,0.1); width: 26px; height: 26px; border-radius: 4px; color: #fff;" onclick="changeCartQty('${item.id}', -1)">-</button>
@@ -442,7 +449,7 @@ function renderCartItems() {
     `;
   }).join('');
 
-  totalElem.textContent = `${total.toLocaleString('vi-VN')}₫`;
+  totalElem.textContent = formatPrice(total);
 }
 
 function changeCartQty(dishId, delta) {
@@ -472,13 +479,14 @@ function checkoutOrder() {
   }
 
   const total = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+  const formattedTotal = formatPrice(total);
   const msg = currentLang === 'fr' 
-    ? `🎉 Commande reçue (${total.toLocaleString('vi-VN')}₫) ! L'équipe Pâtisserie Dzung va vous contacter rapidement.`
+    ? `🎉 Commande reçue (${formattedTotal}) ! L'équipe Pâtisserie Dzung va vous contacter rapidement.`
     : (currentLang === 'zh'
-        ? `🎉 订单已接收（${total.toLocaleString('vi-VN')}₫）！Pâtisserie Dzung 将尽快与您联系确认。`
+        ? `🎉 订单已接收（${formattedTotal}）！Pâtisserie Dzung 将尽快与您联系确认。`
         : (currentLang === 'en'
-            ? `🎉 Order received (${total.toLocaleString('vi-VN')}₫)! Pâtisserie Dzung team will contact you shortly.`
-            : `🎉 Đã tiếp nhận đơn hàng (${total.toLocaleString('vi-VN')}₫)! Nhân viên Patisserie Dzung sẽ liên hệ xác nhận ngay.`));
+            ? `🎉 Order received (${formattedTotal})! Pâtisserie Dzung team will contact you shortly.`
+            : `🎉 Đã tiếp nhận đơn hàng (${formattedTotal})! Nhân viên Patisserie Dzung sẽ liên hệ xác nhận ngay.`));
 
   showToast(msg);
   cart = [];

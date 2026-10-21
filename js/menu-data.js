@@ -8,8 +8,8 @@ const MENU_ITEMS = [
   {
     id: 'bm-n1',
     category: 'banhmi',
-    price: 65000,
-    priceDisplay: '65.000₫',
+    price: 11,
+    priceDisplay: '11$',
     badge: 'signature',
     name: {
       fr: 'N1. Baguette Spéciale au Porc Salé',
@@ -40,8 +40,8 @@ const MENU_ITEMS = [
   {
     id: 'bm-n2',
     category: 'banhmi',
-    price: 65000,
-    priceDisplay: '65.000₫',
+    price: 11,
+    priceDisplay: '11$',
     badge: 'signature',
     name: {
       fr: "N2. Baguette aux Boulettes et Jaune d'Œuf Salé",
@@ -72,8 +72,8 @@ const MENU_ITEMS = [
   {
     id: 'bm-n3',
     category: 'banhmi',
-    price: 60000,
-    priceDisplay: '60.000₫',
+    price: 10,
+    priceDisplay: '10$',
     badge: null,
     name: {
       fr: 'N3. Baguette au Poulet Effiloché, Beurre et Ail',
@@ -104,8 +104,8 @@ const MENU_ITEMS = [
   {
     id: 'bm-n4',
     category: 'banhmi',
-    price: 55000,
-    priceDisplay: '55.000₫',
+    price: 10,
+    priceDisplay: '10$',
     badge: 'signature',
     name: {
       fr: "N4. Baguette Grillée au Sel Pimenté et à l'Effiloché de Porc Séché",
@@ -136,8 +136,8 @@ const MENU_ITEMS = [
   {
     id: 'bm-n5',
     category: 'banhmi',
-    price: 60000,
-    priceDisplay: '60.000₫',
+    price: 9.5,
+    priceDisplay: '9.50$',
     badge: 'bestseller',
     name: {
       fr: 'N5. Baguette au Porc Grillé',
