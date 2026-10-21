@@ -318,98 +318,7 @@ const MENU_ITEMS = [
     image: 'https://images.unsplash.com/photo-1541832676-9b763b0239ab?auto=format&fit=crop&w=800&q=80'
   },
 
-  // 🥗 ROULEAUX & ENTRÉES
-  {
-    id: 'roll-01',
-    category: 'rolls',
-    price: 50000,
-    priceDisplay: '50.000₫',
-    badge: 'chef',
-    name: {
-      fr: 'Rouleaux de Printemps Frais aux Crevettes & Porc (Gỏi Cuốn)',
-      vi: 'Gỏi Cuốn Tôm Thịt Truyền Thống',
-      en: 'Traditional Vietnamese Fresh Spring Rolls (Gỏi Cuốn)',
-      zh: '越南鲜虾猪肉鲜米春卷（Gỏi Cuốn）'
-    },
-    badgeText: {
-      fr: 'Frais & Léger',
-      vi: 'Tươi Mát',
-      en: 'Fresh & Light',
-      zh: '清爽健康'
-    },
-    desc: {
-      fr: 'Feuille de riz translucide garnie de crevettes pochées, poitrine de porc, vermicelles de riz et herbes fraîches. Trempés dans une onctueuse sauce cacahuète maison.',
-      vi: 'Cuốn bánh tráng mềm trong vắt bọc tôm sú tươi luộc đỏ au, thịt ba chỉ, bún tươi, hẹ lá và rau thơm nhiệt đới, chấm sốt tương đen đậu phộng béo bùi.',
-      en: 'Delicate translucent rice paper rolled with fresh steamed prawns, pork belly, rice vermicelli and fresh herbs, served with homemade peanut dipping sauce.',
-      zh: '薄透米纸包裹新鲜大虾、薄切五花肉、米粉与清香香草，配以秘制香浓花生沾酱。'
-    },
-    tags: {
-      fr: ['Frais', 'Healthy', 'Sauce Cacahuète'],
-      vi: ['Tươi Mát', 'Healthy', 'Chấm Tương Bơ Đậu'],
-      en: ['Fresh & Healthy', 'Peanut Sauce'],
-      zh: ['清爽不腻', '健康轻食', '特调花生酱']
-    },
-    image: 'https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=800&q=80'
-  },
-  {
-    id: 'roll-02',
-    category: 'rolls',
-    price: 65000,
-    priceDisplay: '65.000₫',
-    badge: null,
-    name: {
-      fr: 'Chả Ram Tôm Đất Croustillants du Centre',
-      vi: 'Chả Ram Tôm Đất Xứ Nẫu Giòn Tan',
-      en: 'Central Vietnam Crispy Mini Prawn Rolls (Chả Ram)',
-      zh: '中部特色酥脆迷你鲜虾春卷'
-    },
-    badgeText: { fr: '', vi: '', en: '', zh: '' },
-    desc: {
-      fr: 'Petites crevettes fraîches enveloppées dans une fine feuille de riz croustillante, frites jusqu’à perfection dorée. Servies avec herbes et sauce nuoc-mâm aigre-douce.',
-      vi: 'Tôm đất tươi ngọt gói bánh tráng phơi sương chiên vàng giòn rụm nhiều giờ, cuốn rau sống chấm nước mắm tỏi ớt chua ngọt kẹo.',
-      en: 'Sweet wild prawns wrapped in paper-thin rice sheets, fried to an exceptional prolonged crunch, dipped in sweet-sour garlic chili fish sauce.',
-      zh: '鲜甜野生小土虾裹以薄米纸炸至酥脆，配新鲜生菜包食，蘸以酸甜蒜辣鱼露。'
-    },
-    tags: {
-      fr: ['Ultra Croustillant', 'Centre du Vietnam'],
-      vi: ['Giòn Rụm Lâu', 'Đặc Sản Miền Trung'],
-      en: ['Super Crunchy', 'Central Delicacy'],
-      zh: ['极致酥脆', '越南中部名产']
-    },
-    image: 'https://images.unsplash.com/photo-1563245372-f21724e3856d?auto=format&fit=crop&w=800&q=80'
-  },
-  {
-    id: 'roll-03',
-    category: 'rolls',
-    price: 45000,
-    priceDisplay: '45.000₫',
-    badge: 'bestseller',
-    name: {
-      fr: 'Bánh Tráng Cuốn (Rouleaux de Papier de Riz Sauce Beurre & Tamarin)',
-      vi: 'Bánh Tráng Cuốn Sốt Bơ Me',
-      en: 'Bánh Tráng Cuốn (Rice Paper Rolls with Tamarind Butter Dip)',
-      zh: '越式酱香米纸卷（Bánh Tráng Cuốn）'
-    },
-    badgeText: {
-      fr: 'Coup de Cœur',
-      vi: 'Best Seller',
-      en: 'Best Seller',
-      zh: '人气热销'
-    },
-    desc: {
-      fr: 'Feuille de riz souple enroulée avec bœuf séché, œufs de caille, échalotes frites, crevettes séchées et herbes rau răm. Servi avec une double sauce beurre onctueux et tamarin caramélisé.',
-      vi: 'Bánh tráng dẻo cuốn nhân khô bò, trứng cút, hành phi giòn tan, ruốc tép và rau răm thơm nồng, chấm đẫm sốt bơ trứng béo ngậy cùng sốt me chua ngọt.',
-      en: 'Soft chewy rice paper rolled with beef jerky, quail eggs, crispy shallots, dried shrimp and Vietnamese coriander, served with rich egg butter dip and tangy sweet tamarind glaze.',
-      zh: '柔韧薄米纸卷入香辣牛肉干、卤鹌鹑蛋、香酥红葱头与鲜香虾米，佐以浓郁鸡蛋黄油酱与酸甜罗望子酱。'
-    },
-    tags: {
-      fr: ['Sauce Beurre Me', 'Gourmand'],
-      vi: ['Sốt Bơ Béo Ngậy', 'Ăn Là Mê'],
-      en: ['Tamarind Butter', 'Street Favorite'],
-      zh: ['黄油罗望子酱', '越吃越上头']
-    },
-    image: 'https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=800&q=80'
-  },
+
 
   // ☕ BOISSONS & DESSERTS
   {
@@ -561,6 +470,99 @@ const MENU_ITEMS = [
       zh: ['地道越式甜点', '浓郁椰香榴莲']
     },
     image: 'https://images.unsplash.com/photo-1551024709-8f23befc6f87?auto=format&fit=crop&w=800&q=80'
+  },
+
+  // 🥮 MÓN BÁNH TRUYỀN THỐNG VN (PÂTISSERIES TRADITIONNELLES VN)
+  {
+    id: 'roll-01',
+    category: 'rolls',
+    price: 50000,
+    priceDisplay: '50.000₫',
+    badge: 'chef',
+    name: {
+      fr: 'Rouleaux de Printemps Frais aux Crevettes & Porc (Gỏi Cuốn)',
+      vi: 'Gỏi Cuốn Tôm Thịt Truyền Thống',
+      en: 'Traditional Vietnamese Fresh Spring Rolls (Gỏi Cuốn)',
+      zh: '越南鲜虾猪肉鲜米春卷（Gỏi Cuốn）'
+    },
+    badgeText: {
+      fr: 'Frais & Léger',
+      vi: 'Tươi Mát',
+      en: 'Fresh & Light',
+      zh: '清爽健康'
+    },
+    desc: {
+      fr: 'Feuille de riz translucide garnie de crevettes pochées, poitrine de porc, vermicelles de riz et herbes fraîches. Trempés dans une onctueuse sauce cacahuète maison.',
+      vi: 'Cuốn bánh tráng mềm trong vắt bọc tôm sú tươi luộc đỏ au, thịt ba chỉ, bún tươi, hẹ lá và rau thơm nhiệt đới, chấm sốt tương đen đậu phộng béo bùi.',
+      en: 'Delicate translucent rice paper rolled with fresh steamed prawns, pork belly, rice vermicelli and fresh herbs, served with homemade peanut dipping sauce.',
+      zh: '薄透米纸包裹新鲜大虾、薄切五花肉、米粉与清香香草，配以秘制香浓花生沾酱。'
+    },
+    tags: {
+      fr: ['Frais', 'Healthy', 'Sauce Cacahuète'],
+      vi: ['Tươi Mát', 'Healthy', 'Chấm Tương Bơ Đậu'],
+      en: ['Fresh & Healthy', 'Peanut Sauce'],
+      zh: ['清爽不腻', '健康轻食', '特调花生酱']
+    },
+    image: 'https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=800&q=80'
+  },
+  {
+    id: 'roll-02',
+    category: 'rolls',
+    price: 65000,
+    priceDisplay: '65.000₫',
+    badge: null,
+    name: {
+      fr: 'Chả Ram Tôm Đất Croustillants du Centre',
+      vi: 'Chả Ram Tôm Đất Xứ Nẫu Giòn Tan',
+      en: 'Central Vietnam Crispy Mini Prawn Rolls (Chả Ram)',
+      zh: '中部特色酥脆迷你鲜虾春卷'
+    },
+    badgeText: { fr: '', vi: '', en: '', zh: '' },
+    desc: {
+      fr: 'Petites crevettes fraîches enveloppées dans une fine feuille de riz croustillante, frites jusqu’à perfection dorée. Servies avec herbes et sauce nuoc-mâm aigre-douce.',
+      vi: 'Tôm đất tươi ngọt gói bánh tráng phơi sương chiên vàng giòn rụm nhiều giờ, cuốn rau sống chấm nước mắm tỏi ớt chua ngọt kẹo.',
+      en: 'Sweet wild prawns wrapped in paper-thin rice sheets, fried to an exceptional prolonged crunch, dipped in sweet-sour garlic chili fish sauce.',
+      zh: '鲜甜野生小土虾裹以薄米纸炸至酥脆，配新鲜生菜包食，蘸以酸甜蒜辣鱼露。'
+    },
+    tags: {
+      fr: ['Ultra Croustillant', 'Centre du Vietnam'],
+      vi: ['Giòn Rụm Lâu', 'Đặc Sản Miền Trung'],
+      en: ['Super Crunchy', 'Central Delicacy'],
+      zh: ['极致酥脆', '越南中部名产']
+    },
+    image: 'https://images.unsplash.com/photo-1563245372-f21724e3856d?auto=format&fit=crop&w=800&q=80'
+  },
+  {
+    id: 'roll-03',
+    category: 'rolls',
+    price: 45000,
+    priceDisplay: '45.000₫',
+    badge: 'bestseller',
+    name: {
+      fr: 'Bánh Tráng Cuốn (Rouleaux de Papier de Riz Sauce Beurre & Tamarin)',
+      vi: 'Bánh Tráng Cuốn Sốt Bơ Me',
+      en: 'Bánh Tráng Cuốn (Rice Paper Rolls with Tamarind Butter Dip)',
+      zh: '越式酱香米纸卷（Bánh Tráng Cuốn）'
+    },
+    badgeText: {
+      fr: 'Coup de Cœur',
+      vi: 'Best Seller',
+      en: 'Best Seller',
+      zh: '人气热销'
+    },
+    desc: {
+      fr: 'Feuille de riz souple enroulée avec bœuf séché, œufs de caille, échalotes frites, crevettes séchées et herbes rau răm. Servi avec une double sauce beurre onctueux et tamarin caramélisé.',
+      vi: 'Bánh tráng dẻo cuốn nhân khô bò, trứng cút, hành phi giòn tan, ruốc tép và rau răm thơm nồng, chấm đẫm sốt bơ trứng béo ngậy cùng sốt me chua ngọt.',
+      en: 'Soft chewy rice paper rolled with beef jerky, quail eggs, crispy shallots, dried shrimp and Vietnamese coriander, served with rich egg butter dip and tangy sweet tamarind glaze.',
+      zh: '柔韧薄米纸卷入香辣牛肉干、卤鹌鹑蛋、香酥红葱头与鲜香虾米，佐以浓郁鸡蛋黄油酱与酸甜罗望子酱。'
+    },
+    tags: {
+      fr: ['Sauce Beurre Me', 'Gourmand'],
+      vi: ['Sốt Bơ Béo Ngậy', 'Ăn Là Mê'],
+      en: ['Tamarind Butter', 'Street Favorite'],
+      zh: ['黄油罗望子酱', '越吃越上头']
+    },
+    image: 'https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=800&q=80'
   }
 ];
 
