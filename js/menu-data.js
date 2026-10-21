@@ -261,7 +261,7 @@ const MENU_ITEMS = [
       en: ['DIY Kit', 'Fun to Mix', 'Fresh'],
       zh: ['DIY套盒', '自拌美味', '新鲜丰富']
     },
-    image: 'assets/images/menu-banh-trang-n12.png'
+    image: 'assets/images/menu-banh-trang-n12-full.jpg'
   },
   {
     id: 'sn-n13',
