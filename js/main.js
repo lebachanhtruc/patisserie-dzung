@@ -241,6 +241,23 @@ function setDishOption(dishId, choiceId) {
       }
     });
   }
+
+  // Update dynamic price if choice has its own price
+  if (typeof MENU_ITEMS !== 'undefined') {
+    const dish = MENU_ITEMS.find(item => item.id === dishId);
+    if (dish && dish.options && Array.isArray(dish.options.choices)) {
+      const choice = dish.options.choices.find(c => c.id === choiceId);
+      if (choice && (choice.priceDisplay || choice.price !== undefined)) {
+        const priceElem = document.querySelector(`.dish-price[data-dish-price-id="${dishId}"]`);
+        if (priceElem) {
+          const displayStr = choice.priceDisplay 
+            ? (typeof choice.priceDisplay === 'object' ? (choice.priceDisplay[currentLang] || choice.priceDisplay.vi) : choice.priceDisplay)
+            : formatPrice(choice.price);
+          priceElem.textContent = displayStr;
+        }
+      }
+    }
+  }
 }
 
 /* ==========================================================================
@@ -284,25 +301,34 @@ function renderMenu(category = 'all') {
     const desc = item.desc[currentLang] || item.desc.fr || item.desc.vi;
     const badgeText = item.badgeText ? (item.badgeText[currentLang] || item.badgeText.fr || item.badgeText.vi) : '';
     const tags = item.tags[currentLang] || item.tags.fr || item.tags.vi || [];
-    const priceDisplay = (item.priceDisplay && typeof item.priceDisplay === 'object')
+    let priceDisplay = (item.priceDisplay && typeof item.priceDisplay === 'object')
       ? (item.priceDisplay[currentLang] || item.priceDisplay.vi || item.priceDisplay.fr)
       : (item.priceDisplay || `${item.price}$`);
 
     // Flavor / Variant Options Selector
     let optionsHtml = '';
     if (item.options && Array.isArray(item.options.choices) && item.options.choices.length > 0) {
+      const optIcon = item.options.icon || '🧋';
       const optLabel = (item.options.label && (item.options.label[currentLang] || item.options.label.fr || item.options.label.vi))
-        || (currentLang === 'fr' ? 'Saveur au choix :' : (currentLang === 'en' ? 'Choose flavor:' : (currentLang === 'zh' ? '选择风味：' : 'Chọn vị trà:')));
+        || (currentLang === 'fr' ? 'Saveur au choix :' : (currentLang === 'en' ? 'Choose flavor:' : (currentLang === 'zh' ? '选择风味：' : 'Chọn vị:')));
       
       const activeChoiceId = selectedDishOptions[item.id] || item.options.choices[0].id;
       if (!selectedDishOptions[item.id]) {
         selectedDishOptions[item.id] = activeChoiceId;
       }
 
+      // If active choice has its own price, use that for initial price display
+      const activeChoice = item.options.choices.find(c => c.id === activeChoiceId);
+      if (activeChoice && (activeChoice.priceDisplay || activeChoice.price !== undefined)) {
+        priceDisplay = activeChoice.priceDisplay 
+          ? (typeof activeChoice.priceDisplay === 'object' ? (activeChoice.priceDisplay[currentLang] || activeChoice.priceDisplay.vi) : activeChoice.priceDisplay)
+          : formatPrice(activeChoice.price);
+      }
+
       optionsHtml = `
         <div class="dish-options" data-dish-id="${item.id}">
           <div class="dish-options-header">
-            <span class="dish-options-icon">🧋</span>
+            <span class="dish-options-icon">${optIcon}</span>
             <span class="dish-options-label">${optLabel}</span>
           </div>
           <div class="dish-options-pills" role="radiogroup" aria-label="${optLabel}">
@@ -334,7 +360,7 @@ function renderMenu(category = 'all') {
           <div>
             <div class="dish-header">
               <h3 class="dish-name">${name}</h3>
-              <span class="dish-price">${priceDisplay}</span>
+              <span class="dish-price" data-dish-price-id="${item.id}">${priceDisplay}</span>
             </div>
             <p class="dish-desc">${desc}</p>
             ${optionsHtml}
@@ -464,6 +490,8 @@ function addToCart(dishId) {
     cartKey = `${dish.id}__${chosenOptionObj.id}`;
   }
 
+  const finalPrice = (chosenOptionObj && chosenOptionObj.price !== undefined) ? chosenOptionObj.price : dish.price;
+
   const existingItem = cart.find(item => (item.cartKey || item.id) === cartKey);
   if (existingItem) {
     existingItem.quantity += 1;
@@ -473,7 +501,7 @@ function addToCart(dishId) {
       id: dish.id,
       nameObj: dish.name,
       chosenOption: chosenOptionObj ? chosenOptionObj.name : null,
-      price: dish.price,
+      price: finalPrice,
       quantity: 1
     });
   }

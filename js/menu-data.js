@@ -267,7 +267,7 @@ const MENU_ITEMS = [
     id: 'sn-n13',
     category: 'streetfood',
     price: 20,
-    priceDisplay: '20$ - 25$',
+    priceDisplay: '20$',
     badge: 'bestseller',
     name: {
       fr: 'N13. Rouleaux de Riz Garnis Assouplies à la Rosée',
@@ -280,6 +280,39 @@ const MENU_ITEMS = [
       vi: '2 Size',
       en: '2 Sizes',
       zh: '双规格'
+    },
+    options: {
+      icon: '🥢',
+      label: {
+        fr: 'Choisir la taille :',
+        vi: 'Chọn kích cỡ:',
+        en: 'Choose size:',
+        zh: '选择规格：'
+      },
+      choices: [
+        {
+          id: 'small',
+          price: 20,
+          priceDisplay: '20$',
+          name: {
+            fr: 'Petite Taille (20$)',
+            vi: 'Size Nhỏ (20$)',
+            en: 'Small Size (20$)',
+            zh: '小份 (20$)'
+          }
+        },
+        {
+          id: 'large',
+          price: 25,
+          priceDisplay: '25$',
+          name: {
+            fr: 'Grande Taille (25$)',
+            vi: 'Size Lớn (25$)',
+            en: 'Large Size (25$)',
+            zh: '大份 (25$)'
+          }
+        }
+      ]
     },
     desc: {
       fr: "Feuilles de riz assouplies à la rosée de Trảng Bàng, moelleuses et parfumées, garnies d'ingrédients savoureux avec trempette au beurre et calamansi. 2 tailles : Petite 20$ / Grande 25$.",
