@@ -1082,10 +1082,10 @@ const MENU_ITEMS = [
     priceDisplay: '9$',
     badge: 'signature',
     name: {
-      fr: 'Mủ Trôm Gòn (Boisson à la Sève de Sterculia)',
-      vi: 'Mủ Trôm Gòn',
-      en: 'Sterculia & Kapok Gum Drink (Mủ Trôm Gòn)',
-      zh: '胖大海雪燕饮（Mủ Trôm Gòn）'
+      fr: 'Mủ Trôm Mủ Gòn (Sève de Sterculia & Gomme Kapok)',
+      vi: 'Mủ Trôm Mủ Gòn',
+      en: 'Sterculia & Kapok Gum Drink (Mủ Trôm Mủ Gòn)',
+      zh: '胖大海雪燕饮（Mủ Trôm Mủ Gòn）'
     },
     badgeText: {
       fr: 'Désaltérant',
