@@ -201,7 +201,7 @@ const TRANSLATIONS = {
     footer_hours_note: "",
     footer_contact: "Liên Hệ",
     footer_address: "5918 Avenue Auteuil, Brossard, QC J4Z 1N2, Canada",
-    footer_phone: "Hotline / Zalo: (514) 880-8388",
+    footer_phone: "Hotline: (514) 880-8388",
     footer_email: "patisseriedzung@gmail.com",
     footer_rights: "© 2026 Pâtisserie Dzung. All Rights Reserved. Designed with passion for Vietnamese street food.",
     footer_privacy: "Chính Sách Bảo Mật",
