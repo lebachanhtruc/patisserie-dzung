@@ -317,17 +317,45 @@ const MENU_ITEMS = [
       en: 'Popular',
       zh: '人气热销'
     },
+    options: {
+      label: {
+        fr: 'Saveur au choix :',
+        vi: 'Chọn vị trà sữa:',
+        en: 'Choose flavor:',
+        zh: '选择风味：'
+      },
+      choices: [
+        {
+          id: 'traditional',
+          name: {
+            fr: 'Truyền Thống (Traditionnel)',
+            vi: 'Truyền Thống',
+            en: 'Traditional',
+            zh: '经典原味'
+          }
+        },
+        {
+          id: 'jasmine_oolong',
+          name: {
+            fr: 'Ô Long Lài (Oolong Jasmin)',
+            vi: 'Ô Long Lài',
+            en: 'Jasmine Oolong',
+            zh: '茉莉乌龙'
+          }
+        }
+      ]
+    },
     desc: {
-      fr: 'Thé au lait classique onctueux et parfumé, infusé à partir de thé noir de qualité supérieure. Choix de saveurs et extra toppings disponibles.',
-      vi: 'Trà sữa thơm ngậy béo bùi từ trà đen hảo hạng kết hợp sữa tươi, ngọt thanh dịu mát. Tùy chọn vị trà sữa và thêm Extra Topping trân châu, thạch hấp dẫn.',
-      en: 'Classic rich and velvety milk tea brewed with premium black tea leaves. Choice of flavor and delicious extra toppings available.',
-      zh: '精选上等红茶萃取，奶香浓郁丝滑，甜而不腻。多种风味可选，可自选添加珍珠与丰富配料。'
+      fr: 'Thé au lait onctueux et parfumé, infusé de thé de qualité supérieure et lait velouté. 2 saveurs au choix : Truyền Thống (Traditionnel) ou Ô Long Lài (Oolong Jasmin). Extra toppings au choix.',
+      vi: 'Trà sữa thơm ngậy béo bùi từ cốt trà hảo hạng hòa cùng sữa tươi ngọt thanh dịu mát. Gồm 2 vị tùy chọn: Truyền Thống hoặc Ô Long Lài. Thêm Extra Topping trân châu, thạch hấp dẫn.',
+      en: 'Classic rich and velvety milk tea brewed fresh with creamy milk. 2 flavor choices: Traditional or Jasmine Oolong (Ô Long Lài). Extra toppings available.',
+      zh: '精选上等茶底与鲜奶特调，奶香浓郁丝滑，甜而不腻。提供2种风味可选：经典原味（Truyền Thống）或 茉莉乌龙（Ô Long Lài）。可自选添加丰富配料。'
     },
     tags: {
-      fr: ['Populaire', 'Thé au Lait', 'Gourmand'],
-      vi: ['Popular', 'Trà Sữa', 'Đậm Vị Trà'],
-      en: ['Popular', 'Milk Tea', 'Refreshing'],
-      zh: ['人气热销', '香浓丝滑', '招牌奶茶']
+      fr: ['2 Saveurs', 'Truyền Thống', 'Ô Long Lài'],
+      vi: ['2 Vị Lựa Chọn', 'Truyền Thống', 'Ô Long Lài'],
+      en: ['2 Flavors', 'Traditional', 'Jasmine Oolong'],
+      zh: ['双风味可选', '经典原味', '茉莉乌龙']
     },
     image: 'assets/images/menu-drink-n40.jpg'
   },
@@ -349,17 +377,45 @@ const MENU_ITEMS = [
       en: 'Special',
       zh: '招牌特调'
     },
+    options: {
+      label: {
+        fr: 'Saveur au choix :',
+        vi: 'Chọn vị trà sữa:',
+        en: 'Choose flavor:',
+        zh: '选择风味：'
+      },
+      choices: [
+        {
+          id: 'traditional',
+          name: {
+            fr: 'Truyền Thống (Traditionnel)',
+            vi: 'Truyền Thống',
+            en: 'Traditional',
+            zh: '经典原味'
+          }
+        },
+        {
+          id: 'jasmine_oolong',
+          name: {
+            fr: 'Ô Long Lài (Oolong Jasmin)',
+            vi: 'Ô Long Lài',
+            en: 'Jasmine Oolong',
+            zh: '茉莉乌龙'
+          }
+        }
+      ]
+    },
     desc: {
-      fr: 'Recette signature généreusement garnie de flan crémeux, gelées assorties, orge perlé et pudding décoratif 3D.',
-      vi: 'Trà sữa đặc biệt đỉnh cao với full topping ngập tràn: thạch tạo hình 3D xinh xắn, bánh flan béo ngậy, hạt bo bo dẻo thơm và các loại thạch thanh mát.',
-      en: 'Signature bucket milk tea packed with luxurious toppings: cute 3D jelly pudding, rich egg flan, artisanal jellies, and chewy pearl barley.',
-      zh: '招牌特制大桶奶茶，配料豪华丰盛：萌趣3D立体奶冻、浓郁焦糖布丁、Q弹薏米仁与精选特色奶冻，超大份量满满幸福感。'
+      fr: 'Recette signature généreusement garnie de flan crémeux, gelées assorties, orge perlé et pudding décoratif 3D. 2 saveurs au choix : Truyền Thống (Traditionnel) ou Ô Long Lài (Oolong Jasmin).',
+      vi: 'Trà sữa đặc biệt đỉnh cao ngập tràn full topping: thạch tạo hình 3D xinh xắn, bánh flan béo ngậy, hạt bo bo dẻo thơm và các loại thạch thanh mát. Gồm 2 vị tùy chọn: Truyền Thống hoặc Ô Long Lài.',
+      en: 'Signature bucket milk tea packed with cute 3D jelly pudding, rich egg flan, artisanal jellies, and chewy pearl barley. 2 flavor choices: Traditional or Jasmine Oolong (Ô Long Lài).',
+      zh: '招牌特制大桶奶茶，配料豪华丰盛：萌趣3D立体奶冻、浓郁焦糖布丁、Q弹薏米仁与精选特色奶冻。提供2种风味可选：经典原味（Truyền Thống）或 茉莉乌龙（Ô Long Lài）。'
     },
     tags: {
-      fr: ['Spécial', 'Full Toppings', 'Pudding'],
-      vi: ['Đặc Biệt', 'Full Topping', 'Béo Ngậy'],
-      en: ['Special', 'Full Toppings', 'Rich'],
-      zh: ['满杯配料', '特调风味', '招牌力荐']
+      fr: ['2 Saveurs', 'Truyền Thống', 'Ô Long Lài'],
+      vi: ['2 Vị Lựa Chọn', 'Truyền Thống', 'Ô Long Lài'],
+      en: ['2 Flavors', 'Traditional', 'Jasmine Oolong'],
+      zh: ['双风味可选', '经典原味', '茉莉乌龙']
     },
     image: 'assets/images/menu-drink-n41.jpg'
   },

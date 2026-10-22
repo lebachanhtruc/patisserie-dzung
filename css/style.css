@@ -1004,8 +1004,69 @@ section {
 .dish-desc {
   font-size: 0.88rem;
   color: var(--color-text-muted);
-  margin-bottom: 1.2rem;
+  margin-bottom: 0.9rem;
   line-height: 1.6;
+}
+
+/* Dish Flavor & Variant Options */
+.dish-options {
+  margin: 0.75rem 0 0.85rem;
+  padding: 0.65rem 0.85rem;
+  background: rgba(229, 179, 88, 0.05);
+  border: 1px solid rgba(229, 179, 88, 0.22);
+  border-radius: 8px;
+}
+
+.dish-options-header {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  margin-bottom: 0.5rem;
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: var(--color-gold-bright);
+  letter-spacing: 0.02em;
+}
+
+.dish-options-icon {
+  font-size: 0.9rem;
+}
+
+.dish-options-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+}
+
+.dish-option-pill {
+  padding: 0.38rem 0.8rem;
+  font-size: 0.76rem;
+  font-weight: 600;
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  color: #d1d5db;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  user-select: none;
+  font-family: inherit;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+}
+
+.dish-option-pill:hover {
+  background: rgba(229, 179, 88, 0.16);
+  border-color: var(--color-gold);
+  color: #fff;
+}
+
+.dish-option-pill.active {
+  background: linear-gradient(135deg, rgba(229, 179, 88, 0.38) 0%, rgba(200, 140, 40, 0.45) 100%);
+  border-color: var(--color-gold-bright);
+  color: #fff;
+  font-weight: 700;
+  box-shadow: 0 0 10px rgba(229, 179, 88, 0.3);
 }
 
 .dish-footer {

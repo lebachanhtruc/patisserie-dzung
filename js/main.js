@@ -6,6 +6,7 @@
 let currentLang = 'fr'; // DEFAULT LANGUAGE: French as requested
 let currentCategory = 'all';
 let cart = [];
+let selectedDishOptions = {};
 
 document.addEventListener('DOMContentLoaded', () => {
   initLanguage();
@@ -227,6 +228,21 @@ function initHeroSlider() {
   startAutoSlide();
 }
 
+function setDishOption(dishId, choiceId) {
+  selectedDishOptions[dishId] = choiceId;
+  const container = document.querySelector(`.dish-options[data-dish-id="${dishId}"]`);
+  if (container) {
+    const pills = container.querySelectorAll('.dish-option-pill');
+    pills.forEach(pill => {
+      if (pill.getAttribute('data-choice-id') === choiceId) {
+        pill.classList.add('active');
+      } else {
+        pill.classList.remove('active');
+      }
+    });
+  }
+}
+
 /* ==========================================================================
    4. MENU FILTER & MULTILINGUAL RENDER
    ========================================================================== */
@@ -251,6 +267,42 @@ function renderMenu(category = 'all') {
     const badgeText = item.badgeText ? (item.badgeText[currentLang] || item.badgeText.fr || item.badgeText.vi) : '';
     const tags = item.tags[currentLang] || item.tags.fr || item.tags.vi || [];
 
+    // Flavor / Variant Options Selector
+    let optionsHtml = '';
+    if (item.options && Array.isArray(item.options.choices) && item.options.choices.length > 0) {
+      const optLabel = (item.options.label && (item.options.label[currentLang] || item.options.label.fr || item.options.label.vi))
+        || (currentLang === 'fr' ? 'Saveur au choix :' : (currentLang === 'en' ? 'Choose flavor:' : (currentLang === 'zh' ? '选择风味：' : 'Chọn vị trà:')));
+      
+      const activeChoiceId = selectedDishOptions[item.id] || item.options.choices[0].id;
+      if (!selectedDishOptions[item.id]) {
+        selectedDishOptions[item.id] = activeChoiceId;
+      }
+
+      optionsHtml = `
+        <div class="dish-options" data-dish-id="${item.id}">
+          <div class="dish-options-header">
+            <span class="dish-options-icon">🧋</span>
+            <span class="dish-options-label">${optLabel}</span>
+          </div>
+          <div class="dish-options-pills" role="radiogroup" aria-label="${optLabel}">
+            ${item.options.choices.map(choice => {
+              const choiceName = choice.name[currentLang] || choice.name.fr || choice.name.vi;
+              const isSelected = (activeChoiceId === choice.id);
+              return `
+                <button type="button" 
+                        class="dish-option-pill ${isSelected ? 'active' : ''}" 
+                        data-dish-id="${item.id}" 
+                        data-choice-id="${choice.id}"
+                        onclick="setDishOption('${item.id}', '${choice.id}')">
+                  ${choiceName}
+                </button>
+              `;
+            }).join('')}
+          </div>
+        </div>
+      `;
+    }
+
     return `
       <div class="dish-card" data-category="${item.category}">
         <div class="dish-image-wrapper">
@@ -264,6 +316,7 @@ function renderMenu(category = 'all') {
               <span class="dish-price">${item.priceDisplay}</span>
             </div>
             <p class="dish-desc">${desc}</p>
+            ${optionsHtml}
           </div>
           <div class="dish-footer">
             <div class="dish-tags">
@@ -381,23 +434,36 @@ function addToCart(dishId) {
   const dish = MENU_ITEMS.find(item => item.id === dishId);
   if (!dish) return;
 
-  const dishName = dish.name[currentLang] || dish.name.fr || dish.name.vi;
+  let cartKey = dish.id;
+  let chosenOptionObj = null;
 
-  const existingItem = cart.find(item => item.id === dishId);
+  if (dish.options && Array.isArray(dish.options.choices) && dish.options.choices.length > 0) {
+    const choiceId = selectedDishOptions[dish.id] || dish.options.choices[0].id;
+    chosenOptionObj = dish.options.choices.find(c => c.id === choiceId) || dish.options.choices[0];
+    cartKey = `${dish.id}__${chosenOptionObj.id}`;
+  }
+
+  const existingItem = cart.find(item => (item.cartKey || item.id) === cartKey);
   if (existingItem) {
     existingItem.quantity += 1;
   } else {
     cart.push({
+      cartKey: cartKey,
       id: dish.id,
       nameObj: dish.name,
+      chosenOption: chosenOptionObj ? chosenOptionObj.name : null,
       price: dish.price,
       quantity: 1
     });
   }
 
   updateCartBadge();
+  const dishBaseName = dish.name[currentLang] || dish.name.fr || dish.name.vi;
+  const optName = chosenOptionObj ? ` (${chosenOptionObj.name[currentLang] || chosenOptionObj.name.fr || chosenOptionObj.name.vi})` : '';
+  const fullDishName = `${dishBaseName}${optName}`;
+
   const t = TRANSLATIONS[currentLang] || TRANSLATIONS.fr;
-  showToast(`${t.toast_added || '🥖 '}"${dishName}"`);
+  showToast(`${t.toast_added || '🥖 '}"${fullDishName}"`);
 }
 
 function updateCartBadge() {
@@ -433,7 +499,11 @@ function renderCartItems() {
   cartContainer.innerHTML = cart.map(item => {
     const itemTotal = item.price * item.quantity;
     total += itemTotal;
-    const name = item.nameObj ? (item.nameObj[currentLang] || item.nameObj.fr || item.nameObj.vi) : item.name;
+    const baseName = item.nameObj ? (item.nameObj[currentLang] || item.nameObj.fr || item.nameObj.vi) : item.name;
+    const optText = item.chosenOption ? ` (${item.chosenOption[currentLang] || item.chosenOption.fr || item.chosenOption.vi})` : '';
+    const name = `${baseName}${optText}`;
+    const key = item.cartKey || item.id;
+
     return `
       <div style="display: flex; justify-content: space-between; align-items: center; padding: 0.8rem 0; border-bottom: 1px solid rgba(255,255,255,0.08);">
         <div>
@@ -441,9 +511,9 @@ function renderCartItems() {
           <div style="font-size: 0.8rem; color: var(--color-gold);">${formatPrice(item.price)} x ${item.quantity}</div>
         </div>
         <div style="display: flex; align-items: center; gap: 0.5rem;">
-          <button style="background: rgba(255,255,255,0.1); width: 26px; height: 26px; border-radius: 4px; color: #fff;" onclick="changeCartQty('${item.id}', -1)">-</button>
+          <button style="background: rgba(255,255,255,0.1); width: 26px; height: 26px; border-radius: 4px; color: #fff;" onclick="changeCartQty('${key}', -1)">-</button>
           <span style="font-weight: 700; min-width: 20px; text-align: center;">${item.quantity}</span>
-          <button style="background: rgba(255,255,255,0.1); width: 26px; height: 26px; border-radius: 4px; color: #fff;" onclick="changeCartQty('${item.id}', 1)">+</button>
+          <button style="background: rgba(255,255,255,0.1); width: 26px; height: 26px; border-radius: 4px; color: #fff;" onclick="changeCartQty('${key}', 1)">+</button>
         </div>
       </div>
     `;
@@ -452,13 +522,13 @@ function renderCartItems() {
   totalElem.textContent = formatPrice(total);
 }
 
-function changeCartQty(dishId, delta) {
-  const item = cart.find(i => i.id === dishId);
+function changeCartQty(cartKey, delta) {
+  const item = cart.find(i => (i.cartKey || i.id) === cartKey);
   if (!item) return;
 
   item.quantity += delta;
   if (item.quantity <= 0) {
-    cart = cart.filter(i => i.id !== dishId);
+    cart = cart.filter(i => (i.cartKey || i.id) !== cartKey);
   }
 
   updateCartBadge();
