@@ -24,10 +24,10 @@ const MENU_ITEMS = [
       zh: '人气推荐'
     },
     desc: {
-      fr: 'Baguette artisanale croustillante garnie de porc salé spécial maison, pâté de foie onctueux, beurre frais, pickles croquants et herbes fraîches. Combo Bánh Mì + Boisson.',
-      vi: 'Vỏ bánh mì giòn rụm kết hợp thịt muối đặc biệt đậm đà, pate gan béo ngậy, bơ thơm lừng, dưa chua thanh mát và ngò rí. Combo gồm Bánh Mì + Nước Uống.',
-      en: 'Crispy artisan baguette stuffed with special house salted pork, rich savory pâté, fresh whipped butter, crisp pickles and cilantro. Combo includes Bánh Mì + Drink.',
-      zh: '现烤香脆法包，搭配独家特制咸肉、醇厚手工肝酱、香滑黄油与爽口酸甜腌萝卜。法包+饮料特惠套餐。'
+      fr: 'Riche et savoureux, avec du porc salé tendre et la touche sucrée-salée du rousong. Ingrédients complets : Baguette croustillante, pâté maison (foie de volaille et gras de porc) onctueux, mayonnaise, légumes marinés, coriandre fraîche ; garni de porc salé, rousong (porc effiloché) et de notre sauce aux herbes exclusive.',
+      vi: 'Đậm đà, lạ miệng với thịt heo muối dai mềm, xen lẫn vị mặn ngọt của chà bông. Thành phần trọn vẹn bao gồm: Vỏ bánh mì Baguette giòn rụm, phết patê nhà làm (gan gà và mỡ heo) béo ngậy cùng bơ béo (mayonnaise), thêm đồ chua, ngò rí thanh mát; kết hợp cùng nhân thịt heo muối, chà bông heo và chan sốt thảo mộc độc quyền.',
+      en: 'Rich and savory, featuring tender salted pork and the sweet-salty touch of pork floss. Full ingredients: Crispy Baguette, creamy house-made pâté (chicken liver and pork fat), mayonnaise, pickled vegetables, fresh cilantro; filled with salted pork, pork floss, and our exclusive herbal sauce.',
+      zh: '浓郁可口，肉质鲜嫩的咸猪肉与咸甜适中的猪肉松完美结合。完整成分：酥脆越式法棍面包、秘制肉酱（鸡肝与猪板油）、香滑蛋黄酱、酸洗萝卜丝、新鲜香菜；搭配咸猪肉、猪肉松以及独家香草酱。'
     },
     tags: {
       fr: ['Populaire', 'Porc Salé', 'Combo Boisson'],
@@ -56,10 +56,10 @@ const MENU_ITEMS = [
       zh: '浓香主打'
     },
     desc: {
-      fr: "Boulettes de porc tendres et juteuses mijotées dans une sauce tomate parfumée, cœur coulant de jaune d'œuf salé savoureux, herbes et pickles. Combo Bánh Mì + Boisson.",
-      vi: 'Xíu mại viên tôm thịt mềm mọng nước sốt đậm đà, bọc nhân trứng muối bùi béo dẻo quánh, ăn cùng pate béo và rau thơm giòn ngọt. Combo gồm Bánh Mì + Nước Uống.',
-      en: 'Tender pork meatballs simmered in rich aromatic sauce, filled with creamy savory salted egg yolk, house pâté and fresh herbs. Combo includes Bánh Mì + Drink.',
-      zh: '鲜嫩多汁手工肉丸包裹浓香咸蛋黄，淋上秘制番茄卤汁，搭配清爽香菜与脆口腌菜。法包+饮料特惠套餐。'
+      fr: "Boulettes de porc fondantes au cœur d'œuf salé savoureux, mariées à une sauce tomate aigre-douce. Ingrédients complets : Baguette croustillante, pâté maison (foie de volaille et gras de porc), mayonnaise, légumes marinés, coriandre ; garni de boulettes au cœur d'œuf salé et nappé d'une généreuse sauce tomate maison.",
+      vi: 'Viên xíu mại mềm tan, nhân trứng muối bùi béo, hòa quyện cùng sốt cà chua chua ngọt cực đưa vị. Thành phần trọn vẹn bao gồm: Vỏ bánh mì Baguette giòn rụm, phết patê nhà làm (gan gà và mỡ heo) béo ngậy cùng bơ béo (mayonnaise), thêm đồ chua, ngò rí thanh mát; kết hợp cùng nhân xíu mại bọc trứng muối và chan đẫm sốt cà chua ngọt nhà làm.',
+      en: 'Melt-in-your-mouth pork meatballs with a rich salted egg yolk core, paired with a sweet and sour tomato sauce. Full ingredients: Crispy Baguette, creamy house-made pâté (chicken liver and pork fat), mayonnaise, pickled vegetables, cilantro; filled with salted egg core meatballs and drenched in house-made tomato sauce.',
+      zh: '入口即化的猪肉丸搭配咸香的咸蛋黄内芯，淋上酸甜开胃的番茄酱。完整成分：酥脆越式法棍、秘制肉酱（鸡肝与猪板油）、蛋黄酱、酸洗萝卜、香菜；搭配咸蛋黄肉丸，淋上自制番茄酱。'
     },
     tags: {
       fr: ["Jaune d'Œuf Salé", 'Boulettes', 'Combo Boisson'],
@@ -88,10 +88,10 @@ const MENU_ITEMS = [
       zh: ''
     },
     desc: {
-      fr: "Poulet effiloché moelleux et tendre sauté au beurre d'ail doré parfumé, garniture fraîche de carottes marinées, concombre croquant et coriandre. Combo Bánh Mì + Boisson.",
-      vi: 'Thịt gà xé sợi dai ngọt tự nhiên quyện sốt bơ tỏi phi vàng thơm lừng nức mũi, thêm dưa leo tươi mát, ngò rí và sốt đậm đà. Combo gồm Bánh Mì + Nước Uống.',
-      en: 'Tender shredded chicken tossed in aromatic golden garlic butter, layered with crisp pickles, cucumber, and house special sauce. Combo includes Bánh Mì + Drink.',
-      zh: '细嫩手撕鸡肉融入金黄浓香蒜油，蒜香浓郁扑鼻，搭配清甜黄瓜、爽脆腌萝卜与特调酱汁。法包+饮料特惠套餐。'
+      fr: "Poulet effiloché tendre, parfumé à l'ail frit croustillant, mélangé à une sauce addictive. Ingrédients complets : Baguette croustillante, pâté maison (foie de volaille et gras de porc), mayonnaise, légumes marinés, coriandre ; garni de poulet effiloché, d'ail frit et de notre sauce savoureuse (à base de sauce de poisson).",
+      vi: 'Gà xé sợi dai ngọt, thơm nức mùi tỏi phi, quyện cùng nước sốt mặn ngọt ăn là ghiền. Thành phần trọn vẹn bao gồm: Vỏ bánh mì Baguette giòn rụm, phết patê nhà làm (gan gà và mỡ heo) béo ngậy cùng bơ béo (mayonnaise), thêm đồ chua, ngò rí thanh mát; kết hợp cùng nhân gà xé sợi mềm, tỏi phi thơm và chan nước sốt đậm vị (chiết xuất từ nước mắm).',
+      en: 'Tender shredded chicken, fragrant fried garlic, tossed in an addictive savory sauce. Full ingredients: Crispy Baguette, creamy house-made pâté (chicken liver and pork fat), mayonnaise, pickled vegetables, cilantro; filled with shredded chicken, fried garlic, and a savory sauce (fish sauce based).',
+      zh: '鲜嫩鸡肉丝，散发炸蒜的浓郁香气，搭配令人上瘾的鲜香酱汁。完整成分：酥脆越式法棍、秘制肉酱（鸡肝与猪板油）、蛋黄酱、酸洗萝卜、香菜；搭配鸡肉丝、炸蒜和秘制鲜香酱汁（鱼露基底）。'
     },
     tags: {
       fr: ['Beurre Ail', 'Poulet Effiloché', 'Combo Boisson'],
@@ -120,10 +120,10 @@ const MENU_ITEMS = [
       zh: '地道小吃'
     },
     desc: {
-      fr: 'Baguette toastée et aplatie au charbon badigeonnée de sel pimenté, recouverte de porc séché (chà bông) aérien, ciboule et sauce onctueuse. Combo Bánh Mì + Boisson.',
-      vi: 'Bánh mì ép nướng giòn rụm phết sốt muối ớt cay tê tê đậm đà, ngập tràn chà bông heo tơi xốp, mỡ hành phi và tương sốt béo ngậy. Combo gồm Bánh Mì + Nước Uống.',
-      en: 'Crispy pressed grilled baguette brushed with spicy chili salt, topped with savory pork floss (chà bông), scallion oil, and rich drizzle. Combo includes Bánh Mì + Drink.',
-      zh: '香脆压烤法棍涂抹特制香辣沙茶辣椒盐，铺满蓬松咸香猪肉松与翠绿葱油，酥脆微辣。法包+饮料特惠套餐。'
+      fr: "Épicé, salé et croustillant avec une croûte grillée au beurre et sel pimenté, remplie de rousong savoureux. Ingrédients complets : Baguette grillée enduite de beurre et sel pimenté à l'extérieur ; garnie à l'intérieur de pâté maison (foie de volaille et gras de porc), mayonnaise, légumes marinés, coriandre et rousong (porc effiloché).",
+      vi: 'Cay cay, mặn mặn, giòn rụm với lớp vỏ nướng bơ muối ớt, ngập nhân chà bông đậm đà bên trong. Thành phần trọn vẹn bao gồm: Vỏ bánh mì Baguette nướng giòn rụm phết sốt bơ muối ớt bên ngoài; bên trong kẹp patê nhà làm (gan gà và mỡ heo) béo ngậy, bơ béo (mayonnaise), đồ chua, ngò rí thanh mát và nhân chà bông heo.',
+      en: 'Spicy, salty, and crispy with a butter and chili salt toasted crust, generously filled with savory pork floss. Full ingredients: Baguette toasted with a butter and chili salt coating on the outside; filled inside with house-made pâté (chicken liver and pork fat), mayonnaise, pickled vegetables, cilantro, and pork floss.',
+      zh: '香辣咸脆，外层涂满黄油与辣椒盐烤制，内陷夹满咸香肉松。完整成分：外层涂抹黄油与辣椒盐烤脆的法棍；内含秘制肉酱（鸡肝与猪板油）、蛋黄酱、酸洗萝卜、香菜及猪肉松。'
     },
     tags: {
       fr: ['Sel Pimenté', 'Porc Séché', 'Combo Boisson'],
@@ -152,10 +152,10 @@ const MENU_ITEMS = [
       zh: '人气热销'
     },
     desc: {
-      fr: 'Porc mariné à la citronnelle fraîche et miel, grillé sur la braise, sauce barbecue douce-pimentée, concombre et pickles croquants. Combo Bánh Mì + Boisson.',
-      vi: 'Thịt heo nạc dăm ướp sả ớt mật ong nướng than hoa thơm lừng, rưới nước sốt tương đen cay ngọt truyền thống, dưa leo và đồ chua giòn rụm. Combo gồm Bánh Mì + Nước Uống.',
-      en: 'Flame-grilled lemongrass pork marinated with wild blossom honey, drizzled with sweet-chili sauce, fresh pickles and herbs. Combo includes Bánh Mì + Drink.',
-      zh: '炭火慢烤经典香茅猪肉，外焦里嫩肉香四溢，搭配爽脆酸甜腌菜与特调秘制甜辣酱。法包+饮料特惠套餐。'
+      fr: "L'arôme irrésistible du porc grillé à la citronnelle, avec des morceaux tendres imprégnés d'épices. Ingrédients complets : Baguette croustillante, pâté maison (foie de volaille et gras de porc), mayonnaise, légumes marinés, coriandre ; garni de porc grillé à la citronnelle et de notre sauce savoureuse (à base de sauce de poisson).",
+      vi: 'Thơm lừng mùi sả nướng, miếng thịt heo mềm, thấm đẫm gia vị, đậm chất đường phố. Thành phần trọn vẹn bao gồm: Vỏ bánh mì Baguette giòn rụm, phết patê nhà làm (gan gà và mỡ heo) béo ngậy cùng bơ béo (mayonnaise), thêm đồ chua, ngò rí thanh mát; kết hợp cùng nhân thịt heo nướng sả thơm lừng và chan nước sốt đậm vị (chiết xuất từ nước mắm).',
+      en: 'The irresistible aroma of grilled lemongrass pork, featuring tender, perfectly marinated slices. Full ingredients: Crispy Baguette, creamy house-made pâté (chicken liver and pork fat), mayonnaise, pickled vegetables, cilantro; filled with grilled lemongrass pork and a savory sauce (fish sauce based).',
+      zh: '无法抗拒的香茅烤肉香气，鲜嫩多汁，充满正宗街头风味。完整成分：酥脆越式法棍、秘制肉酱（鸡肝与猪板油）、蛋黄酱、酸洗萝卜、香菜；搭配香茅烤猪肉及鲜香酱汁（鱼露基底）。'
     },
     tags: {
       fr: ['Populaire', 'Porc Grillé', 'Combo Boisson'],
@@ -186,10 +186,10 @@ const MENU_ITEMS = [
       zh: '热销街味'
     },
     desc: {
-      fr: 'Fines lanières de feuilles de riz assaisonnées au saté pimenté de crevettes séchées, sel de Tây Ninh et échalotes croustillantes. Extra topping au choix.',
-      vi: 'Bánh tráng sợi dẻo dai hòa quyện sa tế tôm cay nồng đậm đà, tép rim ngọt, muối tôm Tây Ninh hảo hạng và hành phi giòn rụm. Có thể thêm Extra Topping tùy chọn.',
-      en: 'Chewy rice paper strips tossed in aromatic spicy shrimp satay oil, savory baby shrimp, Tây Ninh shrimp salt and crispy fried shallots. Extra toppings available.',
-      zh: '柔韧米纸条拌入香辣浓郁沙茶虾油、特级西宁虾盐与酥脆红葱酥，香辣开胃。可自选添加丰富配料。'
+      fr: 'Une collation basique mais addictive avec sa saveur épicée caractéristique. Ingrédients : galettes de riz, sauce saté aux crevettes et sauce saté pimentée originale.',
+      vi: 'Món ăn vặt cơ bản nhưng cuốn hút với vị cay nồng đặc trưng. Thành phần gồm bánh tráng, sa tế tôm và sa tế cay nguyên bản.',
+      en: 'A basic yet highly addictive snack with a signature spicy kick. Ingredients: rice paper, shrimp sate sauce, and original spicy sate.',
+      zh: '简单却令人上瘾的零食，带有独特的辛辣风味。成分：米纸、虾米沙茶酱和原味辣沙茶酱。'
     },
     tags: {
       fr: ['Saté Crevettes', 'Épicé', 'Street Food'],
@@ -218,10 +218,10 @@ const MENU_ITEMS = [
       zh: '全料招牌'
     },
     desc: {
-      fr: 'Plateau complet de rouleaux de riz garnis de bœuf séché, œufs de caille, crevettes séchées, ciboule et double sauce beurre onctueux et tamarin acidulé.',
-      vi: 'Mẹt bánh tráng cuốn ngập tràn đầy đủ topping: bò khô hảo hạng, trứng cút bùi béo, ruốc tép, hành phi, rau răm và chấm sốt bơ me chua ngọt béo ngậy thần thánh.',
-      en: 'Loaded rice paper roll feast packed with savory beef jerky, quail eggs, dried baby shrimp, fragrant herbs, and the signature rich egg butter & tamarind dipping sauce.',
-      zh: '全配料豪华米纸卷拼盘：精选牛肉干、香卤鹌鹑蛋、香脆虾皮、翠绿芫荽，搭配秘制香浓黄油蛋黄酱与酸甜罗望子蘸汁。'
+      fr: 'Roulés de galettes de riz moelleuses avec une garniture complète et savoureuse. Ingrédients : galettes de riz, œufs de caille, bœuf séché, couennes de porc croustillantes, coriandre vietnamienne, mangue aigre. Assaisonnement : sauce saté (crevettes et piment), sel pimenté, ail frit, mayonnaise et sauce kumquat.',
+      vi: 'Cuốn bánh tráng dẻo dai bùng nổ hương vị với ngập tràn topping ăn vặt. Thành phần gồm bánh tráng, trứng cút, khô bò, da heo giòn, rau răm, xoài chua. Gia vị trộn kèm: Sa tế (tôm & cay), muối cay, tỏi phi, bơ béo và sốt tắc.',
+      en: 'Chewy rice paper rolls bursting with flavors and loaded with savory toppings. Ingredients: rice paper, quail eggs, beef jerky, crispy pork rinds, Vietnamese coriander, sour mango. Seasoning: sate sauce (shrimp & chili), chili salt, fried garlic, mayonnaise, and kumquat sauce.',
+      zh: '充满嚼劲的米纸卷，搭配满满的丰富配料，味道爆发。成分：米纸、鹌鹑蛋、牛肉干、炸猪皮、越南香菜、酸芒果。调料：沙茶酱（虾与辣椒）、辣椒盐、炸蒜、蛋黄酱和金桔酱。'
     },
     tags: {
       fr: ['Full Topping', 'Sauce Beurre Me', 'Incontournable'],
@@ -250,10 +250,10 @@ const MENU_ITEMS = [
       zh: 'DIY 自拌'
     },
     desc: {
-      fr: 'Kit prêt-à-mélanger chez soi : feuilles de riz prédécoupées, boîtes individuelles de bœuf séché, calmars, œufs de caille, mangue verte, saté et sauce secrète.',
-      vi: 'Set hộp kit bánh tráng tự trộn tại nhà chuẩn vị: bánh tráng cắt sẵn dẻo ngon, các hộp topping riêng biệt gồm bò khô, khô mực, trứng cút, tép đỏ, xoài, sa tế và nước sốt đặc biệt.',
-      en: 'Complete DIY mixed rice paper kit to toss at home: pre-cut chewy rice paper, separate containers of beef jerky, shredded squid, quail eggs, green mango, satay oil, and secret house dressing.',
-      zh: '家庭自拌米纸便携套盒：分装剪裁好的柔韧米纸、风味牛肉干、鱿鱼丝、鹌鹑蛋、酸甜青芒丝、独家秘制拌酱与香辣沙茶油。'
+      fr: 'Mélangez vous-même ces garnitures croustillantes, épicées et savoureuses. Ingrédients : galettes de riz coupées, œufs de caille, bœuf séché, couennes de porc croustillantes, coriandre vietnamienne, mangue aigre. Assaisonnement : sauce saté (crevettes et piment) et sel pimenté.',
+      vi: 'Tự tay trộn đều các loại topping giòn cay mặn ngọt để thưởng thức theo cách riêng. Thành phần gồm bánh tráng cắt sẵn, trứng cút, khô bò, da heo giòn, rau răm, xoài chua, ăn kèm gia vị sa tế (tôm & cay) và muối cay.',
+      en: 'Mix your own crunchy, spicy, and savory toppings to enjoy your way. Ingredients: pre-cut rice paper, quail eggs, beef jerky, crispy pork rinds, Vietnamese coriander, sour mango. Seasoning: sate sauce (shrimp & chili) and chili salt.',
+      zh: '亲手拌匀各种酥脆香辣的配料，享受属于你的风味。成分：切片米纸、鹌鹑蛋、牛肉干、炸猪皮、越南香菜、酸芒果。调料：沙茶酱（虾与辣椒）和辣椒盐。'
     },
     tags: {
       fr: ['Kit DIY', 'Frais & Ludique', 'À Partager'],
@@ -315,10 +315,10 @@ const MENU_ITEMS = [
       ]
     },
     desc: {
-      fr: "Feuilles de riz assouplies à la rosée de Trảng Bàng, moelleuses et parfumées, garnies d'ingrédients savoureux avec trempette au beurre et calamansi. 2 tailles : Petite 20$ / Grande 25$.",
-      vi: 'Bánh tráng phơi sương Trảng Bàng dẻo thơm đặc trưng cuốn kèm các loại nhân thịt đậm đà, chấm nước sốt tắc bơ hành phi chua cay béo ngậy. Có 2 kích cỡ: Size nhỏ 20$ / Size lớn 25$.',
-      en: 'Special dewy soft Trảng Bàng rice paper rolls filled with savory meats and herbs, paired with rich calamansi butter & shallot dip. Available in 2 sizes: Small 20$ / Large 25$.',
-      zh: '特制越式露水软米纸卷，口感柔韧软糯，包裹鲜香肉料与香草，配酸甜金桔黄油葱油蘸酱。提供2种规格：小份 20$ / 大份 25$。'
+      fr: 'Galettes de riz assouplies à la rosée, roulées avec une garniture généreuse. Ingrédients : galettes de riz moelleuses, œufs de caille, bœuf séché, couennes de porc croustillantes, coriandre vietnamienne, mangue aigre. Assaisonnement : sauce saté (crevettes et piment), sel pimenté, ail frit, mayonnaise et sauce kumquat. 2 tailles au choix : Petite (20$) / Grande (25$).',
+      vi: 'Bánh tráng phơi sương dẻo mềm, cuộn đầy ắp topping đậm vị. Thành phần gồm bánh tráng phơi sương mềm dai, trứng cút, khô bò, da heo giòn, rau răm, xoài chua. Gia vị trộn kèm: Sa tế (tôm & cay), muối cay, tỏi phi, bơ béo (mayonnaise) và sốt tắc. Có 2 kích cỡ: Size nhỏ (20$) / Size lớn (25$).',
+      en: 'Dew-wetted soft rice paper, rolled with a generous, flavorful filling. Ingredients: soft dew-wetted rice paper, quail eggs, beef jerky, crispy pork rinds, Vietnamese coriander, sour mango. Seasoning: sate sauce (shrimp & chili), chili salt, fried garlic, mayonnaise, and kumquat sauce. 2 sizes: Small (20$) / Large (25$).',
+      zh: '柔韧的露水米纸，卷满丰富可口的配料。成分：柔软露水米纸、鹌鹑蛋、牛肉干、炸猪皮、越南香菜、酸芒果。调料：沙茶酱（虾与辣椒）、辣椒盐、炸蒜、蛋黄酱和金桔酱。提供2种规格：小份 (20$) / 大份 (25$)。'
     },
     tags: {
       fr: ['Petite 20$', 'Grande 25$', 'Feuilles Rosée'],
@@ -684,10 +684,10 @@ const MENU_ITEMS = [
       zh: '招牌推荐'
     },
     desc: {
-      fr: 'Dessert thaïlandais emblématique au parfum envoûtant de durian frais, lamelles de jacquier sucré, gelée de coco croquante, perles de grenade et lait de coco velouté.',
-      vi: 'Chè Thái đặc biệt thơm nồng hương sầu riêng tươi hòa quyện cùng mít chín vàng ươm, thạch dừa giòn sần sật, hạt lựu, thạch lá dứa và nước cốt dừa béo ngậy thanh mát chuẩn vị.',
-      en: 'Iconic Thai sweet soup infused with aromatic fresh durian, sweet ripe jackfruit, chewy coconut jelly, ruby water chestnut pearls, and luscious creamy coconut milk.',
-      zh: '招牌泰式甜品，浓郁新鲜榴莲香气扑鼻，融合香甜波罗蜜丝、爽脆椰果、红宝石马蹄珠及浓厚丝滑椰浆，清凉甘甜。'
+      fr: 'Dessert crémeux et parfumé au durian, combiné avec des gelées et des fruits rafraîchissants. Ingrédients : durian, jacquier, longane, litchi, graines de palmier (Attap), gelée, lait et lait de coco.',
+      vi: 'Ly chè béo ngậy thơm lừng sầu riêng, kết hợp cùng các loại thạch và trái cây thanh mát. Thành phần gồm sầu riêng, mít, nhãn, trái vải, hạt đác, rau câu, thạch, sữa, nước cốt dừa.',
+      en: 'Creamy dessert infused with fragrant durian, combined with refreshing jellies and tropical fruits. Ingredients: durian, jackfruit, longan, lychee, Attap seeds, agar jelly, milk, and coconut milk.',
+      zh: '充满榴莲香气的浓郁甜品，搭配清凉的果冻与热带水果。成分：榴莲、菠萝蜜、龙眼、荔枝、亚答籽、燕菜果冻、牛奶和椰奶。'
     },
     tags: {
       fr: ['Durian Frais', 'Jacquier', 'Lait de Coco', 'Gourmand'],
@@ -716,10 +716,10 @@ const MENU_ITEMS = [
       zh: '热销推荐'
     },
     desc: {
-      fr: 'Dessert rafraîchissant et coloré combinant gelées de fruits artisanales, lanières de noix de coco tendre, perles croquantes, longanes sucrés et coulis de lait de coco crémeux.',
-      vi: 'Món chè giải nhiệt thanh tao hấp dẫn với các loại thạch trái cây sắc màu, dừa non dẻo bùi, hạt lựu ruby giòn tan, nhãn nhục ngọt dịu và nước cốt dừa sữa thơm lừng.',
-      en: 'Refreshing vibrant sweet soup packed with artisan fruit jellies, tender young coconut strips, crunchy water chestnuts, sweet longan, and fragrant coconut milk.',
-      zh: '经典越式美式风味甜汤，色彩缤纷，搭配手工水果果冻、鲜嫩椰肉条、爽脆马蹄粒与清甜龙眼，浇上香浓椰奶。'
+      fr: 'La version rafraîchissante du Chè Thái sans durian, facile à déguster. Ingrédients : jacquier, longane, litchi, graines de palmier (Attap), gelée, lait et lait de coco.',
+      vi: 'Phiên bản thanh mát không sầu riêng của Chè Thái, dễ ăn và giải nhiệt cực tốt. Thành phần gồm mít, nhãn, trái vải, hạt đác, rau câu, thạch, sữa, nước cốt dừa.',
+      en: 'The refreshing, durian-free version of the Thai Sweet Soup. Ingredients: jackfruit, longan, lychee, Attap seeds, agar jelly, milk, and coconut milk.',
+      zh: '无榴莲版本的泰式糖水，清凉解渴，老少咸宜。成分：菠萝蜜、龙眼、荔枝、亚答籽、燕菜果冻、牛奶和椰奶。'
     },
     tags: {
       fr: ['Rafraîchissant', 'Gelée Fruitée', 'Noix de Coco', 'Douceur'],
@@ -742,10 +742,10 @@ const MENU_ITEMS = [
       zh: 'N22. 冷豆腐布丁（Tàu Hủ Lạnh）'
     },
     desc: {
-      fr: 'Pudding de tofu ultra soyeux et rafraîchissant fait à base de fèves de soja pures, servi frais avec coulis de lait de coco onctueux et perles caramélisées savoureuses.',
-      vi: 'Tàu hủ lạnh núng nính, mềm mịn tan ngay đầu lưỡi được nấu từ đậu nành nguyên chất, ăn kèm topping trân châu dẻo dai ngọt dịu và nước cốt dừa béo thơm thanh mát.',
-      en: 'Ultra-silky cold soybean pudding melting delicate on the palate, served chilled with creamy coconut milk and chewy caramel boba pearls.',
-      zh: '甄选优质大豆现磨制作，豆腐花口感细腻滑嫩如丝，入口即化，搭配香糯Q弹黑糖波霸与香浓椰奶。'
+      fr: 'Tofu fondement doux avec une touche de sirop de gingembre chaud. Ingrédients : tofu soyeux, sirop de gingembre et lait de coco.',
+      vi: 'Tàu hủ mềm tan trong miệng, thoảng hương gừng ấm áp. Thành phần gồm tàu hủ mềm mịn, nước đường gừng, nước cốt dừa.',
+      en: 'Melt-in-your-mouth silken tofu with a hint of warm ginger syrup. Ingredients: silken tofu, ginger syrup, and coconut milk.',
+      zh: '入口即化的细腻豆腐花，散发着温暖的姜汁香气。成分：嫩滑豆腐花、姜汁糖水和椰奶。'
     },
     tags: {
       fr: ['Ultra Soyeux', 'Perles de Tapioca', 'Lait de Coco', 'Léger'],
@@ -774,10 +774,10 @@ const MENU_ITEMS = [
       zh: '特色推荐'
     },
     desc: {
-      fr: 'Délicieuse alliance entre tofu ultra-fondant et jeunes grains de riz gluant vert parfumés (Cốm), rehaussée d’un coulis onctueux de lait de coco.',
-      vi: 'Sự kết hợp độc đáo giữa tàu hủ mịn màng và cốm dẹp non xanh dẻo thơm ngát lúa non miền Bắc, rưới thêm nước cốt dừa béo ngậy ngọt thanh tao khó cưỡng.',
-      en: 'An exquisite blend of silky soft tofu pudding and fragrant Vietnamese young green sticky rice (cốm), drizzled with velvety coconut cream.',
-      zh: '极具创意的细腻嫩豆腐花，融合清香软糯的越南传统青幼糯米粒（Cốm），淋上香滑浓郁椰奶，风味层次丰富。'
+      fr: 'Version améliorée avec du jeune riz gluant vert aromatique et moelleux. Ingrédients : tofu soyeux, jeune riz gluant vert et lait de coco.',
+      vi: 'Phiên bản nâng cấp với hạt cốm xanh dẻo dẻo, thơm lừng. Thành phần gồm tàu hủ mềm mịn, cốm xanh dẻo thơm, nước cốt dừa.',
+      en: 'Upgraded version featuring chewy and aromatic green sticky rice flakes. Ingredients: silken tofu, green sticky rice flakes, and coconut milk.',
+      zh: '升级版本，加入软糯香甜的绿扁米。成分：嫩滑豆腐花、软糯绿扁米和椰奶。'
     },
     tags: {
       fr: ['Riz Vert Cốm', 'Tofu Fondant', 'Lait de Coco', 'Unique'],
@@ -806,10 +806,10 @@ const MENU_ITEMS = [
       zh: '人气热销'
     },
     desc: {
-      fr: 'Flan caramel maison onctueux et fondant cuit à la perfection, préparé avec des œufs frais, du lait riche et son caramel doré subtilement ambré avec une touche de café.',
-      vi: 'Bánh flan caramel kiểu Pháp mềm mịn không rỗ, thơm lừng vị trứng gà tươi và sữa béo ngậy, đượm lớp sốt caramel óng ánh ngọt dịu cùng cà phê thơm phức.',
-      en: 'Classic French-Vietnamese caramel custard flan, perfectly velvety with fresh eggs and cream, enveloped in glossy amber caramel sauce with a hint of coffee.',
-      zh: '传统法越风味焦糖鸡蛋布丁，口感细腻丝滑无气孔，蛋奶香浓郁醇厚，搭配微苦清甜的琥珀焦糖与浓香咖啡。'
+      fr: 'Dessert crémeux aux œufs et au lait, mélangé à la légère amertume du caramel. Ingrédients : œufs frais, lait riche, caramel.',
+      vi: 'Món tráng miệng mềm mịn, béo ngậy vị trứng sữa quyện cùng chút đắng nhẹ của caramel. Thành phần gồm trứng tươi, sữa béo ngậy, caramel.',
+      en: 'Smooth, creamy egg and milk dessert paired with the slight bitterness of caramel. Ingredients: fresh eggs, rich milk, caramel.',
+      zh: '丝滑细腻的蛋奶甜品，融合了焦糖的微苦风味。成分：新鲜鸡蛋、浓郁牛奶、焦糖。'
     },
     tags: {
       fr: ['Œufs Frais', 'Caramel Doré', 'Fondant Absolu', 'Café'],
@@ -838,10 +838,10 @@ const MENU_ITEMS = [
       zh: '人气热销'
     },
     desc: {
-      fr: 'Délicats cubes de khúc bạch aux belles couleurs pastel et saveur de fromage frais onctueux, sublimés par des fraises fraîches, mangue juteuse, raisins, litchis, perles et graines de basilic dans un sirop rafraîchissant.',
-      vi: 'Từng viên khúc bạch phô mai sữa dẻo béo lượn sóng đa sắc màu bắt mắt, hòa cùng dâu tây tươi, xoài chín, nho xanh, vải mọng nước, hạt é và trân châu dẻo bùi trong nước đường phèn dịu mát thanh nhiệt.',
-      en: 'Vibrant wavy rainbow cheese panna cotta cubes served with fresh sliced strawberries, ripe mango, green grapes, juicy lychees, chewy boba pearls, and basil seeds in light chilled syrup.',
-      zh: '高颜值彩虹波浪纹意式奶酪冻，奶香浓郁Q弹，搭配新鲜草莓切片、香甜芒果粒、青提葡萄、多汁荔枝、软糯波霸与罗勒子，甘甜解暑清爽过瘾。'
+      fr: 'Cubes de panna cotta fondants et crémeux servis dans un sirop léger au sucre candi. Ingrédients : panna cotta moelleuse (Khuc Bach), litchi, amandes effilées, sirop léger de sucre candi et gélatine.',
+      vi: 'Những viên khúc bạch núng nính, béo ngậy tan trong nước đường phèn thanh tao. Thành phần gồm khúc bạch dẻo béo, trái vải, hạt hạnh nhân lát, nước đường phèn nhạt và gelatin.',
+      en: 'Jiggly, creamy panna cotta cubes swimming in a delicate rock sugar syrup. Ingredients: chewy creamy Khuc Bach, lychee, sliced almonds, light rock sugar syrup, and gelatin.',
+      zh: '柔软细腻的奶冻块漂浮在清甜的冰糖水中。成分：香滑白玉奶冻、荔枝、杏仁片、清淡冰糖水和吉利丁。'
     },
     tags: {
       fr: ['Khúc Bạch Pastel', 'Fruits Frais', 'Fraises & Mangue', 'Ultra Frais'],
@@ -870,10 +870,10 @@ const MENU_ITEMS = [
       zh: '家庭装'
     },
     desc: {
-      fr: 'Grande boîte de gelée agar-agar artisanale sculptée en fleurs délicates, superposant de savoureuses couches naturelles : pandan frais parfumé, lait de coco riche et café subtil.',
-      vi: 'Hộp thạch rau câu tạo hình hoa tinh xảo nhiều tầng giòn sần sật với hương vị tự nhiên: lá dứa tươi thanh mát, nước cốt dừa béo ngậy và cà phê thơm lừng, đóng hộp lịch sự cả nhà cùng mê.',
-      en: 'Artisan layered agar-agar jelly box crafted into beautiful floral shapes with natural fresh pandan, velvety coconut milk, and aromatic coffee layers. Crisp, chilled and delightful.',
-      zh: '精美手作立体花形多层琼脂果冻礼盒，甄选鲜榨天然斑斓汁、香浓椰浆与醇香咖啡层层慢蒸制作，晶莹剔透，清爽Q弹。'
+      fr: 'Bloc de gelée frais et croquant avec diverses options de saveurs. Ingrédients : poudre de gelée d\'agar, lait, arômes naturels (Pandan / Cacao / Café).',
+      vi: 'Khối thạch mát lạnh, giòn sực với nhiều lựa chọn hương vị đa dạng. Thành phần gồm bột rau câu, sữa, hương vị tự nhiên (Lá dứa / Cacao / Cà phê).',
+      en: 'Cool and crunchy jelly block with a variety of flavor options. Ingredients: agar powder, milk, natural flavors (Pandan / Cocoa / Coffee).',
+      zh: '清凉爽脆的果冻块，提供多种风味选择。成分：燕菜粉、牛奶、天然香料（斑斓叶 / 可可 / 咖啡）。'
     },
     tags: {
       fr: ['20$/Boîte', 'Pandan & Coco', 'Café & Fleurs', 'À Partager'],
@@ -902,10 +902,10 @@ const MENU_ITEMS = [
       zh: '真柚子肉'
     },
     desc: {
-      fr: "Délicieuse spécialité alliant de vrais morceaux d'écorce de pamplemousse frais préparés maison pour une texture croquante sans amertume, et de jeunes grains de riz vert (cốm) au lait de coco.",
-      vi: 'Sự hòa quyện tuyệt hảo giữa cùi bưởi thật 100% tự nhiên được xử lý thủ công giòn sần sật không hề đắng, sánh quyện cùng hạt cốm nếp non xanh ngát thơm ngào ngạt và nước cốt dừa béo ngậy.',
-      en: 'Exquisite harmony of 100% authentic hand-prepared fresh pomelo rind (pleasantly crunchy, zero bitterness) combined with fragrant green young sticky rice (cốm) and rich coconut cream.',
-      zh: '纯手工制作100%新鲜柚子瓤，经繁复古法去苦，口感晶莹爽脆弹牙，与清香软糯的青糯米（Cốm）以及香浓椰浆完美交织。'
+      fr: "La combinaison parfaite du jeune riz gluant vert aromatique et de l'écorce de pomélo croquante. Ingrédients : jeune riz gluant (Cốm), écorces de pomélo, fécule de tapioca, haricots mungo et lait de coco.",
+      vi: 'Sự kết hợp hoàn hảo giữa hương cốm mùa thu dẻo thơm và cùi bưởi giòn tan. Thành phần gồm cốm dẻo, cùi bưởi, bột năng, đậu xanh, nước cốt dừa.',
+      en: 'The perfect combination of aromatic green sticky rice flakes and crunchy pomelo peel. Ingredients: green sticky rice flakes (Cốm), pomelo peel, tapioca starch, mung bean, and coconut milk.',
+      zh: '充满秋季香气的软糯绿扁米与爽脆柚子皮的完美结合。成分：软糯绿扁米、柚子皮、木薯粉、绿豆和椰奶。'
     },
     tags: {
       fr: ['Vrai Pamplemousse', 'Riz Vert Cốm', 'Croquant', 'Sans Additifs'],
@@ -934,10 +934,10 @@ const MENU_ITEMS = [
       zh: '真柚子肉'
     },
     desc: {
-      fr: 'Le célèbre chè bưởi traditionnel vietnamien : 100% vraie écorce de pamplemousse fraîche croquante et translucide, haricots mungo fondants et coulis de lait de coco onctueux.',
-      vi: 'Món chè bưởi truyền thống trứ danh: 100% cùi bưởi thật tươi ngon sơ chế tỉ mỉ giòn sần sật trong suốt, đậu xanh bùi bở nấu sánh mịn hòa quyện nước cốt dừa tươi thơm béo ngọt ngào khó quên.',
-      en: 'Famous Vietnamese traditional sweet soup: 100% real hand-prepped fresh pomelo rind, crystal crisp and delicate, simmered with tender mung beans in velvety sweet coconut milk.',
-      zh: '闻名遐迩的越南经典柚子甜汤：100%真新鲜柚子瓤古法慢制，晶莹剔透脆爽无苦味，融入香甜绵密脱皮绿豆蓉与丝滑浓香椰浆。'
+      fr: 'Écorces de pomélo croquantes enrobées, mélangées dans une soupe de haricots mungo onctueuse et lait de coco. Ingrédients : écorces de pomélo, haricots mungo, lait de coco et fécule de tapioca.',
+      vi: 'Cùi bưởi giòn sần sật, quyện trong lớp chè đậu xanh sánh mịn và cốt dừa béo ngậy. Thành phần gồm cùi bưởi, đậu xanh, nước cốt dừa và BỘT NĂNG.',
+      en: 'Crunchy pomelo peel coated in tapioca, mixed in a smooth mung bean and rich coconut milk base. Ingredients: pomelo peel, mung bean, coconut milk, and tapioca starch.',
+      zh: '爽脆的柚子皮包裹着木薯粉，融入柔滑的绿豆糊与浓郁椰奶中。成分：柚子皮、绿豆、椰奶和木薯粉。'
     },
     tags: {
       fr: ['Vrai Pamplemousse', 'Haricot Mungo', 'Lait de Coco', 'Traditionnel'],
@@ -966,10 +966,10 @@ const MENU_ITEMS = [
       zh: '清热养生'
     },
     desc: {
-      fr: "Boisson-dessert traditionnelle tonifiante et rafraîchissante : mariage bienfaisant de jujubes rouges, longanes séchés, graines de lotus fondantes, orge perlé, algues croquantes et châtaignes d'eau.",
-      vi: 'Thức uống tráng miệng bổ dưỡng gia truyền giúp thanh nhiệt giải độc cơ thể: kết hợp táo đỏ, long nhãn, hạt sen bùi ngậy, bo bo dẻo, rong biển giòn dai và củ năng thanh ngọt mát lành.',
-      en: 'Nourishing and rejuvenating heritage sweet soup cocktail: a delightful mix of red dates, dried longan, soft lotus seeds, barley, crunchy seaweed, and refreshing sweet water chestnuts in light herbal tea.',
-      zh: '越式经典滋补润燥清凉养生甜汤：甄选红枣、桂圆肉、粉糯莲子、爽滑薏米、爽脆海带结与清甜马蹄，甘甜清心解热。'
+      fr: 'Boisson rafraîchissante, douce et nourrissante aux herbes médicinales. Ingrédients : racine de lotus, graines de lotus, baies de goji, jujubes, varech, longane séché et sirop léger.',
+      vi: 'Ly sâm thanh mát, ngọt dịu, kết hợp nhiều loại thảo mộc bồi bổ. Thành phần gồm củ sen, hạt sen, kỷ tử, táo tàu, phổ tai, LONG NHÃN và nước đường mát.',
+      en: 'A refreshing, mildly sweet, and nourishing herbal drink. Ingredients: lotus root, lotus seeds, goji berries, jujubes, kelp, dried longan, and light syrup.',
+      zh: '清凉微甜的养生草本饮品，滋补润肺。成分：莲藕、莲子、枸杞、红枣、海带、桂圆和清甜糖水。'
     },
     tags: {
       fr: ['Jujubes & Longanes', 'Graines de Lotus', 'Algues Croquantes', 'Bien-être'],
@@ -1005,10 +1005,10 @@ const MENU_ITEMS = [
       zh: '需预订 / 周末限定'
     },
     desc: {
-      fr: 'Gâteau traditionnel vietnamien à la vapeur, fines couches de tapioca au parfum de pandan frais mixé maison et haricot mungo au lait de coco onctueux. 100% ingrédients naturels sans colorant artificiel. ⚠️ Note : Sur commande préalable ou disponible en boutique uniquement les fins de semaine.',
-      vi: 'Bánh da lợn dẻo dai thơm lừng với từng lớp lá dứa tươi xay xanh ngát xen kẽ đậu xanh nước cốt dừa béo ngậy ngọt thanh, 100% màu và hương từ lá dứa tươi tự nhiên. ⚠️ Lưu ý: Bánh cần đặt trước hoặc chỉ có sẵn tại tiệm vào các ngày cuối tuần.',
-      en: 'Traditional Vietnamese steamed layer cake featuring vibrant fresh-blended pandan jelly and creamy mung bean coconut paste. 100% natural color and fragrance. ⚠️ Note: Pre-order required or available in-store on weekends only.',
-      zh: '经典越式传统蒸糕，100%鲜榨斑斓汁制作，晶莹翠绿粉层与香浓椰奶绿豆泥层层相间，口感软糯Q弹清甜。⚠️ 温馨提示：需提前预订，或仅限周末到店供应。'
+      fr: 'Gâteau traditionnel moelleux, parfumé aux feuilles de pandan et aux haricots mungo. Ingrédients : haricots mungo, fécule de tapioca et farine de riz au parfum de pandan. ⚠️ Note : Sur commande préalable ou disponible en boutique uniquement les fins de semaine.',
+      vi: 'Món bánh quê dẻo dai, thơm nức mùi lá dứa và bùi bùi vị đậu xanh. Thành phần gồm đậu xanh, bột năng & bột gạo dẻo thơm lá dứa. ⚠️ Lưu ý: Bánh cần đặt trước hoặc chỉ có sẵn tại tiệm vào các ngày cuối tuần.',
+      en: 'A traditional chewy cake, fragrant with pandan leaves and nutty mung beans. Ingredients: mung bean, tapioca starch & rice flour with pandan flavor. ⚠️ Note: Pre-order required or available in-store on weekends only.',
+      zh: '充满家乡风味的软糯糕点，散发着斑斓叶的清香与绿豆的醇厚。成分：绿豆、木薯粉与带有斑斓叶香味的粘米粉。⚠️ 温馨提示：需提前预订，或仅限周末到店供应。'
     },
     tags: {
       fr: ['3$/pièce', '100% Pandan Frais', 'Sur Commande', 'Week-ends'],
@@ -1042,10 +1042,10 @@ const MENU_ITEMS = [
       zh: '需预订 / 周末限定'
     },
     desc: {
-      fr: 'Pâtisserie traditionnelle emblématique : sublime couleur vert émeraude obtenue à partir de 100% de jus de feuilles de pandan fraîches mixées maison (sans arôme ni colorant artificiel), pâte de tapioca translucide croquante aux lanières de noix de coco fraîche et farce onctueuse de haricot mungo. ⚠️ Note : Sur commande préalable ou disponible en boutique uniquement les fins de semaine.',
-      vi: 'Món bánh cổ truyền trứ danh: màu xanh ngọc bích từ 100% nước cốt lá dứa tươi xay nhuyễn tự nhiên (nói không với phẩm màu hay hương liệu bột), vỏ bánh bột năng trong suốt giòn dai điểm sợi dừa non sần sật ôm trọn nhân đậu xanh thơm bùi ngọt thanh. ⚠️ Lưu ý: Bánh cần đặt trước hoặc chỉ có sẵn tại tiệm vào các ngày cuối tuần.',
-      en: 'Iconic heritage delicacy: beautiful emerald color crafted from 100% fresh pandan leaves blended in-house (zero artificial flavors or food coloring), chewy translucent tapioca jelly with young coconut shreds wrapping velvety sweet mung bean paste. ⚠️ Note: Pre-order required or available in-store on weekends only.',
-      zh: '极具象征意义的越式传统名点：甄选100%鲜榨斑斓叶汁调配（绝非香精色素），晶莹剔透Q弹外皮揉入爽脆嫩椰丝，包裹香甜绵密绿豆蓉。⚠️ 温馨提示：需提前预订，或仅限周末到店供应。'
+      fr: 'Croûte translucide et croquante enveloppant une garniture douce aux haricots mungo. Ingrédients : garniture douce aux haricots mungo, croûte translucide à la fécule de tapioca. ⚠️ Note : Sur commande préalable ou disponible en boutique uniquement les fins de semaine.',
+      vi: 'Lớp vỏ trong vắt giòn sần sật ôm lấy nhân đậu xanh sên ngọt ngào. Thành phần gồm đậu xanh sên ngọt, lớp vỏ bột năng trong vắt, giòn sần sật. ⚠️ Lưu ý: Bánh cần đặt trước hoặc chỉ có sẵn tại tiệm vào các ngày cuối tuần.',
+      en: 'Translucent, crunchy crust embracing a sweet mung bean filling. Ingredients: sweet mung bean filling, translucent and crunchy tapioca crust. ⚠️ Note: Pre-order required or available in-store on weekends only.',
+      zh: '晶莹剔透、爽脆的外皮包裹着香甜的绿豆内陷。成分：香甜绿豆馅，晶莹剔透的脆木薯皮。⚠️ 温馨提示：需提前预订，或仅限周末到店供应。'
     },
     tags: {
       fr: ['3$/pièce', '100% Pandan Frais', 'Sur Commande', 'Week-ends'],
