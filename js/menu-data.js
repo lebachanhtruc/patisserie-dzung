@@ -293,7 +293,7 @@ const MENU_ITEMS = [
       en: ['Small 20$', 'Large 25$', 'Dew-wetted'],
       zh: ['小份20$', '大份25$', '露水米纸']
     },
-    image: 'assets/images/menu-banh-trang-n13-full.png'
+    image: 'assets/images/menu-banh-trang-n13.jpg'
   },
 
 
