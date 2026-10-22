@@ -742,16 +742,16 @@ const MENU_ITEMS = [
       zh: 'N22. 冷豆腐布丁（Tàu Hủ Lạnh）'
     },
     desc: {
-      fr: 'Pudding de tofu soyeux et rafraîchissant fait à base de fèves de soja pures, servi avec son sirop de gingembre au sucre candi ou un coulis de lait de coco doux.',
-      vi: 'Tàu hủ lạnh núng nính, mềm mịn tan ngay đầu lưỡi được nấu từ đậu nành nguyên chất, chan nước đường phèn gừng thanh ấm hoặc nước cốt dừa béo thơm dịu nhẹ.',
-      en: 'Ultra-silky cold soybean pudding melting delicate on the palate, served chilled with fragrant rock sugar ginger syrup or creamy coconut cream.',
-      zh: '甄选优质非转基因大豆现磨制作，豆腐花口感细腻滑嫩如丝，入口即化，佐以清甜老姜冰糖水或香浓椰奶。'
+      fr: 'Pudding de tofu ultra soyeux et rafraîchissant fait à base de fèves de soja pures, servi frais avec coulis de lait de coco onctueux et perles caramélisées savoureuses.',
+      vi: 'Tàu hủ lạnh núng nính, mềm mịn tan ngay đầu lưỡi được nấu từ đậu nành nguyên chất, ăn kèm topping trân châu dẻo dai ngọt dịu và nước cốt dừa béo thơm thanh mát.',
+      en: 'Ultra-silky cold soybean pudding melting delicate on the palate, served chilled with creamy coconut milk and chewy caramel boba pearls.',
+      zh: '甄选优质大豆现磨制作，豆腐花口感细腻滑嫩如丝，入口即化，搭配香糯Q弹黑糖波霸与香浓椰奶。'
     },
     tags: {
-      fr: ['Soja Naturel', 'Ultra Soyeux', 'Sirop Gingembre', 'Léger'],
-      vi: ['Đậu Nành Tươi', 'Mềm Mịn Tan Chảy', 'Đường Gừng', 'Thanh Đạm'],
-      en: ['Fresh Soy', 'Silky Smooth', 'Ginger Syrup', 'Healthy'],
-      zh: ['现磨大豆', '细腻滑嫩', '古法姜糖', '健康低糖']
+      fr: ['Ultra Soyeux', 'Perles de Tapioca', 'Lait de Coco', 'Léger'],
+      vi: ['Mềm Mịn Tan Chảy', 'Trân Châu Dẻo', 'Cốt Dừa Béo', 'Thanh Mát'],
+      en: ['Silky Smooth', 'Chewy Boba', 'Coconut Cream', 'Refreshing'],
+      zh: ['细腻滑嫩', 'Q弹波霸', '香浓椰浆', '健康清凉']
     },
     image: 'assets/images/menu-dessert-n22.jpg'
   },
