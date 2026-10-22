@@ -261,6 +261,24 @@ function renderMenu(category = 'all') {
     ? MENU_ITEMS 
     : MENU_ITEMS.filter(item => item.category === category);
 
+  if (filteredItems.length === 0) {
+    const emptyMsg = currentLang === 'fr'
+      ? 'Nos délicieux desserts arrivent très bientôt !'
+      : (currentLang === 'zh'
+          ? '精致甜品即将上线，敬请期待！'
+          : (currentLang === 'en'
+              ? 'Delicious desserts coming very soon!'
+              : 'Các món tráng miệng ngọt ngào đang được tiệm chuẩn bị và sẽ sớm ra mắt!'));
+    menuContainer.innerHTML = `
+      <div style="grid-column: 1 / -1; text-align: center; padding: 4.5rem 1rem; color: var(--color-text-muted);">
+        <div style="font-size: 3.5rem; margin-bottom: 1rem;">🍧</div>
+        <h3 style="color: #fff; font-size: 1.3rem; margin-bottom: 0.5rem; font-family: var(--font-serif);">${emptyMsg}</h3>
+        <p style="font-size: 0.9rem; color: var(--color-gold);">Pâtisserie Dzung</p>
+      </div>
+    `;
+    return;
+  }
+
   menuContainer.innerHTML = filteredItems.map(item => {
     const name = item.name[currentLang] || item.name.fr || item.name.vi;
     const desc = item.desc[currentLang] || item.desc.fr || item.desc.vi;

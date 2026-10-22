@@ -45,7 +45,8 @@ const TRANSLATIONS = {
     tab_all: "Tous les plats",
     tab_banhmi: "🥖 Bánh Mì",
     tab_streetfood: "🍢 Street Food & Snacks",
-    tab_drinks: "☕ Boissons & Desserts",
+    tab_drinks: "☕ Boissons",
+    tab_desserts: "🍧 Desserts",
     tab_rolls: "🥮 Pâtisseries Traditionnelles VN",
     btn_add_dish: "+ Ajouter",
 
@@ -159,7 +160,8 @@ const TRANSLATIONS = {
     tab_all: "Tất Cả Món",
     tab_banhmi: "🥖 Bánh Mì Việt Nam",
     tab_streetfood: "🍢 Đồ Ăn Vặt Đường Phố",
-    tab_drinks: "☕ Đồ Uống & Tráng Miệng",
+    tab_drinks: "☕ Đồ Uống",
+    tab_desserts: "🍧 Món Tráng Miệng",
     tab_rolls: "🥮 Món Bánh Truyền Thống VN",
     btn_add_dish: "+ Thêm",
 
@@ -273,7 +275,8 @@ const TRANSLATIONS = {
     tab_all: "All Dishes",
     tab_banhmi: "🥖 Vietnamese Bánh Mì",
     tab_streetfood: "🍢 Street Food & Snacks",
-    tab_drinks: "☕ Drinks & Sweets",
+    tab_drinks: "☕ Drinks",
+    tab_desserts: "🍧 Desserts",
     tab_rolls: "🥮 Traditional VN Pastries",
     btn_add_dish: "+ Add",
 
@@ -387,7 +390,8 @@ const TRANSLATIONS = {
     tab_all: "全部菜品",
     tab_banhmi: "🥖 越南特色法包",
     tab_streetfood: "🍢 街头精选小吃",
-    tab_drinks: "☕ 特色饮品与甜点",
+    tab_drinks: "☕ 特色饮品",
+    tab_desserts: "🍧 精致甜品",
     tab_rolls: "🥮 越南传统糕点",
     btn_add_dish: "+ 点单",
 
