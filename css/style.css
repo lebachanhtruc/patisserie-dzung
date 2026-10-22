@@ -970,6 +970,12 @@ section {
   color: #1e1e24;
 }
 
+.dish-badge.weekend,
+.dish-badge.preorder {
+  background: linear-gradient(135deg, #e67e22, #d35400);
+  color: #fff;
+}
+
 .dish-info {
   padding: 1.5rem;
   display: flex;

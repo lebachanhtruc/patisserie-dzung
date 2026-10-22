@@ -633,9 +633,14 @@ const MENU_ITEMS = [
   {
     id: 'pst-01',
     category: 'rolls',
-    price: 6,
-    priceDisplay: '6$',
-    badge: 'signature',
+    price: 3,
+    priceDisplay: {
+      fr: '3$ / pièce',
+      vi: '3$ / cái',
+      en: '3$ / pc',
+      zh: '3$ / 个'
+    },
+    badge: 'weekend',
     name: {
       fr: 'Gâteau Étage Pandan & Haricot Mungo (Bánh Da Lợn)',
       vi: 'Bánh Da Lợn',
@@ -643,31 +648,36 @@ const MENU_ITEMS = [
       zh: '斑斓绿豆九层糕（Bánh Da Lợn）'
     },
     badgeText: {
-      fr: 'Traditionnel',
-      vi: 'Đặc Sản',
-      en: 'Traditional',
-      zh: '传统招牌'
+      fr: 'Sur Commande / Week-end',
+      vi: 'Đặt Trước / Cuối Tuần',
+      en: 'Pre-order / Weekend',
+      zh: '需预订 / 周末限定'
     },
     desc: {
-      fr: 'Gâteau traditionnel vietnamien cuit à la vapeur, composé de fines couches superposées de tapioca au parfum de pandan et de haricot mungo au lait de coco onctueux. Texture douce, élastique et parfumée.',
-      vi: 'Bánh da lợn truyền thống dẻo dai thơm lừng với từng lớp lá dứa xanh ngát xen kẽ lớp đậu xanh cốt dừa béo ngậy ngọt thanh, ăn thanh mát mềm mịn.',
-      en: 'Traditional Vietnamese steamed layer cake featuring vibrant pandan jelly layers alternating with rich, velvety mung bean and coconut cream paste. Delicately sweet, chewy, and refreshing.',
-      zh: '经典越式传统蒸糕，晶莹剔透的斑斓粉层与香浓细腻的椰奶绿豆泥层层相间，口感软糯Q弹，清甜爽口。'
+      fr: 'Gâteau traditionnel vietnamien à la vapeur, fines couches de tapioca au parfum de pandan et haricot mungo au lait de coco onctueux. Texture douce, élastique et parfumée. ⚠️ Note : Sur commande préalable ou disponible en boutique uniquement les fins de semaine.',
+      vi: 'Bánh da lợn dẻo dai thơm lừng với từng lớp lá dứa xanh ngát xen kẽ đậu xanh nước cốt dừa béo ngậy ngọt thanh, ăn thanh mát mềm mịn. ⚠️ Lưu ý: Bánh cần đặt trước hoặc chỉ có sẵn tại tiệm vào các ngày cuối tuần.',
+      en: 'Traditional Vietnamese steamed layer cake featuring fragrant pandan jelly and creamy mung bean coconut paste. Soft, delicately sweet, and refreshing. ⚠️ Note: Pre-order required or available in-store on weekends only.',
+      zh: '经典越式传统蒸糕，晶莹斑斓层与香浓椰奶绿豆泥层层相间，口感软糯Q弹清甜。⚠️ 温馨提示：需提前预订，或仅限周末到店供应。'
     },
     tags: {
-      fr: ['Traditionnel', 'Pandan & Coco', 'Moelleux & Doux'],
-      vi: ['Bánh Truyền Thống', 'Lá Dứa Đậu Xanh', 'Dẻo Thơm'],
-      en: ['Traditional Cake', 'Pandan & Coconut', 'Chewy & Sweet'],
-      zh: ['传统名点', '斑斓椰香', '软糯香甜']
+      fr: ['3$/pièce', 'Sur Commande', 'Week-ends'],
+      vi: ['3$/cái', 'Cần Đặt Trước', 'Có Vào Cuối Tuần'],
+      en: ['3$/pc', 'Pre-order', 'Weekends Only'],
+      zh: ['3$/个', '提前预订', '周末供应']
     },
-    image: 'https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&w=800&q=80'
+    image: 'assets/images/menu-banh-da-lon.jpg'
   },
   {
     id: 'pst-02',
     category: 'rolls',
-    price: 6,
-    priceDisplay: '6$',
-    badge: 'bestseller',
+    price: 3,
+    priceDisplay: {
+      fr: '3$ / pièce',
+      vi: '3$ / cái',
+      en: '3$ / pc',
+      zh: '3$ / 个'
+    },
+    badge: 'weekend',
     name: {
       fr: 'Gâteau Traditionnel Phu Thê / Xu Xuê',
       vi: 'Bánh Xu Xuê (Bánh Phu Thê)',
@@ -675,22 +685,22 @@ const MENU_ITEMS = [
       zh: '传统夫妻饼 / 喜饼（Bánh Xu Xuê）'
     },
     badgeText: {
-      fr: 'Populaire',
-      vi: 'Món Hot',
-      en: 'Popular',
-      zh: '人气必尝'
+      fr: 'Sur Commande / Week-end',
+      vi: 'Đặt Trước / Cuối Tuần',
+      en: 'Pre-order / Weekend',
+      zh: '需预订 / 周末限定'
     },
     desc: {
-      fr: 'Pâtisserie emblématique des mariages vietnamiens : pâte de tapioca translucide et croquante parsemée de lanières de noix de coco fraîche, enveloppant une farce fondante de haricot mungo délicatement parfumée.',
-      vi: 'Món bánh cổ truyền tượng trưng cho sự gắn kết ngọt ngào: vỏ bánh bột năng trong suốt giòn dai điểm sợi dừa non sần sật, ôm trọn nhân đậu xanh tán nhuyễn bùi bùi thơm thoảng hương hoa bưởi.',
-      en: 'Traditional festive delicacy symbolizing harmony: translucent chewy tapioca jelly embedded with crunchy young coconut shreds, wrapping a fragrant sweet mung bean filling.',
-      zh: '越南极具象征意义的传统喜庆点心：晶莹剔透、爽脆Q弹的外皮中糅合鲜嫩椰丝，包裹着香甜绵密细腻的绿豆蓉馅心。'
+      fr: 'Pâtisserie emblématique des mariages : pâte de tapioca translucide et croquante parsemée de noix de coco fraîche, farce fondante de haricot mungo parfumée à la fleur de pamplemousse. ⚠️ Note : Sur commande préalable ou disponible en boutique uniquement les fins de semaine.',
+      vi: 'Món bánh cổ truyền tượng trưng cho sự gắn kết ngọt ngào: vỏ bánh bột năng trong suốt giòn dai điểm sợi dừa non sần sật, ôm trọn nhân đậu xanh bùi bùi thơm thoảng hương hoa bưởi. ⚠️ Lưu ý: Bánh cần đặt trước hoặc chỉ có sẵn tại tiệm vào các ngày cuối tuần.',
+      en: 'Traditional festive delicacy: translucent chewy tapioca jelly embedded with young coconut shreds, wrapping sweet mung bean paste. ⚠️ Note: Pre-order required or available in-store on weekends only.',
+      zh: '传统越式喜庆点心：晶莹剔透Q弹外皮揉入鲜嫩椰丝，包裹香甜绿豆蓉。⚠️ 温馨提示：需提前预订，或仅限周末到店供应。'
     },
     tags: {
-      fr: ['Gâteau de Fête', 'Noix de Coco', 'Délicat'],
-      vi: ['Bánh Cổ Truyền', 'Dừa Non Giòn Sần Sật', 'Ngọt Dịu'],
-      en: ['Festive Cake', 'Young Coconut', 'Delicate'],
-      zh: ['喜庆糕点', '清脆鲜椰丝', '香甜软糯']
+      fr: ['3$/pièce', 'Sur Commande', 'Week-ends'],
+      vi: ['3$/cái', 'Cần Đặt Trước', 'Có Vào Cuối Tuần'],
+      en: ['3$/pc', 'Pre-order', 'Weekends Only'],
+      zh: ['3$/个', '提前预订', '周末供应']
     },
     image: 'assets/images/menu-banh-xu-xue.jpg'
   }

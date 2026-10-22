@@ -266,6 +266,9 @@ function renderMenu(category = 'all') {
     const desc = item.desc[currentLang] || item.desc.fr || item.desc.vi;
     const badgeText = item.badgeText ? (item.badgeText[currentLang] || item.badgeText.fr || item.badgeText.vi) : '';
     const tags = item.tags[currentLang] || item.tags.fr || item.tags.vi || [];
+    const priceDisplay = (item.priceDisplay && typeof item.priceDisplay === 'object')
+      ? (item.priceDisplay[currentLang] || item.priceDisplay.vi || item.priceDisplay.fr)
+      : (item.priceDisplay || `${item.price}$`);
 
     // Flavor / Variant Options Selector
     let optionsHtml = '';
@@ -313,7 +316,7 @@ function renderMenu(category = 'all') {
           <div>
             <div class="dish-header">
               <h3 class="dish-name">${name}</h3>
-              <span class="dish-price">${item.priceDisplay}</span>
+              <span class="dish-price">${priceDisplay}</span>
             </div>
             <p class="dish-desc">${desc}</p>
             ${optionsHtml}
