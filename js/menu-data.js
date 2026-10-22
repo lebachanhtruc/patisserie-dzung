@@ -328,6 +328,38 @@ const MENU_ITEMS = [
     },
     image: 'assets/images/menu-banh-trang-n13.jpg'
   },
+  {
+    id: 'sn-n14',
+    category: 'streetfood',
+    price: 20,
+    priceDisplay: '20$',
+    badge: 'signature',
+    name: {
+      fr: 'Riz Croustillant au Rousong (Cơm Cháy Chà Bông)',
+      vi: 'Cơm Cháy Chà Bông',
+      en: 'Crispy Rice with Pork Floss (Cơm Cháy Chà Bông)',
+      zh: '锅巴肉松（Cơm Cháy Chà Bông）'
+    },
+    badgeText: {
+      fr: 'Spécialité',
+      vi: 'Món Hot',
+      en: 'Specialty',
+      zh: '经典小吃'
+    },
+    desc: {
+      fr: "Morceaux de riz croustillant recouverts de rousong moelleux et d'huile à la ciboulette. Ingrédients : riz croustillant, huile à la ciboulette, rousong (porc effiloché) et sauce trempette salée-sucrée.",
+      vi: 'Từng miếng cơm cháy giòn rụm phủ đầy chà bông tơi xốp và mỡ hành béo ngậy. Thành phần gồm cơm cháy giòn rụm, mỡ hành, chà bông heo tơi xốp và sốt chấm mặn ngọt.',
+      en: 'Pieces of crunchy rice crackers topped with fluffy pork floss and rich scallion oil. Ingredients: crispy rice crackers, scallion oil, pork floss, and a sweet-savory dipping sauce.',
+      zh: '酥脆的锅巴铺满蓬松的猪肉松和香浓的葱油。成分：香脆锅巴、葱油、猪肉松和咸甜蘸酱。'
+    },
+    tags: {
+      fr: ['20$', 'Riz Croustillant', 'Rousong', 'Ciboulette'],
+      vi: ['20$/Phần', 'Cơm Cháy Giòn', 'Chà Bông Heo', 'Mỡ Hành Béo'],
+      en: ['20$', 'Crispy Rice', 'Pork Floss', 'Scallion Oil'],
+      zh: ['20$', '香脆锅巴', '蓬松肉松', '咸甜蘸酱']
+    },
+    image: 'assets/images/menu-streetfood-com-chay.jpg'
+  },
 
 
 
@@ -978,6 +1010,102 @@ const MENU_ITEMS = [
       zh: ['养生清补', '红枣莲子', '桂圆龙眼', '清热解暑']
     },
     image: 'assets/images/menu-dessert-n29.jpg'
+  },
+  {
+    id: 'ds-n30',
+    category: 'desserts',
+    price: 9,
+    priceDisplay: '9$',
+    badge: 'bestseller',
+    name: {
+      fr: "N30. Chè Sương Sâm Sương Sáo (Dessert aux Gelées d'Herbes)",
+      vi: 'N30. Chè Sương Sâm Sương Sáo',
+      en: 'N30. Herbal Jellies Sweet Soup (Chè Sương Sâm Sương Sáo)',
+      zh: 'N30. 仙草绿草冻糖水（Chè Sương Sâm Sương Sáo）'
+    },
+    badgeText: {
+      fr: 'Rafraîchissant',
+      vi: 'Thanh Nhiệt',
+      en: 'Cooling',
+      zh: '清凉解暑'
+    },
+    desc: {
+      fr: "Boisson rustique et rafraîchissante, parfaite pour les journées chaudes. Ingrédients : gelée d'herbe Tiliacora (verte), gelée noire, haricots mungo décortiqués, écorces de pomélo, lait et lait de coco.",
+      vi: 'Thức uống giải nhiệt dân dã, mát lạnh ngày hè. Thành phần gồm sâm lá, sương sáo, đậu xanh cà vỏ, cùi bưởi, sữa, nước cốt dừa.',
+      en: 'A rustic and refreshing drink, perfect for cooling down on summer days. Ingredients: green grass jelly (Tiliacora), black grass jelly, peeled mung beans, pomelo peel, milk, and coconut milk.',
+      zh: '充满民间风味的消暑饮品，夏日清凉首选。成分：绿草冻、仙草冻、去皮绿豆、柚子皮、牛奶和椰奶。'
+    },
+    tags: {
+      fr: ['Gelée Verte', 'Gelée Noire', 'Cùi Bưởi Thật', 'Lait de Coco'],
+      vi: ['Sâm Lá Tươi', 'Sương Sáo', 'Cùi Bưởi Thật', 'Đậu Xanh Cà'],
+      en: ['Green Grass Jelly', 'Black Grass Jelly', 'Real Pomelo Rind', 'Coconut Milk'],
+      zh: ['天然绿草冻', '清爽仙草', '真柚子肉', '香浓椰浆']
+    },
+    image: 'assets/images/menu-dessert-n30.jpg'
+  },
+  {
+    id: 'ds-sua-chua',
+    category: 'desserts',
+    price: 3,
+    priceDisplay: '3$',
+    badge: 'signature',
+    name: {
+      fr: 'Sữa Chua Phô Mai (Yaourt au Fromage)',
+      vi: 'Sữa Chua Phô Mai (Da Ua)',
+      en: 'Cheese Yogurt (Sữa Chua Phô Mai)',
+      zh: '芝士酸奶（Sữa Chua Phô Mai）'
+    },
+    badgeText: {
+      fr: 'Artisanal',
+      vi: 'Lên Men Tự Nhiên',
+      en: 'Artisan',
+      zh: '纯手工'
+    },
+    desc: {
+      fr: "L'acidité douce fermentée naturellement se marie parfaitement avec le fromage onctueux. Ingrédients : yaourt fermenté naturellement combiné à du fromage crémeux.",
+      vi: 'Vị chua thanh lên men tự nhiên hòa quyện hoàn hảo cùng phô mai béo mịn. Thành phần gồm sữa chua lên men tự nhiên kết hợp phô mai béo mịn.',
+      en: 'Natural fermented tanginess perfectly blended with creamy cheese. Ingredients: naturally fermented yogurt combined with creamy cheese.',
+      zh: '天然发酵的清酸味与顺滑的芝士完美融合。成分：天然发酵酸奶结合浓郁芝士。'
+    },
+    tags: {
+      fr: ['3$/Pot', 'Yaourt Maison', 'Fromage Crémeux', 'Naturel'],
+      vi: ['3$/Hũ', 'Lên Men Tự Nhiên', 'Phô Mai Béo Mịn', 'Chua Ngọt Dịu'],
+      en: ['3$/Jar', 'House Yogurt', 'Cream Cheese', 'Probiotic'],
+      zh: ['3$/杯', '手工酸奶', '浓郁芝士', '天然发酵']
+    },
+    image: 'assets/images/menu-dessert-sua-chua.jpg'
+  },
+  {
+    id: 'ds-mu-trom',
+    category: 'desserts',
+    price: 9,
+    priceDisplay: '9$',
+    badge: 'signature',
+    name: {
+      fr: 'Mủ Trôm Gòn (Boisson à la Sève de Sterculia)',
+      vi: 'Mủ Trôm Gòn',
+      en: 'Sterculia & Kapok Gum Drink (Mủ Trôm Gòn)',
+      zh: '胖大海雪燕饮（Mủ Trôm Gòn）'
+    },
+    badgeText: {
+      fr: 'Désaltérant',
+      vi: 'Giải Nhiệt',
+      en: 'Refreshing',
+      zh: '清凉解渴'
+    },
+    desc: {
+      fr: 'Boisson rustique et rafraîchissante, très efficace pour se désaltérer. Ingrédients : sève de sterculia croquante et gomme de kapok rafraîchissante.',
+      vi: 'Thức uống mộc mạc, nhai dòn dai vui miệng, giải nhiệt cực tốt. Thành phần gồm mủ trôm dòn dai, mủ gòn thanh mát.',
+      en: 'A rustic, thirst-quenching drink with fun-to-chew jelly-like textures. Ingredients: crunchy sterculia gum and refreshing kapok gum.',
+      zh: '纯朴的天然解渴饮品，具有有趣的咀嚼口感，非常适合消暑。成分：爽脆胖大海树胶与清凉雪燕（木棉树胶）。'
+    },
+    tags: {
+      fr: ['Sève Sterculia', 'Gomme Kapok', 'Désaltérant', 'Frais'],
+      vi: ['Mủ Trôm Dòn Dai', 'Mủ Gòn Thanh Mát', 'Thanh Lọc', 'Giải Nhiệt'],
+      en: ['Sterculia Gum', 'Kapok Gum', 'Thirst Quencher', 'Healthy'],
+      zh: ['爽脆树胶', '天然雪燕', '清凉消暑', '润喉生津']
+    },
+    image: 'assets/images/menu-dessert-mu-trom.jpg'
   },
 
   // 🥮 MÓN BÁNH TRUYỀN THỐNG VN (PÂTISSERIES TRADITIONNELLES VN - 2 MÓN CHÍNH THỨC)
