@@ -503,7 +503,7 @@ const MENU_ITEMS = [
       en: ['Traditional Phin', 'Bold & Strong', 'Coffee'],
       zh: ['传统滴漏', '浓郁苦香', '提神原味']
     },
-    image: 'assets/images/menu-drink-n44-ca-phe-da.jpg'
+    image: 'assets/images/menu-drink-n44.jpg'
   },
   {
     id: 'dr-n45',
