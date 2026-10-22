@@ -838,16 +838,16 @@ const MENU_ITEMS = [
       zh: '人气热销'
     },
     desc: {
-      fr: 'Délicats cubes de panna cotta au lait et amandes fondants, accompagnés de longanes sucrés, amandes effilées grillées croquantes et sirop doux rafraîchissant.',
-      vi: 'Từng viên khúc bạch phô mai sữa béo ngậy dẻo mịn, điểm xuyết nhãn nhục thanh ngọt, rắc hạnh nhân lát rang giòn rụm và chan nước đường phèn dịu mát.',
-      en: 'Velvety almond and cheese milk panna cotta cubes served in delicate chilled syrup, paired with sweet longan fruit and toasted crunchy slivered almonds.',
-      zh: '极具人气的杏仁奶酪冻布丁切块，奶香醇厚细腻Q弹，搭配多汁清甜龙眼肉与现烤香脆杏仁薄片，清凉润肺。'
+      fr: 'Délicats cubes de khúc bạch aux belles couleurs pastel et saveur de fromage frais onctueux, sublimés par des fraises fraîches, mangue juteuse, raisins, litchis, perles et graines de basilic dans un sirop rafraîchissant.',
+      vi: 'Từng viên khúc bạch phô mai sữa dẻo béo lượn sóng đa sắc màu bắt mắt, hòa cùng dâu tây tươi, xoài chín, nho xanh, vải mọng nước, hạt é và trân châu dẻo bùi trong nước đường phèn dịu mát thanh nhiệt.',
+      en: 'Vibrant wavy rainbow cheese panna cotta cubes served with fresh sliced strawberries, ripe mango, green grapes, juicy lychees, chewy boba pearls, and basil seeds in light chilled syrup.',
+      zh: '高颜值彩虹波浪纹意式奶酪冻，奶香浓郁Q弹，搭配新鲜草莓切片、香甜芒果粒、青提葡萄、多汁荔枝、软糯波霸与罗勒子，甘甜解暑清爽过瘾。'
     },
     tags: {
-      fr: ['Panna Cotta Amande', 'Amandes Grillées', 'Longane', 'Rafraîchissant'],
-      vi: ['Khúc Bạch Dẻo Béo', 'Hạnh Nhân Rang Giòn', 'Nhãn Nhục', 'Đường Phèn Thanh Mát'],
-      en: ['Almond Panna Cotta', 'Toasted Almonds', 'Sweet Longan', 'Chilled'],
-      zh: ['浓郁杏仁冻', '香脆杏仁片', '清润龙眼', '人气推荐']
+      fr: ['Khúc Bạch Pastel', 'Fruits Frais', 'Fraises & Mangue', 'Ultra Frais'],
+      vi: ['Khúc Bạch Cầu Vồng', 'Trái Cây Tươi', 'Dâu Tây & Xoài', 'Thanh Mát'],
+      en: ['Rainbow Panna Cotta', 'Fresh Fruits', 'Strawberry & Mango', 'Chilled'],
+      zh: ['彩虹奶酪冻', '丰富鲜果', '草莓芒果', '人气甜品']
     },
     image: 'assets/images/menu-dessert-n25.jpg'
   },
