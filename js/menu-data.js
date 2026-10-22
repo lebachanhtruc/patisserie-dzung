@@ -662,6 +662,324 @@ const MENU_ITEMS = [
     image: 'assets/images/menu-drink-n48.jpg'
   },
 
+
+
+  // 🍧 MÓN TRÁNG MIỆNG (DESSERTS VIETNAMIENS - 10 MÓN CHÍNH THỨC N20 - N29)
+  {
+    id: 'ds-n20',
+    category: 'desserts',
+    price: 12,
+    priceDisplay: '12$',
+    badge: 'signature',
+    name: {
+      fr: 'N20. Chè Thái Đặc Biệt (Dessert Thaïlandais Spécial)',
+      vi: 'N20. Chè Thái Đặc Biệt',
+      en: 'N20. Thai Dessert Special (Chè Thái Đặc Biệt)',
+      zh: 'N20. 招牌泰式甜汤（Chè Thái Đặc Biệt）'
+    },
+    badgeText: {
+      fr: 'Spécialité Maison',
+      vi: 'Đặc Biệt',
+      en: 'House Special',
+      zh: '招牌推荐'
+    },
+    desc: {
+      fr: 'Dessert thaïlandais emblématique au parfum envoûtant de durian frais, lamelles de jacquier sucré, gelée de coco croquante, perles de grenade et lait de coco velouté.',
+      vi: 'Chè Thái đặc biệt thơm nồng hương sầu riêng tươi hòa quyện cùng mít chín vàng ươm, thạch dừa giòn sần sật, hạt lựu, thạch lá dứa và nước cốt dừa béo ngậy thanh mát chuẩn vị.',
+      en: 'Iconic Thai sweet soup infused with aromatic fresh durian, sweet ripe jackfruit, chewy coconut jelly, ruby water chestnut pearls, and luscious creamy coconut milk.',
+      zh: '招牌泰式甜品，浓郁新鲜榴莲香气扑鼻，融合香甜波罗蜜丝、爽脆椰果、红宝石马蹄珠及浓厚丝滑椰浆，清凉甘甜。'
+    },
+    tags: {
+      fr: ['Durian Frais', 'Jacquier', 'Lait de Coco', 'Gourmand'],
+      vi: ['Sầu Riêng Tươi', 'Mít Vàng', 'Thạch Dừa', 'Cốt Dừa Béo'],
+      en: ['Fresh Durian', 'Jackfruit', 'Coconut Milk', 'Popular'],
+      zh: ['新鲜榴莲', '香甜波罗蜜', '浓郁椰浆', '热带风味']
+    },
+    image: 'assets/images/menu-dessert-n20.jpg'
+  },
+  {
+    id: 'ds-n21',
+    category: 'desserts',
+    price: 10,
+    priceDisplay: '10$',
+    badge: 'bestseller',
+    name: {
+      fr: 'N21. Chè Mỹ (Dessert "Américain")',
+      vi: 'N21. Chè Mỹ',
+      en: 'N21. "American" Dessert (Chè Mỹ)',
+      zh: 'N21. 美式甜汤（Chè Mỹ）'
+    },
+    badgeText: {
+      fr: 'Populaire',
+      vi: 'Bán Chạy',
+      en: 'Popular',
+      zh: '热销推荐'
+    },
+    desc: {
+      fr: 'Dessert rafraîchissant et coloré combinant gelées de fruits artisanales, lanières de noix de coco tendre, perles croquantes, longanes sucrés et coulis de lait de coco crémeux.',
+      vi: 'Món chè giải nhiệt thanh tao hấp dẫn với các loại thạch trái cây sắc màu, dừa non dẻo bùi, hạt lựu ruby giòn tan, nhãn nhục ngọt dịu và nước cốt dừa sữa thơm lừng.',
+      en: 'Refreshing vibrant sweet soup packed with artisan fruit jellies, tender young coconut strips, crunchy water chestnuts, sweet longan, and fragrant coconut milk.',
+      zh: '经典越式美式风味甜汤，色彩缤纷，搭配手工水果果冻、鲜嫩椰肉条、爽脆马蹄粒与清甜龙眼，浇上香浓椰奶。'
+    },
+    tags: {
+      fr: ['Rafraîchissant', 'Gelée Fruitée', 'Noix de Coco', 'Douceur'],
+      vi: ['Thanh Mát', 'Thạch Trái Cây', 'Dừa Non', 'Giải Nhiệt'],
+      en: ['Refreshing', 'Fruit Jelly', 'Young Coconut', 'Light Sweet'],
+      zh: ['清凉解暑', '多重果冻', '鲜嫩椰肉', '香甜可口']
+    },
+    image: 'assets/images/menu-dessert-n21.jpg'
+  },
+  {
+    id: 'ds-n22',
+    category: 'desserts',
+    price: 5.5,
+    priceDisplay: '5.50$',
+    badge: null,
+    name: {
+      fr: 'N22. Tàu Hủ Lạnh (Pudding De Tofu Froid)',
+      vi: 'N22. Tàu Hủ Lạnh',
+      en: 'N22. Cold Tofu Pudding (Tàu Hủ Lạnh)',
+      zh: 'N22. 冷豆腐布丁（Tàu Hủ Lạnh）'
+    },
+    desc: {
+      fr: 'Pudding de tofu soyeux et rafraîchissant fait à base de fèves de soja pures, servi avec son sirop de gingembre au sucre candi ou un coulis de lait de coco doux.',
+      vi: 'Tàu hủ lạnh núng nính, mềm mịn tan ngay đầu lưỡi được nấu từ đậu nành nguyên chất, chan nước đường phèn gừng thanh ấm hoặc nước cốt dừa béo thơm dịu nhẹ.',
+      en: 'Ultra-silky cold soybean pudding melting delicate on the palate, served chilled with fragrant rock sugar ginger syrup or creamy coconut cream.',
+      zh: '甄选优质非转基因大豆现磨制作，豆腐花口感细腻滑嫩如丝，入口即化，佐以清甜老姜冰糖水或香浓椰奶。'
+    },
+    tags: {
+      fr: ['Soja Naturel', 'Ultra Soyeux', 'Sirop Gingembre', 'Léger'],
+      vi: ['Đậu Nành Tươi', 'Mềm Mịn Tan Chảy', 'Đường Gừng', 'Thanh Đạm'],
+      en: ['Fresh Soy', 'Silky Smooth', 'Ginger Syrup', 'Healthy'],
+      zh: ['现磨大豆', '细腻滑嫩', '古法姜糖', '健康低糖']
+    },
+    image: 'assets/images/menu-dessert-n22.jpg'
+  },
+  {
+    id: 'ds-n23',
+    category: 'desserts',
+    price: 6,
+    priceDisplay: '6$',
+    badge: 'signature',
+    name: {
+      fr: 'N23. Tàu Hủ Cốm (Pudding De Tofu Au Riz Vert)',
+      vi: 'N23. Tàu Hủ Cốm',
+      en: 'N23. Green Rice Tofu Pudding (Tàu Hủ Cốm)',
+      zh: 'N23. 绿糯米豆腐布丁（Tàu Hủ Cốm）'
+    },
+    badgeText: {
+      fr: 'Nouveauté',
+      vi: 'Hương Vị Mới',
+      en: 'New',
+      zh: '特色推荐'
+    },
+    desc: {
+      fr: 'Délicieuse alliance entre tofu ultra-fondant et jeunes grains de riz gluant vert parfumés (Cốm), rehaussée d’un coulis onctueux de lait de coco.',
+      vi: 'Sự kết hợp độc đáo giữa tàu hủ mịn màng và cốm dẹp non xanh dẻo thơm ngát lúa non miền Bắc, rưới thêm nước cốt dừa béo ngậy ngọt thanh tao khó cưỡng.',
+      en: 'An exquisite blend of silky soft tofu pudding and fragrant Vietnamese young green sticky rice (cốm), drizzled with velvety coconut cream.',
+      zh: '极具创意的细腻嫩豆腐花，融合清香软糯的越南传统青幼糯米粒（Cốm），淋上香滑浓郁椰奶，风味层次丰富。'
+    },
+    tags: {
+      fr: ['Riz Vert Cốm', 'Tofu Fondant', 'Lait de Coco', 'Unique'],
+      vi: ['Cốm Non Dẻo Thơm', 'Tàu Hủ Núng Nính', 'Cốt Dừa Béo', 'Thơm Ngọt'],
+      en: ['Young Green Rice', 'Silky Tofu', 'Coconut Cream', 'Aromatic'],
+      zh: ['软糯青糯米', '细腻豆腐花', '浓郁椰浆', '层次分明']
+    },
+    image: 'assets/images/menu-dessert-n23.jpg'
+  },
+  {
+    id: 'ds-n24',
+    category: 'desserts',
+    price: 5,
+    priceDisplay: '5$',
+    badge: 'bestseller',
+    name: {
+      fr: 'N24. Bánh Flan (Crème Caramel Flan)',
+      vi: 'N24. Bánh Flan',
+      en: 'N24. Caramel Custard Flan (Bánh Flan)',
+      zh: 'N24. 焦糖布丁（Bánh Flan）'
+    },
+    badgeText: {
+      fr: 'Populaire',
+      vi: 'Bán Chạy',
+      en: 'Popular',
+      zh: '人气热销'
+    },
+    desc: {
+      fr: 'Flan caramel maison onctueux et fondant cuit à la perfection, préparé avec des œufs frais, du lait riche et son caramel doré subtilement ambré avec une touche de café.',
+      vi: 'Bánh flan caramel kiểu Pháp mềm mịn không rỗ, thơm lừng vị trứng gà tươi và sữa béo ngậy, đượm lớp sốt caramel óng ánh ngọt dịu cùng cà phê thơm phức.',
+      en: 'Classic French-Vietnamese caramel custard flan, perfectly velvety with fresh eggs and cream, enveloped in glossy amber caramel sauce with a hint of coffee.',
+      zh: '传统法越风味焦糖鸡蛋布丁，口感细腻丝滑无气孔，蛋奶香浓郁醇厚，搭配微苦清甜的琥珀焦糖与浓香咖啡。'
+    },
+    tags: {
+      fr: ['Œufs Frais', 'Caramel Doré', 'Fondant Absolu', 'Café'],
+      vi: ['Trứng Sữa Tươi', 'Caramel Óng Ánh', 'Mềm Mịn Tan Chảy', 'Cà Phê Thơm'],
+      en: ['Fresh Custard', 'Rich Caramel', 'Velvety Smooth', 'Classic'],
+      zh: ['新鲜蛋奶', '浓郁焦糖', '丝滑口感', '经典甜品']
+    },
+    image: 'assets/images/menu-dessert-n24.jpg'
+  },
+  {
+    id: 'ds-n25',
+    category: 'desserts',
+    price: 9,
+    priceDisplay: '9$',
+    badge: 'bestseller',
+    name: {
+      fr: 'N25. Chè Khúc Bạch (Gelée De Lait Aux Amandes)',
+      vi: 'N25. Chè Khúc Bạch',
+      en: 'N25. Almond Panna Cotta Sweet Soup (Chè Khúc Bạch)',
+      zh: 'N25. 杏仁意式奶冻甜汤（Chè Khúc Bạch）'
+    },
+    badgeText: {
+      fr: 'Populaire',
+      vi: 'Bán Chạy',
+      en: 'Popular',
+      zh: '人气热销'
+    },
+    desc: {
+      fr: 'Délicats cubes de panna cotta au lait et amandes fondants, accompagnés de longanes sucrés, amandes effilées grillées croquantes et sirop doux rafraîchissant.',
+      vi: 'Từng viên khúc bạch phô mai sữa béo ngậy dẻo mịn, điểm xuyết nhãn nhục thanh ngọt, rắc hạnh nhân lát rang giòn rụm và chan nước đường phèn dịu mát.',
+      en: 'Velvety almond and cheese milk panna cotta cubes served in delicate chilled syrup, paired with sweet longan fruit and toasted crunchy slivered almonds.',
+      zh: '极具人气的杏仁奶酪冻布丁切块，奶香醇厚细腻Q弹，搭配多汁清甜龙眼肉与现烤香脆杏仁薄片，清凉润肺。'
+    },
+    tags: {
+      fr: ['Panna Cotta Amande', 'Amandes Grillées', 'Longane', 'Rafraîchissant'],
+      vi: ['Khúc Bạch Dẻo Béo', 'Hạnh Nhân Rang Giòn', 'Nhãn Nhục', 'Đường Phèn Thanh Mát'],
+      en: ['Almond Panna Cotta', 'Toasted Almonds', 'Sweet Longan', 'Chilled'],
+      zh: ['浓郁杏仁冻', '香脆杏仁片', '清润龙眼', '人气推荐']
+    },
+    image: 'assets/images/menu-dessert-n25.jpg'
+  },
+  {
+    id: 'ds-n26',
+    category: 'desserts',
+    price: 20,
+    priceDisplay: '20$',
+    badge: 'signature',
+    name: {
+      fr: 'N26. Rau Câu (Gelée Fruitée)',
+      vi: 'N26. Rau Câu (Hộp / Khay)',
+      en: 'N26. Artisan Fruit Jelly Box (Rau Câu)',
+      zh: 'N26. 手工水果什锦果冻盒装（Rau Câu）'
+    },
+    badgeText: {
+      fr: 'Boîte Familiale',
+      vi: 'Hộp Lớn',
+      en: 'Family Box',
+      zh: '家庭装'
+    },
+    desc: {
+      fr: 'Grande boîte de gelée agar-agar fruitée artisanale aux multiples couches et saveurs naturelles : pandan frais, lait de coco, café et fruits de saison.',
+      vi: 'Khay thạch rau câu đa sắc giòn sần sật với nhiều tầng hương vị tự nhiên: lá dứa tươi, dừa béo ngậy, cà phê, thanh long, trái cây tươi ngọt dịu mát mẻ cả nhà cùng mê.',
+      en: 'Generous artisan fruit and coconut agar-agar jelly platter with vibrant layers of fresh pandan, rich coconut milk, coffee, and seasonal fruits. Chewy and delightfully chilled.',
+      zh: '精致多层手工天然琼脂水果果冻大合盘，层层风味丰富：鲜榨斑斓叶、浓香椰奶、香浓咖啡及新鲜时令水果，晶莹剔透，清爽Q弹。'
+    },
+    tags: {
+      fr: ['20$/Boîte', 'Agar-Agar', 'Multifruits', 'À Partager'],
+      vi: ['20$/Hộp', 'Giòn Sần Sật', 'Đa Vị Tự Nhiên', 'Chia Sẻ Gia Đình'],
+      en: ['20$/Box', 'Crisp Jelly', 'All-Natural', 'To Share'],
+      zh: ['20$/大盒', '晶莹Q弹', '多层风味', '家庭分享']
+    },
+    image: 'assets/images/menu-dessert-n26.jpg'
+  },
+  {
+    id: 'ds-n27',
+    category: 'desserts',
+    price: 8,
+    priceDisplay: '8$',
+    badge: 'signature',
+    name: {
+      fr: 'N27. Chè Cốm Bưởi (Dessert Pamplemousse & Riz Gluant Vert)',
+      vi: 'N27. Chè Cốm Bưởi',
+      en: 'N27. Pomelo & Green Sticky Rice Sweet Soup (Chè Cốm Bưởi)',
+      zh: 'N27. 柚子绿糯米甜汤（Chè Cốm Bưởi）'
+    },
+    badgeText: {
+      fr: '100% Pamplemousse Frais',
+      vi: '100% Cùi Bưởi Thật',
+      en: 'Real Pomelo Rind',
+      zh: '真柚子肉'
+    },
+    desc: {
+      fr: "Délicieuse spécialité alliant de vrais morceaux d'écorce de pamplemousse frais préparés maison pour une texture croquante sans amertume, et de jeunes grains de riz vert (cốm) au lait de coco.",
+      vi: 'Sự hòa quyện tuyệt hảo giữa cùi bưởi thật 100% tự nhiên được xử lý thủ công giòn sần sật không hề đắng, sánh quyện cùng hạt cốm nếp non xanh ngát thơm ngào ngạt và nước cốt dừa béo ngậy.',
+      en: 'Exquisite harmony of 100% authentic hand-prepared fresh pomelo rind (pleasantly crunchy, zero bitterness) combined with fragrant green young sticky rice (cốm) and rich coconut cream.',
+      zh: '纯手工制作100%新鲜柚子瓤，经繁复古法去苦，口感晶莹爽脆弹牙，与清香软糯的青糯米（Cốm）以及香浓椰浆完美交织。'
+    },
+    tags: {
+      fr: ['Vrai Pamplemousse', 'Riz Vert Cốm', 'Croquant', 'Sans Additifs'],
+      vi: ['100% Cùi Bưởi Thật', 'Cốm Xanh Dẻo', 'Giòn Sần Sật', 'Không Hóa Chất'],
+      en: ['Real Pomelo Rind', 'Green Sticky Rice', 'Crunchy', '100% Natural'],
+      zh: ['真柚子肉', '清香青糯米', '爽脆可口', '天然纯手工']
+    },
+    image: 'assets/images/menu-dessert-n27.jpg'
+  },
+  {
+    id: 'ds-n28',
+    category: 'desserts',
+    price: 8,
+    priceDisplay: '8$',
+    badge: 'bestseller',
+    name: {
+      fr: 'N28. Chè Bưởi (Dessert Au Pamplemousse Et Haricots Mungo)',
+      vi: 'N28. Chè Bưởi',
+      en: 'N28. Pomelo & Mung Bean Sweet Dessert (Chè Bưởi)',
+      zh: 'N28. 柚子绿豆甜汤（Chè Bưởi）'
+    },
+    badgeText: {
+      fr: '100% Pamplemousse Frais',
+      vi: '100% Cùi Bưởi Thật',
+      en: 'Real Pomelo Rind',
+      zh: '真柚子肉'
+    },
+    desc: {
+      fr: 'Le célèbre chè bưởi traditionnel vietnamien : 100% vraie écorce de pamplemousse fraîche croquante et translucide, haricots mungo fondants et coulis de lait de coco onctueux.',
+      vi: 'Món chè bưởi truyền thống trứ danh: 100% cùi bưởi thật tươi ngon sơ chế tỉ mỉ giòn sần sật trong suốt, đậu xanh bùi bở nấu sánh mịn hòa quyện nước cốt dừa tươi thơm béo ngọt ngào khó quên.',
+      en: 'Famous Vietnamese traditional sweet soup: 100% real hand-prepped fresh pomelo rind, crystal crisp and delicate, simmered with tender mung beans in velvety sweet coconut milk.',
+      zh: '闻名遐迩的越南经典柚子甜汤：100%真新鲜柚子瓤古法慢制，晶莹剔透脆爽无苦味，融入香甜绵密脱皮绿豆蓉与丝滑浓香椰浆。'
+    },
+    tags: {
+      fr: ['Vrai Pamplemousse', 'Haricot Mungo', 'Lait de Coco', 'Traditionnel'],
+      vi: ['100% Cùi Bưởi Thật', 'Đậu Xanh Bùi Bở', 'Nước Cốt Dừa Tươi', 'Truyền Thống'],
+      en: ['Real Pomelo', 'Mung Beans', 'Coconut Milk', 'Traditional'],
+      zh: ['纯正真柚子', '脱皮绿豆', '现榨椰奶', '越式经典']
+    },
+    image: 'assets/images/menu-dessert-n28.jpg'
+  },
+  {
+    id: 'ds-n29',
+    category: 'desserts',
+    price: 9,
+    priceDisplay: '9$',
+    badge: 'signature',
+    name: {
+      fr: 'N29. Sâm Bổ Lượng (Cocktail De Racines Et Fruits Séchés)',
+      vi: 'N29. Sâm Bổ Lượng',
+      en: 'N29. Ching Bo Leung Tonic Sweet Soup (Sâm Bổ Lượng)',
+      zh: 'N29. 清补凉（Sâm Bổ Lượng）'
+    },
+    badgeText: {
+      fr: 'Revitalisant',
+      vi: 'Thanh Nhiệt & Bổ Dưỡng',
+      en: 'Herbal Tonic',
+      zh: '清热养生'
+    },
+    desc: {
+      fr: "Boisson-dessert traditionnelle tonifiante et rafraîchissante : mariage bienfaisant de jujubes rouges, longanes séchés, graines de lotus fondantes, orge perlé, algues croquantes et châtaignes d'eau.",
+      vi: 'Thức uống tráng miệng bổ dưỡng gia truyền giúp thanh nhiệt giải độc cơ thể: kết hợp táo đỏ, long nhãn, hạt sen bùi ngậy, bo bo dẻo, rong biển giòn dai và củ năng thanh ngọt mát lành.',
+      en: 'Nourishing and rejuvenating heritage sweet soup cocktail: a delightful mix of red dates, dried longan, soft lotus seeds, barley, crunchy seaweed, and refreshing sweet water chestnuts in light herbal tea.',
+      zh: '越式经典滋补润燥清凉养生甜汤：甄选红枣、桂圆肉、粉糯莲子、爽滑薏米、爽脆海带结与清甜马蹄，甘甜清心解热。'
+    },
+    tags: {
+      fr: ['Jujubes & Longanes', 'Graines de Lotus', 'Algues Croquantes', 'Bien-être'],
+      vi: ['Thanh Nhiệt', 'Hạt Sen & Táo Đỏ', 'Long Nhãn', 'Rong Biển Giòn'],
+      en: ['Red Dates', 'Lotus Seeds', 'Seaweed', 'Super Refreshing'],
+      zh: ['养生清补', '红枣莲子', '桂圆龙眼', '清热解暑']
+    },
+    image: 'assets/images/menu-dessert-n29.jpg'
+  },
+
   // 🥮 MÓN BÁNH TRUYỀN THỐNG VN (PÂTISSERIES TRADITIONNELLES VN - 2 MÓN CHÍNH THỨC)
   {
     id: 'pst-01',
