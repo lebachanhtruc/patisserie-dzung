@@ -692,7 +692,7 @@ const MENU_ITEMS = [
       en: ['Festive Cake', 'Young Coconut', 'Delicate'],
       zh: ['喜庆糕点', '清脆鲜椰丝', '香甜软糯']
     },
-    image: 'https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=800&q=80'
+    image: 'assets/images/menu-banh-xu-xue.jpg'
   }
 ];
 
