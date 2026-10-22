@@ -870,16 +870,16 @@ const MENU_ITEMS = [
       zh: '家庭装'
     },
     desc: {
-      fr: 'Grande boîte de gelée agar-agar fruitée artisanale aux multiples couches et saveurs naturelles : pandan frais, lait de coco, café et fruits de saison.',
-      vi: 'Khay thạch rau câu đa sắc giòn sần sật với nhiều tầng hương vị tự nhiên: lá dứa tươi, dừa béo ngậy, cà phê, thanh long, trái cây tươi ngọt dịu mát mẻ cả nhà cùng mê.',
-      en: 'Generous artisan fruit and coconut agar-agar jelly platter with vibrant layers of fresh pandan, rich coconut milk, coffee, and seasonal fruits. Chewy and delightfully chilled.',
-      zh: '精致多层手工天然琼脂水果果冻大合盘，层层风味丰富：鲜榨斑斓叶、浓香椰奶、香浓咖啡及新鲜时令水果，晶莹剔透，清爽Q弹。'
+      fr: 'Grande boîte de gelée agar-agar artisanale sculptée en fleurs délicates, superposant de savoureuses couches naturelles : pandan frais parfumé, lait de coco riche et café subtil.',
+      vi: 'Hộp thạch rau câu tạo hình hoa tinh xảo nhiều tầng giòn sần sật với hương vị tự nhiên: lá dứa tươi thanh mát, nước cốt dừa béo ngậy và cà phê thơm lừng, đóng hộp lịch sự cả nhà cùng mê.',
+      en: 'Artisan layered agar-agar jelly box crafted into beautiful floral shapes with natural fresh pandan, velvety coconut milk, and aromatic coffee layers. Crisp, chilled and delightful.',
+      zh: '精美手作立体花形多层琼脂果冻礼盒，甄选鲜榨天然斑斓汁、香浓椰浆与醇香咖啡层层慢蒸制作，晶莹剔透，清爽Q弹。'
     },
     tags: {
-      fr: ['20$/Boîte', 'Agar-Agar', 'Multifruits', 'À Partager'],
-      vi: ['20$/Hộp', 'Giòn Sần Sật', 'Đa Vị Tự Nhiên', 'Chia Sẻ Gia Đình'],
-      en: ['20$/Box', 'Crisp Jelly', 'All-Natural', 'To Share'],
-      zh: ['20$/大盒', '晶莹Q弹', '多层风味', '家庭分享']
+      fr: ['20$/Boîte', 'Pandan & Coco', 'Café & Fleurs', 'À Partager'],
+      vi: ['20$/Hộp', 'Hoa Rau Câu', 'Lá Dứa & Cốt Dừa', 'Cà Phê'],
+      en: ['20$/Box', 'Floral Jelly', 'Pandan & Coconut', 'To Share'],
+      zh: ['20$/大盒', '立体花形', '斑斓椰香', '家庭分享']
     },
     image: 'assets/images/menu-dessert-n26.jpg'
   },
