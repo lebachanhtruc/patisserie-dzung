@@ -552,23 +552,26 @@ img {
 }
 
 .btn-hero-reservation {
-  padding: 0.85rem 2.4rem;
-  background: rgba(0, 0, 0, 0.45);
-  border: 1px solid rgba(255, 255, 255, 0.7);
+  padding: 0.95rem 2.4rem;
+  background: rgba(10, 10, 12, 0.65);
+  border: 1px solid var(--color-gold-bright);
+  border-radius: 4px;
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
-  color: #fff;
+  color: var(--color-gold-bright);
   font-size: 0.95rem;
   font-weight: 700;
-  letter-spacing: 0.2em;
+  letter-spacing: 0.15em;
   text-transform: uppercase;
-  box-shadow: 0 4px 20px rgba(0,0,0,0.4);
+  box-shadow: 0 4px 20px rgba(0,0,0,0.5);
   transition: var(--transition-smooth);
+  display: inline-block;
+  text-decoration: none;
 }
 
 .btn-hero-reservation:hover {
-  background: rgba(229, 179, 88, 0.9);
-  border-color: var(--color-gold);
+  background: var(--color-gold-bright);
+  border-color: var(--color-gold-bright);
   color: #0a0a0c;
   box-shadow: var(--shadow-gold-glow);
   transform: translateY(-3px);
