@@ -109,13 +109,14 @@ const TRANSLATIONS = {
     lbl_note: "Remarques ou allergies",
     btn_confirm_res: "CONFIRMER LA RÉSERVATION",
 
-    // Cart Modal
-    modal_cart_title: "VOTRE COMMANDE",
+    // Cart / Order Notice Modal
+    modal_cart_title: "COMMANDE PAR TÉLÉPHONE",
     modal_cart_subtitle: "Bánh Mì & Street Food Pâtisserie Dzung",
-    cart_empty: "Votre liste de plats est actuellement vide.<br>Découvrez nos délicieuses spécialités ci-dessous !",
-    cart_total: "TOTAL :",
-    btn_checkout: "ENVOYER LA COMMANDE",
-    toast_added: "🥖 Ajouté à votre commande : ",
+    order_locked_badge: "🛠️ Fonction de commande en ligne en cours de finalisation",
+    cart_empty: "La fonction de commande en ligne est actuellement en cours de finalisation.<br>Veuillez <strong>appeler directement la boutique</strong> pour passer votre commande :",
+    cart_total: "TÉLÉPHONE :",
+    btn_checkout: "📞 APPELER LE (514) 880-8388",
+    toast_added: "📞 Commande en ligne en cours de finalisation. Veuillez appeler la boutique au (514) 880-8388 pour commander !",
     toast_res_success: "✨ Réservation confirmée avec succès pour M./Mme "
   },
 
@@ -224,13 +225,14 @@ const TRANSLATIONS = {
     lbl_note: "Ghi Chú Thêm",
     btn_confirm_res: "XÁC NHẬN ĐẶT BÀN",
 
-    // Cart Modal
-    modal_cart_title: "DANH SÁCH MÓN ĐÃ CHỌN",
+    // Cart / Order Notice Modal
+    modal_cart_title: "THÔNG BÁO ĐẶT MÓN",
     modal_cart_subtitle: "Bánh Mì & Đồ Ăn Vặt Pâtisserie Dzung",
-    cart_empty: "Danh sách gọi món hiện đang trống.<br>Hãy chọn các món bánh mì và street food hấp dẫn bên dưới nhé!",
-    cart_total: "TỔNG CỘNG :",
-    btn_checkout: "GỬI ĐƠN MÓN / LIÊN HỆ ĐẶT",
-    toast_added: "🥖 Đã thêm vào danh sách gọi món: ",
+    order_locked_badge: "🛠️ Chức năng Order Online đang hoàn thiện",
+    cart_empty: "Chức năng đặt món trực tuyến (Order Online) hiện đang được hoàn thiện.<br>Quý khách vui lòng <strong>gọi trực tiếp vào tiệm</strong> để đặt món nhé:",
+    cart_total: "HOTLINE ĐẶT MÓN :",
+    btn_checkout: "📞 GỌI ĐẶT MÓN: (514) 880-8388",
+    toast_added: "📞 Chức năng order online đang hoàn thiện. Quý khách vui lòng gọi vào tiệm (514) 880-8388 để đặt món nhé!",
     toast_res_success: "✨ Đặt bàn thành công cho quý khách "
   },
 
@@ -339,13 +341,14 @@ const TRANSLATIONS = {
     lbl_note: "Special Notes / Allergies",
     btn_confirm_res: "CONFIRM RESERVATION",
 
-    // Cart Modal
-    modal_cart_title: "SELECTED ITEMS",
+    // Cart / Order Notice Modal
+    modal_cart_title: "ORDER BY PHONE",
     modal_cart_subtitle: "Bánh Mì & Vietnamese Street Food",
-    cart_empty: "Your order tray is currently empty.<br>Explore our delicious menu items below!",
-    cart_total: "TOTAL:",
-    btn_checkout: "SEND ORDER / CONTACT",
-    toast_added: "🥖 Added to your order: ",
+    order_locked_badge: "🛠️ Online ordering is currently under development",
+    cart_empty: "Our online ordering feature is currently being finalized.<br>Please <strong>call our shop directly</strong> to place your order:",
+    cart_total: "HOTLINE:",
+    btn_checkout: "📞 CALL TO ORDER: (514) 880-8388",
+    toast_added: "📞 Online ordering is currently being finalized. Please call our shop at (514) 880-8388 to place your order!",
     toast_res_success: "✨ Reservation confirmed for "
   },
 
@@ -454,13 +457,14 @@ const TRANSLATIONS = {
     lbl_note: "特殊要求或忌口",
     btn_confirm_res: "确认提交预订",
 
-    // Cart Modal
-    modal_cart_title: "已选菜品清单",
+    // Cart / Order Notice Modal
+    modal_cart_title: "电话订餐通知",
     modal_cart_subtitle: "Pâtisserie Dzung 越南法包与街头小吃",
-    cart_empty: "您的点单清单目前为空。<br>快去挑选喜欢的法包和小吃吧！",
-    cart_total: "合计金额：",
-    btn_checkout: "发送订单 / 确认下单",
-    toast_added: "🥖 已添加至点单清单：",
+    order_locked_badge: "🛠️ 在线点餐功能正在完善中",
+    cart_empty: "在线点餐功能目前正在完善中。<br>请<strong>直接致电门店</strong>进行下单：",
+    cart_total: "订餐热线：",
+    btn_checkout: "📞 致电下单：(514) 880-8388",
+    toast_added: "📞 在线点餐功能正在完善中，请直接致电门店 (514) 880-8388 下单！",
     toast_res_success: "✨ 预订成功！期待贵宾光临："
   }
 };

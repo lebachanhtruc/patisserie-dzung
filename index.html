@@ -509,25 +509,25 @@
   </div>
 
   <!-- ==========================================================================
-       MODAL 2: QUICK ORDER / CART
+       MODAL 2: QUICK ORDER / CART (ONLINE ORDER LOCKED NOTICE)
        ========================================================================== -->
   <div class="modal-backdrop" id="cart-modal">
     <div class="modal-card">
       <button class="modal-close-btn" id="close-cart-btn" aria-label="Fermer">&times;</button>
-      <h3 class="modal-title" data-i18n="modal_cart_title">VOTRE COMMANDE</h3>
+      <h3 class="modal-title" data-i18n="modal_cart_title">COMMANDE PAR TÉLÉPHONE</h3>
       <p class="modal-subtitle" data-i18n="modal_cart_subtitle">Bánh Mì & Street Food Pâtisserie Dzung</p>
 
-      <div id="cart-items-list" style="margin-bottom: 1.5rem; max-height: 280px; overflow-y: auto;">
+      <div id="cart-items-list" style="margin-bottom: 1.5rem; text-align: center;">
         <!-- Injected by JavaScript -->
       </div>
 
       <div style="display: flex; justify-content: space-between; align-items: center; padding: 1.2rem 0; border-top: 1px solid rgba(229, 179, 88, 0.3);">
-        <span style="font-weight: 700; font-size: 1.1rem; color: #fff;" data-i18n="cart_total">TOTAL :</span>
-        <span id="cart-total-price" style="font-weight: 800; font-size: 1.4rem; color: var(--color-gold-bright);">0$</span>
+        <span style="font-weight: 700; font-size: 1.05rem; color: #fff;" data-i18n="cart_total">TÉLÉPHONE :</span>
+        <a href="tel:5148808388" id="cart-total-price" style="font-weight: 800; font-size: 1.35rem; color: var(--color-gold-bright); text-decoration: none;">(514) 880-8388</a>
       </div>
 
       <button class="btn-modal-submit" onclick="checkoutOrder()" data-i18n="btn_checkout">
-        ENVOYER LA COMMANDE
+        📞 APPELER LE (514) 880-8388
       </button>
     </div>
   </div>

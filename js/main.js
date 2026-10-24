@@ -477,51 +477,22 @@ function initCart() {
 }
 
 function addToCart(dishId) {
-  if (typeof MENU_ITEMS === 'undefined') return;
-  const dish = MENU_ITEMS.find(item => item.id === dishId);
-  if (!dish) return;
-
-  let cartKey = dish.id;
-  let chosenOptionObj = null;
-
-  if (dish.options && Array.isArray(dish.options.choices) && dish.options.choices.length > 0) {
-    const choiceId = selectedDishOptions[dish.id] || dish.options.choices[0].id;
-    chosenOptionObj = dish.options.choices.find(c => c.id === choiceId) || dish.options.choices[0];
-    cartKey = `${dish.id}__${chosenOptionObj.id}`;
-  }
-
-  const finalPrice = (chosenOptionObj && chosenOptionObj.price !== undefined) ? chosenOptionObj.price : dish.price;
-
-  const existingItem = cart.find(item => (item.cartKey || item.id) === cartKey);
-  if (existingItem) {
-    existingItem.quantity += 1;
-  } else {
-    cart.push({
-      cartKey: cartKey,
-      id: dish.id,
-      nameObj: dish.name,
-      chosenOption: chosenOptionObj ? chosenOptionObj.name : null,
-      price: finalPrice,
-      quantity: 1
-    });
-  }
-
-  updateCartBadge();
-  const dishBaseName = dish.name[currentLang] || dish.name.fr || dish.name.vi;
-  const optName = chosenOptionObj ? ` (${chosenOptionObj.name[currentLang] || chosenOptionObj.name.fr || chosenOptionObj.name.vi})` : '';
-  const fullDishName = `${dishBaseName}${optName}`;
-
   const t = TRANSLATIONS[currentLang] || TRANSLATIONS.fr;
-  showToast(`${t.toast_added || '🥖 '}"${fullDishName}"`);
+  renderCartItems();
+
+  const cartModal = document.getElementById('cart-modal');
+  if (cartModal) {
+    cartModal.classList.add('active');
+    document.body.style.overflow = 'hidden';
+  }
+
+  showToast(t.toast_added || '📞 Vui lòng gọi vào tiệm (514) 880-8388 để đặt món (Chức năng order đang hoàn thiện)!');
 }
 
 function updateCartBadge() {
   const badge = document.querySelector('.cart-badge');
   if (!badge) return;
-
-  const totalCount = cart.reduce((sum, item) => sum + item.quantity, 0);
-  badge.textContent = totalCount;
-  badge.style.display = totalCount > 0 ? 'flex' : 'none';
+  badge.style.display = 'none';
 }
 
 function formatPrice(amount) {
@@ -534,82 +505,38 @@ function formatPrice(amount) {
 function renderCartItems() {
   const cartContainer = document.getElementById('cart-items-list');
   const totalElem = document.getElementById('cart-total-price');
-  if (!cartContainer || !totalElem) return;
+  if (!cartContainer) return;
 
   const t = TRANSLATIONS[currentLang] || TRANSLATIONS.fr;
+  const badgeText = t.order_locked_badge || '🛠️ Chức năng Order Online đang hoàn thiện';
 
-  if (cart.length === 0) {
-    cartContainer.innerHTML = `<p style="text-align: center; color: var(--color-text-muted); padding: 2rem 0;">${t.cart_empty}</p>`;
-    totalElem.textContent = '0$';
-    return;
-  }
-
-  let total = 0;
-  cartContainer.innerHTML = cart.map(item => {
-    const itemTotal = item.price * item.quantity;
-    total += itemTotal;
-    const baseName = item.nameObj ? (item.nameObj[currentLang] || item.nameObj.fr || item.nameObj.vi) : item.name;
-    const optText = item.chosenOption ? ` (${item.chosenOption[currentLang] || item.chosenOption.fr || item.chosenOption.vi})` : '';
-    const name = `${baseName}${optText}`;
-    const key = item.cartKey || item.id;
-
-    return `
-      <div style="display: flex; justify-content: space-between; align-items: center; padding: 0.8rem 0; border-bottom: 1px solid rgba(255,255,255,0.08);">
-        <div>
-          <div style="font-weight: 700; color: #fff; font-size: 0.95rem;">${name}</div>
-          <div style="font-size: 0.8rem; color: var(--color-gold);">${formatPrice(item.price)} x ${item.quantity}</div>
-        </div>
-        <div style="display: flex; align-items: center; gap: 0.5rem;">
-          <button style="background: rgba(255,255,255,0.1); width: 26px; height: 26px; border-radius: 4px; color: #fff;" onclick="changeCartQty('${key}', -1)">-</button>
-          <span style="font-weight: 700; min-width: 20px; text-align: center;">${item.quantity}</span>
-          <button style="background: rgba(255,255,255,0.1); width: 26px; height: 26px; border-radius: 4px; color: #fff;" onclick="changeCartQty('${key}', 1)">+</button>
-        </div>
+  cartContainer.innerHTML = `
+    <div style="background: rgba(229, 179, 88, 0.08); border: 1px solid rgba(229, 179, 88, 0.35); border-radius: 10px; padding: 1.4rem 1.2rem; margin-top: 0.5rem;">
+      <div style="display: inline-block; background: rgba(229, 179, 88, 0.18); color: var(--color-gold-bright); font-weight: 700; font-size: 0.85rem; padding: 0.35rem 0.9rem; border-radius: 50px; margin-bottom: 1rem;">
+        ${badgeText}
       </div>
-    `;
-  }).join('');
+      <p style="color: #f3f3f5; font-size: 0.98rem; line-height: 1.65; margin-bottom: 1rem;">
+        ${t.cart_empty}
+      </p>
+      <div style="font-size: 0.85rem; color: var(--color-text-muted);">
+        📍 ${t.footer_address || '5918 Avenue Auteuil, Brossard, QC J4Z 1N2, Canada'}
+      </div>
+    </div>
+  `;
 
-  totalElem.textContent = formatPrice(total);
+  if (totalElem) {
+    totalElem.textContent = '(514) 880-8388';
+  }
 }
 
 function changeCartQty(cartKey, delta) {
-  const item = cart.find(i => (i.cartKey || i.id) === cartKey);
-  if (!item) return;
-
-  item.quantity += delta;
-  if (item.quantity <= 0) {
-    cart = cart.filter(i => (i.cartKey || i.id) !== cartKey);
-  }
-
-  updateCartBadge();
   renderCartItems();
 }
 
 function checkoutOrder() {
-  if (cart.length === 0) {
-    const t = TRANSLATIONS[currentLang] || TRANSLATIONS.fr;
-    showToast(currentLang === 'fr' ? '⚠️ Votre panier est vide !' : '⚠️ Bạn chưa chọn món nào trong thực đơn!');
-    return;
-  }
-
-  const cartModal = document.getElementById('cart-modal');
-  if (cartModal) {
-    cartModal.classList.remove('active');
-    document.body.style.overflow = 'auto';
-  }
-
-  const total = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
-  const formattedTotal = formatPrice(total);
-  const msg = currentLang === 'fr' 
-    ? `🎉 Commande reçue (${formattedTotal}) ! L'équipe Pâtisserie Dzung va vous contacter rapidement.`
-    : (currentLang === 'zh'
-        ? `🎉 订单已接收（${formattedTotal}）！Pâtisserie Dzung 将尽快与您联系确认。`
-        : (currentLang === 'en'
-            ? `🎉 Order received (${formattedTotal})! Pâtisserie Dzung team will contact you shortly.`
-            : `🎉 Đã tiếp nhận đơn hàng (${formattedTotal})! Nhân viên Patisserie Dzung sẽ liên hệ xác nhận ngay.`));
-
-  showToast(msg);
-  cart = [];
-  updateCartBadge();
+  const t = TRANSLATIONS[currentLang] || TRANSLATIONS.fr;
+  showToast(t.toast_added || '📞 Vui lòng gọi vào tiệm (514) 880-8388 để đặt món (Chức năng order đang hoàn thiện)!');
+  window.location.href = 'tel:5148808388';
 }
 
 /* ==========================================================================
