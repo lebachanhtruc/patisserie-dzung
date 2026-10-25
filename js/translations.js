@@ -59,6 +59,8 @@ const TRANSLATIONS = {
     gallery_c3: "Table conviviale entre amis",
     gallery_c4: "Street food savoureuse de Saigon",
     gallery_c5: "Café aux œufs artisanal",
+    gallery_c6: "Le Bánh Mì d'Exception — Porc tendre & rousong savoureux",
+    gallery_c7: "L'Art du Bánh Tráng Cuốn — Une expérience gastronomique",
 
     // Reviews
     reviews_tagline: "Témoignages & Avis",
@@ -176,6 +178,8 @@ const TRANSLATIONS = {
     gallery_c3: "Góc Bàn Ăn Ấm Cúng",
     gallery_c4: "Street Food Sài Gòn",
     gallery_c5: "Cà Phê Trứng Nghệ Nhân",
+    gallery_c6: "Bánh Mì Đặc Biệt — Thịt heo mềm đậm đà & chà bông thơm ngon",
+    gallery_c7: "Nghệ Thuật Bánh Tráng Cuốn — Đầy đặn nhân thơm ngon tròn vị",
 
     // Reviews
     reviews_tagline: "Đánh Giá & Trải Nghiệm",
@@ -293,6 +297,8 @@ const TRANSLATIONS = {
     gallery_c3: "Cozy Gathering Tables with Friends",
     gallery_c4: "Authentic Saigon Street Food Flavors",
     gallery_c5: "Artisanal Vietnamese Egg Coffee",
+    gallery_c6: "The Exceptional Bánh Mì — Rich & flavorful with tender pork and rousong",
+    gallery_c7: "The Art of Bánh Tráng Cuốn — Soft rice paper rolls with savory fillings",
 
     // Reviews
     reviews_tagline: "Reviews & Experience",
@@ -410,6 +416,8 @@ const TRANSLATIONS = {
     gallery_c3: "好友相聚的舒适餐桌",
     gallery_c4: "原汁原味西贡街头美味",
     gallery_c5: "匠人手作越式蛋咖啡",
+    gallery_c6: "非凡越式法包 — 鲜嫩猪肉与香浓肉松的绝妙搭配",
+    gallery_c7: "越式米纸卷的艺术 — 柔韧米纸包裹丰富美味内馅",
 
     // Reviews
     reviews_tagline: "顾客评价与体验",
