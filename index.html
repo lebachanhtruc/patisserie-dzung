@@ -231,65 +231,31 @@
   </section>
 
   <!-- ==========================================================================
-       ATMOSPHERE / GALLERY SECTION
+       ATMOSPHERE / GALLERY SECTION (Creative Multi-Format Exhibition & Lightbox)
        ========================================================================== -->
-  <section id="gallery">
+  <section id="gallery" class="gallery-section">
     <div class="container">
       <div class="section-header">
         <span class="section-tagline" data-i18n="gallery_tagline">Ambiance & Cadre</span>
         <h2 class="section-title" data-i18n="gallery_title">SAIGON NIGHT VIBE</h2>
         <div class="section-divider"></div>
+        <p class="gallery-intro-desc" data-i18n="gallery_subtitle">
+          Plongez dans l'univers visuel de Pâtisserie Dzung : notre espace chaleureux, nos affiches d'art et nos créations artisanales faites maison. Cliquez sur chaque œuvre pour l'explorer en plein écran.
+        </p>
       </div>
 
-      <div class="gallery-grid">
-        <div class="gallery-item span-2">
-          <img src="assets/images/hero-dzung-store.jpg" alt="Bàn đầy món ăn Patisserie Dzung" class="gallery-img" loading="lazy" />
-          <div class="gallery-overlay">
-            <span class="gallery-caption" data-i18n="gallery_c1">Bánh Mì • Chè • Café — L'art culinaire vietnamien</span>
-          </div>
-        </div>
+      <!-- Creative Gallery Filter Bar -->
+      <div class="gallery-filter-bar" role="tablist" aria-label="Gallery Categories">
+        <button type="button" class="gallery-filter-btn active" data-gallery-filter="all" data-i18n="gal_tab_all">✨ Tout Explorer</button>
+        <button type="button" class="gallery-filter-btn" data-gallery-filter="posters" data-i18n="gal_tab_posters">🎨 Affiches & Art</button>
+        <button type="button" class="gallery-filter-btn" data-gallery-filter="ambiance" data-i18n="gal_tab_ambiance">🏮 Espace & Ambiance</button>
+        <button type="button" class="gallery-filter-btn" data-gallery-filter="culinary" data-i18n="gal_tab_culinary">🥖 Créations Signature</button>
+        <button type="button" class="gallery-filter-btn" data-gallery-filter="videos" id="gal-tab-videos-btn" style="display: none;" data-i18n="gal_tab_videos">🎬 Vidéos & Reels</button>
+      </div>
 
-        <div class="gallery-item span-row-2">
-          <img src="assets/images/gallery-poster-banh-mi.jpg" alt="Le Bánh Mì d'Exception - The Exceptional Bánh Mì" class="gallery-img" loading="lazy" width="764" height="1024" />
-          <div class="gallery-overlay">
-            <span class="gallery-caption" data-i18n="gallery_c6">Le Bánh Mì d'Exception — Porc tendre & rousong savoureux</span>
-          </div>
-        </div>
-
-        <div class="gallery-item span-row-2">
-          <img src="assets/images/gallery-poster-banh-trang-cuon.jpg" alt="L'Art du Bánh Tráng Cuốn - Une Expérience Gastronomique" class="gallery-img" loading="lazy" width="764" height="1024" />
-          <div class="gallery-overlay">
-            <span class="gallery-caption" data-i18n="gallery_c7">L'Art du Bánh Tráng Cuốn — Une expérience gastronomique</span>
-          </div>
-        </div>
-
-        <div class="gallery-item">
-          <img src="assets/images/hero-dzung-food.jpg" alt="Không gian nhà hàng Patisserie Dzung" class="gallery-img" loading="lazy" />
-          <div class="gallery-overlay">
-            <span class="gallery-caption" data-i18n="gallery_c2">Notre espace chaleureux & accueillant</span>
-          </div>
-        </div>
-
-        <div class="gallery-item">
-          <img src="assets/images/hero-dzung-store2.jpg" alt="Quầy tủ lạnh và món ăn đặc trưng" class="gallery-img" loading="lazy" />
-          <div class="gallery-overlay">
-            <span class="gallery-caption" data-i18n="gallery_c3">Street food savoureuse de Saigon</span>
-          </div>
-        </div>
-
-        <div class="gallery-item">
-          <img src="assets/images/menu-banh-mi-n3-ga-xe.jpg" alt="Bánh Mì Gà - Poulet effiloché maison" class="gallery-img" loading="lazy" />
-          <div class="gallery-overlay">
-            <span class="gallery-caption" data-i18n="gallery_c4">Bánh Mì Gà — Poulet effiloché maison</span>
-          </div>
-        </div>
-
-        <div class="gallery-item">
-          <img src="assets/images/gallery-che-flan.jpg" alt="Chè Flan - Dessert vietnamien signature" class="gallery-img" loading="lazy" />
-          <div class="gallery-overlay">
-            <span class="gallery-caption" data-i18n="gallery_c5">Chè Flan — Notre dessert signature</span>
-          </div>
-        </div>
+      <!-- Dynamic Exhibition Grid Rendered by JS (with initial SEO fallback) -->
+      <div class="gallery-exhibition-grid" id="gallery-showcase-grid">
+        <!-- Injected dynamically by renderGallery() in js/main.js -->
       </div>
     </div>
   </section>
@@ -548,6 +514,33 @@
       </button>
     </div>
   </div>
+
+  <!-- ==========================================================================
+       MODAL 3: FULLSCREEN CINEMA LIGHTBOX (<dialog closedby="any">)
+       ========================================================================== -->
+  <dialog id="gallery-lightbox" class="gallery-lightbox-dialog" closedby="any" aria-labelledby="lightbox-caption-title">
+    <div class="lightbox-shell">
+      <div class="lightbox-topbar">
+        <span class="lightbox-counter" id="lightbox-counter">1 / 1</span>
+        <span class="lightbox-badge" id="lightbox-category-badge">Pâtisserie Dzung</span>
+        <button type="button" class="lightbox-close-btn" id="lightbox-close-btn" aria-label="Fermer">&times;</button>
+      </div>
+
+      <div class="lightbox-stage">
+        <button type="button" class="lightbox-nav-btn prev" id="lightbox-prev-btn" aria-label="Précédent">&#10094;</button>
+        <div class="lightbox-media-container" id="lightbox-media-container">
+          <!-- Image or Video injected dynamically -->
+        </div>
+        <button type="button" class="lightbox-nav-btn next" id="lightbox-next-btn" aria-label="Suivant">&#10095;</button>
+      </div>
+
+      <div class="lightbox-footer">
+        <h4 class="lightbox-title" id="lightbox-caption-title">Pâtisserie Dzung</h4>
+        <p class="lightbox-desc" id="lightbox-caption-desc"></p>
+        <div class="lightbox-thumbs" id="lightbox-thumbs"></div>
+      </div>
+    </div>
+  </dialog>
 
   <!-- Scripts: translations -> menu-data -> main -->
   <script src="js/translations.js"></script>
