@@ -693,6 +693,46 @@ function getFilteredGalleryItems(filter = currentGalleryFilter) {
   return GALLERY_ITEMS.filter(item => item.category === filter);
 }
 
+function buildGalleryCardHtml(item, isSpotlightFeatured, zoomHint) {
+  const badge = (item.badge && (item.badge[currentLang] || item.badge.fr || item.badge.vi)) || '';
+  const title = (item.title && (item.title[currentLang] || item.title.fr || item.title.vi)) || '';
+  const desc = (item.desc && (item.desc[currentLang] || item.desc.fr || item.desc.vi)) || '';
+  const isPoster = item.type === 'poster';
+  const isVideo = item.type === 'video';
+
+  const cardClass = isPoster
+    ? 'gallery-card is-poster'
+    : (isSpotlightFeatured ? 'gallery-card is-featured' : (isVideo ? 'gallery-card is-video' : 'gallery-card is-photo'));
+
+  const mediaHtml = isVideo
+    ? `<video class="gallery-card-media-el" src="${item.src}" ${item.poster ? `poster="${item.poster}"` : ''} muted loop playsinline preload="metadata"></video>
+       <span class="gallery-video-play-icon" aria-hidden="true">▶</span>`
+    : `<img class="gallery-card-media-el" src="${item.src}" alt="${title}" loading="lazy" width="${item.width || 1024}" height="${item.height || 764}" />`;
+
+  return `
+    <article class="${cardClass}" onclick="openGalleryLightbox('${item.id}')" tabindex="0" role="button" aria-label="${title}" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();openGalleryLightbox('${item.id}');}">
+      <div class="gallery-card-stage">
+        ${mediaHtml}
+        <span class="gallery-card-zoom">${isVideo ? '▶ Video' : zoomHint}</span>
+      </div>
+      <div class="gallery-card-plaque">
+        <div class="gallery-card-meta">
+          <span class="gallery-card-badge">${badge}</span>
+        </div>
+        <h3 class="gallery-card-title">${title}</h3>
+        <p class="gallery-card-desc">${desc}</p>
+      </div>
+    </article>
+  `;
+}
+
+function scrollGalleryReel(direction) {
+  const track = document.getElementById('gallery-reel-track');
+  if (!track) return;
+  const scrollAmount = Math.max(track.clientWidth * 0.75, 320);
+  track.scrollBy({ left: direction * scrollAmount, behavior: 'smooth' });
+}
+
 function renderGallery(filter = 'all') {
   currentGalleryFilter = filter;
   const grid = document.getElementById('gallery-showcase-grid');
@@ -709,40 +749,74 @@ function renderGallery(filter = 'all') {
     ? TRANSLATIONS[currentLang]
     : {};
   const zoomHint = t.gal_zoom_hint || '🔍 Fullscreen';
+  const reelTitle = t.gal_reel_title || '🎞️ Pellicule Gourmande — Faites défiler horizontalement';
+  const fullscreenBtnLabel = t.gal_btn_fullscreen_all || '⛶ Mode Cinéma Plein Écran';
 
   const items = getFilteredGalleryItems(filter);
+  if (!items.length) {
+    grid.innerHTML = '';
+    return;
+  }
 
-  grid.innerHTML = items.map((item, idx) => {
-    const badge = (item.badge && (item.badge[currentLang] || item.badge.fr || item.badge.vi)) || '';
-    const title = (item.title && (item.title[currentLang] || item.title.fr || item.title.vi)) || '';
-    const desc = (item.desc && (item.desc[currentLang] || item.desc.fr || item.desc.vi)) || '';
-    const isPoster = item.type === 'poster';
-    const isFeatured = item.type === 'featured' && filter === 'all';
-    const isVideo = item.type === 'video';
+  if (filter === 'all') {
+    const posterItems = items.filter(i => i.type === 'poster').slice(0, 2);
+    const featuredItem = items.find(i => i.type === 'featured');
+    const spotlightIds = new Set([
+      ...posterItems.map(i => i.id),
+      ...(featuredItem ? [featuredItem.id] : [])
+    ]);
+    const spotlightItems = items.filter(i => spotlightIds.has(i.id));
+    const reelItems = items.filter(i => !spotlightIds.has(i.id));
 
-    const cardClass = isPoster
-      ? 'gallery-card is-poster'
-      : (isFeatured ? 'gallery-card is-featured' : (isVideo ? 'gallery-card is-video' : 'gallery-card is-photo'));
-
-    const mediaHtml = isVideo
-      ? `<video class="gallery-card-media-el" src="${item.src}" ${item.poster ? `poster="${item.poster}"` : ''} muted loop playsinline preload="metadata"></video>
-         <span class="gallery-video-play-icon" aria-hidden="true">▶</span>`
-      : `<img class="gallery-card-media-el" src="${item.src}" alt="${title}" loading="lazy" width="${item.width || 1024}" height="${item.height || 764}" />`;
-
-    return `
-      <article class="${cardClass}" onclick="openGalleryLightbox('${item.id}')" tabindex="0" role="button" aria-label="${title}" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();openGalleryLightbox('${item.id}');}">
-        <div class="gallery-card-stage">
-          ${mediaHtml}
-          <span class="gallery-card-badge">${badge}</span>
-          <span class="gallery-card-zoom">${isVideo ? '▶ Video' : zoomHint}</span>
+    grid.innerHTML = `
+      <div class="gallery-spotlight-row">
+        ${spotlightItems.map(item => buildGalleryCardHtml(item, item.type === 'featured', zoomHint)).join('')}
+      </div>
+      <div class="gallery-reel-wrapper">
+        <div class="gallery-reel-header">
+          <div class="gallery-reel-title-group">
+            <span class="gallery-reel-title">${reelTitle}</span>
+            <span class="gallery-reel-count-pill">${reelItems.length}</span>
+          </div>
+          <div class="gallery-reel-actions">
+            <button type="button" class="gallery-fullscreen-all-btn" onclick="openGalleryLightbox('${items[0].id}')">
+              <span>${fullscreenBtnLabel} (${items.length})</span>
+            </button>
+            <div class="gallery-reel-nav">
+              <button type="button" class="gallery-reel-arrow" onclick="scrollGalleryReel(-1)" aria-label="Previous">❮</button>
+              <button type="button" class="gallery-reel-arrow" onclick="scrollGalleryReel(1)" aria-label="Next">❯</button>
+            </div>
+          </div>
         </div>
-        <div class="gallery-card-plaque">
-          <h3 class="gallery-card-title">${title}</h3>
-          <p class="gallery-card-desc">${desc}</p>
+        <div class="gallery-reel-track" id="gallery-reel-track">
+          ${reelItems.map(item => buildGalleryCardHtml(item, false, zoomHint)).join('')}
         </div>
-      </article>
+      </div>
     `;
-  }).join('');
+  } else {
+    grid.innerHTML = `
+      <div class="gallery-reel-wrapper">
+        <div class="gallery-reel-header">
+          <div class="gallery-reel-title-group">
+            <span class="gallery-reel-title">${reelTitle}</span>
+            <span class="gallery-reel-count-pill">${items.length}</span>
+          </div>
+          <div class="gallery-reel-actions">
+            <button type="button" class="gallery-fullscreen-all-btn" onclick="openGalleryLightbox('${items[0].id}')">
+              <span>${fullscreenBtnLabel} (${items.length})</span>
+            </button>
+            <div class="gallery-reel-nav">
+              <button type="button" class="gallery-reel-arrow" onclick="scrollGalleryReel(-1)" aria-label="Previous">❮</button>
+              <button type="button" class="gallery-reel-arrow" onclick="scrollGalleryReel(1)" aria-label="Next">❯</button>
+            </div>
+          </div>
+        </div>
+        <div class="gallery-reel-track" id="gallery-reel-track">
+          ${items.map(item => buildGalleryCardHtml(item, false, zoomHint)).join('')}
+        </div>
+      </div>
+    `;
+  }
 
   // Enable hover video preview on video cards
   grid.querySelectorAll('.gallery-card.is-video').forEach(card => {
