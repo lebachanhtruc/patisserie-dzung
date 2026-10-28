@@ -386,6 +386,10 @@ function applyTranslations(lang) {
   if (typeof TRANSLATIONS === 'undefined' || !TRANSLATIONS[lang]) return;
   const t = TRANSLATIONS[lang];
 
+  if (t.page_title) {
+    document.title = t.page_title;
+  }
+
   // Text content replacements
   document.querySelectorAll('[data-i18n]').forEach(el => {
     const key = el.getAttribute('data-i18n');
@@ -439,7 +443,7 @@ function initNavbar() {
 
   function updateActiveNavLink() {
     const scrollPosition = window.scrollY + 120;
-    const sections = document.querySelectorAll('section[id]');
+    const sections = document.querySelectorAll('section[id], footer[id]');
 
     sections.forEach(section => {
       const sectionTop = section.offsetTop;

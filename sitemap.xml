@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+  <url>
+    <loc>https://patisseriedzung.ca/</loc>
+    <lastmod>2026-10-27</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="fr-CA" href="https://patisseriedzung.ca/" />
+    <xhtml:link rel="alternate" hreflang="vi" href="https://patisseriedzung.ca/" />
+    <xhtml:link rel="alternate" hreflang="en-CA" href="https://patisseriedzung.ca/" />
+    <xhtml:link rel="alternate" hreflang="zh" href="https://patisseriedzung.ca/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://patisseriedzung.ca/" />
+    <image:image>
+      <image:loc>https://patisseriedzung.ca/assets/images/hero-dzung-store.jpg</image:loc>
+      <image:title>Pâtisserie Dzung — Bánh Mì Artisanal &amp; Street Food Vietnamienne à Brossard</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://patisseriedzung.ca/assets/images/gallery-poster-banh-mi.jpg</image:loc>
+      <image:title>Le Bánh Mì d'Exception — Pâtisserie Dzung Brossard</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://patisseriedzung.ca/assets/images/gallery-poster-banh-trang-cuon.jpg</image:loc>
+      <image:title>L'Art du Bánh Tráng Cuốn — Pâtisserie Dzung Brossard</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://patisseriedzung.ca/assets/images/menu-banh-da-lon.jpg</image:loc>
+      <image:title>Bánh Da Lợn &amp; Bánh Xu Xuê au Pandan Frais — Pâtisserie Dzung</image:title>
+    </image:image>
+  </url>
+</urlset>

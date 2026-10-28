@@ -5,6 +5,7 @@
 
 const TRANSLATIONS = {
   fr: {
+    page_title: "Pâtisserie Dzung | Bánh Mì Artisanal, Street Food Vietnamienne & Traiteur à Brossard (Rive-Sud Montréal)",
     // Header & Navigation
     nav_home: "Accueil",
     nav_story: "Histoire",
@@ -167,6 +168,7 @@ const TRANSLATIONS = {
   },
 
   vi: {
+    page_title: "Pâtisserie Dzung | Bánh Mì Việt Nam, Ăn Vặt Sài Gòn & Đặt Tiệc tại Brossard (Montreal)",
     // Header & Navigation
     nav_home: "Trang Chủ",
     nav_story: "Câu Chuyện",
@@ -329,6 +331,7 @@ const TRANSLATIONS = {
   },
 
   en: {
+    page_title: "Pâtisserie Dzung | Artisanal Bánh Mì, Vietnamese Street Food & Catering in Brossard (South Shore Montreal)",
     // Header & Navigation
     nav_home: "Home",
     nav_story: "Story",
@@ -491,6 +494,7 @@ const TRANSLATIONS = {
   },
 
   zh: {
+    page_title: "Pâtisserie Dzung | 越南手工法包、西贡街头美食与宴会餐饮 — 魁省南岸 Brossard",
     // Header & Navigation
     nav_home: "首页",
     nav_story: "品牌故事",
