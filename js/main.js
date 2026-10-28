@@ -758,65 +758,38 @@ function renderGallery(filter = 'all') {
     return;
   }
 
-  if (filter === 'all') {
-    const posterItems = items.filter(i => i.type === 'poster').slice(0, 2);
-    const featuredItem = items.find(i => i.type === 'featured');
-    const spotlightIds = new Set([
-      ...posterItems.map(i => i.id),
-      ...(featuredItem ? [featuredItem.id] : [])
-    ]);
-    const spotlightItems = items.filter(i => spotlightIds.has(i.id));
-    const reelItems = items.filter(i => !spotlightIds.has(i.id));
+  const filterTitleMap = {
+    all: t.gal_tab_all || '✨ Tout Explorer',
+    posters: t.gal_tab_posters || '🎨 Affiches & Art',
+    ambiance: t.gal_tab_ambiance || '🏮 Espace & Ambiance',
+    culinary: t.gal_tab_culinary || '🥖 Créations Signature',
+    videos: t.gal_tab_videos || '🎬 Vidéos & Reels'
+  };
+  const activeCategoryTitle = filterTitleMap[filter] || reelTitle;
 
-    grid.innerHTML = `
-      <div class="gallery-spotlight-row">
-        ${spotlightItems.map(item => buildGalleryCardHtml(item, item.type === 'featured', zoomHint)).join('')}
-      </div>
-      <div class="gallery-reel-wrapper">
-        <div class="gallery-reel-header">
-          <div class="gallery-reel-title-group">
-            <span class="gallery-reel-title">${reelTitle}</span>
-            <span class="gallery-reel-count-pill">${reelItems.length}</span>
-          </div>
-          <div class="gallery-reel-actions">
-            <button type="button" class="gallery-fullscreen-all-btn" onclick="openGalleryLightbox('${items[0].id}')">
-              <span>${fullscreenBtnLabel} (${items.length})</span>
-            </button>
-            <div class="gallery-reel-nav">
-              <button type="button" class="gallery-reel-arrow" onclick="scrollGalleryReel(-1)" aria-label="Previous">❮</button>
-              <button type="button" class="gallery-reel-arrow" onclick="scrollGalleryReel(1)" aria-label="Next">❯</button>
-            </div>
-          </div>
+  grid.innerHTML = `
+    <div class="gallery-reel-wrapper">
+      <div class="gallery-reel-header">
+        <div class="gallery-reel-title-group">
+          <span class="gallery-reel-title">${activeCategoryTitle}</span>
+          <span class="gallery-reel-count-pill">${items.length}</span>
+          <span class="gallery-reel-subtitle-hint">${reelTitle}</span>
         </div>
-        <div class="gallery-reel-track" id="gallery-reel-track">
-          ${reelItems.map(item => buildGalleryCardHtml(item, false, zoomHint)).join('')}
+        <div class="gallery-reel-actions">
+          <button type="button" class="gallery-fullscreen-all-btn" onclick="openGalleryLightbox('${items[0].id}')">
+            <span>${fullscreenBtnLabel} (${items.length})</span>
+          </button>
+          <div class="gallery-reel-nav">
+            <button type="button" class="gallery-reel-arrow" onclick="scrollGalleryReel(-1)" aria-label="Previous">❮</button>
+            <button type="button" class="gallery-reel-arrow" onclick="scrollGalleryReel(1)" aria-label="Next">❯</button>
+          </div>
         </div>
       </div>
-    `;
-  } else {
-    grid.innerHTML = `
-      <div class="gallery-reel-wrapper">
-        <div class="gallery-reel-header">
-          <div class="gallery-reel-title-group">
-            <span class="gallery-reel-title">${reelTitle}</span>
-            <span class="gallery-reel-count-pill">${items.length}</span>
-          </div>
-          <div class="gallery-reel-actions">
-            <button type="button" class="gallery-fullscreen-all-btn" onclick="openGalleryLightbox('${items[0].id}')">
-              <span>${fullscreenBtnLabel} (${items.length})</span>
-            </button>
-            <div class="gallery-reel-nav">
-              <button type="button" class="gallery-reel-arrow" onclick="scrollGalleryReel(-1)" aria-label="Previous">❮</button>
-              <button type="button" class="gallery-reel-arrow" onclick="scrollGalleryReel(1)" aria-label="Next">❯</button>
-            </div>
-          </div>
-        </div>
-        <div class="gallery-reel-track" id="gallery-reel-track">
-          ${items.map(item => buildGalleryCardHtml(item, false, zoomHint)).join('')}
-        </div>
+      <div class="gallery-reel-track" id="gallery-reel-track">
+        ${items.map(item => buildGalleryCardHtml(item, false, zoomHint)).join('')}
       </div>
-    `;
-  }
+    </div>
+  `;
 
   // Enable hover video preview on video cards
   grid.querySelectorAll('.gallery-card.is-video').forEach(card => {
