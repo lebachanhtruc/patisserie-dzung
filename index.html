@@ -773,6 +773,60 @@
     </div>
   </dialog>
 
+  <!-- ==========================================================================
+       MODAL 4: TEMPORARY CLOSURE POP-UP NOTICE (Auto-expires on Friday)
+       ========================================================================== -->
+  <dialog id="closure-notice-modal" class="closure-dialog" closedby="any" aria-labelledby="closure-modal-title">
+    <div class="closure-modal-card">
+      <div class="closure-modal-topbar">
+        <div class="closure-lang-pills" role="group" aria-label="Choisir la langue">
+          <button type="button" class="closure-lang-btn active" data-closure-lang="fr">🇫🇷 FR</button>
+          <button type="button" class="closure-lang-btn" data-closure-lang="vi">🇻🇳 VI</button>
+          <button type="button" class="closure-lang-btn" data-closure-lang="en">🇬🇧 EN</button>
+          <button type="button" class="closure-lang-btn" data-closure-lang="zh">🇨🇳 中文</button>
+        </div>
+        <button type="button" class="closure-close-btn" id="close-closure-modal-btn" aria-label="Fermer">&times;</button>
+      </div>
+
+      <div class="closure-badge-wrap">
+        <span class="closure-notice-badge" data-i18n="closure_badge">📢 AVIS DE FERMETURE EXCEPTIONNELLE</span>
+      </div>
+
+      <h3 class="closure-modal-title" id="closure-modal-title" data-i18n="closure_title">
+        FERMÉ AUJOURD'HUI &amp; DEMAIN — RÉOUVERTURE VENDREDI
+      </h3>
+
+      <p class="closure-bilingual-sub" data-i18n="closure_subtitle_bilingual">
+        🇻🇳 Tiệm tạm nghỉ Hôm nay (Thứ 4) &amp; Ngày mai (Thứ 5) — Hoạt động trở lại vào Thứ Sáu
+      </p>
+
+      <div class="closure-schedule-box">
+        <div class="closure-schedule-row is-off">
+          <div class="closure-schedule-day">
+            <span class="closure-dot">🔴</span>
+            <span data-i18n="closure_days_off">Aujourd'hui (Mercredi) &amp; Demain (Jeudi)</span>
+          </div>
+          <span class="closure-schedule-tag is-off" data-i18n="closure_status_off">Fermé exceptionnellement</span>
+        </div>
+        <div class="closure-schedule-row is-open">
+          <div class="closure-schedule-day">
+            <span class="closure-dot">🟢</span>
+            <span data-i18n="closure_days_open">Dès ce Vendredi</span>
+          </div>
+          <span class="closure-schedule-tag is-open" data-i18n="closure_status_open">Ouvert 10h30 – 20h00</span>
+        </div>
+      </div>
+
+      <p class="closure-modal-desc" data-i18n="closure_desc">
+        Chers clients, Pâtisserie Dzung est exceptionnellement fermée aujourd'hui et demain. Nous aurons le grand plaisir de vous retrouver dès ce vendredi à partir de 10h30 avec nos Bánh Mì croustillants et toutes nos spécialités fraîches. Merci de votre compréhension !
+      </p>
+
+      <button type="button" class="closure-action-btn" id="closure-dismiss-btn" data-i18n="closure_btn_ok">
+        J'AI COMPRIS • DÉCOUVRIR LE MENU
+      </button>
+    </div>
+  </dialog>
+
   <!-- Floating Quick-Call Button on Mobile -->
   <a href="tel:+15148808388" class="mobile-floating-call-btn" id="mobile-floating-call-btn" aria-label="Appeler Pâtisserie Dzung (514) 880-8388">
     <span class="mobile-call-icon">📞</span>

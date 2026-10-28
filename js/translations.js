@@ -167,7 +167,19 @@ const TRANSLATIONS = {
     cart_total: "TÉLÉPHONE :",
     btn_checkout: "📞 APPELER LE (514) 880-8388",
     toast_added: "📞 Commande en ligne en cours de finalisation. Veuillez appeler la boutique au (514) 880-8388 pour commander !",
-    toast_res_success: "✨ Réservation confirmée avec succès pour M./Mme "
+    toast_res_success: "✨ Réservation confirmée avec succès pour M./Mme ",
+
+    // Temporary Closure Pop-up Notice (Wed & Thu -> Reopens Friday)
+    status_temp_closed: "🕒 Fermé aujourd'hui & demain • Réouverture Vendredi 10h30",
+    closure_badge: "📢 AVIS DE FERMETURE EXCEPTIONNELLE",
+    closure_title: "FERMÉ AUJOURD'HUI & DEMAIN — RÉOUVERTURE VENDREDI",
+    closure_subtitle_bilingual: "🇻🇳 Tiệm tạm nghỉ Hôm nay (Thứ 4) & Ngày mai (Thứ 5) — Hoạt động trở lại vào Thứ Sáu",
+    closure_desc: "Chers clients, Pâtisserie Dzung est exceptionnellement fermée aujourd'hui et demain. Nous aurons le grand plaisir de vous retrouver dès ce vendredi à partir de 10h30 avec nos Bánh Mì croustillants et toutes nos spécialités fraîches. Merci de votre compréhension !",
+    closure_days_off: "Aujourd'hui (Mercredi) & Demain (Jeudi)",
+    closure_status_off: "Fermé exceptionnellement",
+    closure_days_open: "Dès ce Vendredi",
+    closure_status_open: "Ouvert 10h30 – 20h00",
+    closure_btn_ok: "J'AI COMPRIS • DÉCOUVRIR LE MENU"
   },
 
   vi: {
@@ -333,7 +345,19 @@ const TRANSLATIONS = {
     cart_total: "HOTLINE ĐẶT MÓN :",
     btn_checkout: "📞 GỌI ĐẶT MÓN: (514) 880-8388",
     toast_added: "📞 Chức năng order online đang hoàn thiện. Quý khách vui lòng gọi vào tiệm (514) 880-8388 để đặt món nhé!",
-    toast_res_success: "✨ Đặt bàn thành công cho quý khách "
+    toast_res_success: "✨ Đặt bàn thành công cho quý khách ",
+
+    // Temporary Closure Pop-up Notice (Wed & Thu -> Reopens Friday)
+    status_temp_closed: "🕒 Tiệm nghỉ hôm nay & ngày mai • Mở lại Thứ Sáu 10:30",
+    closure_badge: "📢 THÔNG BÁO NGHỈ TẠM THỜI",
+    closure_title: "TIỆM NGHỈ HÔM NAY & NGÀY MAI — MỞ CỬA LẠI THỨ SÁU",
+    closure_subtitle_bilingual: "🇫🇷 Fermé exceptionnellement Mercredi & Jeudi — Réouverture Vendredi (10h30 – 20h00)",
+    closure_desc: "Quý khách thân mến, Pâtisserie Dzung xin phép tạm nghỉ hôm nay (Thứ Tư) và ngày mai (Thứ Năm). Tiệm sẽ hoạt động trở lại bình thường vào Thứ Sáu từ 10:30 sáng để phục vụ những ổ Bánh Mì nóng giòn và các món ngon tươi mới nhất. Mong quý khách thông cảm và hẹn gặp lại vào Thứ Sáu nhé!",
+    closure_days_off: "Hôm nay (Thứ Tư) & Ngày mai (Thứ Năm)",
+    closure_status_off: "Tạm nghỉ",
+    closure_days_open: "Thứ Sáu này",
+    closure_status_open: "Mở cửa 10:30 – 20:00",
+    closure_btn_ok: "ĐÃ HIỂU • XEM THỰC ĐƠN"
   },
 
   en: {
@@ -499,7 +523,19 @@ const TRANSLATIONS = {
     cart_total: "HOTLINE:",
     btn_checkout: "📞 CALL TO ORDER: (514) 880-8388",
     toast_added: "📞 Online ordering is currently being finalized. Please call our shop at (514) 880-8388 to place your order!",
-    toast_res_success: "✨ Reservation confirmed for "
+    toast_res_success: "✨ Reservation confirmed for ",
+
+    // Temporary Closure Pop-up Notice (Wed & Thu -> Reopens Friday)
+    status_temp_closed: "🕒 Closed today & tomorrow • Reopening Friday 10:30 AM",
+    closure_badge: "📢 TEMPORARY CLOSURE NOTICE",
+    closure_title: "CLOSED TODAY & TOMORROW — REOPENING FRIDAY",
+    closure_subtitle_bilingual: "🇻🇳 Tiệm tạm nghỉ Thứ Tư & Thứ Năm — Hoạt động trở lại vào Thứ Sáu",
+    closure_desc: "Dear valued guests, Pâtisserie Dzung is temporarily closed today (Wednesday) and tomorrow (Thursday). We will reopen as usual this Friday from 10:30 AM to 8:00 PM with fresh crusty Bánh Mì and house-made specialties. Thank you for your understanding!",
+    closure_days_off: "Today (Wednesday) & Tomorrow (Thursday)",
+    closure_status_off: "Temporarily Closed",
+    closure_days_open: "This Friday",
+    closure_status_open: "Open 10:30 AM – 8:00 PM",
+    closure_btn_ok: "GOT IT • EXPLORE MENU"
   },
 
   zh: {
@@ -665,7 +701,19 @@ const TRANSLATIONS = {
     cart_total: "订餐热线：",
     btn_checkout: "📞 致电下单：(514) 880-8388",
     toast_added: "📞 在线点餐功能正在完善中，请直接致电门店 (514) 880-8388 下单！",
-    toast_res_success: "✨ 预订成功！期待贵宾光临："
+    toast_res_success: "✨ 预订成功！期待贵宾光临：",
+
+    // Temporary Closure Pop-up Notice (Wed & Thu -> Reopens Friday)
+    status_temp_closed: "🕒 今日与明日店休 • 周五 10:30 恢复营业",
+    closure_badge: "📢 临时休业通知",
+    closure_title: "今日与明日店休 — 周五恢复正常营业",
+    closure_subtitle_bilingual: "🇫🇷 Fermé Mercredi & Jeudi — Réouverture Vendredi (10h30 – 20h00)",
+    closure_desc: "亲爱的顾客，Pâtisserie Dzung 今日（周三）与明日（周四）暂停营业两天。我们将于本周五 10:30 起恢复正常营业，继续为您奉上现烤酥脆法包与新鲜手作美食。感谢您的理解与支持，周五见！",
+    closure_days_off: "今日（周三）与明日（周四）",
+    closure_status_off: "暂停营业",
+    closure_days_open: "本周五起",
+    closure_status_open: "正常营业 10:30 – 20:00",
+    closure_btn_ok: "我知道了 • 浏览菜单"
   }
 };
 

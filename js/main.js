@@ -310,7 +310,105 @@ document.addEventListener('DOMContentLoaded', () => {
   initReservationModal();
   initCart();
   updateStoreOpenStatus();
+  initClosureNoticeModal();
 });
+
+function isTempClosureActive() {
+  try {
+    const now = new Date();
+    const formatter = new Intl.DateTimeFormat('en-CA', {
+      timeZone: 'America/Toronto',
+      year: 'numeric',
+      month: '2-digit',
+      day: '2-digit',
+      weekday: 'short'
+    });
+    const parts = formatter.formatToParts(now);
+    const year = (parts.find(p => p.type === 'year') || {}).value || '';
+    const month = (parts.find(p => p.type === 'month') || {}).value || '';
+    const day = (parts.find(p => p.type === 'day') || {}).value || '';
+    const weekday = (parts.find(p => p.type === 'weekday') || {}).value || '';
+    const ymd = `${year}-${month}-${day}`;
+
+    // Active ONLY on Wednesday & Thursday of this closure window (up to 2026-10-29 23:59:59 America/Toronto).
+    // Automatically disappears as soon as Friday begins (00:00 America/Toronto).
+    const isWedOrThu = weekday.startsWith('Wed') || weekday.startsWith('Thu');
+    return isWedOrThu && ymd <= '2026-10-29';
+  } catch (err) {
+    return false;
+  }
+}
+
+function initClosureNoticeModal() {
+  const dialog = document.getElementById('closure-notice-modal');
+  if (!dialog) return;
+
+  if (!isTempClosureActive()) {
+    if (dialog.open) dialog.close();
+    dialog.remove();
+    return;
+  }
+
+  const closeBtn = document.getElementById('close-closure-modal-btn');
+  const dismissBtn = document.getElementById('closure-dismiss-btn');
+  const langBtns = dialog.querySelectorAll('[data-closure-lang]');
+
+  function closeClosureDialog() {
+    if (dialog.open) {
+      dialog.close();
+    }
+  }
+
+  if (closeBtn) {
+    closeBtn.addEventListener('click', closeClosureDialog);
+  }
+
+  if (dismissBtn) {
+    dismissBtn.addEventListener('click', closeClosureDialog);
+  }
+
+  langBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      const lang = btn.getAttribute('data-closure-lang');
+      if (lang && typeof TRANSLATIONS !== 'undefined' && TRANSLATIONS[lang]) {
+        switchLanguage(lang);
+      }
+    });
+  });
+
+  // Fallback for browsers without <dialog closedby="any"> support (e.g. Safari)
+  if (!('closedBy' in HTMLDialogElement.prototype)) {
+    dialog.addEventListener('click', (event) => {
+      if (event.target !== dialog) return;
+      const rect = dialog.getBoundingClientRect();
+      const isDialogContent = (
+        rect.top <= event.clientY &&
+        event.clientY <= rect.top + rect.height &&
+        rect.left <= event.clientX &&
+        event.clientX <= rect.left + rect.width
+      );
+      if (isDialogContent) return;
+      dialog.close();
+    });
+  }
+
+  // Open the pop-up automatically when entering the website on Wed/Thu
+  setTimeout(() => {
+    if (isTempClosureActive() && typeof dialog.showModal === 'function' && !dialog.open) {
+      dialog.showModal();
+    }
+  }, 180);
+
+  // Auto-expire live check in case the tab stays open past midnight into Friday
+  const expiryTimer = setInterval(() => {
+    if (!isTempClosureActive()) {
+      clearInterval(expiryTimer);
+      if (dialog.open) dialog.close();
+      dialog.remove();
+      updateStoreOpenStatus();
+    }
+  }, 30000);
+}
 
 function updateStoreOpenStatus() {
   const statusEl = document.getElementById('live-store-status');
@@ -319,6 +417,12 @@ function updateStoreOpenStatus() {
   const t = (typeof TRANSLATIONS !== 'undefined' && TRANSLATIONS[currentLang])
     ? TRANSLATIONS[currentLang]
     : {};
+
+  if (isTempClosureActive()) {
+    statusEl.className = 'live-store-status is-closed';
+    statusEl.textContent = t.status_temp_closed || "🕒 Fermé aujourd'hui & demain • Réouverture Vendredi 10h30";
+    return;
+  }
 
   try {
     const now = new Date();
@@ -417,6 +521,14 @@ function updateLanguageUI(lang) {
       opt.classList.add('active');
     } else {
       opt.classList.remove('active');
+    }
+  });
+
+  document.querySelectorAll('[data-closure-lang]').forEach(btn => {
+    if (btn.getAttribute('data-closure-lang') === lang) {
+      btn.classList.add('active');
+    } else {
+      btn.classList.remove('active');
     }
   });
 }
