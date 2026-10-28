@@ -51,6 +51,9 @@ const TRANSLATIONS = {
     tab_desserts: "🍧 Desserts",
     tab_rolls: "🥮 Pâtisseries Traditionnelles VN",
     btn_add_dish: "+ Ajouter",
+    menu_signature_note: "✨ Sélection de nos 9 Créations Incontournables — Cliquez ci-dessous ou choisissez une catégorie pour explorer toute la carte",
+    menu_btn_expand: "📖 Voir Tout le Menu Complet",
+    menu_btn_collapse: "▴ Réduire à la Sélection Signature",
 
     // Gallery
     gallery_tagline: "Ambiance & Cadre",
@@ -111,9 +114,16 @@ const TRANSLATIONS = {
     review_3_meta: "Critique Foodie • 5★ sur Google Maps",
 
     // Reservation CTA Banner
-    banner_title: "COMMANDEZ EN LIGNE OU VENEZ NOUS VOIR",
-    banner_desc: "Savourez nos baguettes vietnamiennes fraîches et croustillantes, nos snacks de rue authentiques et nos boissons rafraîchissantes à Brossard, QC.",
-    banner_btn: "VOIR LE MENU & COMMANDER",
+    banner_title: "COMMANDEZ PAR TÉLÉPHONE OU VENEZ NOUS VOIR",
+    banner_desc: "Savourez nos baguettes vietnamiennes fraîches et croustillantes, nos snacks de rue authentiques et nos boissons rafraîchissantes au 5918 Avenue Auteuil, Brossard, QC.",
+    banner_btn: "📞 APPELER : (514) 880-8388",
+    banner_btn_map: "📍 ITINÉRAIRE GOOGLE MAPS ↗",
+
+    // Location & Map Showcase
+    map_badge: "📍 Notre Adresse à Brossard (Rive-Sud)",
+    map_title: "RENDEZ-VOUS CHEZ PÂTISSERIE DZUNG",
+    map_parking: "Stationnement gratuit et accès facile sur l'Avenue Auteuil",
+    map_btn_directions: "📍 Ouvrir l'Itinéraire dans Google Maps ↗",
 
     // Footer
     footer_desc: "Pâtisserie Dzung — Le sanctuaire de la street food vietnamienne et de la haute tradition du Bánh Mì artisanal. L'ambiance nocturne envoûtante de Saigon au cœur de la ville.",
@@ -203,6 +213,9 @@ const TRANSLATIONS = {
     tab_desserts: "🍧 Món Tráng Miệng",
     tab_rolls: "🥮 Món Bánh Truyền Thống VN",
     btn_add_dish: "+ Thêm",
+    menu_signature_note: "✨ 9 Món Đặc Trưng Bán Chạy Nhất — Nhấn nút bên dưới hoặc chọn từng danh mục để xem trọn bộ thực đơn",
+    menu_btn_expand: "📖 Xem Toàn Bộ Thực Đơn",
+    menu_btn_collapse: "▴ Thu Gọn Thực Đơn Tiêu Biểu",
 
     // Gallery
     gallery_tagline: "Không Gian & Trải Nghiệm",
@@ -263,9 +276,16 @@ const TRANSLATIONS = {
     review_3_meta: "Thực khách Brossard • 5★ trên Google Maps",
 
     // Reservation CTA Banner
-    banner_title: "ĐẶT MÓN & GHÉ THĂM PÂTISSERIE DZUNG",
-    banner_desc: "Thưởng thức bánh mì giòn tan nóng hổi vừa ra lò, các món ăn vặt đường phố đặc sản và đồ uống thơm ngon chuẩn vị tại Brossard, Quebec.",
-    banner_btn: "XEM MENU & ĐẶT MÓN",
+    banner_title: "ĐẶT MÓN QUA ĐIỆN THOẠI & GHÉ THĂM TIỆM",
+    banner_desc: "Thưởng thức bánh mì giòn tan nóng hổi vừa ra lò, các món ăn vặt đường phố đặc sản và đồ uống thơm ngon chuẩn vị tại 5918 Avenue Auteuil, Brossard, Quebec.",
+    banner_btn: "📞 GỌI ĐẶT MÓN: (514) 880-8388",
+    banner_btn_map: "📍 CHỈ ĐƯỜNG GOOGLE MAPS ↗",
+
+    // Location & Map Showcase
+    map_badge: "📍 Địa Chỉ Tiệm Tại Brossard (South Shore)",
+    map_title: "GHÉ THĂM PÂTISSERIE DZUNG",
+    map_parking: "Có chỗ đậu xe miễn phí và thuận tiện ngay trên đường Avenue Auteuil",
+    map_btn_directions: "📍 Mở Chỉ Đường Trên Google Maps ↗",
 
     // Footer
     footer_desc: "Pâtisserie Dzung - Nơi tôn vinh ẩm thực đường phố Việt Nam và bánh mì thủ công giòn tan thượng hạng tại Brossard, Quebec.",
@@ -355,6 +375,9 @@ const TRANSLATIONS = {
     tab_desserts: "🍧 Desserts",
     tab_rolls: "🥮 Traditional VN Pastries",
     btn_add_dish: "+ Add",
+    menu_signature_note: "✨ Top 9 Signature Creations — Click below or select a category tab to explore our full menu",
+    menu_btn_expand: "📖 View Full Menu",
+    menu_btn_collapse: "▴ Show Signature Selection Only",
 
     // Gallery
     gallery_tagline: "Atmosphere & Experience",
@@ -415,9 +438,16 @@ const TRANSLATIONS = {
     review_3_meta: "Local Foodie • 5★ on Google Maps",
 
     // Reservation CTA Banner
-    banner_title: "ORDER ONLINE & VISIT PÂTISSERIE DZUNG",
-    banner_desc: "Enjoy fresh crusty Vietnamese baguettes, authentic street snacks, and refreshing specialty drinks in Brossard, Quebec.",
-    banner_btn: "EXPLORE MENU & ORDER",
+    banner_title: "ORDER BY PHONE & VISIT PÂTISSERIE DZUNG",
+    banner_desc: "Enjoy fresh crusty Vietnamese baguettes, authentic street snacks, and refreshing specialty drinks at 5918 Avenue Auteuil, Brossard, Quebec.",
+    banner_btn: "📞 CALL TO ORDER: (514) 880-8388",
+    banner_btn_map: "📍 GOOGLE MAPS DIRECTIONS ↗",
+
+    // Location & Map Showcase
+    map_badge: "📍 Our Brossard Location (South Shore)",
+    map_title: "VISIT PÂTISSERIE DZUNG",
+    map_parking: "Free parking and convenient access right on Avenue Auteuil",
+    map_btn_directions: "📍 Get Directions on Google Maps ↗",
 
     // Footer
     footer_desc: "Pâtisserie Dzung — Celebrating authentic Vietnamese street gastronomy and artisanal Bánh Mì excellence in Brossard, Quebec.",
@@ -507,6 +537,9 @@ const TRANSLATIONS = {
     tab_desserts: "🍧 精致甜品",
     tab_rolls: "🥮 越南传统糕点",
     btn_add_dish: "+ 点单",
+    menu_signature_note: "✨ 9 道人气招牌精选 — 点击下方按钮或选择分类标签探索完整菜单",
+    menu_btn_expand: "📖 查看完整菜单",
+    menu_btn_collapse: "▴ 收起至招牌精选",
 
     // Gallery
     gallery_tagline: "空间体验",
@@ -567,9 +600,16 @@ const TRANSLATIONS = {
     review_3_meta: "美食达人 • 谷歌 5★",
 
     // Reservation CTA Banner
-    banner_title: "在线点餐与光临 PÂTISSERIE DZUNG",
-    banner_desc: "在魁北克Brossard品尝新鲜出炉的酥脆越式法包、正宗特色街头小吃与清爽特调饮品。",
-    banner_btn: "查看菜单并点餐",
+    banner_title: "电话订餐与光临 PÂTISSERIE DZUNG",
+    banner_desc: "在魁北克 Brossard (5918 Avenue Auteuil) 品尝新鲜出炉的酥脆越式法包、正宗特色街头小吃与清爽特调饮品。",
+    banner_btn: "📞 致电订餐: (514) 880-8388",
+    banner_btn_map: "📍 谷歌地图导航 ↗",
+
+    // Location & Map Showcase
+    map_badge: "📍 魁省南岸 Brossard 门店地址",
+    map_title: "欢迎光临 PÂTISSERIE DZUNG",
+    map_parking: "Avenue Auteuil 沿街提供免费便捷停车位",
+    map_btn_directions: "📍 在 Google Maps 中打开导航 ↗",
 
     // Footer
     footer_desc: "Pâtisserie Dzung — 致敬正宗越南街头小吃与匠心手工法包，位于魁北克Brossard。",

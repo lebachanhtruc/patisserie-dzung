@@ -555,11 +555,36 @@ function setDishOption(dishId, choiceId) {
 }
 
 /* ==========================================================================
-   4. MENU FILTER & MULTILINGUAL RENDER
+   4. MENU FILTER & MULTILINGUAL RENDER (Smart Signature Preview + Expand)
    ========================================================================== */
+let isMenuAllExpanded = false;
+const MENU_FEATURED_IDS = [
+  'bm-n1',
+  'bm-n2',
+  'bm-n3',
+  'sn-n10',
+  'sn-n12',
+  'sn-n14',
+  'dr-n41',
+  'ds-n29',
+  'rl-banh-da-lon'
+];
+
+function toggleMenuExpand() {
+  isMenuAllExpanded = !isMenuAllExpanded;
+  renderMenu(currentCategory);
+  if (!isMenuAllExpanded) {
+    const menuSec = document.getElementById('menu');
+    if (menuSec) {
+      menuSec.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  }
+}
+
 function renderMenu(category = 'all') {
   currentCategory = category;
   const menuContainer = document.getElementById('menu-items-grid');
+  const expandWrapper = document.getElementById('menu-expand-wrapper');
   if (!menuContainer || typeof MENU_ITEMS === 'undefined') return;
 
   const t = (typeof TRANSLATIONS !== 'undefined' && TRANSLATIONS[currentLang]) 
@@ -568,9 +593,36 @@ function renderMenu(category = 'all') {
 
   const btnAddText = t.btn_add_dish || '+ Thêm';
 
-  const filteredItems = category === 'all' 
+  const allCategoryItems = category === 'all' 
     ? MENU_ITEMS 
     : MENU_ITEMS.filter(item => item.category === category);
+
+  let filteredItems = allCategoryItems;
+  if (category === 'all' && !isMenuAllExpanded && allCategoryItems.length > 9) {
+    const featuredSet = new Set(MENU_FEATURED_IDS);
+    const picked = allCategoryItems.filter(item => featuredSet.has(item.id));
+    filteredItems = picked.length >= 6 ? picked.slice(0, 9) : allCategoryItems.slice(0, 9);
+  }
+
+  if (expandWrapper) {
+    if (category === 'all' && allCategoryItems.length > 9) {
+      const expandText = t.menu_btn_expand || '📖 Voir Tout le Menu Complet';
+      const collapseText = t.menu_btn_collapse || '▴ Réduire à la Sélection Signature';
+      const sigNote = t.menu_signature_note || '';
+      expandWrapper.innerHTML = `
+        <div class="menu-expand-box">
+          ${!isMenuAllExpanded && sigNote ? `<p class="menu-signature-hint">${sigNote}</p>` : ''}
+          <button type="button" class="btn-menu-expand" onclick="toggleMenuExpand()">
+            <span>${isMenuAllExpanded ? collapseText : `${expandText} (${allCategoryItems.length}) ▾`}</span>
+          </button>
+        </div>
+      `;
+      expandWrapper.style.display = 'block';
+    } else {
+      expandWrapper.innerHTML = '';
+      expandWrapper.style.display = 'none';
+    }
+  }
 
   if (filteredItems.length === 0) {
     const emptyMsg = currentLang === 'fr'
@@ -680,6 +732,9 @@ function initMenuTabs() {
       tabButtons.forEach(b => b.classList.remove('active'));
       btn.classList.add('active');
       const category = btn.getAttribute('data-category');
+      if (category === 'all') {
+        isMenuAllExpanded = false;
+      }
       renderMenu(category);
     });
   });

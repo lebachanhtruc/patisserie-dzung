@@ -6,13 +6,63 @@
   <title>Pâtisserie Dzung | Street Food Vietnamienne & Bánh Mì</title>
   
   <!-- SEO & Social Meta -->
-  <meta name="description" content="Pâtisserie Dzung - L'alliance raffinée entre le Bánh Mì artisanal à la croûte croustillante et les délices de la street food vietnamienne dans un cadre nocturne chaleureux inspiré de Saigon." />
-  <link rel="canonical" href="https://www.patisseriedzung.ca/" />
-  <meta property="og:url" content="https://www.patisseriedzung.ca/" />
-  <meta property="og:title" content="Pâtisserie Dzung | Street Food Vietnamienne & Bánh Mì" />
-  <meta property="og:description" content="Découvrez nos Bánh Mì traditionnels faits maison et les spécialités de street food vietnamienne les plus savoureuses." />
-  <meta property="og:image" content="assets/images/story-dzung.jpg" />
+  <meta name="description" content="Pâtisserie Dzung à Brossard (5918 Avenue Auteuil) — L'alliance raffinée entre le Bánh Mì artisanal croustillant, les pâtisseries traditionnelles vietnamiennes (Bánh Da Lợn, Bánh Xu Xuê) et la street food de Saigon." />
+  <link rel="canonical" href="https://patisseriedzung.ca/" />
+  <meta property="og:url" content="https://patisseriedzung.ca/" />
+  <meta property="og:title" content="Pâtisserie Dzung | Street Food Vietnamienne & Bánh Mì à Brossard" />
+  <meta property="og:description" content="Découvrez nos Bánh Mì traditionnels faits maison, nos pâtisseries ancestrales 100% naturelles et les spécialités de street food vietnamienne à Brossard, QC." />
+  <meta property="og:image" content="https://patisseriedzung.ca/assets/images/hero-dzung-store.jpg" />
   <meta property="og:type" content="restaurant" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <!-- LocalBusiness / Restaurant Structured Data (JSON-LD) for Google Search & Maps -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Restaurant",
+    "name": "Pâtisserie Dzung",
+    "image": [
+      "https://patisseriedzung.ca/assets/images/hero-dzung-store.jpg",
+      "https://patisseriedzung.ca/assets/images/gallery-poster-banh-mi.jpg",
+      "https://patisseriedzung.ca/assets/images/gallery-poster-banh-trang-cuon.jpg"
+    ],
+    "url": "https://patisseriedzung.ca/",
+    "sameAs": [
+      "https://www.instagram.com/patisseriedzung/"
+    ],
+    "telephone": "+1-514-880-8388",
+    "email": "patisseriedzung@gmail.com",
+    "priceRange": "$$",
+    "servesCuisine": ["Vietnamese", "Bánh Mì", "Vietnamese Street Food", "Bakery", "Desserts"],
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "5918 Avenue Auteuil",
+      "addressLocality": "Brossard",
+      "addressRegion": "QC",
+      "postalCode": "J4Z 1N2",
+      "addressCountry": "CA"
+    },
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": 45.4714654,
+      "longitude": -73.4587648
+    },
+    "openingHoursSpecification": [
+      {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": ["Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
+        "opens": "10:30",
+        "closes": "20:00"
+      }
+    ],
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "4.9",
+      "bestRating": "5",
+      "ratingCount": "120"
+    }
+  }
+  </script>
   
   <!-- Favicon -->
   <link rel="icon" type="image/png" href="assets/images/logo.png" />
@@ -228,6 +278,9 @@
       <div class="menu-grid" id="menu-items-grid">
         <!-- Javascript will inject items here -->
       </div>
+
+      <!-- Expand / Collapse Full Menu Button Wrapper -->
+      <div class="menu-expand-wrapper" id="menu-expand-wrapper"></div>
     </div>
   </section>
 
@@ -431,18 +484,21 @@
   </section>
 
   <!-- ==========================================================================
-       RESERVATION BANNER CTA
+       VISIT & PHONE ORDER BANNER CTA
        ========================================================================== -->
   <section style="padding: 3rem 1.5rem 6rem;">
     <div class="container">
       <div class="reservation-banner">
-        <h2 class="reservation-banner-title" data-i18n="banner_title">COMMANDEZ EN LIGNE OU VENEZ NOUS VOIR</h2>
+        <h2 class="reservation-banner-title" data-i18n="banner_title">COMMANDEZ PAR TÉLÉPHONE OU VENEZ NOUS VOIR</h2>
         <p class="reservation-banner-desc" data-i18n="banner_desc">
-          Savourez nos baguettes vietnamiennes chaudes et croustillantes, nos snacks de rue gourmands et nos boissons rafraîchissantes à Brossard, QC.
+          Savourez nos baguettes vietnamiennes chaudes et croustillantes, nos snacks de rue gourmands et nos boissons rafraîchissantes au 5918 Avenue Auteuil, Brossard, QC.
         </p>
-        <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
-          <a href="#menu" class="btn btn-primary" style="padding: 1rem 2.8rem; text-decoration: none; border-radius: 4px; font-weight: 700; letter-spacing: 1px;" data-i18n="banner_btn">
-            VOIR LE MENU & COMMANDER
+        <div class="banner-cta-actions">
+          <a href="tel:+15148808388" class="btn btn-primary banner-cta-btn" data-i18n="banner_btn">
+            📞 APPELER : (514) 880-8388
+          </a>
+          <a href="https://www.google.com/maps/place/Patisserie+Dzung/@45.4714691,-73.4613397,17z/data=!3m1!4b1!4m6!3m5!1s0x4cc9054ca9b665f5:0x451da51af4413046!8m2!3d45.4714654!4d-73.4587648!16s%2Fg%2F11zx0_530d?entry=ttu" target="_blank" rel="noopener noreferrer" class="btn btn-outline banner-cta-map-btn" data-i18n="banner_btn_map">
+            📍 ITINÉRAIRE GOOGLE MAPS ↗
           </a>
         </div>
       </div>
@@ -450,10 +506,49 @@
   </section>
 
   <!-- ==========================================================================
-       FOOTER & CONTACT
+       FOOTER & CONTACT (With Interactive Google Map & Parking Info)
        ========================================================================== -->
   <footer class="footer-section" id="contact">
     <div class="container">
+      <!-- Interactive Location & Map Card -->
+      <div class="footer-location-card">
+        <div class="footer-location-info">
+          <span class="footer-location-pill" data-i18n="map_badge">📍 Notre Adresse à Brossard (Rive-Sud)</span>
+          <h3 class="footer-location-heading" data-i18n="map_title">RENDEZ-VOUS CHEZ PÂTISSERIE DZUNG</h3>
+          <p class="footer-location-address">
+            <strong>5918 Avenue Auteuil, Brossard, QC J4Z 1N2, Canada</strong>
+          </p>
+          <div class="footer-location-highlights">
+            <div class="footer-loc-item">
+              <span>🕒</span>
+              <span data-i18n="footer_hours_week">Mercredi - Dimanche: 10h30 - 20h00</span>
+            </div>
+            <div class="footer-loc-item">
+              <span>🅿️</span>
+              <span data-i18n="map_parking">Stationnement gratuit et accès facile sur l'Avenue Auteuil</span>
+            </div>
+            <div class="footer-loc-item">
+              <span>📞</span>
+              <a href="tel:+15148808388" class="footer-loc-phone">(514) 880-8388</a>
+            </div>
+          </div>
+          <div class="footer-location-btns">
+            <a href="https://www.google.com/maps/place/Patisserie+Dzung/@45.4714691,-73.4613397,17z/data=!3m1!4b1!4m6!3m5!1s0x4cc9054ca9b665f5:0x451da51af4413046!8m2!3d45.4714654!4d-73.4587648!16s%2Fg%2F11zx0_530d?entry=ttu" target="_blank" rel="noopener noreferrer" class="btn btn-primary footer-directions-btn" data-i18n="map_btn_directions">
+              📍 Ouvrir l'Itinéraire dans Google Maps ↗
+            </a>
+          </div>
+        </div>
+        <div class="footer-map-frame">
+          <iframe
+            title="Carte Google Maps - Pâtisserie Dzung 5918 Avenue Auteuil Brossard"
+            src="https://www.google.com/maps?q=5918+Avenue+Auteuil,+Brossard,+QC+J4Z+1N2,+Canada&output=embed"
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+            allowfullscreen>
+          </iframe>
+        </div>
+      </div>
+
       <div class="footer-grid">
         <div class="footer-brand">
           <img src="assets/images/logo.png" alt="Pâtisserie Dzung Logo" class="brand-logo-img" />
@@ -461,9 +556,13 @@
             Pâtisserie Dzung — Le sanctuaire de la street food vietnamienne et de la haute tradition du Bánh Mì artisanal. L'ambiance nocturne envoûtante de Saigon au cœur de la ville.
           </p>
           <div class="footer-socials">
-            <a href="#" class="social-link" title="Facebook" aria-label="Facebook">f</a>
-            <a href="#" class="social-link" title="Instagram" aria-label="Instagram">ig</a>
-            <a href="#" class="social-link" title="TikTok" aria-label="TikTok">tk</a>
+            <a href="https://www.instagram.com/patisseriedzung/" target="_blank" rel="noopener noreferrer" class="social-link social-link-ig" id="footer-instagram-link" title="Instagram @patisseriedzung" aria-label="Instagram @patisseriedzung">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+              <span>@patisseriedzung</span>
+            </a>
+            <a href="https://www.google.com/maps/place/Patisserie+Dzung/@45.4714691,-73.4613397,17z/data=!3m1!4b1!4m6!3m5!1s0x4cc9054ca9b665f5:0x451da51af4413046!8m2!3d45.4714654!4d-73.4587648!16s%2Fg%2F11zx0_530d?entry=ttu" target="_blank" rel="noopener noreferrer" class="social-link" title="Google Maps Pâtisserie Dzung" aria-label="Google Maps">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+            </a>
           </div>
         </div>
 
@@ -496,11 +595,11 @@
           <div class="contact-info-list">
             <div class="contact-info-item">
               <span class="contact-icon">📍</span>
-              <span data-i18n="footer_address">5918 Avenue Auteuil, Brossard, QC J4Z 1N2, Canada</span>
+              <a href="https://www.google.com/maps/place/Patisserie+Dzung/@45.4714691,-73.4613397,17z/data=!3m1!4b1!4m6!3m5!1s0x4cc9054ca9b665f5:0x451da51af4413046!8m2!3d45.4714654!4d-73.4587648!16s%2Fg%2F11zx0_530d?entry=ttu" target="_blank" rel="noopener noreferrer" style="color: inherit; text-decoration: none;" data-i18n="footer_address">5918 Avenue Auteuil, Brossard, QC J4Z 1N2, Canada</a>
             </div>
             <div class="contact-info-item">
               <span class="contact-icon">📞</span>
-              <span data-i18n="footer_phone">Téléphone: (514) 880-8388</span>
+              <a href="tel:+15148808388" style="color: inherit; text-decoration: none;" data-i18n="footer_phone">Téléphone: (514) 880-8388</a>
             </div>
             <div class="contact-info-item">
               <span class="contact-icon">✉️</span>
@@ -515,8 +614,8 @@
           © 2026 Pâtisserie Dzung. Tous droits réservés. Créé avec passion pour la gastronomie vietnamienne.
         </div>
         <div style="display: flex; gap: 1.5rem;">
-          <a href="#" class="footer-link" data-i18n="footer_privacy">Confidentialité</a>
-          <a href="#" class="footer-link" data-i18n="footer_terms">Conditions d'utilisation</a>
+          <a href="#contact" class="footer-link" data-i18n="footer_privacy">Confidentialité</a>
+          <a href="#contact" class="footer-link" data-i18n="footer_terms">Conditions d'utilisation</a>
         </div>
       </div>
     </div>
