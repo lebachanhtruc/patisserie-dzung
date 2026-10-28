@@ -459,11 +459,20 @@ function initNavbar() {
   const navMenu = document.querySelector('.nav-menu');
   const navLinks = document.querySelectorAll('.nav-link');
 
+  const mobileCallBtn = document.getElementById('mobile-floating-call-btn');
+
   window.addEventListener('scroll', () => {
     if (window.scrollY > 40) {
       header.classList.add('scrolled');
     } else {
       header.classList.remove('scrolled');
+    }
+    if (mobileCallBtn) {
+      if (window.scrollY > 380) {
+        mobileCallBtn.classList.add('visible');
+      } else {
+        mobileCallBtn.classList.remove('visible');
+      }
     }
     updateActiveNavLink();
   });
@@ -640,15 +649,16 @@ function renderMenu(category = 'all') {
     ? MENU_ITEMS 
     : MENU_ITEMS.filter(item => item.category === category);
 
+  const previewLimit = (typeof window !== 'undefined' && window.innerWidth <= 768) ? 6 : 9;
   let filteredItems = allCategoryItems;
-  if (category === 'all' && !isMenuAllExpanded && allCategoryItems.length > 9) {
+  if (category === 'all' && !isMenuAllExpanded && allCategoryItems.length > previewLimit) {
     const featuredSet = new Set(MENU_FEATURED_IDS);
     const picked = allCategoryItems.filter(item => featuredSet.has(item.id));
-    filteredItems = picked.length >= 6 ? picked.slice(0, 9) : allCategoryItems.slice(0, 9);
+    filteredItems = picked.length >= previewLimit ? picked.slice(0, previewLimit) : allCategoryItems.slice(0, previewLimit);
   }
 
   if (expandWrapper) {
-    if (category === 'all' && allCategoryItems.length > 9) {
+    if (category === 'all' && allCategoryItems.length > previewLimit) {
       const expandText = t.menu_btn_expand || '📖 Voir Tout le Menu Complet';
       const collapseText = t.menu_btn_collapse || '▴ Réduire à la Sélection Signature';
       const sigNote = t.menu_signature_note || '';
@@ -751,7 +761,7 @@ function renderMenu(category = 'all') {
               <h3 class="dish-name">${name}</h3>
               <span class="dish-price" data-dish-price-id="${item.id}">${priceDisplay}</span>
             </div>
-            <p class="dish-desc">${desc}</p>
+            <p class="dish-desc" onclick="this.classList.toggle('expanded')">${desc}</p>
             ${optionsHtml}
           </div>
           <div class="dish-footer">
@@ -774,6 +784,7 @@ function initMenuTabs() {
     btn.addEventListener('click', () => {
       tabButtons.forEach(b => b.classList.remove('active'));
       btn.classList.add('active');
+      btn.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
       const category = btn.getAttribute('data-category');
       if (category === 'all') {
         isMenuAllExpanded = false;
@@ -908,6 +919,7 @@ function initGallery() {
     btn.addEventListener('click', () => {
       filterBtns.forEach(b => b.classList.remove('active'));
       btn.classList.add('active');
+      btn.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
       const filter = btn.getAttribute('data-gallery-filter') || 'all';
       renderGallery(filter);
     });
