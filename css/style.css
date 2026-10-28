@@ -417,6 +417,10 @@ h4 {
   background: var(--gold-crust);
 }
 
+.nav-mobile-extra {
+  display: none;
+}
+
 .mobile-toggle {
   display: none;
   width: 42px;
@@ -430,6 +434,7 @@ h4 {
   justify-content: center;
   align-items: center;
   gap: 5px;
+  flex-shrink: 0;
 }
 
 .mobile-toggle span {
@@ -438,6 +443,18 @@ h4 {
   height: 2px;
   background: var(--ink-pandan);
   transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.mobile-toggle.is-open span:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
+}
+
+.mobile-toggle.is-open span:nth-child(2) {
+  opacity: 0;
+}
+
+.mobile-toggle.is-open span:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
 }
 
 /* ==========================================================================
@@ -885,8 +902,21 @@ h4 {
   position: relative;
   background-color: var(--gold-crust);
   color: var(--ink-pandan);
-  padding: clamp(36px, 6vw, 68px) 0 clamp(32px, 5vw, 52px);
-  border-bottom: 2px solid var(--ink-pandan);
+  padding: clamp(32px, 5vw, 60px) 0 clamp(32px, 4.5vw, 48px);
+  z-index: 62;
+}
+
+.lk-page-head::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -11px;
+  height: 12px;
+  background: radial-gradient(circle at 12px 0, var(--gold-crust) 11.5px, transparent 12px) repeat-x;
+  background-size: 24px 12px;
+  z-index: 2;
+  pointer-events: none;
 }
 
 .lk-page-title {
@@ -915,8 +945,9 @@ h4 {
   z-index: 60;
   background: rgba(252, 248, 240, 0.97);
   backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
   border-bottom: 1.5px solid var(--line-warm);
-  padding: 12px 0;
+  padding: 18px 0 12px;
 }
 
 .lk-menu-bar-inner {
@@ -2237,9 +2268,12 @@ h4 {
   padding-top: 6px;
 }
 
-.lightbox-thumb {
+.lightbox-thumb,
+.lightbox-thumb-btn {
   width: 54px;
   height: 54px;
+  padding: 0;
+  background: transparent;
   border-radius: 8px;
   overflow: hidden;
   border: 2px solid transparent;
@@ -2247,11 +2281,13 @@ h4 {
   flex-shrink: 0;
 }
 
-.lightbox-thumb.active {
+.lightbox-thumb.active,
+.lightbox-thumb-btn.active {
   border-color: var(--red-chili);
 }
 
-.lightbox-thumb img {
+.lightbox-thumb img,
+.lightbox-thumb-btn img {
   width: 100%;
   height: 100%;
   object-fit: cover;
@@ -2465,7 +2501,7 @@ h4 {
 }
 
 /* ==========================================================================
-   14. MOBILE & IPHONE 16 PRO RESPONSIVE EXCELLENCE
+   14. MOBILE & IPHONE 16 PRO (402x874) RESPONSIVE EXCELLENCE
    ========================================================================== */
 @media (max-width: 900px) {
   .lk-home-dishes-grid,
@@ -2502,17 +2538,21 @@ h4 {
   }
 
   .header-inner {
-    min-height: 66px;
-    gap: 8px;
+    min-height: 64px;
+    gap: 10px;
+    justify-content: space-between;
   }
 
-  .brand-wordmark-sub,
   .header-cta-catering {
     display: none;
   }
 
   .brand-wordmark-title {
-    font-size: 1.15rem;
+    font-size: 1.2rem;
+  }
+
+  .brand-wordmark-sub {
+    font-size: 0.64rem;
   }
 
   .brand-logo-tile {
@@ -2536,9 +2576,10 @@ h4 {
     right: 0;
     background: var(--bg-cream);
     border-bottom: 2.5px solid var(--ink-pandan);
-    box-shadow: 0 14px 30px rgba(20, 61, 43, 0.16);
+    box-shadow: 0 16px 32px rgba(20, 61, 43, 0.2);
     display: none;
-    padding: 10px var(--gutter) 20px;
+    padding: 8px var(--gutter) 20px;
+    z-index: 110;
   }
 
   .site-header nav.active,
@@ -2558,49 +2599,129 @@ h4 {
   }
 
   .nav-link {
-    display: block;
-    font-size: 1.45rem;
-    padding: 12px 4px;
-    border-bottom: 1px dashed var(--line-warm);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 1.4rem;
+    padding: 12px 6px;
+    border-bottom: 1.5px dashed var(--line-warm);
+  }
+
+  .nav-link::after {
+    content: "➔";
+    font-size: 0.95rem;
+    opacity: 0.45;
+  }
+
+  .nav-link.active::after {
+    opacity: 1;
+    color: var(--red-chili);
+  }
+
+  .nav-mobile-extra {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding-top: 14px;
+  }
+
+  .nav-mobile-cta {
+    width: 100%;
+  }
+
+  .nav-mobile-addr {
+    font-size: 0.78rem;
+    font-weight: 700;
+    color: var(--text-muted);
+    text-align: center;
   }
 
   /* Hero Mobile Stack: Photo on Top, Copy Below (Like Little Kirin Mobile!) */
+  .lk-hero {
+    padding: 20px 0 32px;
+  }
+
   .lk-hero-grid {
     grid-template-columns: 1fr;
-    gap: 28px;
+    gap: 24px;
   }
 
   .lk-hero-media {
     order: -1;
+    margin-bottom: 10px;
   }
 
   .lk-hero-frame {
-    aspect-ratio: 4 / 3;
+    aspect-ratio: 4 / 2.85;
     box-shadow: 8px 8px 0 var(--gold-crust);
   }
 
   .lk-hero-stamp {
     left: 10px;
     bottom: -14px;
-    padding: 9px 13px;
+    padding: 8px 13px;
     max-width: 265px;
   }
 
   .stamp-main {
-    font-size: 0.98rem;
+    font-size: 0.96rem;
   }
 
-  .lk-strip-grid,
+  /* Utility Strip Mobile Dividers */
+  .lk-utility-strip {
+    padding: 16px 0 18px;
+  }
+
+  .lk-strip-grid {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+
+  .lk-strip-item {
+    padding-bottom: 10px;
+    border-bottom: 1px dashed rgba(20, 61, 43, 0.22);
+  }
+
+  .lk-strip-item:last-child {
+    padding-bottom: 0;
+    border-bottom: none;
+  }
+
   .lk-split-grid {
     grid-template-columns: 1fr;
+    gap: 24px;
   }
 
   .lk-split-grid.is-reverse .lk-split-media {
     order: 0;
   }
 
+  /* Sticky Menu Bar on Mobile */
   .lk-menu-sticky-bar {
-    top: 66px;
+    top: 64px;
+    padding: 14px 0 10px;
+  }
+
+  .lk-menu-bar-inner {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 10px;
+  }
+
+  .menu-tabs-wrapper {
+    width: 100%;
+    min-width: 0;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .lk-menu-layout-switch {
+    width: 100%;
+    display: flex;
+  }
+
+  .lk-layout-btn {
+    flex: 1;
+    text-align: center;
   }
 
   /* Sticky Mobile Bottom Bar (Order + Menu) */
@@ -2615,6 +2736,7 @@ h4 {
     padding: 10px 14px calc(10px + env(safe-area-inset-bottom, 0px));
     background: rgba(20, 61, 43, 0.97);
     backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
     border-top: 2px solid var(--gold-crust);
   }
 
@@ -2630,7 +2752,56 @@ h4 {
   }
 }
 
+/* iPhone 16 Pro (402px) & Smartphone Specific Polish */
 @media (max-width: 600px) {
+  /* Hide redundant top header order button on phones since bottom bar is always pinned */
+  .header-cta-order {
+    display: none;
+  }
+
+  .lk-section {
+    padding: 44px 0;
+  }
+
+  .lk-bg-pandan {
+    padding-top: 52px;
+  }
+
+  .lk-hero-title {
+    font-size: clamp(2.15rem, 8.8vw, 2.65rem);
+  }
+
+  .lk-section-heading {
+    font-size: clamp(1.9rem, 7.8vw, 2.35rem);
+  }
+
+  .lk-page-title {
+    font-size: clamp(2rem, 8.2vw, 2.55rem);
+  }
+
+  .lk-page-head {
+    padding: 26px 0 28px;
+  }
+
+  /* Full-width Thumb-Friendly Pill Buttons on iPhone 16 Pro */
+  .lk-hero .lk-btn-row,
+  .lk-bg-pandan .lk-btn-row,
+  .lk-home-menu-cta,
+  .lk-cta-band-btns,
+  .lk-page-head .lk-btn-row {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 10px;
+  }
+
+  .lk-hero .lk-btn-row .btn-tactile,
+  .lk-bg-pandan .lk-btn-row .btn-tactile,
+  .lk-home-menu-cta .btn-tactile,
+  .lk-cta-band-btns .btn-tactile,
+  .lk-page-head .lk-btn-row .btn-tactile {
+    width: 100%;
+  }
+
   .lk-home-dishes-grid,
   .menu-grid.is-card-grid,
   .lk-steps-grid,
@@ -2642,23 +2813,150 @@ h4 {
     grid-template-columns: 1fr;
   }
 
+  /* Compact Boutique Horizontal Cards for Homepage 6 Signature Favorites on iPhone 16 Pro */
+  .lk-home-dishes-grid {
+    gap: 14px;
+  }
+
+  .lk-home-dishes-grid .dish-card {
+    display: grid;
+    grid-template-columns: 96px 1fr;
+    gap: 14px;
+    padding: 12px;
+    align-items: start;
+    box-shadow: 4px 4px 0 var(--gold-crust);
+  }
+
+  .lk-home-dishes-grid .dish-image-wrapper {
+    width: 96px;
+    height: 96px;
+    aspect-ratio: 1 / 1;
+    border-radius: 12px;
+    border: 2px solid var(--ink-pandan);
+  }
+
+  .lk-home-dishes-grid .dish-badge {
+    display: none;
+  }
+
+  .lk-home-dishes-grid .dish-info {
+    padding: 0;
+  }
+
+  .lk-home-dishes-grid .dish-name,
+  .menu-grid.is-deli-board .dish-name {
+    font-size: 1.22rem;
+  }
+
+  .lk-home-dishes-grid .dish-price,
+  .menu-grid.is-deli-board .dish-price {
+    font-size: 1.2rem;
+  }
+
+  .lk-home-dishes-grid .dish-desc,
+  .menu-grid.is-deli-board .dish-desc {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    font-size: 0.84rem;
+    margin-bottom: 8px;
+  }
+
+  .lk-home-dishes-grid .dish-desc.expanded,
+  .menu-grid.is-deli-board .dish-desc.expanded {
+    display: block;
+    -webkit-line-clamp: unset;
+  }
+
+  .lk-home-dishes-grid .dish-footer {
+    padding-top: 8px;
+  }
+
+  /* Compact Horizontal 3 Steps on Catering Mobile */
+  .lk-step-card {
+    display: grid;
+    grid-template-columns: 40px 1fr;
+    column-gap: 14px;
+    row-gap: 4px;
+    padding: 16px;
+    align-items: start;
+    box-shadow: 4px 4px 0 var(--gold-crust);
+  }
+
+  .lk-step-num {
+    grid-row: 1 / span 2;
+    margin-bottom: 0;
+    width: 38px;
+    height: 38px;
+    font-size: 1.2rem;
+  }
+
+  .catering-luxury-card {
+    box-shadow: 6px 6px 0 var(--gold-crust);
+  }
+
   .catering-content-col {
     padding: 1.35rem 1.15rem;
   }
 
   .menu-grid.is-deli-board .dish-card {
-    grid-template-columns: 76px 1fr;
+    grid-template-columns: 78px 1fr;
     gap: 12px;
+    padding: 14px 0;
   }
 
   .menu-grid.is-deli-board .dish-image-wrapper {
-    width: 76px;
-    height: 76px;
+    width: 78px;
+    height: 78px;
+  }
+
+  /* Visit Story & Map Card Mobile Polish */
+  .story-floating-badge {
+    left: 12px;
+    right: 12px;
+    bottom: -14px;
+    justify-content: center;
+  }
+
+  .floating-text {
+    max-width: none;
+  }
+
+  .footer-location-card {
+    padding: 18px 16px;
+    box-shadow: 6px 6px 0 var(--gold-crust);
+  }
+
+  /* Gallery Card Mobile Width */
+  .gallery-reel-wrapper {
+    padding: 16px 14px;
+    box-shadow: 6px 6px 0 var(--gold-crust);
+  }
+
+  .gallery-card {
+    flex: 0 0 260px;
+  }
+
+  .gallery-card-stage {
+    height: 205px;
+  }
+
+  /* Temporary Closure Dialog Compact Fit on iPhone 16 Pro (402x874) */
+  .closure-modal-card {
+    padding: 1.2rem 1.1rem 1.3rem;
+    box-shadow: 6px 6px 0 var(--gold-crust);
   }
 
   .closure-schedule-row {
     flex-direction: column;
     align-items: flex-start;
     gap: 4px;
+    padding: 0.6rem 0.8rem;
+  }
+
+  .closure-modal-desc {
+    font-size: 0.83rem;
+    margin-bottom: 0.95rem;
   }
 }

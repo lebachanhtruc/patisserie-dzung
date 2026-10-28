@@ -58,7 +58,8 @@ const TRANSLATIONS = {
 
     // Gallery
     gallery_tagline: "Ambiance & Cadre",
-    gallery_title: "SAIGON NIGHT VIBE",
+    gallery_title: "UNIVERS VISUEL & CRÉATIONS",
+    gallery_script_sub: "Art, Espace & Vidéos",
     gallery_subtitle: "Plongez dans l'univers visuel de Pâtisserie Dzung : notre espace chaleureux, nos affiches d'art et nos créations artisanales faites maison. Cliquez sur chaque œuvre pour l'explorer en plein écran.",
     gal_tab_all: "✨ Tout Explorer",
     gal_tab_posters: "🎨 Affiches & Art",
@@ -130,7 +131,7 @@ const TRANSLATIONS = {
     mobile_call_pill: "Commander : (514) 880-8388",
 
     // Footer
-    footer_desc: "Pâtisserie Dzung — Le sanctuaire de la street food vietnamienne et de la haute tradition du Bánh Mì artisanal. L'ambiance nocturne envoûtante de Saigon au cœur de la ville.",
+    footer_desc: "Pâtisserie Dzung — Le sanctuaire de la street food vietnamienne et de la haute tradition du Bánh Mì artisanal au 5918 Avenue Auteuil, Brossard.",
     footer_explore: "Découvrir",
     footer_hours: "Horaires d'Ouverture",
     footer_hours_week: "Mercredi - Dimanche: 10h30 - 20h00",
@@ -294,7 +295,8 @@ const TRANSLATIONS = {
 
     // Gallery
     gallery_tagline: "Không Gian & Trải Nghiệm",
-    gallery_title: "SAIGON NIGHT VIBE",
+    gallery_title: "KHÔNG GIAN & TUYỆT TÁC ẨM THỰC",
+    gallery_script_sub: "Poster, Tiệm Bánh & Video",
     gallery_subtitle: "Khám phá không gian ấm cúng, bộ sưu tập poster nghệ thuật và những món ngon thủ công đầy tâm huyết tại Pâtisserie Dzung. Nhấn vào từng hình ảnh hoặc video để xem trọn vẹn ở chế độ toàn màn hình.",
     gal_tab_all: "✨ Tất Cả Khoảnh Khắc",
     gal_tab_posters: "🎨 Poster Nghệ Thuật",
@@ -530,7 +532,8 @@ const TRANSLATIONS = {
 
     // Gallery
     gallery_tagline: "Atmosphere & Experience",
-    gallery_title: "SAIGON NIGHT VIBE",
+    gallery_title: "VISUAL UNIVERSE & CREATIONS",
+    gallery_script_sub: "Art, Space & Videos",
     gallery_subtitle: "Step into the visual world of Pâtisserie Dzung: our cozy Brossard space, vintage art posters, and handcrafted culinary creations. Click any photo or video to view it in full screen.",
     gal_tab_all: "✨ Explore All",
     gal_tab_posters: "🎨 Art Posters",
@@ -766,7 +769,8 @@ const TRANSLATIONS = {
 
     // Gallery
     gallery_tagline: "空间体验",
-    gallery_title: "SAIGON NIGHT VIBE",
+    gallery_title: "视觉长廊与匠心手作",
+    gallery_script_sub: "艺术海报 · 空间 · 视频",
     gallery_subtitle: "走进 Pâtisserie Dzung 的视觉世界：温馨的门店氛围、复古艺术海报与匠心手作美食。点击任意图片或视频即可全屏欣赏。",
     gal_tab_all: "✨ 全部展示",
     gal_tab_posters: "🎨 艺术海报",

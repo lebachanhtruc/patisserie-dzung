@@ -344,24 +344,24 @@ function navigateToView(viewName, updateHash = true) {
 
   const applyViewChange = () => {
     document.querySelectorAll('.app-view').forEach(section => {
-      if (section.id === `view-${normalizedView}`) {
-        section.classList.add('active');
-      } else {
-        section.classList.remove('active');
-      }
+      const isTarget = (section.id === `view-${normalizedView}`);
+      section.classList.toggle('active', isTarget);
+      section.hidden = !isTarget;
     });
 
-    document.querySelectorAll('.nav-link[data-view]').forEach(link => {
-      if (link.getAttribute('data-view') === normalizedView) {
-        link.classList.add('active');
-      } else {
-        link.classList.remove('active');
-      }
+    document.querySelectorAll('.nav-link[data-nav-view], .nav-link[data-view]').forEach(link => {
+      const linkView = link.getAttribute('data-nav-view') || link.getAttribute('data-view');
+      link.classList.toggle('active', linkView === normalizedView);
     });
 
     const navMenu = document.querySelector('.nav-menu');
+    const mobileToggle = document.querySelector('.mobile-toggle');
     if (navMenu) {
       navMenu.classList.remove('active');
+    }
+    if (mobileToggle) {
+      mobileToggle.classList.remove('is-open');
+      mobileToggle.setAttribute('aria-expanded', 'false');
     }
 
     if (updateHash && window.location.hash !== `#${normalizedView}`) {
@@ -690,14 +690,27 @@ function initNavbar() {
   });
 
   if (mobileToggle && navMenu) {
-    mobileToggle.addEventListener('click', () => {
-      navMenu.classList.toggle('active');
+    mobileToggle.addEventListener('click', (e) => {
+      e.stopPropagation();
+      const isOpen = navMenu.classList.toggle('active');
+      mobileToggle.classList.toggle('is-open', isOpen);
+      mobileToggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
     });
 
     navLinks.forEach(link => {
       link.addEventListener('click', () => {
         navMenu.classList.remove('active');
+        mobileToggle.classList.remove('is-open');
+        mobileToggle.setAttribute('aria-expanded', 'false');
       });
+    });
+
+    document.addEventListener('click', (e) => {
+      if (header && !header.contains(e.target) && navMenu.classList.contains('active')) {
+        navMenu.classList.remove('active');
+        mobileToggle.classList.remove('is-open');
+        mobileToggle.setAttribute('aria-expanded', 'false');
+      }
     });
   }
 }
