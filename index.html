@@ -570,7 +570,10 @@
       <!-- Interactive Location & Map Card -->
       <div class="footer-location-card">
         <div class="footer-location-info">
-          <span class="footer-location-pill" data-i18n="map_badge">📍 Notre Adresse à Brossard (Rive-Sud)</span>
+          <div class="footer-location-badges-row">
+            <span class="footer-location-pill" data-i18n="map_badge">📍 Notre Adresse à Brossard (Rive-Sud)</span>
+            <span class="live-store-status" id="live-store-status"></span>
+          </div>
           <h3 class="footer-location-heading" data-i18n="map_title">RENDEZ-VOUS CHEZ PÂTISSERIE DZUNG</h3>
           <p class="footer-location-address">
             <strong>5918 Avenue Auteuil, Brossard, QC J4Z 1N2, Canada</strong>
@@ -798,6 +801,12 @@
       </div>
     </div>
   </dialog>
+
+  <!-- Floating Quick-Call Button on Mobile -->
+  <a href="tel:+15148808388" class="mobile-floating-call-btn" id="mobile-floating-call-btn" aria-label="Appeler Pâtisserie Dzung (514) 880-8388">
+    <span class="mobile-call-icon">📞</span>
+    <span class="mobile-call-text" data-i18n="mobile_call_pill">Commander : (514) 880-8388</span>
+  </a>
 
   <!-- Scripts: translations -> menu-data -> main -->
   <script src="js/translations.js"></script>

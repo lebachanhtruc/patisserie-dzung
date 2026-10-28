@@ -309,7 +309,45 @@ document.addEventListener('DOMContentLoaded', () => {
   initGallery();
   initReservationModal();
   initCart();
+  updateStoreOpenStatus();
 });
+
+function updateStoreOpenStatus() {
+  const statusEl = document.getElementById('live-store-status');
+  if (!statusEl) return;
+
+  const t = (typeof TRANSLATIONS !== 'undefined' && TRANSLATIONS[currentLang])
+    ? TRANSLATIONS[currentLang]
+    : {};
+
+  try {
+    const now = new Date();
+    const formatter = new Intl.DateTimeFormat('en-US', {
+      timeZone: 'America/Toronto',
+      weekday: 'short',
+      hour: 'numeric',
+      minute: 'numeric',
+      hour12: false
+    });
+    const parts = formatter.formatToParts(now);
+    const weekday = (parts.find(p => p.type === 'weekday') || {}).value || '';
+    const hour = parseInt((parts.find(p => p.type === 'hour') || {}).value || '0', 10);
+    const minute = parseInt((parts.find(p => p.type === 'minute') || {}).value || '0', 10);
+
+    // Open Wednesday - Sunday, 10:30 (630 mins) to 20:00 (1200 mins)
+    const openDays = new Set(['Wed', 'Thu', 'Fri', 'Sat', 'Sun']);
+    const totalMinutes = (hour === 24 ? 0 : hour) * 60 + minute;
+    const isOpen = openDays.has(weekday) && totalMinutes >= (10 * 60 + 30) && totalMinutes < (20 * 60);
+
+    statusEl.className = `live-store-status ${isOpen ? 'is-open' : 'is-closed'}`;
+    statusEl.textContent = isOpen
+      ? (t.status_open_now || "🟢 Ouvert maintenant • Aujourd'hui 10h30 – 20h00")
+      : (t.status_closed_now || "🕒 Actuellement fermé • Mer – Dim 10h30 – 20h00");
+  } catch (err) {
+    statusEl.className = 'live-store-status is-open';
+    statusEl.textContent = t.status_open_now || "🟢 Mer – Dim : 10h30 – 20h00";
+  }
+}
 
 /* ==========================================================================
    1. MULTILINGUAL ENGINE (i18n)
@@ -356,6 +394,7 @@ function switchLanguage(lang) {
   renderMenu(currentCategory);
   renderGallery(currentGalleryFilter);
   renderCartItems();
+  updateStoreOpenStatus();
 }
 
 function updateLanguageUI(lang) {

@@ -125,6 +125,9 @@ const TRANSLATIONS = {
     map_title: "RENDEZ-VOUS CHEZ PÂTISSERIE DZUNG",
     map_parking: "Stationnement gratuit et accès facile sur l'Avenue Auteuil",
     map_btn_directions: "📍 Ouvrir l'Itinéraire dans Google Maps ↗",
+    status_open_now: "🟢 Ouvert maintenant • Aujourd'hui 10h30 – 20h00",
+    status_closed_now: "🕒 Actuellement fermé • Mer – Dim 10h30 – 20h00",
+    mobile_call_pill: "Commander : (514) 880-8388",
 
     // Footer
     footer_desc: "Pâtisserie Dzung — Le sanctuaire de la street food vietnamienne et de la haute tradition du Bánh Mì artisanal. L'ambiance nocturne envoûtante de Saigon au cœur de la ville.",
@@ -288,6 +291,9 @@ const TRANSLATIONS = {
     map_title: "GHÉ THĂM PÂTISSERIE DZUNG",
     map_parking: "Có chỗ đậu xe miễn phí và thuận tiện ngay trên đường Avenue Auteuil",
     map_btn_directions: "📍 Mở Chỉ Đường Trên Google Maps ↗",
+    status_open_now: "🟢 Đang mở cửa • Hôm nay 10:30 – 20:00",
+    status_closed_now: "🕒 Hiện đang nghỉ • Mở cửa Thứ 4 – CN (10:30 – 20:00)",
+    mobile_call_pill: "Gọi Đặt Món : (514) 880-8388",
 
     // Footer
     footer_desc: "Pâtisserie Dzung - Nơi tôn vinh ẩm thực đường phố Việt Nam và bánh mì thủ công giòn tan thượng hạng tại Brossard, Quebec.",
@@ -451,6 +457,9 @@ const TRANSLATIONS = {
     map_title: "VISIT PÂTISSERIE DZUNG",
     map_parking: "Free parking and convenient access right on Avenue Auteuil",
     map_btn_directions: "📍 Get Directions on Google Maps ↗",
+    status_open_now: "🟢 Open Now • Today 10:30 AM – 8:00 PM",
+    status_closed_now: "🕒 Currently Closed • Wed – Sun 10:30 AM – 8:00 PM",
+    mobile_call_pill: "Call to Order: (514) 880-8388",
 
     // Footer
     footer_desc: "Pâtisserie Dzung — Celebrating authentic Vietnamese street gastronomy and artisanal Bánh Mì excellence in Brossard, Quebec.",
@@ -614,6 +623,9 @@ const TRANSLATIONS = {
     map_title: "欢迎光临 PÂTISSERIE DZUNG",
     map_parking: "Avenue Auteuil 沿街提供免费便捷停车位",
     map_btn_directions: "📍 在 Google Maps 中打开导航 ↗",
+    status_open_now: "🟢 营业中 • 今日 10:30 – 20:00",
+    status_closed_now: "🕒 目前休息中 • 周三至周日 10:30 – 20:00",
+    mobile_call_pill: "致电订餐: (514) 880-8388",
 
     // Footer
     footer_desc: "Pâtisserie Dzung — 致敬正宗越南街头小吃与匠心手工法包，位于魁北克Brossard。",
