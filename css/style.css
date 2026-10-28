@@ -1707,45 +1707,30 @@ section {
 }
 
 /* ==========================================================================
-   CATERING & SPECIAL EVENTS SECTION (Between Gallery & Reviews)
+   CATERING & SPECIAL EVENTS SECTION (Unified Luxury Showcase Card)
    ========================================================================== */
 .catering-section {
   position: relative;
-  background: linear-gradient(180deg, rgba(12, 12, 16, 0.96) 0%, rgba(18, 16, 14, 0.98) 50%, rgba(10, 10, 12, 0.95) 100%);
+  background: linear-gradient(180deg, rgba(10, 10, 14, 0.96) 0%, rgba(16, 15, 13, 0.98) 50%, rgba(10, 10, 12, 0.96) 100%);
   border-block-start: 1px solid rgba(229, 179, 88, 0.16);
   border-block-end: 1px solid rgba(229, 179, 88, 0.16);
 }
 
-.catering-intro-desc {
-  max-width: 760px;
-  margin-inline: auto;
-  margin-block-start: 1rem;
-  color: var(--color-text-muted);
-  font-size: 0.98rem;
-  line-height: 1.68;
-}
-
-.catering-showcase-grid {
+.catering-luxury-card {
   display: grid;
-  grid-template-columns: 1.2fr 1fr;
-  gap: 2.25rem;
-  align-items: stretch;
-  margin-block-start: 1rem;
-}
-
-.catering-left-col {
-  display: flex;
-  flex-direction: column;
-  gap: 1.25rem;
-}
-
-.catering-visual-banner {
-  position: relative;
-  border-radius: 16px;
+  grid-template-columns: 1fr 1.15fr;
+  border-radius: 20px;
   overflow: clip;
-  border: 1px solid rgba(229, 179, 88, 0.35);
-  aspect-ratio: 16 / 9;
-  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.65);
+  background: radial-gradient(circle at 100% 0%, rgba(229, 179, 88, 0.12) 0%, rgba(16, 16, 22, 0.97) 65%);
+  border: 1px solid rgba(229, 179, 88, 0.38);
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.8), 0 0 30px rgba(229, 179, 88, 0.1);
+}
+
+.catering-media-col {
+  position: relative;
+  min-block-size: 420px;
+  overflow: clip;
+  background: #0d0c0a;
 }
 
 .catering-banner-img {
@@ -1753,231 +1738,182 @@ section {
   inline-size: 100%;
   block-size: 100%;
   object-fit: cover;
-  transition: transform 0.6s ease;
+  transition: transform 0.65s ease;
 }
 
-.catering-visual-banner:hover .catering-banner-img {
-  transform: scale(1.04);
+.catering-luxury-card:hover .catering-banner-img {
+  transform: scale(1.03);
 }
 
-.catering-banner-overlay {
+.catering-media-overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(180deg, rgba(8, 8, 12, 0.1) 20%, rgba(8, 8, 12, 0.88) 100%);
+  background: linear-gradient(180deg, rgba(8, 8, 12, 0.05) 35%, rgba(8, 8, 12, 0.92) 100%);
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
   align-items: flex-start;
-  padding: 1.5rem 1.75rem;
-  gap: 0.5rem;
+  padding: 2rem;
+  gap: 0.55rem;
 }
 
 .catering-banner-badge {
-  padding: 0.32rem 0.9rem;
+  padding: 0.35rem 0.95rem;
   border-radius: 50px;
-  background: rgba(229, 179, 88, 0.94);
+  background: linear-gradient(135deg, var(--color-gold-bright) 0%, var(--color-gold) 100%);
   color: #0a0a0c;
   font-size: 0.76rem;
   font-weight: 800;
   letter-spacing: 0.04em;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.5);
 }
 
 .catering-banner-caption {
   font-family: var(--font-serif);
-  font-size: clamp(1.2rem, 2vw, 1.55rem);
+  font-size: clamp(1.2rem, 1.9vw, 1.5rem);
   font-weight: 700;
   color: #fff;
-  text-shadow: 0 2px 12px rgba(0, 0, 0, 0.85);
+  line-height: 1.3;
+  text-shadow: 0 2px 12px rgba(0, 0, 0, 0.9);
+  text-wrap: balance;
 }
 
-.catering-pillars-grid {
+.catering-content-col {
   display: flex;
   flex-direction: column;
-  gap: 0.95rem;
+  justify-content: center;
+  padding: 2.5rem 2.75rem;
+  gap: 1.35rem;
 }
 
-.catering-pillar-card {
+.catering-header-Block {
   display: flex;
+  flex-direction: column;
   align-items: flex-start;
-  gap: 1rem;
-  padding: 1.05rem 1.25rem;
-  border-radius: 12px;
-  background: rgba(255, 255, 255, 0.03);
-  border: 1px solid rgba(229, 179, 88, 0.18);
-  transition: var(--transition-smooth);
+  gap: 0.45rem;
 }
 
-.catering-pillar-card:hover {
-  border-color: rgba(229, 179, 88, 0.5);
-  background: rgba(229, 179, 88, 0.06);
-  transform: translateX(4px);
-}
-
-.catering-pillar-icon {
-  flex: 0 0 44px;
-  block-size: 44px;
-  border-radius: 10px;
-  background: rgba(229, 179, 88, 0.14);
-  border: 1px solid rgba(229, 179, 88, 0.35);
-  display: grid;
-  place-content: center;
-  font-size: 1.35rem;
-}
-
-.catering-pillar-title {
+.catering-main-title {
   font-family: var(--font-serif);
-  font-size: 1.05rem;
-  font-weight: 700;
-  color: var(--color-gold-bright);
-  margin-block-end: 0.25rem;
-}
-
-.catering-pillar-desc {
-  font-size: 0.86rem;
-  color: var(--color-text-muted);
-  line-height: 1.55;
-}
-
-.catering-contact-card {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  padding: 2.25rem 2rem;
-  border-radius: 16px;
-  background: radial-gradient(circle at 100% 0%, rgba(229, 179, 88, 0.14) 0%, rgba(16, 16, 22, 0.96) 65%);
-  border: 1px solid rgba(229, 179, 88, 0.42);
-  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.75), 0 0 28px rgba(229, 179, 88, 0.12);
-  gap: 1.25rem;
-}
-
-.catering-contact-pill {
-  align-self: flex-start;
-  padding: 0.35rem 0.95rem;
-  border-radius: 50px;
-  background: rgba(229, 179, 88, 0.16);
-  border: 1px solid rgba(229, 179, 88, 0.45);
-  color: var(--color-gold-bright);
-  font-size: 0.78rem;
-  font-weight: 800;
-  letter-spacing: 0.04em;
-}
-
-.catering-contact-title {
-  font-family: var(--font-serif);
-  font-size: clamp(1.45rem, 2.4vw, 1.85rem);
+  font-size: clamp(1.5rem, 2.5vw, 2.05rem);
   font-weight: 700;
   color: #fff;
-  line-height: 1.25;
+  line-height: 1.22;
+  text-transform: uppercase;
+  text-wrap: balance;
 }
 
-.catering-contact-desc {
-  font-size: 0.93rem;
+.catering-lead-desc {
+  font-size: 0.94rem;
   color: var(--color-text-muted);
-  line-height: 1.65;
+  line-height: 1.62;
+  margin-block-start: 0.2rem;
+  text-wrap: pretty;
+}
+
+.catering-offerings-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+}
+
+.catering-offering-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.48rem 0.9rem;
+  border-radius: 50px;
+  background: rgba(229, 179, 88, 0.09);
+  border: 1px solid rgba(229, 179, 88, 0.28);
+  color: var(--color-gold-light);
+  font-size: 0.8rem;
+  font-weight: 700;
+}
+
+.catering-chip-icon {
+  font-size: 0.95rem;
 }
 
 .catering-contact-channels {
-  display: flex;
-  flex-direction: column;
-  gap: 0.95rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.9rem;
 }
 
 .catering-channel-box {
   display: flex;
   align-items: center;
-  gap: 1rem;
-  padding: 1.05rem 1.2rem;
-  border-radius: 12px;
+  gap: 0.85rem;
+  padding: 1rem 1.15rem;
+  border-radius: 14px;
   background: rgba(255, 255, 255, 0.04);
-  border: 1px solid rgba(229, 179, 88, 0.3);
+  border: 1px solid rgba(229, 179, 88, 0.34);
   text-decoration: none;
   transition: var(--transition-smooth);
 }
 
+.catering-channel-box.is-phone {
+  background: linear-gradient(135deg, rgba(229, 179, 88, 0.18) 0%, rgba(229, 179, 88, 0.05) 100%);
+  border-color: var(--color-gold-bright);
+}
+
 .catering-channel-box:hover {
-  background: rgba(229, 179, 88, 0.12);
+  background: rgba(229, 179, 88, 0.2);
   border-color: var(--color-gold-bright);
   transform: translateY(-2px);
-  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.45);
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.5), 0 0 16px rgba(229, 179, 88, 0.22);
 }
 
 .catering-channel-icon {
-  flex: 0 0 46px;
-  block-size: 46px;
+  flex: 0 0 42px;
+  block-size: 42px;
   border-radius: 50%;
-  background: linear-gradient(135deg, rgba(229, 179, 88, 0.28) 0%, rgba(229, 179, 88, 0.1) 100%);
+  background: rgba(229, 179, 88, 0.2);
   border: 1px solid var(--color-gold);
   display: grid;
   place-content: center;
-  font-size: 1.25rem;
+  font-size: 1.15rem;
 }
 
 .catering-channel-info {
   display: flex;
   flex-direction: column;
-  gap: 0.15rem;
+  gap: 0.1rem;
   flex-grow: 1;
   min-inline-size: 0;
 }
 
 .catering-channel-label {
-  font-size: 0.7rem;
+  font-size: 0.66rem;
   font-weight: 700;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.06em;
   color: var(--color-gold-light);
   text-transform: uppercase;
 }
 
 .catering-channel-value {
-  font-size: 1.02rem;
+  font-size: 0.94rem;
   font-weight: 800;
   color: #fff;
   overflow-wrap: anywhere;
 }
 
 .catering-channel-cta {
-  font-size: 0.78rem;
-  font-weight: 700;
-  color: var(--color-gold-bright);
-  white-space: nowrap;
-}
-
-.catering-action-buttons {
-  display: flex;
-  flex-direction: column;
-  gap: 0.75rem;
-  margin-block-start: 0.25rem;
-}
-
-.catering-main-btn,
-.catering-secondary-btn {
-  inline-size: 100%;
-  text-align: center;
-  justify-content: center;
-  padding: 0.95rem 1.25rem;
-  border-radius: 8px;
-  font-size: 0.86rem;
-  font-weight: 800;
-  letter-spacing: 0.06em;
-  text-decoration: none;
-}
-
-.catering-secondary-btn {
-  border: 1px solid var(--color-gold);
-  color: var(--color-gold-bright);
-  background: rgba(229, 179, 88, 0.08);
-}
-
-.catering-secondary-btn:hover {
+  padding: 0.3rem 0.65rem;
+  border-radius: 50px;
   background: var(--color-gold-bright);
   color: #0a0a0c;
+  font-size: 0.72rem;
+  font-weight: 800;
+  white-space: nowrap;
+  flex-shrink: 0;
 }
 
 .catering-note {
-  font-size: 0.82rem;
+  font-size: 0.8rem;
   color: var(--color-text-muted);
-  line-height: 1.55;
-  padding-block-start: 0.75rem;
+  line-height: 1.5;
+  padding-block-start: 0.65rem;
   border-block-start: 1px solid rgba(255, 255, 255, 0.08);
 }
 
@@ -2591,9 +2527,15 @@ section {
     grid-template-columns: 1fr;
     gap: 2.5rem;
   }
-  .catering-showcase-grid {
+  .catering-luxury-card {
     grid-template-columns: 1fr;
-    gap: 1.75rem;
+  }
+  .catering-media-col {
+    min-block-size: 260px;
+    max-block-size: 300px;
+  }
+  .catering-contact-channels {
+    grid-template-columns: 1fr;
   }
   .footer-location-card {
     grid-template-columns: 1fr;
@@ -2995,47 +2937,68 @@ section {
     font-size: 0.8rem;
   }
 
-  /* 7. Catering Section Mobile Polish */
-  .catering-banner-overlay {
-    padding: 1rem 1.1rem;
+  /* 7. Catering Section Mobile Polish (Compact 1-Screen Unified Card) */
+  .catering-luxury-card {
+    border-radius: 16px;
+  }
+  .catering-media-col {
+    min-block-size: 195px;
+    max-block-size: 210px;
+  }
+  .catering-media-overlay {
+    padding: 1rem 1.15rem;
+    gap: 0.35rem;
+  }
+  .catering-banner-badge {
+    font-size: 0.7rem;
+    padding: 0.25rem 0.75rem;
   }
   .catering-banner-caption {
-    font-size: 1.05rem;
+    font-size: 1rem;
   }
-  .catering-pillar-card {
-    padding: 0.9rem 1rem;
-    gap: 0.8rem;
-  }
-  .catering-pillar-title {
-    font-size: 0.95rem;
-  }
-  .catering-pillar-desc {
-    font-size: 0.8rem;
-  }
-  .catering-contact-card {
-    padding: 1.35rem 1.1rem;
+  .catering-content-col {
+    padding: 1.35rem 1.15rem;
     gap: 1rem;
   }
+  .catering-main-title {
+    font-size: clamp(1.3rem, 5.5vw, 1.6rem);
+  }
+  .catering-lead-desc {
+    font-size: 0.85rem;
+    line-height: 1.55;
+  }
+  .catering-offerings-row {
+    gap: 0.45rem;
+  }
+  .catering-offering-chip {
+    padding: 0.38rem 0.75rem;
+    font-size: 0.74rem;
+    width: 100%;
+  }
+  .catering-contact-channels {
+    grid-template-columns: 1fr;
+    gap: 0.65rem;
+  }
   .catering-channel-box {
-    padding: 0.85rem 0.95rem;
+    padding: 0.85rem 1rem;
     gap: 0.75rem;
-    flex-wrap: nowrap;
   }
   .catering-channel-icon {
-    flex: 0 0 40px;
-    block-size: 40px;
-    font-size: 1.1rem;
+    flex: 0 0 38px;
+    block-size: 38px;
+    font-size: 1.05rem;
   }
   .catering-channel-value {
-    font-size: 0.9rem;
+    font-size: 0.88rem;
   }
   .catering-channel-cta {
-    display: none;
+    display: inline-flex;
+    padding: 0.28rem 0.6rem;
+    font-size: 0.7rem;
   }
-  .catering-main-btn,
-  .catering-secondary-btn {
-    padding: 0.85rem 1rem;
-    font-size: 0.78rem;
+  .catering-note {
+    font-size: 0.75rem;
+    padding-block-start: 0.5rem;
   }
 
   /* 8. Horizontal Swipe Reviews Carousel on Mobile */
