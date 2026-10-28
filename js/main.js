@@ -4,11 +4,22 @@
  */
 
 let currentLang = 'fr'; // DEFAULT LANGUAGE: French as requested
+let currentView = 'home';
+let currentMenuDisplayMode = 'deli';
 let currentCategory = 'all';
 let currentGalleryFilter = 'all';
 let currentLightboxIndex = 0;
 let cart = [];
 let selectedDishOptions = {};
+
+const HOME_SIGNATURE_IDS = [
+  'bm-n1',
+  'bm-n2',
+  'sn-n12',
+  'sn-n14',
+  'dr-n41',
+  'rl-banh-da-lon'
+];
 
 const GALLERY_ITEMS = [
   {
@@ -302,7 +313,9 @@ const GALLERY_ITEMS = [
 document.addEventListener('DOMContentLoaded', () => {
   initLanguage();
   initNavbar();
+  initViewRouter();
   initHeroSlider();
+  renderHomeFeaturedDishes();
   renderMenu(currentCategory);
   initMenuTabs();
   renderGallery(currentGalleryFilter);
@@ -312,6 +325,85 @@ document.addEventListener('DOMContentLoaded', () => {
   updateStoreOpenStatus();
   initClosureNoticeModal();
 });
+
+const VALID_VIEWS = new Set(['home', 'menu', 'catering', 'gallery', 'visit']);
+const LEGACY_HASH_TO_VIEW = {
+  home: 'home',
+  menu: 'menu',
+  catering: 'catering',
+  gallery: 'gallery',
+  visit: 'visit',
+  story: 'visit',
+  reviews: 'visit',
+  contact: 'visit'
+};
+
+function navigateToView(viewName, updateHash = true) {
+  const normalizedView = LEGACY_HASH_TO_VIEW[viewName] || (VALID_VIEWS.has(viewName) ? viewName : 'home');
+  currentView = normalizedView;
+
+  const applyViewChange = () => {
+    document.querySelectorAll('.app-view').forEach(section => {
+      if (section.id === `view-${normalizedView}`) {
+        section.classList.add('active');
+      } else {
+        section.classList.remove('active');
+      }
+    });
+
+    document.querySelectorAll('.nav-link[data-view]').forEach(link => {
+      if (link.getAttribute('data-view') === normalizedView) {
+        link.classList.add('active');
+      } else {
+        link.classList.remove('active');
+      }
+    });
+
+    const navMenu = document.querySelector('.nav-menu');
+    if (navMenu) {
+      navMenu.classList.remove('active');
+    }
+
+    if (updateHash && window.location.hash !== `#${normalizedView}`) {
+      history.pushState({ view: normalizedView }, '', `#${normalizedView}`);
+    }
+
+    window.scrollTo({ top: 0, behavior: 'instant' });
+  };
+
+  if (typeof document.startViewTransition === 'function') {
+    const transition = document.startViewTransition(() => {
+      applyViewChange();
+    });
+    transition.finished.then(() => {
+      const heading = document.getElementById(`${normalizedView}-view-heading`);
+      if (heading) {
+        heading.focus({ preventScroll: true });
+      }
+    }).catch(() => {});
+  } else {
+    applyViewChange();
+    const heading = document.getElementById(`${normalizedView}-view-heading`);
+    if (heading) {
+      heading.focus({ preventScroll: true });
+    }
+  }
+}
+
+function initViewRouter() {
+  const applyFromLocationHash = () => {
+    const rawHash = (window.location.hash || '').replace(/^#/, '').trim().toLowerCase();
+    if (!rawHash) {
+      navigateToView('home', false);
+      return;
+    }
+    const targetView = LEGACY_HASH_TO_VIEW[rawHash] || 'home';
+    navigateToView(targetView, false);
+  };
+
+  applyFromLocationHash();
+  window.addEventListener('hashchange', applyFromLocationHash);
+}
 
 function isTempClosureActive() {
   try {
@@ -411,16 +503,28 @@ function initClosureNoticeModal() {
 }
 
 function updateStoreOpenStatus() {
-  const statusEl = document.getElementById('live-store-status');
-  if (!statusEl) return;
+  const statusElements = [
+    document.getElementById('live-store-status'),
+    document.getElementById('live-store-status-visit')
+  ].filter(Boolean);
+  if (!statusElements.length) return;
 
   const t = (typeof TRANSLATIONS !== 'undefined' && TRANSLATIONS[currentLang])
     ? TRANSLATIONS[currentLang]
     : {};
 
+  const applyStatus = (cls, text) => {
+    statusElements.forEach(el => {
+      el.className = cls;
+      el.textContent = text;
+    });
+  };
+
   if (isTempClosureActive()) {
-    statusEl.className = 'live-store-status is-closed';
-    statusEl.textContent = t.status_temp_closed || "🕒 Fermé aujourd'hui & demain • Réouverture Vendredi 10h30";
+    applyStatus(
+      'live-store-status is-closed',
+      t.status_temp_closed || "🕒 Fermé aujourd'hui & demain • Réouverture Vendredi 10h30"
+    );
     return;
   }
 
@@ -443,13 +547,17 @@ function updateStoreOpenStatus() {
     const totalMinutes = (hour === 24 ? 0 : hour) * 60 + minute;
     const isOpen = openDays.has(weekday) && totalMinutes >= (10 * 60 + 30) && totalMinutes < (20 * 60);
 
-    statusEl.className = `live-store-status ${isOpen ? 'is-open' : 'is-closed'}`;
-    statusEl.textContent = isOpen
-      ? (t.status_open_now || "🟢 Ouvert maintenant • Aujourd'hui 10h30 – 20h00")
-      : (t.status_closed_now || "🕒 Actuellement fermé • Mer – Dim 10h30 – 20h00");
+    applyStatus(
+      `live-store-status ${isOpen ? 'is-open' : 'is-closed'}`,
+      isOpen
+        ? (t.status_open_now || "🟢 Ouvert maintenant • Aujourd'hui 10h30 – 20h00")
+        : (t.status_closed_now || "🕒 Actuellement fermé • Mer – Dim 10h30 – 20h00")
+    );
   } catch (err) {
-    statusEl.className = 'live-store-status is-open';
-    statusEl.textContent = t.status_open_now || "🟢 Mer – Dim : 10h30 – 20h00";
+    applyStatus(
+      'live-store-status is-open',
+      t.status_open_now || "🟢 Mer – Dim : 10h30 – 20h00"
+    );
   }
 }
 
@@ -495,6 +603,7 @@ function switchLanguage(lang) {
   localStorage.setItem('patisserie_dzung_lang', lang);
   updateLanguageUI(lang);
   applyTranslations(lang);
+  renderHomeFeaturedDishes();
   renderMenu(currentCategory);
   renderGallery(currentGalleryFilter);
   renderCartItems();
@@ -571,22 +680,13 @@ function initNavbar() {
   const navMenu = document.querySelector('.nav-menu');
   const navLinks = document.querySelectorAll('.nav-link');
 
-  const mobileCallBtn = document.getElementById('mobile-floating-call-btn');
-
   window.addEventListener('scroll', () => {
-    if (window.scrollY > 40) {
+    if (!header) return;
+    if (window.scrollY > 30) {
       header.classList.add('scrolled');
     } else {
       header.classList.remove('scrolled');
     }
-    if (mobileCallBtn) {
-      if (window.scrollY > 380) {
-        mobileCallBtn.classList.add('visible');
-      } else {
-        mobileCallBtn.classList.remove('visible');
-      }
-    }
-    updateActiveNavLink();
   });
 
   if (mobileToggle && navMenu) {
@@ -598,26 +698,6 @@ function initNavbar() {
       link.addEventListener('click', () => {
         navMenu.classList.remove('active');
       });
-    });
-  }
-
-  function updateActiveNavLink() {
-    const scrollPosition = window.scrollY + 120;
-    const sections = document.querySelectorAll('section[id], footer[id]');
-
-    sections.forEach(section => {
-      const sectionTop = section.offsetTop;
-      const sectionHeight = section.offsetHeight;
-      const sectionId = section.getAttribute('id');
-
-      if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
-        navLinks.forEach(link => {
-          link.classList.remove('active');
-          if (link.getAttribute('href') === `#${sectionId}`) {
-            link.classList.add('active');
-          }
-        });
-      }
     });
   }
 }
@@ -688,8 +768,8 @@ function initHeroSlider() {
 
 function setDishOption(dishId, choiceId) {
   selectedDishOptions[dishId] = choiceId;
-  const container = document.querySelector(`.dish-options[data-dish-id="${dishId}"]`);
-  if (container) {
+  const containers = document.querySelectorAll(`.dish-options[data-dish-id="${dishId}"]`);
+  containers.forEach(container => {
     const pills = container.querySelectorAll('.dish-option-pill');
     pills.forEach(pill => {
       if (pill.getAttribute('data-choice-id') === choiceId) {
@@ -698,7 +778,7 @@ function setDishOption(dishId, choiceId) {
         pill.classList.remove('active');
       }
     });
-  }
+  });
 
   // Update dynamic price if choice has its own price
   if (typeof MENU_ITEMS !== 'undefined') {
@@ -706,49 +786,139 @@ function setDishOption(dishId, choiceId) {
     if (dish && dish.options && Array.isArray(dish.options.choices)) {
       const choice = dish.options.choices.find(c => c.id === choiceId);
       if (choice && (choice.priceDisplay || choice.price !== undefined)) {
-        const priceElem = document.querySelector(`.dish-price[data-dish-price-id="${dishId}"]`);
-        if (priceElem) {
-          const displayStr = choice.priceDisplay 
-            ? (typeof choice.priceDisplay === 'object' ? (choice.priceDisplay[currentLang] || choice.priceDisplay.vi) : choice.priceDisplay)
-            : formatPrice(choice.price);
+        const displayStr = choice.priceDisplay 
+          ? (typeof choice.priceDisplay === 'object' ? (choice.priceDisplay[currentLang] || choice.priceDisplay.vi) : choice.priceDisplay)
+          : formatPrice(choice.price);
+        document.querySelectorAll(`.dish-price[data-dish-price-id="${dishId}"]`).forEach(priceElem => {
           priceElem.textContent = displayStr;
-        }
+        });
       }
     }
   }
 }
 
 /* ==========================================================================
-   4. MENU FILTER & MULTILINGUAL RENDER (Smart Signature Preview + Expand)
+   4. MENU FILTER, DELI MENU-BOARD & HOME CURATED FAVORITES
    ========================================================================== */
-let isMenuAllExpanded = false;
-const MENU_FEATURED_IDS = [
-  'bm-n1',
-  'bm-n2',
-  'bm-n3',
-  'sn-n10',
-  'sn-n12',
-  'sn-n14',
-  'dr-n41',
-  'ds-n29',
-  'rl-banh-da-lon'
-];
+function setMenuDisplayMode(mode) {
+  currentMenuDisplayMode = mode === 'cards' ? 'cards' : 'deli';
+  const menuContainer = document.getElementById('menu-items-grid');
+  const btnDeli = document.getElementById('btn-layout-deli');
+  const btnCards = document.getElementById('btn-layout-cards');
 
-function toggleMenuExpand() {
-  isMenuAllExpanded = !isMenuAllExpanded;
-  renderMenu(currentCategory);
-  if (!isMenuAllExpanded) {
-    const menuSec = document.getElementById('menu');
-    if (menuSec) {
-      menuSec.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    }
+  if (menuContainer) {
+    menuContainer.classList.toggle('is-deli-board', currentMenuDisplayMode === 'deli');
+    menuContainer.classList.toggle('is-card-grid', currentMenuDisplayMode === 'cards');
   }
+  if (btnDeli) {
+    btnDeli.classList.toggle('active', currentMenuDisplayMode === 'deli');
+  }
+  if (btnCards) {
+    btnCards.classList.toggle('active', currentMenuDisplayMode === 'cards');
+  }
+}
+
+function buildDishCardHtml(item, btnAddText) {
+  const name = item.name[currentLang] || item.name.fr || item.name.vi;
+  const desc = item.desc[currentLang] || item.desc.fr || item.desc.vi;
+  const badgeText = item.badgeText ? (item.badgeText[currentLang] || item.badgeText.fr || item.badgeText.vi) : '';
+  const tags = item.tags[currentLang] || item.tags.fr || item.tags.vi || [];
+  let priceDisplay = (item.priceDisplay && typeof item.priceDisplay === 'object')
+    ? (item.priceDisplay[currentLang] || item.priceDisplay.vi || item.priceDisplay.fr)
+    : (item.priceDisplay || `${item.price}$`);
+
+  // Flavor / Variant Options Selector
+  let optionsHtml = '';
+  if (item.options && Array.isArray(item.options.choices) && item.options.choices.length > 0) {
+    const optIcon = item.options.icon || '🧋';
+    const optLabel = (item.options.label && (item.options.label[currentLang] || item.options.label.fr || item.options.label.vi))
+      || (currentLang === 'fr' ? 'Saveur au choix :' : (currentLang === 'en' ? 'Choose flavor:' : (currentLang === 'zh' ? '选择风味：' : 'Chọn vị:')));
+    
+    const activeChoiceId = selectedDishOptions[item.id] || item.options.choices[0].id;
+    if (!selectedDishOptions[item.id]) {
+      selectedDishOptions[item.id] = activeChoiceId;
+    }
+
+    // If active choice has its own price, use that for initial price display
+    const activeChoice = item.options.choices.find(c => c.id === activeChoiceId);
+    if (activeChoice && (activeChoice.priceDisplay || activeChoice.price !== undefined)) {
+      priceDisplay = activeChoice.priceDisplay 
+        ? (typeof activeChoice.priceDisplay === 'object' ? (activeChoice.priceDisplay[currentLang] || activeChoice.priceDisplay.vi) : activeChoice.priceDisplay)
+        : formatPrice(activeChoice.price);
+    }
+
+    optionsHtml = `
+      <div class="dish-options" data-dish-id="${item.id}">
+        <div class="dish-options-header">
+          <span class="dish-options-icon">${optIcon}</span>
+          <span class="dish-options-label">${optLabel}</span>
+        </div>
+        <div class="dish-options-pills" role="radiogroup" aria-label="${optLabel}">
+          ${item.options.choices.map(choice => {
+            const choiceName = choice.name[currentLang] || choice.name.fr || choice.name.vi;
+            const isSelected = (activeChoiceId === choice.id);
+            return `
+              <button type="button" 
+                      class="dish-option-pill ${isSelected ? 'active' : ''}" 
+                      data-dish-id="${item.id}" 
+                      data-choice-id="${choice.id}"
+                      onclick="setDishOption('${item.id}', '${choice.id}')">
+                ${choiceName}
+              </button>
+            `;
+          }).join('')}
+        </div>
+      </div>
+    `;
+  }
+
+  return `
+    <div class="dish-card" data-category="${item.category}">
+      <div class="dish-image-wrapper">
+        <img class="dish-img" src="${item.image}" alt="${name}" loading="lazy" onerror="this.src='assets/images/story-dzung.jpg'" />
+        ${item.badge && badgeText ? `<span class="dish-badge ${item.badge}">${badgeText}</span>` : ''}
+      </div>
+      <div class="dish-info">
+        <div>
+          <div class="dish-header">
+            <h3 class="dish-name">${name}</h3>
+            <span class="dish-price" data-dish-price-id="${item.id}">${priceDisplay}</span>
+          </div>
+          <p class="dish-desc" onclick="this.classList.toggle('expanded')">${desc}</p>
+          ${optionsHtml}
+        </div>
+        <div class="dish-footer">
+          <div class="dish-tags">
+            ${tags.map(tag => `<span>#${tag}</span>`).join(' ')}
+          </div>
+          <button class="btn-add-dish" onclick="addToCart('${item.id}')">
+            <span>${btnAddText}</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  `;
+}
+
+function renderHomeFeaturedDishes() {
+  const homeGrid = document.getElementById('home-featured-dishes');
+  if (!homeGrid || typeof MENU_ITEMS === 'undefined') return;
+
+  const t = (typeof TRANSLATIONS !== 'undefined' && TRANSLATIONS[currentLang])
+    ? TRANSLATIONS[currentLang]
+    : {};
+  const btnAddText = t.btn_add_dish || '+ Thêm';
+
+  const featuredItems = HOME_SIGNATURE_IDS
+    .map(id => MENU_ITEMS.find(item => item.id === id))
+    .filter(Boolean);
+
+  homeGrid.innerHTML = featuredItems.map(item => buildDishCardHtml(item, btnAddText)).join('');
 }
 
 function renderMenu(category = 'all') {
   currentCategory = category;
   const menuContainer = document.getElementById('menu-items-grid');
-  const expandWrapper = document.getElementById('menu-expand-wrapper');
   if (!menuContainer || typeof MENU_ITEMS === 'undefined') return;
 
   const t = (typeof TRANSLATIONS !== 'undefined' && TRANSLATIONS[currentLang]) 
@@ -757,37 +927,9 @@ function renderMenu(category = 'all') {
 
   const btnAddText = t.btn_add_dish || '+ Thêm';
 
-  const allCategoryItems = category === 'all' 
+  const filteredItems = category === 'all' 
     ? MENU_ITEMS 
     : MENU_ITEMS.filter(item => item.category === category);
-
-  const previewLimit = (typeof window !== 'undefined' && window.innerWidth <= 768) ? 6 : 9;
-  let filteredItems = allCategoryItems;
-  if (category === 'all' && !isMenuAllExpanded && allCategoryItems.length > previewLimit) {
-    const featuredSet = new Set(MENU_FEATURED_IDS);
-    const picked = allCategoryItems.filter(item => featuredSet.has(item.id));
-    filteredItems = picked.length >= previewLimit ? picked.slice(0, previewLimit) : allCategoryItems.slice(0, previewLimit);
-  }
-
-  if (expandWrapper) {
-    if (category === 'all' && allCategoryItems.length > previewLimit) {
-      const expandText = t.menu_btn_expand || '📖 Voir Tout le Menu Complet';
-      const collapseText = t.menu_btn_collapse || '▴ Réduire à la Sélection Signature';
-      const sigNote = t.menu_signature_note || '';
-      expandWrapper.innerHTML = `
-        <div class="menu-expand-box">
-          ${!isMenuAllExpanded && sigNote ? `<p class="menu-signature-hint">${sigNote}</p>` : ''}
-          <button type="button" class="btn-menu-expand" onclick="toggleMenuExpand()">
-            <span>${isMenuAllExpanded ? collapseText : `${expandText} (${allCategoryItems.length}) ▾`}</span>
-          </button>
-        </div>
-      `;
-      expandWrapper.style.display = 'block';
-    } else {
-      expandWrapper.innerHTML = '';
-      expandWrapper.style.display = 'none';
-    }
-  }
 
   if (filteredItems.length === 0) {
     const emptyMsg = currentLang === 'fr'
@@ -798,96 +940,16 @@ function renderMenu(category = 'all') {
               ? 'Delicious desserts coming very soon!'
               : 'Các món tráng miệng ngọt ngào đang được tiệm chuẩn bị và sẽ sớm ra mắt!'));
     menuContainer.innerHTML = `
-      <div style="grid-column: 1 / -1; text-align: center; padding: 4.5rem 1rem; color: var(--color-text-muted);">
+      <div style="grid-column: 1 / -1; text-align: center; padding: 4.5rem 1rem; color: var(--ink-muted);">
         <div style="font-size: 3.5rem; margin-bottom: 1rem;">🍧</div>
-        <h3 style="color: #fff; font-size: 1.3rem; margin-bottom: 0.5rem; font-family: var(--font-serif);">${emptyMsg}</h3>
-        <p style="font-size: 0.9rem; color: var(--color-gold);">Pâtisserie Dzung</p>
+        <h3 style="color: var(--ink-pandan); font-size: 1.3rem; margin-bottom: 0.5rem; font-family: var(--font-serif);">${emptyMsg}</h3>
+        <p style="font-size: 0.9rem; color: var(--red-chili); font-weight: 700;">Pâtisserie Dzung</p>
       </div>
     `;
     return;
   }
 
-  menuContainer.innerHTML = filteredItems.map(item => {
-    const name = item.name[currentLang] || item.name.fr || item.name.vi;
-    const desc = item.desc[currentLang] || item.desc.fr || item.desc.vi;
-    const badgeText = item.badgeText ? (item.badgeText[currentLang] || item.badgeText.fr || item.badgeText.vi) : '';
-    const tags = item.tags[currentLang] || item.tags.fr || item.tags.vi || [];
-    let priceDisplay = (item.priceDisplay && typeof item.priceDisplay === 'object')
-      ? (item.priceDisplay[currentLang] || item.priceDisplay.vi || item.priceDisplay.fr)
-      : (item.priceDisplay || `${item.price}$`);
-
-    // Flavor / Variant Options Selector
-    let optionsHtml = '';
-    if (item.options && Array.isArray(item.options.choices) && item.options.choices.length > 0) {
-      const optIcon = item.options.icon || '🧋';
-      const optLabel = (item.options.label && (item.options.label[currentLang] || item.options.label.fr || item.options.label.vi))
-        || (currentLang === 'fr' ? 'Saveur au choix :' : (currentLang === 'en' ? 'Choose flavor:' : (currentLang === 'zh' ? '选择风味：' : 'Chọn vị:')));
-      
-      const activeChoiceId = selectedDishOptions[item.id] || item.options.choices[0].id;
-      if (!selectedDishOptions[item.id]) {
-        selectedDishOptions[item.id] = activeChoiceId;
-      }
-
-      // If active choice has its own price, use that for initial price display
-      const activeChoice = item.options.choices.find(c => c.id === activeChoiceId);
-      if (activeChoice && (activeChoice.priceDisplay || activeChoice.price !== undefined)) {
-        priceDisplay = activeChoice.priceDisplay 
-          ? (typeof activeChoice.priceDisplay === 'object' ? (activeChoice.priceDisplay[currentLang] || activeChoice.priceDisplay.vi) : activeChoice.priceDisplay)
-          : formatPrice(activeChoice.price);
-      }
-
-      optionsHtml = `
-        <div class="dish-options" data-dish-id="${item.id}">
-          <div class="dish-options-header">
-            <span class="dish-options-icon">${optIcon}</span>
-            <span class="dish-options-label">${optLabel}</span>
-          </div>
-          <div class="dish-options-pills" role="radiogroup" aria-label="${optLabel}">
-            ${item.options.choices.map(choice => {
-              const choiceName = choice.name[currentLang] || choice.name.fr || choice.name.vi;
-              const isSelected = (activeChoiceId === choice.id);
-              return `
-                <button type="button" 
-                        class="dish-option-pill ${isSelected ? 'active' : ''}" 
-                        data-dish-id="${item.id}" 
-                        data-choice-id="${choice.id}"
-                        onclick="setDishOption('${item.id}', '${choice.id}')">
-                  ${choiceName}
-                </button>
-              `;
-            }).join('')}
-          </div>
-        </div>
-      `;
-    }
-
-    return `
-      <div class="dish-card" data-category="${item.category}">
-        <div class="dish-image-wrapper">
-          <img class="dish-img" src="${item.image}" alt="${name}" loading="lazy" onerror="this.src='assets/images/story-dzung.jpg'" />
-          ${item.badge && badgeText ? `<span class="dish-badge ${item.badge}">${badgeText}</span>` : ''}
-        </div>
-        <div class="dish-info">
-          <div>
-            <div class="dish-header">
-              <h3 class="dish-name">${name}</h3>
-              <span class="dish-price" data-dish-price-id="${item.id}">${priceDisplay}</span>
-            </div>
-            <p class="dish-desc" onclick="this.classList.toggle('expanded')">${desc}</p>
-            ${optionsHtml}
-          </div>
-          <div class="dish-footer">
-            <div class="dish-tags">
-              ${tags.map(tag => `<span>#${tag}</span>`).join(' ')}
-            </div>
-            <button class="btn-add-dish" onclick="addToCart('${item.id}')">
-              <span>${btnAddText}</span>
-            </button>
-          </div>
-        </div>
-      </div>
-    `;
-  }).join('');
+  menuContainer.innerHTML = filteredItems.map(item => buildDishCardHtml(item, btnAddText)).join('');
 }
 
 function initMenuTabs() {
@@ -898,9 +960,6 @@ function initMenuTabs() {
       btn.classList.add('active');
       btn.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
       const category = btn.getAttribute('data-category');
-      if (category === 'all') {
-        isMenuAllExpanded = false;
-      }
       renderMenu(category);
     });
   });
@@ -1275,14 +1334,14 @@ function renderCartItems() {
   const badgeText = t.order_locked_badge || '🛠️ Chức năng Order Online đang hoàn thiện';
 
   cartContainer.innerHTML = `
-    <div style="background: rgba(229, 179, 88, 0.08); border: 1px solid rgba(229, 179, 88, 0.35); border-radius: 10px; padding: 1.4rem 1.2rem; margin-top: 0.5rem;">
-      <div style="display: inline-block; background: rgba(229, 179, 88, 0.18); color: var(--color-gold-bright); font-weight: 700; font-size: 0.85rem; padding: 0.35rem 0.9rem; border-radius: 50px; margin-bottom: 1rem;">
+    <div style="background: rgba(232, 168, 56, 0.14); border: 1.5px solid rgba(20, 61, 43, 0.18); border-radius: 14px; padding: 1.4rem 1.2rem; margin-top: 0.5rem;">
+      <div style="display: inline-block; background: var(--gold-crust); color: var(--ink-pandan); font-weight: 800; font-size: 0.85rem; padding: 0.35rem 0.9rem; border-radius: 50px; margin-bottom: 1rem;">
         ${badgeText}
       </div>
-      <p style="color: #f3f3f5; font-size: 0.98rem; line-height: 1.65; margin-bottom: 1rem;">
+      <p style="color: var(--ink-pandan); font-size: 0.98rem; line-height: 1.65; margin-bottom: 1rem; font-weight: 500;">
         ${t.cart_empty}
       </p>
-      <div style="font-size: 0.85rem; color: var(--color-text-muted);">
+      <div style="font-size: 0.85rem; color: var(--ink-muted); font-weight: 600;">
         📍 ${t.footer_address || '5918 Avenue Auteuil, Brossard, QC J4Z 1N2, Canada'}
       </div>
     </div>

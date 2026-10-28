@@ -4,7 +4,8 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
   <title>Pâtisserie Dzung | Bánh Mì Artisanal, Street Food Vietnamienne & Traiteur à Brossard (Rive-Sud Montréal)</title>
-  
+  <meta name="theme-color" content="#FCF8F0" />
+
   <!-- SEO & Social Meta -->
   <meta name="description" content="Pâtisserie Dzung au 5918 Avenue Auteuil, Brossard (Rive-Sud Montréal) — Meilleur Bánh Mì artisanal croustillant, street food vietnamienne de Saigon (Bánh Tráng Phơi Sương, Bánh Tráng Cuốn, Cơm Cháy), pâtisseries traditionnelles (Bánh Da Lợn, Bánh Xu Xuê), chè frais, café au sel, thé au lait 3D & service traiteur." />
   <meta name="keywords" content="Pâtisserie Dzung, Patisserie Dzung Brossard, Bánh Mì Brossard, Meilleur Banh Mi Rive-Sud Montréal, Street Food Vietnamienne Brossard, Bánh Tráng Phơi Sương Canada, Bánh Tráng Cuốn Sốt Bơ Me, Cơm Cháy Chà Bông, Bánh Da Lợn Lá Dứa, Bánh Xu Xuê, Chè Việt Nam Brossard, Sâm Bổ Lượng, Cà Phê Muối Montreal, Trà Sữa Thau 3D, Traiteur Vietnamien Brossard, Đặt Tiệc Món Việt Brossard, Vietnamese Catering South Shore Montreal" />
@@ -120,471 +121,734 @@
     }
   }
   </script>
-  
+
   <!-- Favicon -->
   <link rel="icon" type="image/png" href="assets/images/logo.png" />
-  
-  <!-- Google Fonts: Playfair Display, Cinzel, Plus Jakarta Sans -->
+
+  <!-- Google Fonts: Barlow Condensed (Display), Playball (Artisanal Script with full VN/FR diacritics), Plus Jakarta Sans (Body) -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800;900&family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,400;1,600&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
-  
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700;800&family=Playball&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+
   <!-- Stylesheets -->
   <link rel="stylesheet" href="css/style.css" />
 </head>
 <body>
 
   <!-- ==========================================================================
-       SITE HEADER (Sticky, Glassmorphism & Neon Logo)
+       SITE HEADER (Franco-Saigon Daylight Boulangerie — Cream & Deep Pandan Ink)
        ========================================================================== -->
   <header class="site-header">
-    <div class="brand-wrapper">
-      <a href="#hero" class="brand-link" aria-label="Pâtisserie Dzung">
-        <img src="assets/images/logo.png" alt="Pâtisserie Dzung Logo" class="brand-logo-img" />
+    <div class="header-inner">
+      <a href="#home" class="brand-badge-link" onclick="navigateToView('home'); return false;" aria-label="Pâtisserie Dzung Accueil">
+        <div class="brand-logo-tile">
+          <img src="assets/images/logo.png" alt="Pâtisserie Dzung Logo" class="brand-logo-img" width="52" height="52" />
+        </div>
+        <div class="brand-wordmark">
+          <span class="brand-wordmark-title">PÂTISSERIE DZUNG</span>
+          <span class="brand-wordmark-sub" data-i18n="brand_tagline">Bánh Mì &amp; Street Food</span>
+        </div>
       </a>
-    </div>
 
-    <nav>
-      <ul class="nav-menu">
-        <li><a href="#hero" class="nav-link active" data-i18n="nav_home">Accueil</a></li>
-        <li><a href="#story" class="nav-link" data-i18n="nav_story">Histoire</a></li>
-        <li><a href="#menu" class="nav-link" data-i18n="nav_menu">Menu</a></li>
-        <li><a href="#gallery" class="nav-link" data-i18n="nav_gallery">Galerie</a></li>
-        <li><a href="#catering" class="nav-link" data-i18n="nav_catering">Traiteur</a></li>
-        <li><a href="#reviews" class="nav-link" data-i18n="nav_reviews">Avis</a></li>
-        <li><a href="#contact" class="nav-link" data-i18n="nav_contact">Contact</a></li>
-      </ul>
-    </nav>
-
-    <div class="header-actions">
-      <!-- Language Selector Dropdown (Default French, supports VI, EN, ZH) -->
-      <div class="lang-selector-dropdown">
-        <button class="lang-current-btn" id="lang-btn" aria-label="Choisir la langue">
-          <span class="lang-current-flag">🇫🇷</span>
-          <span class="lang-current-code">FR</span>
-          <span class="lang-dropdown-chevron">▼</span>
-        </button>
-        <ul class="lang-dropdown-menu" id="lang-menu">
-          <li><button class="lang-option active" data-lang="fr"><span>🇫🇷</span> Français</button></li>
-          <li><button class="lang-option" data-lang="vi"><span>🇻🇳</span> Tiếng Việt</button></li>
-          <li><button class="lang-option" data-lang="en"><span>🇬🇧</span> English</button></li>
-          <li><button class="lang-option" data-lang="zh"><span>🇨🇳</span> 中文</button></li>
+      <nav aria-label="Navigation principale">
+        <ul class="nav-menu">
+          <li><a href="#home" class="nav-link active" data-nav-view="home" onclick="navigateToView('home'); return false;" data-i18n="nav_home">Accueil</a></li>
+          <li><a href="#menu" class="nav-link" data-nav-view="menu" onclick="navigateToView('menu'); return false;" data-i18n="nav_menu">Menu</a></li>
+          <li><a href="#catering" class="nav-link" data-nav-view="catering" onclick="navigateToView('catering'); return false;" data-i18n="nav_catering">Traiteur</a></li>
+          <li><a href="#gallery" class="nav-link" data-nav-view="gallery" onclick="navigateToView('gallery'); return false;" data-i18n="nav_gallery">Galerie</a></li>
+          <li><a href="#visit" class="nav-link" data-nav-view="visit" onclick="navigateToView('visit'); return false;" data-i18n="nav_visit">Visiter</a></li>
         </ul>
-      </div>
+      </nav>
 
-      <!-- Quick Cart Button -->
-      <button class="cart-toggle-btn" id="cart-toggle" title="Voir la commande" aria-label="Panier">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <circle cx="9" cy="21" r="1"></circle>
-          <circle cx="20" cy="21" r="1"></circle>
-          <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
-        </svg>
-        <span class="cart-badge" style="display: none;">0</span>
-      </button>
+      <div class="header-actions">
+        <!-- Tactile Header CTA Pills (Inspired by Little Kirin's Dual Pill Buttons) -->
+        <a href="tel:+15148808388" class="btn-tactile btn-tactile-gold header-cta-order" onclick="addToCart()" data-i18n="header_btn_order">
+          📞 Commander
+        </a>
+        <a href="#catering" class="btn-tactile btn-tactile-outline header-cta-catering" onclick="navigateToView('catering'); return false;" data-i18n="header_btn_catering">
+          Traiteur
+        </a>
 
-      <!-- Mobile Hamburger -->
-      <div class="mobile-toggle" aria-label="Menu Mobile">
-        <span></span>
-        <span></span>
-        <span></span>
+        <!-- Language Selector Dropdown (Default French, supports VI, EN, ZH) -->
+        <div class="lang-selector-dropdown">
+          <button class="lang-current-btn" id="lang-btn" aria-label="Choisir la langue">
+            <span class="lang-current-flag">🇫🇷</span>
+            <span class="lang-current-code">FR</span>
+            <span class="lang-dropdown-chevron">▼</span>
+          </button>
+          <ul class="lang-dropdown-menu" id="lang-menu">
+            <li><button class="lang-option active" data-lang="fr"><span>🇫🇷</span> Français</button></li>
+            <li><button class="lang-option" data-lang="vi"><span>🇻🇳</span> Tiếng Việt</button></li>
+            <li><button class="lang-option" data-lang="en"><span>🇬🇧</span> English</button></li>
+            <li><button class="lang-option" data-lang="zh"><span>🇨🇳</span> 中文</button></li>
+          </ul>
+        </div>
+
+        <!-- Mobile Hamburger -->
+        <button type="button" class="mobile-toggle" aria-label="Menu Mobile" aria-expanded="false">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
       </div>
     </div>
   </header>
 
   <!-- ==========================================================================
-       HERO SECTION (Matching Anan Saigon reference style)
+       MULTI-VIEW APPLICATION CONTAINER (Cách A: Curated Homepage + Dedicated Sub-Views)
        ========================================================================== -->
-  <section class="hero-section" id="hero">
-    <!-- Background Slider -->
-    <div class="hero-slider-container">
-      <div class="hero-slide active" style="background-image: url('assets/images/hero-dzung-store.jpg');">
-        <div class="hero-slide-overlay"></div>
-      </div>
-      <div class="hero-slide" style="background-image: url('assets/images/hero-dzung-food.jpg');">
-        <div class="hero-slide-overlay"></div>
-      </div>
-      <div class="hero-slide" style="background-image: url('assets/images/hero-dzung-store2.jpg');">
-        <div class="hero-slide-overlay"></div>
-      </div>
-    </div>
+  <main id="main-content">
 
-    <!-- Center Content: Floating Glassmorphism Reservation CTA -->
-    <div class="hero-center-content">
-      <p class="hero-subtitle" data-i18n="hero_subtitle">Saveurs des Rues de Saigon • L'Artisanat du Bánh Mì</p>
-      <h1 class="hero-title"><span data-i18n="hero_title_prefix">PÂTISSERIE</span> <span>DZUNG</span></h1>
-      
-      <div class="hero-cta-group">
-        <a href="#menu" class="btn-hero-menu" data-i18n="hero_btn_menu">
-          DÉCOUVRIR LE MENU
-        </a>
-        <a href="tel:5148808388" class="btn-hero-reservation" onclick="addToCart()" data-i18n="hero_btn_call">
-          📞 APPELER POUR COMMANDER
-        </a>
-      </div>
-    </div>
+    <!-- ========================================================================
+         VIEW 1: HOME (Curated 6-Block Flagship Storefront — Zero Clutter)
+         ======================================================================== -->
+    <div id="view-home" class="app-view active" data-view-panel="home">
 
-    <!-- Bottom Content: Clean, elegant highlights text without red circular badges -->
-    <div class="hero-bottom-content">
-      <div class="hero-badges-wrapper">
-        <div class="hero-highlights-text">
-          <span data-i18n="hero_highlight_1">AUTHENTIQUE STREET FOOD VIETNAMIENNE & BÁNH MÌ ARTISANAL</span>
-          <span data-i18n="hero_highlight_2">LA MEILLEURE EXPÉRIENCE DE SAVEURS DE RUE AU VIETNAM</span>
-          <span data-i18n="hero_highlight_3">AMBIANCE NOCTURNE DU VIETNAM & HÉRITAGE TRADITIONNEL</span>
-        </div>
-      </div>
+      <!-- BLOCK 1: SPLIT 50/50 DAYLIGHT HERO WITH ROTATED STAMP -->
+      <section class="lk-hero" id="hero">
+        <div class="container lk-hero-grid">
+          <!-- Left Copy Column -->
+          <div class="lk-hero-copy">
+            <p class="lk-eyebrow" data-i18n="hero_eyebrow">Brossard · 5918 Avenue Auteuil</p>
+            <h1 class="lk-hero-title" id="home-view-heading" tabindex="-1">
+              <span data-i18n="hero_main_heading">BÁNH MÌ ARTISANAL &amp; STREET FOOD DE SAIGON</span>
+              <span class="script-accent" data-i18n="hero_script_sub">L'authenticité rare au Canada</span>
+            </h1>
+            <p class="lk-hero-lede" data-i18n="hero_lede">
+              Baguettes croustillantes dorées au four, pâté maison secret de famille, pâtisseries aux vraies feuilles de pandan fraîches mixées, chè naturels et thés au lait 3D.
+            </p>
 
-      <!-- Arrow Controls -->
-      <div class="hero-controls">
-        <button class="hero-arrow-btn hero-prev-btn" aria-label="Photo précédente">
-          &#10094;
-        </button>
-        <button class="hero-arrow-btn hero-next-btn" aria-label="Photo suivante">
-          &#10095;
-        </button>
-      </div>
-    </div>
-  </section>
-
-  <!-- ==========================================================================
-       STORY / ABOUT SECTION
-       ========================================================================== -->
-  <section id="story">
-    <div class="container">
-      <div class="story-grid">
-        <div class="story-image-box">
-          <img src="assets/images/story-dzung.jpg" alt="Ambiance chaleureuse chez Pâtisserie Dzung" class="story-img-main" />
-          <div class="story-floating-badge">
-            <div class="floating-number">100%</div>
-            <div class="floating-text" data-i18n="story_badge_text">Saveurs Rares & Authentiques au Canada</div>
-          </div>
-        </div>
-
-        <div class="story-content">
-          <span class="section-tagline" data-i18n="story_tagline">Notre Histoire</span>
-          <h2 class="section-title" data-i18n="story_title">SAVEURS VIETNAMIENNES RARES AU CANADA : DE LA TRADITION POPULAIRE AUX TENDANCES MODERNES</h2>
-          <div class="section-divider" style="margin-left: 0;"></div>
-
-          <p class="story-lead" data-i18n="story_lead">
-            Chez <strong>Pâtisserie Dzung</strong>, nous sommes fiers de réunir <em>street food moderne tendance</em> et <em>mets populaires & pâtisseries traditionnelles du Vietnam</em> — des créations authentiques et rares, presque introuvables ailleurs au Canada.
-          </p>
-
-          <p class="story-text" data-i18n="story_text">
-            Installée à Brossard, Pâtisserie Dzung est le sanctuaire des amateurs de saveurs vietnamiennes authentiques. Des délices de rue emblématiques comme les Feuilles de riz assouplies à la rosée (Bánh Tráng Phơi Sương) et rouleaux sauce beurre-tamarin, jusqu'aux pâtisseries ancestrales faites main : le gâteau étagé <strong>Bánh Da Lợn</strong> et le <strong>Bánh Xu Xuê au Pandan Frais & Haricot Mungo</strong>. Nous nous engageons à <strong>100% de vrais ingrédients frais</strong> : le parfum provient de <strong>vraies feuilles de pandan fraîches mixées</strong>, nos douceurs au pomélo utilisent de <strong>vrais morceaux d'écorce de pomélo frais</strong>, et la gelée de sương sâm est <strong>froissée directement à partir de vraies feuilles de sâm fraîches</strong> — sans poudre ni arôme artificiel. Le tout sublimé par nos baguettes artisanales au pâté maison et nos boissons signatures tendances.
-          </p>
-
-          <div class="story-features">
-            <div class="feature-item">
-              <span class="feature-icon">🥮</span>
-              <div>
-                <h4 class="feature-title" data-i18n="story_f1_title">Pâtisseries Traditionnelles Rares</h4>
-                <p class="feature-desc" data-i18n="story_f1_desc">Bánh Da Lợn & Bánh Xu Xuê au pandan frais mixé maison et haricot mungo, introuvables ailleurs au Canada.</p>
-              </div>
+            <div class="lk-btn-row">
+              <a href="tel:+15148808388" class="btn-tactile btn-tactile-gold" onclick="addToCart()" data-i18n="hero_btn_call">
+                📞 APPELER POUR COMMANDER
+              </a>
+              <button type="button" class="btn-tactile btn-tactile-outline" onclick="navigateToView('menu')" data-i18n="hero_btn_menu">
+                DÉCOUVRIR LE MENU
+              </button>
             </div>
 
-            <div class="feature-item">
-              <span class="feature-icon">🌿</span>
-              <div>
-                <h4 class="feature-title" data-i18n="story_f2_title">100% Vrais Ingrédients Frais</h4>
-                <p class="feature-desc" data-i18n="story_f2_desc">Pandan frais mixé, vraie écorce de pomélo, gelée sương sâm froissée main — zéro poudre artificielle.</p>
-              </div>
-            </div>
-
-            <div class="feature-item">
-              <span class="feature-icon">🥖</span>
-              <div>
-                <h4 class="feature-title" data-i18n="story_f3_title">Bánh Mì Croustillant & Pâté Maison</h4>
-                <p class="feature-desc" data-i18n="story_f3_desc">Pain croustillant cuit en continu toute la journée, pâté de foie onctueux secret de famille.</p>
-              </div>
-            </div>
-
-            <div class="feature-item">
-              <span class="feature-icon">🍢</span>
-              <div>
-                <h4 class="feature-title" data-i18n="story_f4_title">Street Food & Boissons Tendances</h4>
-                <p class="feature-desc" data-i18n="story_f4_desc">Bánh tráng phơi sương, sauce beurre-tamarin, thé au lait pudding 3D et café à la crème de sel marin.</p>
-              </div>
+            <!-- Live Store Status Dot (like Little Kirin's "Open now · until 10pm") -->
+            <div class="lk-hero-status-wrap">
+              <span class="live-store-status" id="live-store-status"></span>
             </div>
           </div>
-        </div>
-      </div>
-    </div>
-  </section>
 
-  <!-- ==========================================================================
-       INTERACTIVE MENU SECTION
-       ========================================================================== -->
-  <section id="menu" style="background: rgba(14, 14, 18, 0.7);">
-    <div class="container">
-      <div class="section-header">
-        <span class="section-tagline" data-i18n="menu_tagline">Sélection Gastronomique</span>
-        <h2 class="section-title" data-i18n="menu_title">BÁNH MÌ & STREET FOOD VIETNAMIEN</h2>
-        <div class="section-divider"></div>
-      </div>
+          <!-- Right Photo Frame with Hard Gold Shadow & Rotated Stamp Badge -->
+          <div class="lk-hero-media">
+            <div class="lk-hero-frame">
+              <div class="hero-slider-container">
+                <div class="hero-slide active">
+                  <img src="assets/images/hero-dzung-store.jpg" alt="Le Grand Festin de Saigon chez Pâtisserie Dzung Brossard" width="1200" height="900" fetchpriority="high" />
+                </div>
+                <div class="hero-slide">
+                  <img src="assets/images/hero-dzung-food.jpg" alt="Bánh Mì croustillants et spécialités vietnamiennes Pâtisserie Dzung" width="1200" height="900" loading="lazy" />
+                </div>
+                <div class="hero-slide">
+                  <img src="assets/images/hero-dzung-store2.jpg" alt="Espace chaleureux Pâtisserie Dzung au 5918 Avenue Auteuil" width="1200" height="900" loading="lazy" />
+                </div>
+              </div>
+              <div class="lk-hero-slider-nav">
+                <button type="button" class="hero-arrow-btn hero-prev-btn" aria-label="Photo précédente">&#10094;</button>
+                <button type="button" class="hero-arrow-btn hero-next-btn" aria-label="Photo suivante">&#10095;</button>
+              </div>
+            </div>
 
-      <!-- Filter Tabs -->
-      <div class="menu-tabs-wrapper">
-        <button class="menu-tab-btn active" data-category="all" data-i18n="tab_all">Tous les plats</button>
-        <button class="menu-tab-btn" data-category="banhmi" data-i18n="tab_banhmi">🥖 Bánh Mì</button>
-        <button class="menu-tab-btn" data-category="streetfood" data-i18n="tab_streetfood">🍢 Street Food & Snacks</button>
-        <button class="menu-tab-btn" data-category="drinks" data-i18n="tab_drinks">☕ Boissons</button>
-        <button class="menu-tab-btn" data-category="desserts" data-i18n="tab_desserts">🍧 Desserts</button>
-        <button class="menu-tab-btn" data-category="rolls" data-i18n="tab_rolls">🥮 Pâtisseries Traditionnelles VN</button>
-      </div>
-
-      <!-- Menu Grid Rendered by JavaScript -->
-      <div class="menu-grid" id="menu-items-grid">
-        <!-- Javascript will inject items here -->
-      </div>
-
-      <!-- Expand / Collapse Full Menu Button Wrapper -->
-      <div class="menu-expand-wrapper" id="menu-expand-wrapper"></div>
-    </div>
-  </section>
-
-  <!-- ==========================================================================
-       ATMOSPHERE / GALLERY SECTION (Creative Multi-Format Exhibition & Lightbox)
-       ========================================================================== -->
-  <section id="gallery" class="gallery-section">
-    <div class="container">
-      <div class="section-header">
-        <span class="section-tagline" data-i18n="gallery_tagline">Ambiance & Cadre</span>
-        <h2 class="section-title" data-i18n="gallery_title">SAIGON NIGHT VIBE</h2>
-        <div class="section-divider"></div>
-        <p class="gallery-intro-desc" data-i18n="gallery_subtitle">
-          Plongez dans l'univers visuel de Pâtisserie Dzung : notre espace chaleureux, nos affiches d'art et nos créations artisanales faites maison. Cliquez sur chaque œuvre pour l'explorer en plein écran.
-        </p>
-      </div>
-
-      <!-- Creative Gallery Filter Bar -->
-      <div class="gallery-filter-bar" role="tablist" aria-label="Gallery Categories">
-        <button type="button" class="gallery-filter-btn active" data-gallery-filter="all" data-i18n="gal_tab_all">✨ Tout Explorer</button>
-        <button type="button" class="gallery-filter-btn" data-gallery-filter="posters" data-i18n="gal_tab_posters">🎨 Affiches & Art</button>
-        <button type="button" class="gallery-filter-btn" data-gallery-filter="ambiance" data-i18n="gal_tab_ambiance">🏮 Espace & Ambiance</button>
-        <button type="button" class="gallery-filter-btn" data-gallery-filter="culinary" data-i18n="gal_tab_culinary">🥖 Créations Signature</button>
-        <button type="button" class="gallery-filter-btn" data-gallery-filter="videos" id="gal-tab-videos-btn" style="display: none;" data-i18n="gal_tab_videos">🎬 Vidéos & Reels</button>
-      </div>
-
-      <!-- Dynamic Exhibition Grid Rendered by JS (with initial SEO fallback) -->
-      <div class="gallery-exhibition-grid" id="gallery-showcase-grid">
-        <!-- Injected dynamically by renderGallery() in js/main.js -->
-      </div>
-    </div>
-  </section>
-
-  <!-- ==========================================================================
-       CATERING & SPECIAL EVENTS SECTION (Unified Luxury Showcase Card)
-       ========================================================================== -->
-  <section id="catering" class="catering-section">
-    <div class="container">
-      <div class="catering-luxury-card">
-        <!-- Left / Top Visual Showcase -->
-        <div class="catering-media-col">
-          <img src="assets/images/hero-dzung-store.jpg" alt="Pâtisserie Dzung Catering & Events" loading="lazy" width="1200" height="800" class="catering-banner-img" />
-          <div class="catering-media-overlay">
-            <span class="catering-banner-badge" data-i18n="catering_badge">🎉 Plateaux & Menus Sur Mesure</span>
-            <p class="catering-banner-caption" data-i18n="catering_banner_caption">L'authenticité de Saigon sur la table de vos réceptions</p>
+            <!-- Rotated Stamp Badge (-3.5deg) -->
+            <a href="https://www.google.com/maps/place/Patisserie+Dzung/@45.4714691,-73.4613397,17z/data=!3m1!4b1!4m6!3m5!1s0x4cc9054ca9b665f5:0x451da51af4413046!8m2!3d45.4714654!4d-73.4587648!16s%2Fg%2F11zx0_530d?entry=ttu" target="_blank" rel="noopener noreferrer" class="lk-hero-stamp">
+              <small class="stamp-kicker" data-i18n="hero_stamp_kicker">★ 4.9 / 5.0 SUR GOOGLE MAPS · BROSSARD</small>
+              <span class="stamp-main" data-i18n="hero_stamp_main">SPÉCIALITÉS VIETNAMIENNES RARES &amp; 100% FAIT MAISON</span>
+            </a>
           </div>
         </div>
+      </section>
 
-        <!-- Right / Bottom Content & 1-Tap Contact Channels -->
-        <div class="catering-content-col">
-          <div class="catering-header-Block">
-            <span class="section-tagline" data-i18n="catering_tagline">Service Traiteur & Événements</span>
-            <h2 class="catering-main-title" data-i18n="catering_title">SUBLIMEZ VOS ÉVÉNEMENTS AVEC PÂTISSERIE DZUNG</h2>
-            <p class="catering-lead-desc" data-i18n="catering_subtitle">
-              Anniversaires, réunions d'entreprise, fêtes de famille ou célébrations : nous préparons sur mesure des plateaux de Bánh Mì croustillants, street food de Saigon, pâtisseries traditionnelles et douceurs fraîches.
+      <!-- BLOCK 2: SUNNY BAGUETTE-GOLD UTILITY STRIP WITH FRENCH SCALLOPED AWNING EDGE -->
+      <section class="lk-utility-strip" aria-label="Horaires, adresse et téléphone">
+        <div class="container lk-strip-grid">
+          <div class="lk-strip-item">
+            <b data-i18n="strip_hours_label">HORAIRES D'OUVERTURE</b>
+            <span data-i18n="strip_hours_val">Mercredi – Dimanche · 10h30 – 20h00</span>
+          </div>
+          <div class="lk-strip-item">
+            <b data-i18n="strip_find_label">NOUS TROUVER</b>
+            <a href="https://www.google.com/maps/place/Patisserie+Dzung/@45.4714691,-73.4613397,17z/data=!3m1!4b1!4m6!3m5!1s0x4cc9054ca9b665f5:0x451da51af4413046!8m2!3d45.4714654!4d-73.4587648!16s%2Fg%2F11zx0_530d?entry=ttu" target="_blank" rel="noopener noreferrer">5918 Avenue Auteuil, Brossard, QC J4Z 1N2</a>
+          </div>
+          <div class="lk-strip-item">
+            <b data-i18n="strip_call_label">COMMANDER PAR TÉLÉPHONE</b>
+            <a href="tel:+15148808388">(514) 880-8388</a>
+          </div>
+        </div>
+      </section>
+
+      <!-- BLOCK 3: DEEP PANDAN GREEN 50/50 SPLIT — CATERING & ARTISANAL CRAFT -->
+      <section class="lk-section lk-bg-pandan">
+        <div class="container lk-split-grid">
+          <div class="lk-split-media">
+            <img src="assets/images/hero-dzung-food.jpg" alt="Plateaux traiteur Bánh Mì, rouleaux de Saigon et pâtisseries au pandan frais" loading="lazy" width="1200" height="900" />
+          </div>
+          <div class="lk-split-copy">
+            <p class="lk-eyebrow is-gold" data-i18n="home_cat_eyebrow">Traiteur &amp; Savoir-Faire Artisanal</p>
+            <h2 class="lk-section-heading is-light">
+              <span data-i18n="home_cat_title">UN ÉVÉNEMENT À FÊTER ?</span>
+              <span class="script-accent is-gold" data-i18n="home_cat_script">On s'occupe de tout.</span>
+            </h2>
+            <p class="lk-split-desc" data-i18n="home_cat_desc">
+              Anniversaires, réunions d'entreprise, fêtes de famille ou réceptions : commandez nos plateaux de Bánh Mì croustillants, assortiments de street food de Saigon et pâtisseries traditionnelles 100% fraîches.
+            </p>
+            <ul class="lk-sparkle-checklist">
+              <li data-i18n="home_cat_li1">Plateaux de Bánh Mì croustillants &amp; rouleaux de Saigon</li>
+              <li data-i18n="home_cat_li2">Pâtisseries ancestrales aux vraies feuilles de pandan fraîches</li>
+              <li data-i18n="home_cat_li3">Chè maison (vraie écorce de pomélo, sương sâm froissée main) &amp; boissons</li>
+            </ul>
+            <div class="lk-btn-row">
+              <button type="button" class="btn-tactile btn-tactile-gold" onclick="navigateToView('catering')" data-i18n="home_cat_btn_1">
+                DÉCOUVRIR L'OFFRE TRAITEUR
+              </button>
+              <a href="tel:+15148808388" class="btn-tactile btn-tactile-ghost-light" data-i18n="home_cat_btn_2">
+                📞 (514) 880-8388
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- BLOCK 4: CURATED 6 SIGNATURE FAVORITES ON HOMEPAGE -->
+      <section class="lk-section lk-bg-cream">
+        <div class="container">
+          <div class="lk-section-head">
+            <p class="lk-eyebrow" data-i18n="home_fav_eyebrow">Les Plus Populaires</p>
+            <h2 class="lk-section-heading">
+              <span data-i18n="home_fav_title">NOS CRÉATIONS SIGNATURES</span>
+              <span class="script-accent" data-i18n="home_fav_script">faites maison</span>
+            </h2>
+            <p class="lk-section-sub" data-i18n="home_fav_sub">
+              Un aperçu de nos spécialités les plus aimées sur la Rive-Sud. Explorez notre carte complète de 54 créations artisanales.
             </p>
           </div>
 
-          <!-- 3 Concise Catering Offerings Pills -->
-          <div class="catering-offerings-row">
-            <div class="catering-offering-chip">
-              <span class="catering-chip-icon">🥖</span>
-              <span class="catering-chip-text" data-i18n="catering_item1_title">Plateaux de Bánh Mì & Street Food</span>
-            </div>
-            <div class="catering-offering-chip">
-              <span class="catering-chip-icon">🥮</span>
-              <span class="catering-chip-text" data-i18n="catering_item2_title">Pâtisseries Traditionnelles & Chè Frais</span>
-            </div>
-            <div class="catering-offering-chip">
-              <span class="catering-chip-icon">🧋</span>
-              <span class="catering-chip-text" data-i18n="catering_item3_title">Boissons Artisanales & Formules Flexibles</span>
-            </div>
+          <!-- 6 Featured Dishes Rendered Dynamically by JS -->
+          <div class="lk-home-dishes-grid" id="home-featured-dishes"></div>
+
+          <div class="lk-btn-row lk-home-menu-cta">
+            <button type="button" class="btn-tactile btn-tactile-dark" onclick="navigateToView('menu')" data-i18n="home_fav_btn_all">
+              📖 VOIR LE MENU COMPLET (54 SPÉCIALITÉS) ➔
+            </button>
+            <button type="button" class="btn-tactile btn-tactile-outline" onclick="navigateToView('gallery')" data-i18n="home_fav_btn_gal">
+              🎞️ GALERIE PHOTOS &amp; VIDÉOS
+            </button>
           </div>
-
-          <!-- Direct 1-Tap Contact Action Cards (No Duplicate Buttons) -->
-          <div class="catering-contact-channels">
-            <a href="tel:+15148808388" class="catering-channel-box is-phone">
-              <div class="catering-channel-icon">📞</div>
-              <div class="catering-channel-info">
-                <span class="catering-channel-label" data-i18n="catering_phone_label">TÉLÉPHONE DE LA BOUTIQUE</span>
-                <strong class="catering-channel-value">(514) 880-8388</strong>
-              </div>
-              <span class="catering-channel-cta" data-i18n="catering_btn_call">Appeler ↗</span>
-            </a>
-
-            <a href="mailto:patisseriedzung@gmail.com?subject=Demande%20de%20Traiteur%20%2F%20%C4%90%E1%BA%B7t%20Ti%E1%BB%87c%20-%20P%C3%A2tisserie%20Dzung" class="catering-channel-box is-email">
-              <div class="catering-channel-icon">✉️</div>
-              <div class="catering-channel-info">
-                <span class="catering-channel-label" data-i18n="catering_email_label">COURRIEL / EMAIL</span>
-                <strong class="catering-channel-value">patisseriedzung@gmail.com</strong>
-              </div>
-              <span class="catering-channel-cta" data-i18n="catering_btn_email">Email ↗</span>
-            </a>
-          </div>
-
-          <p class="catering-note" data-i18n="catering_note">
-            💡 Contactez-nous à l'avance par téléphone ou courriel pour préparer un menu 100% frais adapté à vos invités.
-          </p>
         </div>
-      </div>
+      </section>
+
+      <!-- BLOCK 5: SPLIT VISIT & HOURS SECTION ON HOMEPAGE -->
+      <section class="lk-section lk-bg-paper">
+        <div class="container lk-split-grid is-reverse">
+          <div class="lk-split-media lk-visit-collage">
+            <img src="assets/images/story-dzung.jpg" alt="Intérieur chaleureux chez Pâtisserie Dzung Brossard" loading="lazy" width="1200" height="900" />
+            <div class="lk-mini-review-badge">
+              <div class="lk-mini-stars">★★★★★</div>
+              <p data-i18n="review_1_text">"Le meilleur Bánh Mì sur la Rive-Sud de Montréal ! Pain ultra frais et croustillant à la perfection."</p>
+              <small>— Sophie Nguyen · Google Maps</small>
+            </div>
+          </div>
+
+          <div class="lk-split-copy">
+            <p class="lk-eyebrow" data-i18n="home_visit_eyebrow">Nous Rendre Visite</p>
+            <h2 class="lk-section-heading">
+              <span data-i18n="home_visit_title">5918 AVENUE AUTEUIL</span>
+              <span class="script-accent" data-i18n="home_visit_script">Brossard, Rive-Sud</span>
+            </h2>
+            <p class="lk-split-desc" data-i18n="home_visit_desc">
+              À quelques minutes du pont Champlain avec stationnement gratuit. Venez savourer nos baguettes chaudes tout juste sorties du four ou emportez vos douceurs préférées.
+            </p>
+
+            <table class="lk-hours-table" aria-label="Horaires d'ouverture">
+              <tbody>
+                <tr class="is-highlight">
+                  <td data-i18n="hours_row_open_days">Mercredi – Dimanche</td>
+                  <td data-i18n="hours_row_open_time">10h30 – 20h00</td>
+                </tr>
+                <tr>
+                  <td data-i18n="hours_row_closed_days">Lundi &amp; Mardi</td>
+                  <td data-i18n="hours_row_closed_time">Fermé</td>
+                </tr>
+                <tr>
+                  <td data-i18n="hours_row_rating_label">Note Google Maps (Brossard)</td>
+                  <td><strong>4.9 / 5.0 ★</strong></td>
+                </tr>
+              </tbody>
+            </table>
+
+            <div class="lk-btn-row" style="margin-top: 1.5rem;">
+              <a href="https://www.google.com/maps/place/Patisserie+Dzung/@45.4714691,-73.4613397,17z/data=!3m1!4b1!4m6!3m5!1s0x4cc9054ca9b665f5:0x451da51af4413046!8m2!3d45.4714654!4d-73.4587648!16s%2Fg%2F11zx0_530d?entry=ttu" target="_blank" rel="noopener noreferrer" class="btn-tactile btn-tactile-dark" data-i18n="banner_btn_map">
+                📍 ITINÉRAIRE GOOGLE MAPS ↗
+              </a>
+              <button type="button" class="btn-tactile btn-tactile-outline" onclick="navigateToView('visit')" data-i18n="home_visit_btn_more">
+                HISTOIRE, AVIS &amp; CARTE ➔
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
     </div>
-  </section>
 
-  <!-- ==========================================================================
-       PRESS & REVIEWS SECTION
-       ========================================================================== -->
-  <section id="reviews" style="background: rgba(10, 10, 12, 0.9);">
-    <div class="container">
-      <div class="section-header">
-        <span class="section-tagline" data-i18n="reviews_tagline">Témoignages & Presse</span>
-        <h2 class="section-title" data-i18n="reviews_title">CE QUE DISENT NOS CLIENTS</h2>
-        <div class="section-divider"></div>
-      </div>
-
-      <div class="reviews-grid">
-        <div class="review-card">
-          <div class="review-stars">★★★★★</div>
-          <p class="review-quote" data-i18n="review_1_text">
-            "Le meilleur Bánh Mì sur la Rive-Sud de Montréal ! Pain ultra frais et croustillant à la perfection. Le sandwich au porc salé spécial (N1) et les boulettes xíu mại au jaune d'œuf salé (N2) sont divinement savoureux. Pâté onctueux maison et garniture très généreuse !"
+    <!-- ========================================================================
+         VIEW 2: FULL MENU (54 Dishes in Classic Deli Menu-Board or Photo Cards)
+         ======================================================================== -->
+    <div id="view-menu" class="app-view" data-view-panel="menu" hidden>
+      <!-- Sunny Baguette-Gold Page Header with Scalloped Bottom -->
+      <section class="lk-page-head">
+        <div class="container">
+          <p class="lk-eyebrow is-dark" data-i18n="menu_tagline">Sélection Gastronomique</p>
+          <h1 class="lk-page-title" id="menu-view-heading" tabindex="-1">
+            <span data-i18n="menu_title">BÁNH MÌ &amp; STREET FOOD VIETNAMIEN</span>
+            <span class="script-accent is-red" data-i18n="menu_script_sub">54 spécialités maison</span>
+          </h1>
+          <p class="lk-page-lead" data-i18n="menu_page_lead">
+            Tous nos Bánh Mì, snacks de Saigon, pâtisseries au pandan frais, chè et boissons sont préparés artisanalement. Choisissez une catégorie ou le mode d'affichage ci-dessous.
           </p>
-          <div class="reviewer-info">
-            <div class="reviewer-avatar">SN</div>
-            <div>
-              <div class="reviewer-name" data-i18n="review_1_author">Sophie Nguyen</div>
-              <div class="reviewer-meta" data-i18n="review_1_meta">Guide Local • 5★ sur Google Maps</div>
+          <div class="lk-btn-row" style="margin-top: 1.35rem;">
+            <a href="tel:+15148808388" class="btn-tactile btn-tactile-dark" onclick="addToCart()" data-i18n="banner_btn">
+              📞 APPELER : (514) 880-8388
+            </a>
+            <button type="button" class="btn-tactile btn-tactile-outline" onclick="navigateToView('home')" data-i18n="btn_back_home">
+              ← RETOUR À L'ACCUEIL
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <section id="menu" class="lk-menu-page-section">
+        <!-- Sticky Category Filter Bar + Deli Board Toggle -->
+        <div class="lk-menu-sticky-bar">
+          <div class="container lk-menu-bar-inner">
+            <div class="menu-tabs-wrapper">
+              <button class="menu-tab-btn active" data-category="all" data-i18n="tab_all">Tous les plats</button>
+              <button class="menu-tab-btn" data-category="banhmi" data-i18n="tab_banhmi">🥖 Bánh Mì</button>
+              <button class="menu-tab-btn" data-category="streetfood" data-i18n="tab_streetfood">🍢 Street Food &amp; Snacks</button>
+              <button class="menu-tab-btn" data-category="drinks" data-i18n="tab_drinks">☕ Boissons</button>
+              <button class="menu-tab-btn" data-category="desserts" data-i18n="tab_desserts">🍧 Desserts</button>
+              <button class="menu-tab-btn" data-category="rolls" data-i18n="tab_rolls">🥮 Pâtisseries Traditionnelles VN</button>
+            </div>
+
+            <div class="lk-menu-layout-switch" role="group" aria-label="Mode d'affichage du menu">
+              <button type="button" class="lk-layout-btn active" id="btn-layout-deli" onclick="setMenuDisplayMode('deli')" data-i18n="menu_view_deli">
+                📋 Vue Deli Rapide
+              </button>
+              <button type="button" class="lk-layout-btn" id="btn-layout-cards" onclick="setMenuDisplayMode('cards')" data-i18n="menu_view_cards">
+                🗂️ Vue Cartes Photo
+              </button>
             </div>
           </div>
         </div>
 
-        <div class="review-card">
-          <div class="review-stars">★★★★★</div>
-          <p class="review-quote" data-i18n="review_2_text">
-            "Une pépite incontournable pour les amateurs de street food vietnamienne ! Le papier de riz au saté de crevettes (N10) et les rouleaux sauce tamarin-beurre (N12) ont ce goût authentique incroyable. Accompagné du café au sel (N46), c'est un pur régal !"
-          </p>
-          <div class="reviewer-info">
-            <div class="reviewer-avatar">MT</div>
-            <div>
-              <div class="reviewer-name" data-i18n="review_2_author">Marc-André Tremblay</div>
-              <div class="reviewer-meta" data-i18n="review_2_meta">Guide Local • 5★ sur Google Maps</div>
-            </div>
-          </div>
+        <div class="container" style="padding-top: 2.2rem; padding-bottom: 4rem;">
+          <!-- Menu Grid Rendered by JavaScript -->
+          <div class="menu-grid is-deli-board" id="menu-items-grid"></div>
+          <div class="menu-expand-wrapper" id="menu-expand-wrapper"></div>
         </div>
-
-        <div class="review-card">
-          <div class="review-stars">★★★★★</div>
-          <p class="review-quote" data-i18n="review_3_text">
-            "Thé au lait d'une qualité remarquable, goût de thé riche et subtil sans être trop sucré. Le seau spécial N41 avec son pudding 3D adorable, son flan caramel maison et ses toppings variés est génial. Service rapide et emballage soigné !"
-          </p>
-          <div class="reviewer-info">
-            <div class="reviewer-avatar">VC</div>
-            <div>
-              <div class="reviewer-name" data-i18n="review_3_author">Vivian Chen</div>
-              <div class="reviewer-meta" data-i18n="review_3_meta">Critique Foodie • 5★ sur Google Maps</div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Google Maps Official Reviews Badge & Link -->
-      <div style="text-align: center; margin-top: 3rem;">
-        <div style="display: inline-flex; align-items: center; gap: 1rem; background: rgba(255, 255, 255, 0.04); border: 1px solid rgba(229, 179, 88, 0.35); border-radius: 50px; padding: 0.75rem 1.6rem; backdrop-filter: blur(10px); flex-wrap: wrap; justify-content: center; box-shadow: 0 8px 25px rgba(0,0,0,0.4);">
-          <span style="display: inline-flex; align-items: center; gap: 0.5rem; color: #fff; font-weight: 600; font-size: 0.95rem;">
-            <svg style="width: 22px; height: 22px; fill: #4285F4; flex-shrink: 0;" viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
-            <span data-i18n="reviews_google_badge">4.9 / 5.0 ⭐ sur Google Maps (Brossard, QC)</span>
-          </span>
-          <a href="https://www.google.com/maps/place/Patisserie+Dzung/@45.4714691,-73.4613397,17z/data=!3m1!4b1!4m6!3m5!1s0x4cc9054ca9b665f5:0x451da51af4413046!8m2!3d45.4714654!4d-73.4587648!16s%2Fg%2F11zx0_530d?entry=ttu" target="_blank" rel="noopener noreferrer" class="btn btn-outline" style="padding: 0.45rem 1.25rem; font-size: 0.85rem; border-color: var(--color-gold); color: var(--color-gold); text-decoration: none; border-radius: 25px; transition: all 0.3s ease;">
-            <span data-i18n="reviews_google_btn">Voir & Laisser un Avis</span> ↗
-          </a>
-        </div>
-      </div>
+      </section>
     </div>
-  </section>
 
-  <!-- ==========================================================================
-       VISIT & PHONE ORDER BANNER CTA
-       ========================================================================== -->
-  <section style="padding: 3rem 1.5rem 6rem;">
-    <div class="container">
-      <div class="reservation-banner">
-        <h2 class="reservation-banner-title" data-i18n="banner_title">COMMANDEZ PAR TÉLÉPHONE OU VENEZ NOUS VOIR</h2>
-        <p class="reservation-banner-desc" data-i18n="banner_desc">
-          Savourez nos baguettes vietnamiennes chaudes et croustillantes, nos snacks de rue gourmands et nos boissons rafraîchissantes au 5918 Avenue Auteuil, Brossard, QC.
+    <!-- ========================================================================
+         VIEW 3: CATERING & SPECIAL EVENTS (3 Easy Steps + Luxury Catering Card)
+         ======================================================================== -->
+    <div id="view-catering" class="app-view" data-view-panel="catering" hidden>
+      <section class="lk-page-head">
+        <div class="container">
+          <p class="lk-eyebrow is-dark" data-i18n="catering_tagline">Service Traiteur &amp; Événements</p>
+          <h1 class="lk-page-title" id="catering-view-heading" tabindex="-1">
+            <span data-i18n="catering_title">SUBLIMEZ VOS ÉVÉNEMENTS AVEC PÂTISSERIE DZUNG</span>
+            <span class="script-accent is-red" data-i18n="catering_script_sub">pour tous vos convives</span>
+          </h1>
+          <p class="lk-page-lead" data-i18n="catering_subtitle">
+            Anniversaires, réunions d'entreprise ou fêtes de famille : nous préparons sur mesure des plateaux de Bánh Mì croustillants, street food de Saigon, pâtisseries traditionnelles et boissons fraîches.
+          </p>
+          <div class="lk-btn-row" style="margin-top: 1.35rem;">
+            <a href="tel:+15148808388" class="btn-tactile btn-tactile-dark" data-i18n="catering_cta_phone_full">
+              📞 APPELER LE (514) 880-8388
+            </a>
+            <a href="mailto:patisseriedzung@gmail.com?subject=Demande%20de%20Traiteur%20-%20P%C3%A2tisserie%20Dzung" class="btn-tactile btn-tactile-outline" data-i18n="catering_cta_email_full">
+              ✉️ ÉCRIRE À PATISSERIEDZUNG@GMAIL.COM
+            </a>
+            <button type="button" class="btn-tactile btn-tactile-outline" onclick="navigateToView('home')" data-i18n="btn_back_home">
+              ← RETOUR À L'ACCUEIL
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <!-- 3 Easy Steps Section (Like Little Kirin's Catering Page) -->
+      <section class="lk-section lk-bg-cream" style="padding-bottom: 1.5rem;">
+        <div class="container">
+          <div class="lk-section-head">
+            <p class="lk-eyebrow" data-i18n="cat_steps_eyebrow">Comment Ça Marche</p>
+            <h2 class="lk-section-heading" data-i18n="cat_steps_title">TROIS ÉTAPES SIMPLES</h2>
+          </div>
+          <div class="lk-steps-grid">
+            <div class="lk-step-card">
+              <span class="lk-step-num">1</span>
+              <h3 data-i18n="cat_step1_title">Choisissez vos plateaux</h3>
+              <p data-i18n="cat_step1_desc">Assortiments de Bánh Mì croustillants, rouleaux de Saigon, pâtisseries au pandan frais, chè et boissons.</p>
+            </div>
+            <div class="lk-step-card">
+              <span class="lk-step-num">2</span>
+              <h3 data-i18n="cat_step2_title">Adaptez à vos convives</h3>
+              <p data-i18n="cat_step2_desc">Formules sur mesure pour 10, 20, 30 personnes ou plus, selon votre événement et vos préférences.</p>
+            </div>
+            <div class="lk-step-card">
+              <span class="lk-step-num">3</span>
+              <h3 data-i18n="cat_step3_title">Appelez &amp; Récupérez frais</h3>
+              <p data-i18n="cat_step3_desc">Contactez-nous au (514) 880-8388 ou par courriel et récupérez votre commande fraîchement préparée au 5918 Av. Auteuil.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Unified Luxury Showcase Card -->
+      <section id="catering" class="catering-section">
+        <div class="container">
+          <div class="catering-luxury-card">
+            <div class="catering-media-col">
+              <img src="assets/images/hero-dzung-store.jpg" alt="Pâtisserie Dzung Catering & Events" loading="lazy" width="1200" height="800" class="catering-banner-img" />
+              <div class="catering-media-overlay">
+                <span class="catering-banner-badge" data-i18n="catering_badge">🎉 Plateaux &amp; Menus Sur Mesure</span>
+                <p class="catering-banner-caption" data-i18n="catering_banner_caption">L'authenticité de Saigon sur la table de vos réceptions</p>
+              </div>
+            </div>
+
+            <div class="catering-content-col">
+              <div class="catering-header-Block">
+                <span class="lk-eyebrow" data-i18n="catering_contact_pill">✨ Devis &amp; Commande Traiteur</span>
+                <h2 class="catering-main-title" data-i18n="catering_contact_title">CONTACTEZ-NOUS POUR VOTRE ÉVÉNEMENT</h2>
+                <p class="catering-lead-desc" data-i18n="catering_contact_desc">
+                  Pour composer un menu adapté au nombre de vos invités et à vos envies, contactez directement Pâtisserie Dzung par téléphone ou par courriel :
+                </p>
+              </div>
+
+              <div class="catering-offerings-row">
+                <div class="catering-offering-chip">
+                  <span class="catering-chip-icon">🥖</span>
+                  <span class="catering-chip-text" data-i18n="catering_item1_title">Plateaux de Bánh Mì &amp; Street Food</span>
+                </div>
+                <div class="catering-offering-chip">
+                  <span class="catering-chip-icon">🥮</span>
+                  <span class="catering-chip-text" data-i18n="catering_item2_title">Pâtisseries Traditionnelles &amp; Chè Frais</span>
+                </div>
+                <div class="catering-offering-chip">
+                  <span class="catering-chip-icon">🧋</span>
+                  <span class="catering-chip-text" data-i18n="catering_item3_title">Boissons Artisanales &amp; Formules Flexibles</span>
+                </div>
+              </div>
+
+              <div class="catering-contact-channels">
+                <a href="tel:+15148808388" class="catering-channel-box is-phone">
+                  <div class="catering-channel-icon">📞</div>
+                  <div class="catering-channel-info">
+                    <span class="catering-channel-label" data-i18n="catering_phone_label">TÉLÉPHONE DE LA BOUTIQUE</span>
+                    <strong class="catering-channel-value">(514) 880-8388</strong>
+                  </div>
+                  <span class="catering-channel-cta" data-i18n="catering_btn_call">Appeler ↗</span>
+                </a>
+
+                <a href="mailto:patisseriedzung@gmail.com?subject=Demande%20de%20Traiteur%20%2F%20%C4%90%E1%BA%B7t%20Ti%E1%BB%87c%20-%20P%C3%A2tisserie%20Dzung" class="catering-channel-box is-email">
+                  <div class="catering-channel-icon">✉️</div>
+                  <div class="catering-channel-info">
+                    <span class="catering-channel-label" data-i18n="catering_email_label">COURRIEL / EMAIL</span>
+                    <strong class="catering-channel-value">patisseriedzung@gmail.com</strong>
+                  </div>
+                  <span class="catering-channel-cta" data-i18n="catering_btn_email">Email ↗</span>
+                </a>
+              </div>
+
+              <p class="catering-note" data-i18n="catering_note">
+                💡 Contactez-nous à l'avance pour une préparation 100% fraîche sur mesure.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <!-- ========================================================================
+         VIEW 4: GALLERY & REELS (Art Posters, Cozy Space & Culinary Cinema)
+         ======================================================================== -->
+    <div id="view-gallery" class="app-view" data-view-panel="gallery" hidden>
+      <section class="lk-page-head">
+        <div class="container">
+          <p class="lk-eyebrow is-dark" data-i18n="gallery_tagline">Ambiance &amp; Cadre</p>
+          <h1 class="lk-page-title" id="gallery-view-heading" tabindex="-1">
+            <span data-i18n="gallery_title">SAIGON NIGHT VIBE</span>
+            <span class="script-accent is-red">Art, Espace &amp; Vidéos</span>
+          </h1>
+          <p class="lk-page-lead" data-i18n="gallery_subtitle">
+            Plongez dans l'univers visuel de Pâtisserie Dzung : notre espace chaleureux, nos affiches d'art et nos créations artisanales faites maison. Cliquez sur chaque œuvre pour l'explorer en plein écran.
+          </p>
+          <div class="lk-btn-row" style="margin-top: 1.35rem;">
+            <button type="button" class="btn-tactile btn-tactile-dark" onclick="navigateToView('menu')" data-i18n="hero_btn_menu">
+              DÉCOUVRIR LE MENU
+            </button>
+            <button type="button" class="btn-tactile btn-tactile-outline" onclick="navigateToView('home')" data-i18n="btn_back_home">
+              ← RETOUR À L'ACCUEIL
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <section id="gallery" class="gallery-section">
+        <div class="container">
+          <div class="gallery-filter-bar" role="tablist" aria-label="Gallery Categories">
+            <button type="button" class="gallery-filter-btn active" data-gallery-filter="all" data-i18n="gal_tab_all">✨ Tout Explorer</button>
+            <button type="button" class="gallery-filter-btn" data-gallery-filter="posters" data-i18n="gal_tab_posters">🎨 Affiches &amp; Art</button>
+            <button type="button" class="gallery-filter-btn" data-gallery-filter="ambiance" data-i18n="gal_tab_ambiance">🏮 Espace &amp; Ambiance</button>
+            <button type="button" class="gallery-filter-btn" data-gallery-filter="culinary" data-i18n="gal_tab_culinary">🥖 Créations Signature</button>
+            <button type="button" class="gallery-filter-btn" data-gallery-filter="videos" id="gal-tab-videos-btn" style="display: none;" data-i18n="gal_tab_videos">🎬 Vidéos &amp; Reels</button>
+          </div>
+
+          <div class="gallery-exhibition-grid" id="gallery-showcase-grid"></div>
+        </div>
+      </section>
+    </div>
+
+    <!-- ========================================================================
+         VIEW 5: VISIT, STORY, REVIEWS & INTERACTIVE GOOGLE MAP
+         ======================================================================== -->
+    <div id="view-visit" class="app-view" data-view-panel="visit" hidden>
+      <section class="lk-page-head">
+        <div class="container">
+          <p class="lk-eyebrow is-dark" data-i18n="story_tagline">Notre Histoire</p>
+          <h1 class="lk-page-title" id="visit-view-heading" tabindex="-1">
+            <span>PÂTISSERIE DZUNG</span>
+            <span class="script-accent is-red">5918 Avenue Auteuil, Brossard</span>
+          </h1>
+          <p class="lk-page-lead" data-i18n="banner_desc">
+            Savourez nos baguettes vietnamiennes fraîches et croustillantes, nos snacks de rue authentiques et nos boissons rafraîchissantes au 5918 Avenue Auteuil, Brossard, QC.
+          </p>
+          <div class="lk-btn-row" style="margin-top: 1.35rem;">
+            <a href="https://www.google.com/maps/place/Patisserie+Dzung/@45.4714691,-73.4613397,17z/data=!3m1!4b1!4m6!3m5!1s0x4cc9054ca9b665f5:0x451da51af4413046!8m2!3d45.4714654!4d-73.4587648!16s%2Fg%2F11zx0_530d?entry=ttu" target="_blank" rel="noopener noreferrer" class="btn-tactile btn-tactile-dark" data-i18n="banner_btn_map">
+              📍 ITINÉRAIRE GOOGLE MAPS ↗
+            </a>
+            <button type="button" class="btn-tactile btn-tactile-outline" onclick="navigateToView('home')" data-i18n="btn_back_home">
+              ← RETOUR À L'ACCUEIL
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <!-- Story & 4 Artisanal Commitments -->
+      <section id="story" class="lk-section lk-bg-cream">
+        <div class="container">
+          <div class="story-grid">
+            <div class="story-image-box">
+              <img src="assets/images/story-dzung.jpg" alt="Ambiance chaleureuse chez Pâtisserie Dzung" class="story-img-main" />
+              <div class="story-floating-badge">
+                <div class="floating-number">100%</div>
+                <div class="floating-text" data-i18n="story_badge_text">Saveurs Rares &amp; Authentiques au Canada</div>
+              </div>
+            </div>
+
+            <div class="story-content">
+              <span class="lk-eyebrow" data-i18n="story_tagline">Notre Histoire</span>
+              <h2 class="lk-section-heading" data-i18n="story_title">SAVEURS VIETNAMIENNES RARES AU CANADA : DE LA TRADITION POPULAIRE AUX TENDANCES MODERNES</h2>
+
+              <p class="story-lead" data-i18n="story_lead">
+                Chez <strong>Pâtisserie Dzung</strong>, nous sommes fiers de réunir <em>street food moderne tendance</em> et <em>mets populaires &amp; pâtisseries traditionnelles du Vietnam</em> — des créations authentiques et rares, presque introuvables ailleurs au Canada.
+              </p>
+
+              <p class="story-text" data-i18n="story_text">
+                Installée à Brossard, Pâtisserie Dzung est le sanctuaire des amateurs de saveurs vietnamiennes authentiques. Des délices de rue emblématiques comme les Feuilles de riz assouplies à la rosée (Bánh Tráng Phơi Sương) et rouleaux sauce beurre-tamarin, jusqu'aux pâtisseries ancestrales faites main : le gâteau étagé <strong>Bánh Da Lợn</strong> et le <strong>Bánh Xu Xuê au Pandan Frais &amp; Haricot Mungo</strong>. Nous nous engageons à <strong>100% de vrais ingrédients frais</strong> : le parfum provient de <strong>vraies feuilles de pandan fraîches mixées</strong>, nos douceurs au pomélo utilisent de <strong>vrais morceaux d'écorce de pomélo frais</strong>, et la gelée de sương sâm est <strong>froissée directement à partir de vraies feuilles de sâm fraîches</strong> — sans poudre ni arôme artificiel.
+              </p>
+
+              <div class="story-features">
+                <div class="feature-item">
+                  <span class="feature-icon">🥮</span>
+                  <div>
+                    <h4 class="feature-title" data-i18n="story_f1_title">Pâtisseries Traditionnelles Rares</h4>
+                    <p class="feature-desc" data-i18n="story_f1_desc">Bánh Da Lợn &amp; Bánh Xu Xuê au pandan frais mixé maison et haricot mungo, introuvables ailleurs au Canada.</p>
+                  </div>
+                </div>
+
+                <div class="feature-item">
+                  <span class="feature-icon">🌿</span>
+                  <div>
+                    <h4 class="feature-title" data-i18n="story_f2_title">100% Vrais Ingrédients Frais</h4>
+                    <p class="feature-desc" data-i18n="story_f2_desc">Pandan frais mixé, vraie écorce de pomélo, gelée sương sâm froissée main — zéro poudre artificielle.</p>
+                  </div>
+                </div>
+
+                <div class="feature-item">
+                  <span class="feature-icon">🥖</span>
+                  <div>
+                    <h4 class="feature-title" data-i18n="story_f3_title">Bánh Mì Croustillant &amp; Pâté Maison</h4>
+                    <p class="feature-desc" data-i18n="story_f3_desc">Pain croustillant cuit en continu toute la journée, pâté de foie onctueux secret de famille.</p>
+                  </div>
+                </div>
+
+                <div class="feature-item">
+                  <span class="feature-icon">🍢</span>
+                  <div>
+                    <h4 class="feature-title" data-i18n="story_f4_title">Street Food &amp; Boissons Tendances</h4>
+                    <p class="feature-desc" data-i18n="story_f4_desc">Bánh tráng phơi sương, sauce beurre-tamarin, thé au lait pudding 3D et café à la crème de sel marin.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Customer Reviews Section -->
+      <section id="reviews" class="lk-section lk-bg-paper">
+        <div class="container">
+          <div class="lk-section-head">
+            <p class="lk-eyebrow" data-i18n="reviews_tagline">Témoignages &amp; Avis</p>
+            <h2 class="lk-section-heading" data-i18n="reviews_title">CE QUE DISENT NOS CLIENTS</h2>
+          </div>
+
+          <div class="reviews-grid">
+            <div class="review-card">
+              <div class="review-stars">★★★★★</div>
+              <p class="review-quote" data-i18n="review_1_text">
+                "Le meilleur Bánh Mì sur la Rive-Sud de Montréal ! Pain ultra frais et croustillant à la perfection. Le sandwich au porc salé spécial (N1) et les boulettes xíu mại au jaune d'œuf salé (N2) sont divinement savoureux. Pâté onctueux maison et garniture très généreuse !"
+              </p>
+              <div class="reviewer-info">
+                <div class="reviewer-avatar">SN</div>
+                <div>
+                  <div class="reviewer-name" data-i18n="review_1_author">Sophie Nguyen</div>
+                  <div class="reviewer-meta" data-i18n="review_1_meta">Guide Local • 5★ sur Google Maps</div>
+                </div>
+              </div>
+            </div>
+
+            <div class="review-card">
+              <div class="review-stars">★★★★★</div>
+              <p class="review-quote" data-i18n="review_2_text">
+                "Une pépite incontournable pour les amateurs de street food vietnamienne ! Le papier de riz au saté de crevettes (N10) et les rouleaux sauce tamarin-beurre (N12) ont ce goût authentique incroyable. Accompagné du café au sel (N46), c'est un pur régal !"
+              </p>
+              <div class="reviewer-info">
+                <div class="reviewer-avatar">MT</div>
+                <div>
+                  <div class="reviewer-name" data-i18n="review_2_author">Marc-André Tremblay</div>
+                  <div class="reviewer-meta" data-i18n="review_2_meta">Guide Local • 5★ sur Google Maps</div>
+                </div>
+              </div>
+            </div>
+
+            <div class="review-card">
+              <div class="review-stars">★★★★★</div>
+              <p class="review-quote" data-i18n="review_3_text">
+                "Thé au lait d'une qualité remarquable, goût de thé riche et subtil sans être trop sucré. Le seau spécial N41 avec son pudding 3D adorable, son flan caramel maison et ses toppings variés est génial. Service rapide et emballage soigné !"
+              </p>
+              <div class="reviewer-info">
+                <div class="reviewer-avatar">VC</div>
+                <div>
+                  <div class="reviewer-name" data-i18n="review_3_author">Vivian Chen</div>
+                  <div class="reviewer-meta" data-i18n="review_3_meta">Critique Foodie • 5★ sur Google Maps</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="lk-google-review-pill-wrap">
+            <div class="lk-google-review-pill">
+              <span class="lk-google-pill-text">
+                ⭐ <span data-i18n="reviews_google_badge">4.9 / 5.0 ⭐ sur Google Maps (Brossard, QC)</span>
+              </span>
+              <a href="https://www.google.com/maps/place/Patisserie+Dzung/@45.4714691,-73.4613397,17z/data=!3m1!4b1!4m6!3m5!1s0x4cc9054ca9b665f5:0x451da51af4413046!8m2!3d45.4714654!4d-73.4587648!16s%2Fg%2F11zx0_530d?entry=ttu" target="_blank" rel="noopener noreferrer" class="btn-tactile btn-tactile-gold" style="padding: 0.5rem 1.15rem; font-size: 0.78rem;">
+                <span data-i18n="reviews_google_btn">Voir &amp; Laisser un Avis</span> ↗
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Interactive Google Map & Storefront Info Card -->
+      <section id="contact" class="lk-section lk-bg-cream">
+        <div class="container">
+          <div class="footer-location-card">
+            <div class="footer-location-info">
+              <div class="footer-location-badges-row">
+                <span class="footer-location-pill" data-i18n="map_badge">📍 Notre Adresse à Brossard (Rive-Sud)</span>
+                <span class="live-store-status" id="live-store-status-visit"></span>
+              </div>
+              <h3 class="footer-location-heading" data-i18n="map_title">RENDEZ-VOUS CHEZ PÂTISSERIE DZUNG</h3>
+              <p class="footer-location-address">
+                <strong>5918 Avenue Auteuil, Brossard, QC J4Z 1N2, Canada</strong>
+              </p>
+              <div class="footer-location-highlights">
+                <div class="footer-loc-item">
+                  <span>🕒</span>
+                  <span data-i18n="footer_hours_week">Mercredi - Dimanche: 10h30 - 20h00</span>
+                </div>
+                <div class="footer-loc-item">
+                  <span>🅿️</span>
+                  <span data-i18n="map_parking">Stationnement gratuit et accès facile sur l'Avenue Auteuil</span>
+                </div>
+                <div class="footer-loc-item">
+                  <span>📞</span>
+                  <a href="tel:+15148808388" class="footer-loc-phone">(514) 880-8388</a>
+                </div>
+              </div>
+              <div class="footer-location-btns">
+                <a href="https://www.google.com/maps/place/Patisserie+Dzung/@45.4714691,-73.4613397,17z/data=!3m1!4b1!4m6!3m5!1s0x4cc9054ca9b665f5:0x451da51af4413046!8m2!3d45.4714654!4d-73.4587648!16s%2Fg%2F11zx0_530d?entry=ttu" target="_blank" rel="noopener noreferrer" class="btn-tactile btn-tactile-gold" data-i18n="map_btn_directions">
+                  📍 Ouvrir l'Itinéraire dans Google Maps ↗
+                </a>
+              </div>
+            </div>
+            <div class="footer-map-frame">
+              <iframe
+                title="Carte Google Maps - Pâtisserie Dzung 5918 Avenue Auteuil Brossard"
+                src="https://www.google.com/maps?q=5918+Avenue+Auteuil,+Brossard,+QC+J4Z+1N2,+Canada&output=embed"
+                loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"
+                allowfullscreen>
+              </iframe>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <!-- ========================================================================
+         BLOCK 6 (SHARED BOTTOM): SUNNY GOLD "HUNGRY YET?" CTA BAND
+         ======================================================================== -->
+    <section class="lk-cta-band">
+      <div class="container">
+        <h2 class="lk-cta-band-title">
+          <span data-i18n="cta_band_title">UNE PETITE FAIM ?</span>
+          <span class="script-accent is-red" data-i18n="cta_band_script">Commandez maintenant.</span>
+        </h2>
+        <p class="lk-cta-band-desc" data-i18n="cta_band_desc">
+          Appelez-nous directement pour préparer votre commande toute chaude ou passez nous voir au 5918 Avenue Auteuil, Brossard.
         </p>
-        <div class="banner-cta-actions">
-          <a href="tel:+15148808388" class="btn btn-primary banner-cta-btn" data-i18n="banner_btn">
+        <div class="lk-btn-row lk-cta-band-btns">
+          <a href="tel:+15148808388" class="btn-tactile btn-tactile-dark" onclick="addToCart()" data-i18n="banner_btn">
             📞 APPELER : (514) 880-8388
           </a>
-          <a href="https://www.google.com/maps/place/Patisserie+Dzung/@45.4714691,-73.4613397,17z/data=!3m1!4b1!4m6!3m5!1s0x4cc9054ca9b665f5:0x451da51af4413046!8m2!3d45.4714654!4d-73.4587648!16s%2Fg%2F11zx0_530d?entry=ttu" target="_blank" rel="noopener noreferrer" class="btn btn-outline banner-cta-map-btn" data-i18n="banner_btn_map">
-            📍 ITINÉRAIRE GOOGLE MAPS ↗
+          <a href="https://www.instagram.com/patisseriedzung/" target="_blank" rel="noopener noreferrer" class="btn-tactile btn-tactile-outline" data-i18n="cta_band_ig">
+            📸 SUIVRE @PATISSERIEDZUNG
           </a>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
+
+  </main>
 
   <!-- ==========================================================================
-       FOOTER & CONTACT (With Interactive Google Map & Parking Info)
+       DEEP PANDAN GREEN FOOTER WITH INVERTED SCALLOPED TOP BORDER
        ========================================================================== -->
-  <footer class="footer-section" id="contact">
+  <footer class="footer-section">
     <div class="container">
-      <!-- Interactive Location & Map Card -->
-      <div class="footer-location-card">
-        <div class="footer-location-info">
-          <div class="footer-location-badges-row">
-            <span class="footer-location-pill" data-i18n="map_badge">📍 Notre Adresse à Brossard (Rive-Sud)</span>
-            <span class="live-store-status" id="live-store-status"></span>
-          </div>
-          <h3 class="footer-location-heading" data-i18n="map_title">RENDEZ-VOUS CHEZ PÂTISSERIE DZUNG</h3>
-          <p class="footer-location-address">
-            <strong>5918 Avenue Auteuil, Brossard, QC J4Z 1N2, Canada</strong>
-          </p>
-          <div class="footer-location-highlights">
-            <div class="footer-loc-item">
-              <span>🕒</span>
-              <span data-i18n="footer_hours_week">Mercredi - Dimanche: 10h30 - 20h00</span>
-            </div>
-            <div class="footer-loc-item">
-              <span>🅿️</span>
-              <span data-i18n="map_parking">Stationnement gratuit et accès facile sur l'Avenue Auteuil</span>
-            </div>
-            <div class="footer-loc-item">
-              <span>📞</span>
-              <a href="tel:+15148808388" class="footer-loc-phone">(514) 880-8388</a>
-            </div>
-          </div>
-          <div class="footer-location-btns">
-            <a href="https://www.google.com/maps/place/Patisserie+Dzung/@45.4714691,-73.4613397,17z/data=!3m1!4b1!4m6!3m5!1s0x4cc9054ca9b665f5:0x451da51af4413046!8m2!3d45.4714654!4d-73.4587648!16s%2Fg%2F11zx0_530d?entry=ttu" target="_blank" rel="noopener noreferrer" class="btn btn-primary footer-directions-btn" data-i18n="map_btn_directions">
-              📍 Ouvrir l'Itinéraire dans Google Maps ↗
-            </a>
-          </div>
-        </div>
-        <div class="footer-map-frame">
-          <iframe
-            title="Carte Google Maps - Pâtisserie Dzung 5918 Avenue Auteuil Brossard"
-            src="https://www.google.com/maps?q=5918+Avenue+Auteuil,+Brossard,+QC+J4Z+1N2,+Canada&output=embed"
-            loading="lazy"
-            referrerpolicy="no-referrer-when-downgrade"
-            allowfullscreen>
-          </iframe>
-        </div>
-      </div>
-
       <div class="footer-grid">
         <div class="footer-brand">
-          <img src="assets/images/logo.png" alt="Pâtisserie Dzung Logo" class="brand-logo-img" />
+          <div class="footer-logo-row">
+            <div class="brand-logo-tile">
+              <img src="assets/images/logo.png" alt="Pâtisserie Dzung Logo" class="brand-logo-img" width="48" height="48" />
+            </div>
+            <h4 class="footer-title" style="margin: 0;">PÂTISSERIE DZUNG</h4>
+          </div>
           <p class="footer-brand-desc" data-i18n="footer_desc">
-            Pâtisserie Dzung — Le sanctuaire de la street food vietnamienne et de la haute tradition du Bánh Mì artisanal. L'ambiance nocturne envoûtante de Saigon au cœur de la ville.
+            Pâtisserie Dzung — Le sanctuaire de la street food vietnamienne et de la haute tradition du Bánh Mì artisanal à Brossard.
           </p>
           <div class="footer-socials">
             <a href="https://www.instagram.com/patisseriedzung/" target="_blank" rel="noopener noreferrer" class="social-link social-link-ig" id="footer-instagram-link" title="Instagram @patisseriedzung" aria-label="Instagram @patisseriedzung">
@@ -598,44 +862,36 @@
         </div>
 
         <div>
-          <h4 class="footer-title" data-i18n="footer_explore">Découvrir</h4>
-          <div class="footer-links">
-            <a href="#hero" class="footer-link" data-i18n="nav_home">Accueil</a>
-            <a href="#story" class="footer-link" data-i18n="nav_story">Histoire</a>
-            <a href="#menu" class="footer-link" data-i18n="nav_menu">Menu</a>
-            <a href="#gallery" class="footer-link" data-i18n="nav_gallery">Galerie</a>
-            <a href="#catering" class="footer-link" data-i18n="nav_catering">Traiteur</a>
-            <a href="#reviews" class="footer-link" data-i18n="nav_reviews">Avis</a>
-          </div>
-        </div>
-
-        <div>
           <h4 class="footer-title" data-i18n="footer_hours">Horaires d'Ouverture</h4>
           <div class="contact-info-list">
-            <div>
-              <strong style="color: #fff;" data-i18n="footer_hours_week">Mercredi - Dimanche: 10h30 - 20h00</strong>
+            <div data-i18n="footer_hours_week">Mercredi - Dimanche: 10h30 - 20h00</div>
+            <div data-i18n="footer_hours_weekend">Fermé: Lundi &amp; Mardi</div>
+          </div>
+        </div>
+
+        <div>
+          <h4 class="footer-title" data-i18n="footer_contact">Visiter &amp; Contact</h4>
+          <div class="contact-info-list">
+            <div class="contact-info-item">
+              <a href="https://www.google.com/maps/place/Patisserie+Dzung/@45.4714691,-73.4613397,17z/data=!3m1!4b1!4m6!3m5!1s0x4cc9054ca9b665f5:0x451da51af4413046!8m2!3d45.4714654!4d-73.4587648!16s%2Fg%2F11zx0_530d?entry=ttu" target="_blank" rel="noopener noreferrer" data-i18n="footer_address">5918 Avenue Auteuil, Brossard, QC J4Z 1N2, Canada</a>
             </div>
-            <div>
-              <strong style="color: #fff;" data-i18n="footer_hours_weekend">Fermé: Lundi & Mardi</strong>
+            <div class="contact-info-item">
+              <a href="tel:+15148808388" data-i18n="footer_phone">Téléphone: (514) 880-8388</a>
+            </div>
+            <div class="contact-info-item">
+              <a href="mailto:patisseriedzung@gmail.com" data-i18n="footer_email">patisseriedzung@gmail.com</a>
             </div>
           </div>
         </div>
 
         <div>
-          <h4 class="footer-title" data-i18n="footer_contact">Contact</h4>
-          <div class="contact-info-list">
-            <div class="contact-info-item">
-              <span class="contact-icon">📍</span>
-              <a href="https://www.google.com/maps/place/Patisserie+Dzung/@45.4714691,-73.4613397,17z/data=!3m1!4b1!4m6!3m5!1s0x4cc9054ca9b665f5:0x451da51af4413046!8m2!3d45.4714654!4d-73.4587648!16s%2Fg%2F11zx0_530d?entry=ttu" target="_blank" rel="noopener noreferrer" style="color: inherit; text-decoration: none;" data-i18n="footer_address">5918 Avenue Auteuil, Brossard, QC J4Z 1N2, Canada</a>
-            </div>
-            <div class="contact-info-item">
-              <span class="contact-icon">📞</span>
-              <a href="tel:+15148808388" style="color: inherit; text-decoration: none;" data-i18n="footer_phone">Téléphone: (514) 880-8388</a>
-            </div>
-            <div class="contact-info-item">
-              <span class="contact-icon">✉️</span>
-              <a href="mailto:patisseriedzung@gmail.com" style="color: inherit; text-decoration: none;" data-i18n="footer_email">patisseriedzung@gmail.com</a>
-            </div>
+          <h4 class="footer-title" data-i18n="footer_explore">Découvrir</h4>
+          <div class="footer-links">
+            <a href="#home" class="footer-link" onclick="navigateToView('home'); return false;" data-i18n="nav_home">Accueil</a>
+            <a href="#menu" class="footer-link" onclick="navigateToView('menu'); return false;" data-i18n="nav_menu">Menu</a>
+            <a href="#catering" class="footer-link" onclick="navigateToView('catering'); return false;" data-i18n="nav_catering">Traiteur</a>
+            <a href="#gallery" class="footer-link" onclick="navigateToView('gallery'); return false;" data-i18n="nav_gallery">Galerie</a>
+            <a href="#visit" class="footer-link" onclick="navigateToView('visit'); return false;" data-i18n="nav_visit">Visiter</a>
           </div>
         </div>
       </div>
@@ -644,13 +900,23 @@
         <div data-i18n="footer_rights">
           © 2026 Pâtisserie Dzung. Tous droits réservés. Créé avec passion pour la gastronomie vietnamienne.
         </div>
-        <div style="display: flex; gap: 1.5rem;">
-          <a href="#contact" class="footer-link" data-i18n="footer_privacy">Confidentialité</a>
-          <a href="#contact" class="footer-link" data-i18n="footer_terms">Conditions d'utilisation</a>
-        </div>
+        <div>5918 Avenue Auteuil · Brossard · Rive-Sud Montréal</div>
       </div>
     </div>
   </footer>
+
+  <!-- ==========================================================================
+       MOBILE STICKY BOTTOM ORDER & MENU BAR (Like Little Kirin Mobile Bar)
+       ========================================================================== -->
+  <div class="lk-mobile-order-bar" id="mobile-floating-call-btn">
+    <a href="tel:+15148808388" class="btn-tactile btn-tactile-gold lk-mobile-bar-btn" onclick="addToCart()">
+      <span>📞</span>
+      <span data-i18n="mobile_call_pill">Commander : (514) 880-8388</span>
+    </a>
+    <button type="button" class="btn-tactile btn-tactile-ghost-light lk-mobile-bar-btn is-menu" onclick="navigateToView('menu')" data-i18n="nav_menu">
+      Menu
+    </button>
+  </div>
 
   <!-- ==========================================================================
        MODAL 1: RESERVATION
@@ -663,7 +929,7 @@
 
       <form id="reservation-form">
         <div class="form-group">
-          <label class="form-label" for="res-name" data-i18n="lbl_name">Nom & Prénom *</label>
+          <label class="form-label" for="res-name" data-i18n="lbl_name">Nom &amp; Prénom *</label>
           <input type="text" id="res-name" class="form-input" placeholder="Ex: Jean Dupont" required />
         </div>
 
@@ -729,15 +995,13 @@
     <div class="modal-card">
       <button class="modal-close-btn" id="close-cart-btn" aria-label="Fermer">&times;</button>
       <h3 class="modal-title" data-i18n="modal_cart_title">COMMANDE PAR TÉLÉPHONE</h3>
-      <p class="modal-subtitle" data-i18n="modal_cart_subtitle">Bánh Mì & Street Food Pâtisserie Dzung</p>
+      <p class="modal-subtitle" data-i18n="modal_cart_subtitle">Bánh Mì &amp; Street Food Pâtisserie Dzung</p>
 
-      <div id="cart-items-list" style="margin-bottom: 1.5rem; text-align: center;">
-        <!-- Injected by JavaScript -->
-      </div>
+      <div id="cart-items-list" style="margin-bottom: 1.5rem; text-align: center;"></div>
 
-      <div style="display: flex; justify-content: space-between; align-items: center; padding: 1.2rem 0; border-top: 1px solid rgba(229, 179, 88, 0.3);">
-        <span style="font-weight: 700; font-size: 1.05rem; color: #fff;" data-i18n="cart_total">TÉLÉPHONE :</span>
-        <a href="tel:5148808388" id="cart-total-price" style="font-weight: 800; font-size: 1.35rem; color: var(--color-gold-bright); text-decoration: none;">(514) 880-8388</a>
+      <div class="cart-phone-row">
+        <span data-i18n="cart_total">TÉLÉPHONE :</span>
+        <a href="tel:5148808388" id="cart-total-price">(514) 880-8388</a>
       </div>
 
       <button class="btn-modal-submit" onclick="checkoutOrder()" data-i18n="btn_checkout">
@@ -759,9 +1023,7 @@
 
       <div class="lightbox-stage">
         <button type="button" class="lightbox-nav-btn prev" id="lightbox-prev-btn" aria-label="Précédent">&#10094;</button>
-        <div class="lightbox-media-container" id="lightbox-media-container">
-          <!-- Image or Video injected dynamically -->
-        </div>
+        <div class="lightbox-media-container" id="lightbox-media-container"></div>
         <button type="button" class="lightbox-nav-btn next" id="lightbox-next-btn" aria-label="Suivant">&#10095;</button>
       </div>
 
@@ -826,12 +1088,6 @@
       </button>
     </div>
   </dialog>
-
-  <!-- Floating Quick-Call Button on Mobile -->
-  <a href="tel:+15148808388" class="mobile-floating-call-btn" id="mobile-floating-call-btn" aria-label="Appeler Pâtisserie Dzung (514) 880-8388">
-    <span class="mobile-call-icon">📞</span>
-    <span class="mobile-call-text" data-i18n="mobile_call_pill">Commander : (514) 880-8388</span>
-  </a>
 
   <!-- Scripts: translations -> menu-data -> main -->
   <script src="js/translations.js"></script>
