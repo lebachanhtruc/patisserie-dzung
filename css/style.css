@@ -116,7 +116,7 @@ h4 {
   font-weight: 400;
   text-transform: none;
   letter-spacing: 0;
-  color: #B67D1E;
+  color: var(--red-chili);
   display: inline-block;
   line-height: 1.15;
 }
@@ -135,17 +135,17 @@ h4 {
   font-size: 0.78rem;
   letter-spacing: 0.15em;
   text-transform: uppercase;
-  color: #A8741A;
+  color: #8C5A0E;
   margin: 0 0 0.85rem;
   display: inline-flex;
   align-items: center;
-  gap: 0.4rem;
+  gap: 0.45rem;
 }
 
 .lk-eyebrow::before {
   content: "✦";
-  color: var(--gold-crust);
-  font-size: 0.9rem;
+  color: var(--red-chili);
+  font-size: 0.95rem;
 }
 
 .lk-eyebrow.is-gold {
@@ -358,7 +358,7 @@ h4 {
 
 .nav-link:hover,
 .nav-link.active {
-  border-bottom-color: var(--gold-crust);
+  border-bottom-color: var(--red-chili);
   color: var(--red-chili);
 }
 
@@ -863,7 +863,7 @@ h4 {
   content: "✦";
   position: absolute;
   left: 0;
-  color: var(--gold-crust);
+  color: #FF705A; /* Vibrant Coral Chili Accent for accessible contrast on deep Pandan */
 }
 
 /* Hours Lined Table & Floating Mini Review on Homepage Visit Split */
@@ -905,7 +905,7 @@ h4 {
 }
 
 .lk-mini-stars {
-  color: #D98A16;
+  color: var(--red-chili);
   font-size: 0.95rem;
   letter-spacing: 2px;
   margin-bottom: 4px;
@@ -956,6 +956,7 @@ h4 {
 .lk-page-title .script-accent {
   font-size: 0.65em;
   margin-left: 0.15em;
+  color: #A31F10;
 }
 
 .lk-page-lead {
@@ -1015,10 +1016,16 @@ h4 {
   transition: all 0.15s ease;
 }
 
-.menu-tab-btn:hover,
+.menu-tab-btn:hover {
+  background: var(--ink-pandan);
+  color: var(--bg-paper);
+}
+
 .menu-tab-btn.active {
   background: var(--ink-pandan);
   color: var(--bg-paper);
+  border-color: var(--ink-pandan);
+  box-shadow: 3.5px 3.5px 0 var(--red-chili);
 }
 
 .lk-menu-layout-switch {
@@ -1092,18 +1099,20 @@ h4 {
 
 .dish-badge {
   position: absolute;
-  top: 12px;
-  left: 12px;
-  background: var(--gold-crust);
-  color: var(--ink-pandan);
+  top: 10px;
+  left: 10px;
+  background: var(--red-chili);
+  color: #FFFFFF;
   border: 1.5px solid var(--ink-pandan);
+  box-shadow: 2px 2px 0 var(--gold-crust);
   font-family: var(--font-body);
   font-weight: 800;
   font-size: 0.68rem;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  padding: 5px 10px;
+  padding: 4px 10px;
   border-radius: var(--radius-pill);
+  z-index: 2;
 }
 
 .dish-info {
@@ -1171,6 +1180,12 @@ h4 {
   border-radius: 6px;
 }
 
+.dish-tags span:first-child {
+  color: var(--red-chili);
+  background: #FDECEC;
+  border: 1px solid rgba(200, 62, 43, 0.22);
+}
+
 .btn-add-dish {
   border: 1.5px solid var(--ink-pandan);
   background: var(--gold-crust);
@@ -1229,7 +1244,12 @@ h4 {
 }
 
 .menu-grid.is-deli-board .dish-badge {
-  display: none;
+  display: inline-block;
+  top: 6px;
+  left: 6px;
+  font-size: 0.54rem;
+  padding: 2px 6px;
+  box-shadow: 1.5px 1.5px 0 var(--ink-pandan);
 }
 
 .menu-grid.is-deli-board .dish-info {
@@ -1305,9 +1325,10 @@ h4 {
   width: 42px;
   height: 42px;
   border-radius: 50%;
-  background: var(--gold-crust);
+  background: var(--red-chili);
   border: 2px solid var(--ink-pandan);
-  color: var(--ink-pandan);
+  box-shadow: 2.5px 2.5px 0 var(--gold-crust);
+  color: #FFFFFF;
   font-family: var(--font-display);
   font-weight: 800;
   font-size: 1.35rem;
@@ -1950,6 +1971,7 @@ h4 {
 .lk-cta-band-title .script-accent {
   font-size: 0.65em;
   margin-left: 0.15em;
+  color: #A31F10;
 }
 
 .lk-cta-band-desc {
@@ -2992,7 +3014,13 @@ h4 {
   }
 
   .lk-home-dishes-grid .dish-badge {
-    display: none;
+    display: inline-block;
+    position: absolute;
+    top: 6px;
+    left: 6px;
+    font-size: 0.54rem;
+    padding: 2px 6px;
+    box-shadow: 1.5px 1.5px 0 var(--ink-pandan);
   }
 
   .lk-home-dishes-grid .dish-info {
