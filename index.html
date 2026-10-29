@@ -232,22 +232,6 @@
                 📖 DÉCOUVRIR LE MENU (54 PLATS)
               </button>
             </div>
-
-            <!-- Integrated Live Bakery Pulse Capsule -->
-            <div class="dz-bakery-pulse-bar" aria-label="Informations clés de la boulangerie">
-              <div class="dz-pulse-chip is-status">
-                <span class="dz-pulse-dot">●</span>
-                <span class="live-store-status" id="live-store-status">Ouvert · 10h30 – 20h00</span>
-              </div>
-              <div class="dz-pulse-chip is-loc">
-                <span class="dz-pulse-icon">📍</span>
-                <span data-i18n="hero_pulse_loc">Brossard (5 min Champlain)</span>
-              </div>
-              <div class="dz-pulse-chip is-review">
-                <span class="dz-pulse-icon">⭐</span>
-                <span data-i18n="hero_pulse_reviews">4.9 / 5.0 Google (88 avis)</span>
-              </div>
-            </div>
           </div>
 
           <!-- Right Photo Frame with Artisan Wax Seal Medallion -->
@@ -287,19 +271,56 @@
         </div>
       </section>
 
+      <!-- GOLD INFINITE TICKER RIBBON (LE RUBAN DU JOUR) -->
+      <div class="dz-gold-ticker-ribbon" aria-label="Annonces et actualités en direct">
+        <div class="dz-gold-ticker-track">
+          <span class="dz-ticker-item live-store-status">🟢 Ouvert · 10h30 – 20h00</span>
+          <span class="dz-ticker-dot">✦</span>
+          <span class="dz-ticker-item" data-i18n="ticker_item_bread">🥖 Baguettes de Montréal livrées chaque jour</span>
+          <span class="dz-ticker-dot">✦</span>
+          <span class="dz-ticker-item" data-i18n="ticker_item_loc">📍 5918 Av. Auteuil · 5 min du pont Champlain</span>
+          <span class="dz-ticker-dot">✦</span>
+          <span class="dz-ticker-item" data-i18n="ticker_item_review">⭐ 4.9 / 5.0 Google Maps (88 avis vérifiés)</span>
+          <span class="dz-ticker-dot">✦</span>
+          <span class="dz-ticker-item" data-i18n="ticker_item_pate">🥩 Pâté & mayo maison recette familiale</span>
+          <span class="dz-ticker-dot">✦</span>
+          <span class="dz-ticker-item" data-i18n="ticker_item_pandan">🌿 100% vraies feuilles de pandan fraîches</span>
+          <span class="dz-ticker-dot">✦</span>
+          <!-- Duplicate for seamless 100% infinite marquee loop -->
+          <span class="dz-ticker-item live-store-status" aria-hidden="true">🟢 Ouvert · 10h30 – 20h00</span>
+          <span class="dz-ticker-dot" aria-hidden="true">✦</span>
+          <span class="dz-ticker-item" data-i18n="ticker_item_bread" aria-hidden="true">🥖 Baguettes de Montréal livrées chaque jour</span>
+          <span class="dz-ticker-dot" aria-hidden="true">✦</span>
+          <span class="dz-ticker-item" data-i18n="ticker_item_loc" aria-hidden="true">📍 5918 Av. Auteuil · 5 min du pont Champlain</span>
+          <span class="dz-ticker-dot" aria-hidden="true">✦</span>
+          <span class="dz-ticker-item" data-i18n="ticker_item_review" aria-hidden="true">⭐ 4.9 / 5.0 Google Maps (88 avis vérifiés)</span>
+          <span class="dz-ticker-dot" aria-hidden="true">✦</span>
+          <span class="dz-ticker-item" data-i18n="ticker_item_pate" aria-hidden="true">🥩 Pâté & mayo maison recette familiale</span>
+          <span class="dz-ticker-dot" aria-hidden="true">✦</span>
+          <span class="dz-ticker-item" data-i18n="ticker_item_pandan" aria-hidden="true">🌿 100% vraies feuilles de pandan fraîches</span>
+          <span class="dz-ticker-dot" aria-hidden="true">✦</span>
+        </div>
+      </div>
+
       <!-- BLOCK 2: 3 PILIERS DU SAVOIR-FAIRE (The 3 Culinary Pillars of Pâtisserie Dzung) -->
-      <section class="dz-pillars-section" aria-label="Les 3 Piliers du Savoir-Faire Pâtisserie Dzung">
+      <section class="dz-pillars-section" id="home-pillars-section" aria-label="Les 3 Piliers du Savoir-Faire Pâtisserie Dzung">
         <div class="container">
-          <div class="dz-pillars-intro">
-            <p class="lk-eyebrow" data-i18n="pillars_eyebrow">✦ L'Artisanat de Saigon à Brossard</p>
-            <h2 class="dz-pillars-heading">
-              <span data-i18n="pillars_title">TROIS PILIERS D'UN SAVOIR-FAIRE UNIQUE</span>
-              <span class="script-accent" data-i18n="pillars_script">de la baguette au grand festin</span>
-            </h2>
+          <div class="dz-pillars-header">
+            <div class="dz-pillars-head-copy">
+              <p class="lk-eyebrow" data-i18n="pillars_eyebrow">✦ L'Artisanat de Saigon à Brossard</p>
+              <h2 class="dz-pillars-heading">
+                <span data-i18n="pillars_title">TROIS PILIERS D'UN SAVOIR-FAIRE UNIQUE</span>
+                <span class="script-accent" data-i18n="pillars_script">de la baguette au grand festin</span>
+              </h2>
+            </div>
+            <div class="dz-pillars-seal-badge" data-i18n="pillars_seal_badge">
+              ★ ENGAGEMENT 100% FRAIS DU JOUR
+            </div>
           </div>
           <div class="dz-pillars-grid">
             <!-- Pillar 1: Baguette -->
             <div class="dz-pillar-card">
+              <span class="dz-pillar-watermark" aria-hidden="true">01</span>
               <div class="dz-pillar-badge">
                 <span class="dz-pillar-icon">🥖</span>
                 <span class="dz-pillar-tag" data-i18n="pillar_1_tag">Lò Montreal · Livré Frais</span>
@@ -316,6 +337,7 @@
 
             <!-- Pillar 2: Pâté & Mayo -->
             <div class="dz-pillar-card is-featured">
+              <span class="dz-pillar-watermark" aria-hidden="true">02</span>
               <div class="dz-pillar-badge">
                 <span class="dz-pillar-icon">🥩</span>
                 <span class="dz-pillar-tag" data-i18n="pillar_2_tag">Recette Familiale</span>
@@ -332,6 +354,7 @@
 
             <!-- Pillar 3: Pandan Frais -->
             <div class="dz-pillar-card">
+              <span class="dz-pillar-watermark" aria-hidden="true">03</span>
               <div class="dz-pillar-badge">
                 <span class="dz-pillar-icon">🌿</span>
                 <span class="dz-pillar-tag" data-i18n="pillar_3_tag">100% Pandan Naturel</span>

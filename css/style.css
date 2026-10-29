@@ -749,50 +749,79 @@ h4 {
   text-transform: uppercase;
 }
 
-.dz-bakery-pulse-bar {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: 10px;
-  margin-top: 1.6rem;
+/* ==========================================================================
+   5B. GOLD INFINITE TICKER RIBBON (LE RUBAN DU JOUR)
+   ========================================================================== */
+.dz-gold-ticker-ribbon {
+  position: relative;
+  background: var(--gold-crust);
+  color: var(--ink-pandan);
+  overflow: hidden;
+  white-space: nowrap;
+  border-top: 2px solid var(--ink-pandan);
+  border-bottom: 2px solid var(--ink-pandan);
+  padding: 12px 0;
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.06);
+  z-index: 6;
 }
 
-.dz-pulse-chip {
+.dz-gold-ticker-ribbon:hover .dz-gold-ticker-track {
+  animation-play-state: paused;
+}
+
+.dz-gold-ticker-track {
+  display: inline-flex;
+  align-items: center;
+  gap: 32px;
+  animation: dz-ticker-slide 30s linear infinite;
+  font-family: var(--font-body);
+  font-size: 0.86rem;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  will-change: transform;
+}
+
+@keyframes dz-ticker-slide {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.dz-ticker-item {
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  padding: 6px 14px;
-  background: var(--bg-paper);
-  border: 1.5px solid var(--ink-pandan);
+  flex-shrink: 0;
+}
+
+.dz-ticker-item.live-store-status {
+  padding: 3px 12px;
   border-radius: var(--radius-pill);
-  font-size: 0.82rem;
-  font-weight: 700;
+  background: rgba(255, 255, 255, 0.45);
+  border: 1px solid rgba(20, 61, 43, 0.2);
   color: var(--ink-pandan);
-  box-shadow: 2.5px 2.5px 0 var(--gold-crust);
+  box-shadow: 1px 1px 0 rgba(20, 61, 43, 0.1);
 }
 
-.dz-pulse-dot {
-  color: #2E9B56;
-  font-size: 0.95rem;
+.dz-ticker-item.live-store-status.is-closed {
+  background: rgba(196, 43, 28, 0.12);
+  border-color: rgba(196, 43, 28, 0.3);
+  color: var(--red-chili);
+}
+
+.dz-ticker-dot {
+  color: var(--red-chili);
+  font-size: 1.15rem;
   line-height: 1;
-  animation: dz-pulse 2s infinite ease-in-out;
+  flex-shrink: 0;
 }
 
-@keyframes dz-pulse {
-  0%, 100% { opacity: 1; transform: scale(1); }
-  50% { opacity: 0.45; transform: scale(0.85); }
-}
-
-.dz-pulse-icon {
-  font-size: 0.95rem;
-  line-height: 1;
-}
-
-.dz-pulse-chip.is-status .live-store-status {
-  padding: 0;
-  border: none;
-  background: transparent;
-  font-weight: 700;
+@media (prefers-reduced-motion: reduce) {
+  .dz-gold-ticker-track {
+    animation: none;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+  }
 }
 
 .dz-hero-photo-ribbon {
@@ -821,16 +850,41 @@ h4 {
 .dz-pillars-section {
   position: relative;
   background-color: var(--bg-paper);
-  border-top: 2px solid var(--ink-pandan);
   border-bottom: 2px solid var(--ink-pandan);
   padding: clamp(52px, 7vw, 84px) 0;
   z-index: 5;
 }
 
-.dz-pillars-intro {
-  max-width: 700px;
-  margin: 0 auto 38px;
-  text-align: center;
+.dz-pillars-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-bottom: 38px;
+  flex-wrap: wrap;
+  gap: 20px;
+  border-bottom: 1.5px dashed var(--line-warm);
+  padding-bottom: 24px;
+}
+
+.dz-pillars-head-copy {
+  max-width: 720px;
+}
+
+.dz-pillars-seal-badge {
+  font-family: var(--font-body);
+  font-size: 0.84rem;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  color: var(--red-chili);
+  background: rgba(196, 43, 28, 0.08);
+  border: 1.5px solid rgba(196, 43, 28, 0.28);
+  padding: 8px 18px;
+  border-radius: var(--radius-pill);
+  white-space: nowrap;
+  display: inline-flex;
+  align-items: center;
+  box-shadow: 2px 2px 0 rgba(20, 61, 43, 0.08);
+  align-self: flex-end;
 }
 
 .dz-pillars-heading {
@@ -865,16 +919,44 @@ h4 {
   background: var(--bg-cream);
   border: 2px solid var(--ink-pandan);
   border-radius: 18px;
-  padding: clamp(22px, 3vw, 30px);
+  padding: clamp(24px, 3vw, 32px);
   box-shadow: 6px 6px 0 var(--gold-crust);
   display: flex;
   flex-direction: column;
+  overflow: hidden;
   transition: transform 0.22s ease, box-shadow 0.22s ease, border-color 0.22s ease;
+}
+
+.dz-pillar-card.is-featured {
+  border-color: var(--ink-pandan);
+  box-shadow: 8px 8px 0 var(--ink-pandan);
 }
 
 .dz-pillar-card:hover {
   transform: translateY(-5px);
   box-shadow: 10px 10px 0 var(--ink-pandan);
+}
+
+.dz-pillar-watermark {
+  position: absolute;
+  top: -8px;
+  right: 14px;
+  font-family: var(--font-display);
+  font-size: 5rem;
+  font-weight: 800;
+  color: rgba(20, 61, 43, 0.06);
+  line-height: 1;
+  pointer-events: none;
+  user-select: none;
+  z-index: 1;
+}
+
+.dz-pillar-badge,
+.dz-pillar-title,
+.dz-pillar-text,
+.dz-pillar-highlight {
+  position: relative;
+  z-index: 2;
 }
 
 .dz-pillar-badge {
@@ -3582,6 +3664,21 @@ h4 {
     margin-bottom: 10px;
   }
 
+  .dz-pillars-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+    margin-bottom: 28px;
+    padding-bottom: 20px;
+  }
+
+  .dz-pillars-seal-badge {
+    align-self: flex-start;
+    font-size: 0.78rem;
+    padding: 6px 14px;
+    white-space: normal;
+  }
+
   .dz-pillars-grid {
     grid-template-columns: 1fr;
     gap: 16px;
@@ -3899,16 +3996,19 @@ h4 {
     font-size: 0.38rem;
   }
 
-  .dz-bakery-pulse-bar {
-    gap: 8px;
-    margin-top: 1.25rem;
+  .dz-gold-ticker-ribbon {
+    padding: 10px 0;
   }
 
-  .dz-pulse-chip {
-    width: 100%;
-    justify-content: center;
-    font-size: 0.78rem;
-    padding: 7px 12px;
+  .dz-gold-ticker-track {
+    gap: 24px;
+    font-size: 0.8rem;
+  }
+
+  .dz-pillar-watermark {
+    font-size: 4.2rem;
+    top: -6px;
+    right: 10px;
   }
 
   .dz-chef-head {

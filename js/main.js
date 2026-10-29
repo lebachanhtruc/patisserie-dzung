@@ -520,26 +520,24 @@ function initClosureNoticeModal() {
 }
 
 function updateStoreOpenStatus() {
-  const statusElements = [
-    document.getElementById('live-store-status'),
-    document.getElementById('live-store-status-visit')
-  ].filter(Boolean);
+  const statusElements = Array.from(document.querySelectorAll('.live-store-status'));
   if (!statusElements.length) return;
 
   const t = (typeof TRANSLATIONS !== 'undefined' && TRANSLATIONS[currentLang])
     ? TRANSLATIONS[currentLang]
     : {};
 
-  const applyStatus = (cls, text) => {
+  const applyStatus = (stateCls, text) => {
     statusElements.forEach(el => {
-      el.className = cls;
+      el.classList.remove('is-open', 'is-closed');
+      el.classList.add(stateCls);
       el.textContent = text;
     });
   };
 
   if (isTempClosureActive()) {
     applyStatus(
-      'live-store-status is-closed',
+      'is-closed',
       t.status_temp_closed || "🕒 Fermé aujourd'hui & demain • Réouverture Vendredi 10h30"
     );
     return;
@@ -565,14 +563,14 @@ function updateStoreOpenStatus() {
     const isOpen = openDays.has(weekday) && totalMinutes >= (10 * 60 + 30) && totalMinutes < (20 * 60);
 
     applyStatus(
-      `live-store-status ${isOpen ? 'is-open' : 'is-closed'}`,
+      isOpen ? 'is-open' : 'is-closed',
       isOpen
         ? (t.status_open_now || "🟢 Ouvert maintenant • Aujourd'hui 10h30 – 20h00")
         : (t.status_closed_now || "🕒 Actuellement fermé • Mer – Dim 10h30 – 20h00")
     );
   } catch (err) {
     applyStatus(
-      'live-store-status is-open',
+      'is-open',
       t.status_open_now || "🟢 Mer – Dim : 10h30 – 20h00"
     );
   }

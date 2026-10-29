@@ -296,7 +296,13 @@ const TRANSLATIONS = {
     opt_guests_5_8: "5 - 8 personnes",
     opt_guests_8plus: "8+ personnes",
     spotlight_badge: "★ Coup de Cœur du Chef",
-    spotlight_kicker: "Signature N°1 · Bánh Mì Artisanal"
+    spotlight_kicker: "Signature N°1 · Bánh Mì Artisanal",
+    pillars_seal_badge: "★ ENGAGEMENT 100% FRAIS DU JOUR",
+    ticker_item_bread: "🥖 Baguettes de Montréal livrées chaque jour",
+    ticker_item_loc: "📍 5918 Av. Auteuil · 5 min du pont Champlain",
+    ticker_item_review: "⭐ 4.9 / 5.0 Google Maps (88 avis vérifiés)",
+    ticker_item_pate: "🥩 Pâté & mayo maison recette familiale",
+    ticker_item_pandan: "🌿 100% vraies feuilles de pandan fraîches"
   },
 
   vi: {
@@ -591,7 +597,13 @@ const TRANSLATIONS = {
     opt_guests_5_8: "5 - 8 khách",
     opt_guests_8plus: "8+ khách",
     spotlight_badge: "★ Món Ruột Của Chef",
-    spotlight_kicker: "Bánh Mì Ký Danh Số 1 Sài Gòn"
+    spotlight_kicker: "Bánh Mì Ký Danh Số 1 Sài Gòn",
+    pillars_seal_badge: "★ CAM KẾT CHẤT LƯỢNG 100% TƯƠI MỚI",
+    ticker_item_bread: "🥖 Bánh mì lò Montreal lấy mới mỗi ngày",
+    ticker_item_loc: "📍 5918 Av. Auteuil · 5 phút từ cầu Champlain",
+    ticker_item_review: "⭐ 4.9 / 5.0 Google Maps (88 đánh giá thật)",
+    ticker_item_pate: "🥩 Pâté gan bơ & sốt bơ trứng gia truyền",
+    ticker_item_pandan: "🌿 100% cốt lá dứa tươi nguyên chất"
   },
 
   en: {
@@ -886,7 +898,13 @@ const TRANSLATIONS = {
     opt_guests_5_8: "5 - 8 guests",
     opt_guests_8plus: "8+ guests",
     spotlight_badge: "★ Chef’s Favorite",
-    spotlight_kicker: "Signature N°1 · Artisanal Bánh Mì"
+    spotlight_kicker: "Signature N°1 · Artisanal Bánh Mì",
+    pillars_seal_badge: "★ 100% DAILY FRESH COMMITMENT",
+    ticker_item_bread: "🥖 Fresh Montreal baguettes delivered daily",
+    ticker_item_loc: "📍 5918 Av. Auteuil · 5 min from Champlain Bridge",
+    ticker_item_review: "⭐ 4.9 / 5.0 Google Maps (88 verified reviews)",
+    ticker_item_pate: "🥩 Secret family recipe house pâté & mayo",
+    ticker_item_pandan: "🌿 100% pure fresh-blended pandan leaves"
   },
 
   zh: {
@@ -1181,7 +1199,13 @@ const TRANSLATIONS = {
     opt_guests_5_8: "5 - 8 位宾客",
     opt_guests_8plus: "8+ 位宾客",
     spotlight_badge: "★ 主厨私房力荐",
-    spotlight_kicker: "招牌第一号 · 越式传统法包"
+    spotlight_kicker: "招牌第一号 · 越式传统法包",
+    pillars_seal_badge: "★ 100% 每日新鲜现制承诺",
+    ticker_item_bread: "🥖 蒙特利尔面包房每日新鲜配送",
+    ticker_item_loc: "📍 5918 Av. Auteuil · 距香普兰桥5分钟",
+    ticker_item_review: "⭐ 4.9 / 5.0 谷歌评分 (88条真实评价)",
+    ticker_item_pate: "🥩 秘制家传香滑肝酱蛋黄酱",
+    ticker_item_pandan: "🌿 100% 新鲜纯正原汁斑斓"
   }
 };
 
