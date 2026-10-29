@@ -956,6 +956,11 @@ function renderHomeFeaturedDishes() {
   const spPrice = (typeof formatPrice === 'function') ? formatPrice(spotlightItem.price) : `${spotlightItem.price}$`;
   const spTags = spotlightItem.tags ? (spotlightItem.tags[currentLang] || spotlightItem.tags.fr || spotlightItem.tags.vi || []) : [];
 
+  const chipBread = t.spotlight_chip_bread || "🥖 Bánh mì lò Montreal nướng giòn";
+  const chipEgg = t.spotlight_chip_egg || "🥚 Trứng muối bùi béo nguyên lòng đỏ";
+  const chipPate = t.spotlight_chip_pate || "🥩 Pâté & sốt bơ trứng gia truyền";
+  const satellitesTitle = t.home_fav_satellites_title || "✦ 4 ĐẶC SẢN NỔI BẬT KHÁC CỦA TIỆM";
+
   const spotlightHtml = `
     <div class="dz-spotlight-card" data-category="${spotlightItem.category}">
       <div class="dz-spotlight-media">
@@ -971,12 +976,17 @@ function renderHomeFeaturedDishes() {
           <span class="dz-spotlight-price">${spPrice}</span>
         </div>
         <p class="dz-spotlight-desc">${spDesc}</p>
+        <div class="dz-spotlight-chips">
+          <span class="dz-spot-chip">${chipBread}</span>
+          <span class="dz-spot-chip">${chipEgg}</span>
+          <span class="dz-spot-chip">${chipPate}</span>
+        </div>
         <div class="dz-spotlight-footer">
           <div class="dish-tags">
             ${spTags.map(tag => `<span>#${tag}</span>`).join(' ')}
           </div>
           <button class="btn-tactile btn-tactile-gold dz-spotlight-btn" onclick="addToCart('${spotlightItem.id}')">
-            <span>🛒 ${btnAddText}</span>
+            <span>🛒 ${btnAddText} · ${spPrice}</span>
           </button>
         </div>
       </div>
@@ -984,6 +994,9 @@ function renderHomeFeaturedDishes() {
   `;
 
   const satelliteHtml = `
+    <div class="dz-satellite-head">
+      <span class="lk-eyebrow">${satellitesTitle}</span>
+    </div>
     <div class="dz-satellite-grid">
       ${satelliteItems.map(item => buildDishCardHtml(item, btnAddText)).join('')}
     </div>

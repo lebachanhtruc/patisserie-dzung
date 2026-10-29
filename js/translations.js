@@ -262,7 +262,11 @@ const TRANSLATIONS = {
     cat_card_3_title: "Comptoir Douceurs & Pandan",
     cat_card_3_desc: "Plateaux de gâteaux Bánh Da Lợn au pandan frais, Bánh Xu Xuê, verrines de chè bưởi maison, flans caramel et thés au lait artisanaux.",
     cat_action_need_quote: "Besoin d'un devis sur-mesure pour votre date ?",
-    cat_action_prep_note: "Préparation 100% fraîche le jour J sur commande préalable."
+    cat_action_prep_note: "Préparation 100% fraîche le jour J sur commande préalable.",
+    spotlight_chip_bread: "🥖 Baguette de Montréal dorée minute",
+    spotlight_chip_egg: "🥚 Jaune d'œuf salé crémeux",
+    spotlight_chip_pate: "🥩 Pâté & mayo maison",
+    home_fav_satellites_title: "✦ 4 CRÉATIONS SIGNATURES COMPLÉMENTAIRES"
   },
 
   vi: {
@@ -523,7 +527,11 @@ const TRANSLATIONS = {
     cat_card_3_title: "Mâm Tráng Miệng & Pandan",
     cat_card_3_desc: "Khay Bánh Da Lợn lá dứa dẻo thơm, Bánh Xu Xuê đậu xanh, ly chè bưởi cùi tươi, flan caramel và trà sữa nhà nấu.",
     cat_action_need_quote: "Cần tư vấn thực đơn tiệc riêng theo số lượng khách?",
-    cat_action_prep_note: "Chuẩn bị 100% nguyên liệu tươi mới trong ngày giao tiệc."
+    cat_action_prep_note: "Chuẩn bị 100% nguyên liệu tươi mới trong ngày giao tiệc.",
+    spotlight_chip_bread: "🥖 Bánh mì lò Montreal nướng giòn",
+    spotlight_chip_egg: "🥚 Trứng muối bùi béo nguyên lòng đỏ",
+    spotlight_chip_pate: "🥩 Pâté & sốt bơ trứng gia truyền",
+    home_fav_satellites_title: "✦ 4 ĐẶC SẢN NỔI BẬT KHÁC CỦA TIỆM"
   },
 
   en: {
@@ -784,7 +792,11 @@ const TRANSLATIONS = {
     cat_card_3_title: "Fresh Pandan & Dessert Bar",
     cat_card_3_desc: "Platters of Bánh Da Lợn pandan layer cakes, mung bean Xu Xuê cakes, pomelo sweet soup cups, caramel flans, and specialty milk teas.",
     cat_action_need_quote: "Need a custom catering proposal for your upcoming event?",
-    cat_action_prep_note: "100% made fresh to order on event day upon prior reservation."
+    cat_action_prep_note: "100% made fresh to order on event day upon prior reservation.",
+    spotlight_chip_bread: "🥖 Toasted Montreal Baguette",
+    spotlight_chip_egg: "🥚 Creamy Salted Egg Yolk",
+    spotlight_chip_pate: "🥩 Secret House Pâté & Mayo",
+    home_fav_satellites_title: "✦ 4 MORE TIME-HONORED FAVORITES"
   },
 
   zh: {
@@ -1045,7 +1057,11 @@ const TRANSLATIONS = {
     cat_card_3_title: "鲜榨斑斓甜点与糖水吧",
     cat_card_3_desc: "斑斓九层糕、绿豆夫妻糕、新鲜柚子皮手工糖水杯、焦糖布丁与自制香醇奶茶，甜美精致。",
     cat_action_need_quote: "需要根据聚会人数定制专属宴会菜单吗？",
-    cat_action_prep_note: "需提前预约，活动当天新鲜现制，保证最佳口感。"
+    cat_action_prep_note: "需提前预约，活动当天新鲜现制，保证最佳口感。",
+    spotlight_chip_bread: "🥖 蒙特利尔现烤酥脆法包",
+    spotlight_chip_egg: "🥚 咸香流油沙沙咸蛋黄",
+    spotlight_chip_pate: "🥩 手工秘制香滑肝酱蛋黄酱",
+    home_fav_satellites_title: "✦ 另外4款高人气必尝招牌美味"
   }
 };
 
