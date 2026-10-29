@@ -931,19 +931,70 @@ function buildDishCardHtml(item, btnAddText) {
 }
 
 function renderHomeFeaturedDishes() {
-  const homeGrid = document.getElementById('home-featured-dishes');
-  if (!homeGrid || typeof MENU_ITEMS === 'undefined') return;
+  const container = document.getElementById('home-featured-dishes');
+  if (!container || typeof MENU_ITEMS === 'undefined') return;
 
   const t = (typeof TRANSLATIONS !== 'undefined' && TRANSLATIONS[currentLang])
     ? TRANSLATIONS[currentLang]
     : {};
   const btnAddText = t.btn_add_dish || '+ Thêm';
+  const chefLoveText = (currentLang === 'vi') ? '★ Món Ruột Của Chef' : ((currentLang === 'en') ? '★ Chef’s Favorite' : ((currentLang === 'zh') ? '★ 主厨私房力荐' : '★ Coup de Cœur du Chef'));
+  const spotlightKicker = (currentLang === 'vi') ? 'Bánh Mì Ký Danh Số 1 Sài Gòn' : ((currentLang === 'en') ? 'Signature N°1 · Artisanal Bánh Mì' : ((currentLang === 'zh') ? '招牌第一号 · 越式传统法包' : 'Signature N°1 · Bánh Mì Artisanal'));
 
   const featuredItems = HOME_SIGNATURE_IDS
     .map(id => MENU_ITEMS.find(item => item.id === id))
     .filter(Boolean);
 
-  homeGrid.innerHTML = featuredItems.map(item => buildDishCardHtml(item, btnAddText)).join('');
+  if (featuredItems.length === 0) return;
+
+  // #1 Dish: Spotlight (bm-n2: Baguette Boulettes & Oeuf Salé)
+  const spotlightItem = featuredItems.find(i => i.id === 'bm-n2') || featuredItems[0];
+  const satelliteItems = featuredItems.filter(i => i.id !== spotlightItem.id).slice(0, 4);
+
+  const spName = spotlightItem.name[currentLang] || spotlightItem.name.fr || spotlightItem.name.vi;
+  const spDesc = spotlightItem.desc[currentLang] || spotlightItem.desc.fr || spotlightItem.desc.vi;
+  const spPrice = (typeof formatPrice === 'function') ? formatPrice(spotlightItem.price) : `${spotlightItem.price}$`;
+  const spTags = spotlightItem.tags ? (spotlightItem.tags[currentLang] || spotlightItem.tags.fr || spotlightItem.tags.vi || []) : [];
+
+  const spotlightHtml = `
+    <div class="dz-spotlight-card" data-category="${spotlightItem.category}">
+      <div class="dz-spotlight-media">
+        <img src="${spotlightItem.image}" alt="${spName}" loading="lazy" onerror="this.src='assets/images/hero-dzung-food.jpg'" />
+        <span class="dz-spotlight-badge">${chefLoveText}</span>
+      </div>
+      <div class="dz-spotlight-body">
+        <div class="dz-spotlight-head">
+          <div class="dz-spotlight-title-group">
+            <span class="dz-spotlight-kicker">${spotlightKicker}</span>
+            <h3 class="dz-spotlight-name">${spName}</h3>
+          </div>
+          <span class="dz-spotlight-price">${spPrice}</span>
+        </div>
+        <p class="dz-spotlight-desc">${spDesc}</p>
+        <div class="dz-spotlight-footer">
+          <div class="dish-tags">
+            ${spTags.map(tag => `<span>#${tag}</span>`).join(' ')}
+          </div>
+          <button class="btn-tactile btn-tactile-gold dz-spotlight-btn" onclick="addToCart('${spotlightItem.id}')">
+            <span>🛒 ${btnAddText}</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  `;
+
+  const satelliteHtml = `
+    <div class="dz-satellite-grid">
+      ${satelliteItems.map(item => buildDishCardHtml(item, btnAddText)).join('')}
+    </div>
+  `;
+
+  container.innerHTML = `
+    <div class="dz-tasting-board">
+      ${spotlightHtml}
+      ${satelliteHtml}
+    </div>
+  `;
 }
 
 function renderMenu(category = 'all') {

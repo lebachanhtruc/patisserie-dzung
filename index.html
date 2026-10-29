@@ -210,38 +210,49 @@
          ======================================================================== -->
     <div id="view-home" class="app-view active" data-view-panel="home">
 
-      <!-- BLOCK 1: SPLIT 50/50 DAYLIGHT HERO WITH ROTATED STAMP -->
-      <section class="lk-hero" id="hero">
-        <div class="container lk-hero-grid">
+      <!-- BLOCK 1: COMPTOIR ARTISANAL HERO (Boutique Showcase with Wax Seal & Live Pulse) -->
+      <section class="lk-hero dz-hero" id="hero">
+        <div class="container lk-hero-grid dz-hero-grid">
           <!-- Left Copy Column -->
-          <div class="lk-hero-copy">
-            <p class="lk-eyebrow" data-i18n="hero_eyebrow">Brossard · 5918 Avenue Auteuil</p>
-            <h1 class="lk-hero-title" id="home-view-heading" tabindex="-1">
+          <div class="lk-hero-copy dz-hero-copy">
+            <p class="lk-eyebrow" data-i18n="hero_eyebrow">✦ Maison Fondée à Brossard · 5918 Avenue Auteuil</p>
+            <h1 class="lk-hero-title dz-hero-title" id="home-view-heading" tabindex="-1">
               <span data-i18n="hero_main_heading">BÁNH MÌ ARTISANAL &amp; STREET FOOD DE SAIGON</span>
               <span class="script-accent" data-i18n="hero_script_sub">L'authenticité rare au Canada</span>
             </h1>
-            <p class="lk-hero-lede" data-i18n="hero_lede">
-              Baguettes croustillantes dorées au four, pâté maison secret de famille, pâtisseries aux vraies feuilles de pandan fraîches mixées, chè naturels et thés au lait 3D.
+            <p class="lk-hero-lede dz-hero-lede" data-i18n="hero_lede">
+              Baguettes croustillantes dorées au four chaque matin, pâté maison secret de famille, pâtisseries aux vraies feuilles de pandan fraîches mixées et chè artisanaux.
             </p>
 
-            <div class="lk-btn-row">
+            <div class="lk-btn-row dz-hero-btn-row">
               <a href="tel:+15148808388" class="btn-tactile btn-tactile-gold" onclick="addToCart()" data-i18n="hero_btn_call">
                 📞 APPELER POUR COMMANDER
               </a>
               <button type="button" class="btn-tactile btn-tactile-outline" onclick="navigateToView('menu')" data-i18n="hero_btn_menu">
-                DÉCOUVRIR LE MENU
+                📖 DÉCOUVRIR LE MENU (54 PLATS)
               </button>
             </div>
 
-            <!-- Live Store Status Dot (like Little Kirin's "Open now · until 10pm") -->
-            <div class="lk-hero-status-wrap">
-              <span class="live-store-status" id="live-store-status"></span>
+            <!-- Integrated Live Bakery Pulse Capsule -->
+            <div class="dz-bakery-pulse-bar" aria-label="Informations clés de la boulangerie">
+              <div class="dz-pulse-chip is-status">
+                <span class="dz-pulse-dot">●</span>
+                <span class="live-store-status" id="live-store-status">Ouvert · 10h30 – 20h00</span>
+              </div>
+              <div class="dz-pulse-chip is-loc">
+                <span class="dz-pulse-icon">📍</span>
+                <span>Brossard (5 min Champlain)</span>
+              </div>
+              <div class="dz-pulse-chip is-review">
+                <span class="dz-pulse-icon">⭐</span>
+                <span>4.9 / 5.0 Google (88 avis)</span>
+              </div>
             </div>
           </div>
 
-          <!-- Right Photo Frame with Hard Gold Shadow & Rotated Stamp Badge -->
-          <div class="lk-hero-media">
-            <div class="lk-hero-frame">
+          <!-- Right Photo Frame with Artisan Wax Seal Medallion -->
+          <div class="lk-hero-media dz-hero-media">
+            <div class="lk-hero-frame dz-hero-frame">
               <div class="hero-slider-container">
                 <div class="hero-slide active">
                   <img src="assets/images/hero-dzung-store.jpg" alt="Le Grand Festin de Saigon chez Pâtisserie Dzung Brossard" width="1200" height="900" fetchpriority="high" />
@@ -257,56 +268,198 @@
                 <button type="button" class="hero-arrow-btn hero-prev-btn" aria-label="Photo précédente">&#10094;</button>
                 <button type="button" class="hero-arrow-btn hero-next-btn" aria-label="Photo suivante">&#10095;</button>
               </div>
+
+              <!-- Bakery Caption Ribbon at Bottom of Image -->
+              <div class="dz-hero-photo-ribbon">
+                <span>🥖 Pain chaud doré au four en continu dès 10h30</span>
+              </div>
             </div>
 
-            <!-- Rotated Stamp Badge (-3.5deg) -->
-            <a href="https://www.google.com/maps/place/Patisserie+Dzung/@45.4714691,-73.4613397,17z/data=!3m1!4b1!4m6!3m5!1s0x4cc9054ca9b665f5:0x451da51af4413046!8m2!3d45.4714654!4d-73.4587648!16s%2Fg%2F11zx0_530d?entry=ttu" target="_blank" rel="noopener noreferrer" class="lk-hero-stamp">
-              <small class="stamp-kicker" data-i18n="hero_stamp_kicker">★ 4.9 / 5.0 SUR GOOGLE MAPS · BROSSARD</small>
-              <span class="stamp-main" data-i18n="hero_stamp_main">SPÉCIALITÉS VIETNAMIENNES RARES &amp; 100% FAIT MAISON</span>
-            </a>
+            <!-- Artisan Wax Seal Medallion -->
+            <div class="dz-artisan-seal" aria-label="Garantie 100% fait maison">
+              <div class="dz-seal-inner">
+                <span class="dz-seal-star">★</span>
+                <span class="dz-seal-title">100% FAIT MAISON</span>
+                <span class="dz-seal-sub">SAIGON · BROSSARD</span>
+              </div>
+            </div>
           </div>
         </div>
       </section>
 
-      <!-- BLOCK 2: SUNNY BAGUETTE-GOLD UTILITY STRIP WITH FRENCH SCALLOPED AWNING EDGE -->
-      <section class="lk-utility-strip" aria-label="Horaires, adresse et téléphone">
-        <div class="container lk-strip-grid">
-          <div class="lk-strip-item">
-            <b data-i18n="strip_hours_label">HORAIRES D'OUVERTURE</b>
-            <span data-i18n="strip_hours_val">Mercredi – Dimanche · 10h30 – 20h00</span>
-          </div>
-          <div class="lk-strip-item">
-            <b data-i18n="strip_find_label">NOUS TROUVER</b>
-            <a href="https://www.google.com/maps/place/Patisserie+Dzung/@45.4714691,-73.4613397,17z/data=!3m1!4b1!4m6!3m5!1s0x4cc9054ca9b665f5:0x451da51af4413046!8m2!3d45.4714654!4d-73.4587648!16s%2Fg%2F11zx0_530d?entry=ttu" target="_blank" rel="noopener noreferrer">5918 Avenue Auteuil, Brossard, QC J4Z 1N2</a>
-          </div>
-          <div class="lk-strip-item">
-            <b data-i18n="strip_call_label">COMMANDER PAR TÉLÉPHONE</b>
-            <a href="tel:+15148808388">(514) 880-8388</a>
-          </div>
-        </div>
-      </section>
-
-      <!-- BLOCK 3: DEEP PANDAN GREEN 50/50 SPLIT — CATERING & ARTISANAL CRAFT -->
-      <section class="lk-section lk-bg-pandan">
-        <div class="container lk-split-grid">
-          <div class="lk-split-media">
-            <img src="assets/images/hero-dzung-food.jpg" alt="Plateaux traiteur Bánh Mì, rouleaux de Saigon et pâtisseries au pandan frais" loading="lazy" width="1200" height="900" />
-          </div>
-          <div class="lk-split-copy">
-            <p class="lk-eyebrow is-gold" data-i18n="home_cat_eyebrow">Traiteur &amp; Savoir-Faire Artisanal</p>
-            <h2 class="lk-section-heading is-light">
-              <span data-i18n="home_cat_title">UN ÉVÉNEMENT À FÊTER ?</span>
-              <span class="script-accent is-gold" data-i18n="home_cat_script">On s'occupe de tout.</span>
+      <!-- BLOCK 2: 3 PILIERS DU SAVOIR-FAIRE (The 3 Culinary Pillars of Pâtisserie Dzung) -->
+      <section class="dz-pillars-section" aria-label="Les 3 Piliers du Savoir-Faire Pâtisserie Dzung">
+        <div class="container">
+          <div class="dz-pillars-intro">
+            <p class="lk-eyebrow" data-i18n="pillars_eyebrow">✦ L'Artisanat de Saigon à Brossard</p>
+            <h2 class="dz-pillars-heading">
+              <span data-i18n="pillars_title">TROIS PILIERS D'UN SAVOIR-FAIRE UNIQUE</span>
+              <span class="script-accent" data-i18n="pillars_script">de la farine au festin</span>
             </h2>
-            <p class="lk-split-desc" data-i18n="home_cat_desc">
-              Anniversaires, réunions d'entreprise, fêtes de famille ou réceptions : commandez nos plateaux de Bánh Mì croustillants, assortiments de street food de Saigon et pâtisseries traditionnelles 100% fraîches.
+          </div>
+          <div class="dz-pillars-grid">
+            <!-- Pillar 1: Baguette -->
+            <div class="dz-pillar-card">
+              <div class="dz-pillar-badge">
+                <span class="dz-pillar-icon">🥖</span>
+                <span class="dz-pillar-tag" data-i18n="pillar_1_tag">Sortie du Four 10h30</span>
+              </div>
+              <h3 class="dz-pillar-title" data-i18n="pillar_1_title">La Baguette Dorée au Four</h3>
+              <p class="dz-pillar-text" data-i18n="pillar_1_desc">
+                Pétrie et dorée artisanalement chaque matin. Une croûte qui chante sous les doigts, ultra-croustillante, et une mie alvéolée légère comme un nuage.
+              </p>
+              <div class="dz-pillar-highlight">
+                <span class="dz-pillar-bullet">✦</span>
+                <span data-i18n="pillar_1_highlight">Croustillant garanti toute la journée</span>
+              </div>
+            </div>
+
+            <!-- Pillar 2: Pâté & Mayo -->
+            <div class="dz-pillar-card is-featured">
+              <div class="dz-pillar-badge">
+                <span class="dz-pillar-icon">🥩</span>
+                <span class="dz-pillar-tag" data-i18n="pillar_2_tag">Recette Secrète 1998</span>
+              </div>
+              <h3 class="dz-pillar-title" data-i18n="pillar_2_title">Pâté &amp; Mayonnaise Maison</h3>
+              <p class="dz-pillar-text" data-i18n="pillar_2_desc">
+                La véritable recette ancestrale de Saigon. Foie mijoté au beurre et épices douces, mayonnaise onctueuse montée main, sans aucun arôme artificiel.
+              </p>
+              <div class="dz-pillar-highlight">
+                <span class="dz-pillar-bullet">✦</span>
+                <span data-i18n="pillar_2_highlight">100% fait maison chaque matin</span>
+              </div>
+            </div>
+
+            <!-- Pillar 3: Pandan Frais -->
+            <div class="dz-pillar-card">
+              <div class="dz-pillar-badge">
+                <span class="dz-pillar-icon">🌿</span>
+                <span class="dz-pillar-tag" data-i18n="pillar_3_tag">100% Pandan Naturel</span>
+              </div>
+              <h3 class="dz-pillar-title" data-i18n="pillar_3_title">Feuilles de Pandan Fraîches</h3>
+              <p class="dz-pillar-text" data-i18n="pillar_3_desc">
+                Nos gâteaux et douceurs tirent leur parfum envoûtant de vraies feuilles de pandan fraîches mixées sur place. Zéro colorant ni extrait chimique.
+              </p>
+              <div class="dz-pillar-highlight">
+                <span class="dz-pillar-bullet">✦</span>
+                <span data-i18n="pillar_3_highlight">Vert émeraude végétal &amp; parfum pur</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- BLOCK 3: TABLEAU DU CHEF (Asymmetric Curated Tasting Board) -->
+      <section class="lk-section lk-bg-cream dz-chef-section" id="home-chef-section">
+        <div class="container">
+          <div class="dz-chef-head">
+            <div class="dz-chef-head-copy">
+              <p class="lk-eyebrow" data-i18n="home_fav_eyebrow">✦ Sélection du Chef · Les Plus Populaires</p>
+              <h2 class="lk-section-heading">
+                <span data-i18n="home_fav_title">NOS CRÉATIONS SIGNATURES</span>
+                <span class="script-accent" data-i18n="home_fav_script">faites maison</span>
+              </h2>
+              <p class="lk-section-sub" data-i18n="home_fav_sub">
+                Un aperçu de nos spécialités les plus convoitéessur la Rive-Sud. Explorez notre carte complète de 54 créations artisanales.
+              </p>
+            </div>
+            <div class="dz-chef-head-action">
+              <button type="button" class="btn-tactile btn-tactile-dark" onclick="navigateToView('menu')" data-i18n="home_fav_btn_all">
+                📖 TOUT LE MENU (54 PLATS) ➔
+              </button>
+            </div>
+          </div>
+
+          <!-- Asymmetric Tasting Board: Spotlight Dish + 4 Satellite Specialties (Rendered by JS) -->
+          <div class="dz-tasting-container" id="home-featured-dishes"></div>
+
+          <div class="lk-btn-row lk-home-menu-cta" style="margin-top: 28px; justify-content: center;">
+            <button type="button" class="btn-tactile btn-tactile-outline" onclick="navigateToView('gallery')" data-i18n="home_fav_btn_gal">
+              🎞️ GALERIE PHOTOS &amp; VIDÉOS
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <!-- BLOCK 4: GRAND FESTIN TRAITEUR (Panoramic Catering Atelier) -->
+      <section class="lk-section lk-bg-pandan dz-catering-panoramic" id="home-catering-section">
+        <div class="container">
+          <div class="dz-catering-head">
+            <p class="lk-eyebrow is-gold" data-i18n="home_cat_eyebrow">✦ Service Traiteur &amp; Réceptions d'Exception</p>
+            <h2 class="lk-section-heading is-light">
+              <span data-i18n="home_cat_title">UN ÉVÉNEMENT, UNE FÊTE DE FAMILLE ?</span>
+              <span class="script-accent is-gold" data-i18n="home_cat_script">Le grand festin de Saigon à votre table</span>
+            </h2>
+            <p class="dz-catering-lede" data-i18n="home_cat_desc">
+              Anniversaires, réunions d'entreprise, fêtes de famille hoặc réceptions : composez vos plateaux sur mesure de Bánh Mì croustillants, street food authentique et douceurs au pandan frais.
             </p>
-            <ul class="lk-sparkle-checklist">
-              <li data-i18n="home_cat_li1">Plateaux de Bánh Mì croustillants &amp; rouleaux de Saigon</li>
-              <li data-i18n="home_cat_li2">Pâtisseries ancestrales aux vraies feuilles de pandan fraîches</li>
-              <li data-i18n="home_cat_li3">Chè maison (vraie écorce de pomélo, sương sâm froissée main) &amp; boissons</li>
-            </ul>
-            <div class="lk-btn-row">
+          </div>
+
+          <!-- 3 Panoramic Catering Tray Formats -->
+          <div class="dz-catering-format-grid">
+            <!-- Format 1 -->
+            <div class="dz-catering-card">
+              <div class="dz-cat-card-media">
+                <img src="assets/images/hero-dzung-food.jpg" alt="Plateau de Bánh Mì cocktail pour traiteur" loading="lazy" width="600" height="400" />
+                <span class="dz-cat-guest-tag">👤 10 à 15 Convives</span>
+              </div>
+              <div class="dz-cat-card-body">
+                <h3 class="dz-cat-card-title" data-i18n="cat_card_1_title">Plateaux Bánh Mì Cocktail</h3>
+                <p class="dz-cat-card-desc" data-i18n="cat_card_1_desc">
+                  Baguettes dorées découpées en portions cocktail prêtes à déguster, garnies minute au pâté maison, porc tendre, poulet grillé ou tofu lemongrass.
+                </p>
+                <ul class="dz-cat-card-features">
+                  <li>✦ Pain ultra-frais croustillant</li>
+                  <li>✦ Condiments &amp; sauces maison inclus</li>
+                </ul>
+              </div>
+            </div>
+
+            <!-- Format 2 (Featured) -->
+            <div class="dz-catering-card is-highlight">
+              <div class="dz-cat-card-media">
+                <img src="assets/images/story-dzung.jpg" alt="Buffet Street Food de Saigon à partager" loading="lazy" width="600" height="400" />
+                <span class="dz-cat-guest-tag is-gold">👥 20 à 40 Convives</span>
+                <span class="dz-cat-badge">★ POPULAIRE</span>
+              </div>
+              <div class="dz-cat-card-body">
+                <h3 class="dz-cat-card-title" data-i18n="cat_card_2_title">Buffet Street Food Saigon</h3>
+                <p class="dz-cat-card-desc" data-i18n="cat_card_2_desc">
+                  Le festin complet : assortiments de rouleaux de printemps frais, nems croustillants, kits bánh tráng phơi sương và cơm cháy chà bông sa tế.
+                </p>
+                <ul class="dz-cat-card-features">
+                  <li>✦ Assortiment chaud &amp; froid complet</li>
+                  <li>✦ Saveurs street food uniques au Canada</li>
+                </ul>
+              </div>
+            </div>
+
+            <!-- Format 3 -->
+            <div class="dz-catering-card">
+              <div class="dz-cat-card-media">
+                <img src="assets/images/hero-dzung-store.jpg" alt="Comptoir Douceurs & Pâtisseries Pandan" loading="lazy" width="600" height="400" />
+                <span class="dz-cat-guest-tag">✨ Événements (50+)</span>
+              </div>
+              <div class="dz-cat-card-body">
+                <h3 class="dz-cat-card-title" data-i18n="cat_card_3_title">Comptoir Douceurs &amp; Pandan</h3>
+                <p class="dz-cat-card-desc" data-i18n="cat_card_3_desc">
+                  Plateaux de gâteaux Bánh Da Lợn au pandan frais, Bánh Xu Xuê, verrines de chè bưởi maison, flans caramel et thés au lait artisanaux.
+                </p>
+                <ul class="dz-cat-card-features">
+                  <li>✦ 100% feuilles de pandan fraîches</li>
+                  <li>✦ Portions individuelles élégantes</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <!-- Action Bar -->
+          <div class="dz-catering-action-bar">
+            <div class="dz-cat-action-text">
+              <b data-i18n="cat_action_need_quote">Besoin d'un devis sur-mesure pour votre date ?</b>
+              <span data-i18n="cat_action_prep_note">Préparation 100% fraîche le jour J sur commande préalable.</span>
+            </div>
+            <div class="dz-cat-action-btns">
               <button type="button" class="btn-tactile btn-tactile-gold" onclick="navigateToView('catering')" data-i18n="home_cat_btn_1">
                 DÉCOUVRIR L'OFFRE TRAITEUR
               </button>
@@ -318,78 +471,80 @@
         </div>
       </section>
 
-      <!-- BLOCK 4: CURATED 6 SIGNATURE FAVORITES ON HOMEPAGE -->
-      <section class="lk-section lk-bg-cream">
+      <!-- BLOCK 5: MAISON & QUARTIER "CARNET D'ADRESSES" (Atelier, Hours & Google Community) -->
+      <section class="lk-section lk-bg-paper dz-atelier-section" id="home-atelier-section">
         <div class="container">
-          <div class="lk-section-head">
-            <p class="lk-eyebrow" data-i18n="home_fav_eyebrow">Les Plus Populaires</p>
-            <h2 class="lk-section-heading">
-              <span data-i18n="home_fav_title">NOS CRÉATIONS SIGNATURES</span>
-              <span class="script-accent" data-i18n="home_fav_script">faites maison</span>
-            </h2>
-            <p class="lk-section-sub" data-i18n="home_fav_sub">
-              Un aperçu de nos spécialités les plus aimées sur la Rive-Sud. Explorez notre carte complète de 54 créations artisanales.
-            </p>
-          </div>
-
-          <!-- 6 Featured Dishes Rendered Dynamically by JS -->
-          <div class="lk-home-dishes-grid" id="home-featured-dishes"></div>
-
-          <div class="lk-btn-row lk-home-menu-cta">
-            <button type="button" class="btn-tactile btn-tactile-dark" onclick="navigateToView('menu')" data-i18n="home_fav_btn_all">
-              📖 VOIR LE MENU COMPLET (54 SPÉCIALITÉS) ➔
-            </button>
-            <button type="button" class="btn-tactile btn-tactile-outline" onclick="navigateToView('gallery')" data-i18n="home_fav_btn_gal">
-              🎞️ GALERIE PHOTOS &amp; VIDÉOS
-            </button>
-          </div>
-        </div>
-      </section>
-
-      <!-- BLOCK 5: SPLIT VISIT & HOURS SECTION ON HOMEPAGE -->
-      <section class="lk-section lk-bg-paper">
-        <div class="container lk-split-grid is-reverse">
-          <div class="lk-split-media lk-visit-collage">
-            <img src="assets/images/story-dzung.jpg" alt="Intérieur chaleureux chez Pâtisserie Dzung Brossard" loading="lazy" width="1200" height="900" />
-            <div class="lk-mini-review-badge">
-              <div class="lk-mini-stars">★★★★★</div>
-              <p data-i18n="review_1_text">"Le meilleur Bánh Mì sur la Rive-Sud de Montréal ! Pain ultra frais et croustillant à la perfection."</p>
-              <small>— Sophie Nguyen · Google Maps</small>
-            </div>
-          </div>
-
-          <div class="lk-split-copy">
-            <p class="lk-eyebrow" data-i18n="home_visit_eyebrow">Nous Rendre Visite</p>
+          <div class="dz-atelier-head">
+            <p class="lk-eyebrow" data-i18n="home_visit_eyebrow">✦ Maison &amp; Quartier</p>
             <h2 class="lk-section-heading">
               <span data-i18n="home_visit_title">5918 AVENUE AUTEUIL</span>
               <span class="script-accent" data-i18n="home_visit_script">Brossard, Rive-Sud</span>
             </h2>
-            <p class="lk-split-desc" data-i18n="home_visit_desc">
-              À quelques minutes du pont Champlain avec stationnement gratuit. Venez savourer nos baguettes chaudes tout juste sorties du four ou emportez vos douceurs préférées.
+            <p class="lk-section-sub" data-i18n="home_visit_desc">
+              Tọa lạc ngay trung tâm Brossard, cách cầu Champlain chỉ 5 phút với bãi đỗ xe miễn phí. Điểm hẹn quen thuộc của những người yêu bánh mì nóng giòn và phong vị Sài Gòn.
             </p>
+          </div>
 
-            <table class="lk-hours-table" aria-label="Horaires d'ouverture">
-              <tbody>
-                <tr class="is-highlight">
-                  <td data-i18n="hours_row_open_days">Mercredi – Dimanche</td>
-                  <td data-i18n="hours_row_open_time">10h30 – 20h00</td>
-                </tr>
-                <tr>
-                  <td data-i18n="hours_row_closed_days">Lundi &amp; Mardi</td>
-                  <td data-i18n="hours_row_closed_time">Fermé</td>
-                </tr>
-                <tr>
-                  <td data-i18n="hours_row_rating_label">Note Google Maps (Brossard)</td>
-                  <td><strong>4.9 / 5.0 ★</strong></td>
-                </tr>
-              </tbody>
-            </table>
+          <!-- 3-Column Panorama Composite Card -->
+          <div class="dz-atelier-panorama">
+            <!-- Col 1: Provenance & Map -->
+            <div class="dz-atelier-col is-location">
+              <div class="dz-col-header">
+                <span class="dz-col-icon">📍</span>
+                <h3 class="dz-col-title">Accès &amp; Parking</h3>
+              </div>
+              <p class="dz-col-desc">
+                <strong>5918 Avenue Auteuil, Brossard, QC J4Z 1N2</strong><br>
+                À 5 minutes du pont Champlain. Stationnement privé gratuit directement devant la boutique.
+              </p>
+              <div class="dz-col-cta">
+                <a href="https://www.google.com/maps/place/Patisserie+Dzung/@45.4714691,-73.4613397,17z/data=!3m1!4b1!4m6!3m5!1s0x4cc9054ca9b665f5:0x451da51af4413046!8m2!3d45.4714654!4d-73.4587648!16s%2Fg%2F11zx0_530d?entry=ttu" target="_blank" rel="noopener noreferrer" class="btn-tactile btn-tactile-dark" style="width: 100%; text-align: center;" data-i18n="banner_btn_map">
+                  📍 ITINÉRAIRE GOOGLE MAPS ↗
+                </a>
+              </div>
+            </div>
 
-            <div class="lk-btn-row" style="margin-top: 1.5rem;">
-              <a href="https://www.google.com/maps/place/Patisserie+Dzung/@45.4714691,-73.4613397,17z/data=!3m1!4b1!4m6!3m5!1s0x4cc9054ca9b665f5:0x451da51af4413046!8m2!3d45.4714654!4d-73.4587648!16s%2Fg%2F11zx0_530d?entry=ttu" target="_blank" rel="noopener noreferrer" class="btn-tactile btn-tactile-dark" data-i18n="banner_btn_map">
-                📍 ITINÉRAIRE GOOGLE MAPS ↗
-              </a>
-              <button type="button" class="btn-tactile btn-tactile-outline" onclick="navigateToView('visit')" data-i18n="home_visit_btn_more">
+            <!-- Col 2: Interactive Hours Board -->
+            <div class="dz-atelier-col is-schedule">
+              <div class="dz-col-header">
+                <span class="dz-col-icon">⏰</span>
+                <h3 class="dz-col-title">Horaires de la Boulangerie</h3>
+              </div>
+              <table class="lk-hours-table dz-hours-table" aria-label="Horaires d'ouverture">
+                <tbody>
+                  <tr class="is-highlight">
+                    <td data-i18n="hours_row_open_days">Mercredi – Dimanche</td>
+                    <td><span class="dz-time-pill" data-i18n="hours_row_open_time">10h30 – 20h00</span></td>
+                  </tr>
+                  <tr>
+                    <td data-i18n="hours_row_closed_days">Lundi &amp; Mardi</td>
+                    <td><span class="dz-closed-tag" data-i18n="hours_row_closed_time">Fermé</span></td>
+                  </tr>
+                </tbody>
+              </table>
+              <p class="dz-hours-tip">
+                💡 <em>Pain chaud sorti du four en continu dès 10h30 jusqu'à épuisement des fournées.</em>
+              </p>
+            </div>
+
+            <!-- Col 3: Community & Google Voice -->
+            <div class="dz-atelier-col is-reviews">
+              <div class="dz-col-header">
+                <span class="dz-col-icon">⭐</span>
+                <h3 class="dz-col-title">Note Google Maps</h3>
+              </div>
+              <div class="dz-score-banner">
+                <span class="dz-score-num">4.9</span>
+                <div class="dz-score-meta">
+                  <div class="lk-mini-stars">★★★★★</div>
+                  <small>88 avis vérifiés · Brossard</small>
+                </div>
+              </div>
+              <blockquote class="dz-quote">
+                "Le meilleur Bánh Mì sur la Rive-Sud ! Pain ultra croustillant, garniture généreuse et pâté incomparable."
+                <cite>— Sophie Nguyen · Client Local</cite>
+              </blockquote>
+              <button type="button" class="btn-tactile btn-tactile-outline" onclick="navigateToView('visit')" style="width: 100%;" data-i18n="home_visit_btn_more">
                 HISTOIRE, AVIS &amp; CARTE ➔
               </button>
             </div>

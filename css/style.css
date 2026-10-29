@@ -682,7 +682,263 @@ h4 {
 }
 
 /* ==========================================================================
-   6. BLOCK 2: SUNNY GOLD UTILITY STRIP WITH SCALLOPED AWNING EDGE
+   5B. COMPTOIR ARTISANAL HERO (WAX SEAL & BAKERY PULSE)
+   ========================================================================== */
+.dz-artisan-seal {
+  position: absolute;
+  top: -18px;
+  right: -14px;
+  z-index: 5;
+  width: 96px;
+  height: 96px;
+  border-radius: 50%;
+  background: var(--gold-crust);
+  border: 2.5px solid var(--ink-pandan);
+  box-shadow: 4px 4px 0 var(--ink-pandan);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transform: rotate(8deg);
+  transition: transform 0.24s cubic-bezier(0.34, 1.56, 0.64, 1);
+  pointer-events: auto;
+  user-select: none;
+}
+
+.dz-artisan-seal:hover {
+  transform: rotate(0deg) scale(1.08);
+}
+
+.dz-seal-inner {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  border: 1.5px dashed var(--ink-pandan);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 4px;
+  box-sizing: border-box;
+}
+
+.dz-seal-star {
+  color: var(--red-chili);
+  font-size: 0.95rem;
+  line-height: 1;
+  margin-bottom: 2px;
+}
+
+.dz-seal-title {
+  font-family: var(--font-display);
+  font-weight: 900;
+  font-size: 0.58rem;
+  line-height: 1.15;
+  letter-spacing: 0.06em;
+  color: var(--ink-pandan);
+  text-transform: uppercase;
+}
+
+.dz-seal-sub {
+  font-family: var(--font-body);
+  font-size: 0.46rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  color: var(--red-chili);
+  margin-top: 3px;
+  text-transform: uppercase;
+}
+
+.dz-bakery-pulse-bar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+  margin-top: 1.6rem;
+}
+
+.dz-pulse-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 14px;
+  background: var(--bg-paper);
+  border: 1.5px solid var(--ink-pandan);
+  border-radius: var(--radius-pill);
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: var(--ink-pandan);
+  box-shadow: 2.5px 2.5px 0 var(--gold-crust);
+}
+
+.dz-pulse-dot {
+  color: #2E9B56;
+  font-size: 0.95rem;
+  line-height: 1;
+  animation: dz-pulse 2s infinite ease-in-out;
+}
+
+@keyframes dz-pulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.45; transform: scale(0.85); }
+}
+
+.dz-pulse-icon {
+  font-size: 0.95rem;
+  line-height: 1;
+}
+
+.dz-pulse-chip.is-status .live-store-status {
+  padding: 0;
+  border: none;
+  background: transparent;
+  font-weight: 700;
+}
+
+.dz-hero-photo-ribbon {
+  position: absolute;
+  left: 12px;
+  right: 12px;
+  bottom: 12px;
+  z-index: 2;
+  background: rgba(20, 61, 43, 0.88);
+  color: var(--bg-paper);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  padding: 8px 14px;
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  font-size: 0.82rem;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* ==========================================================================
+   6. BLOCK 2: 3 PILIERS DU SAVOIR-FAIRE (SAVOIR-FAIRE ARTISANAL)
+   ========================================================================== */
+.dz-pillars-section {
+  position: relative;
+  background-color: var(--bg-paper);
+  border-top: 2px solid var(--ink-pandan);
+  border-bottom: 2px solid var(--ink-pandan);
+  padding: clamp(52px, 7vw, 84px) 0;
+  z-index: 5;
+}
+
+.dz-pillars-intro {
+  max-width: 700px;
+  margin: 0 auto 38px;
+  text-align: center;
+}
+
+.dz-pillars-heading {
+  font-size: clamp(2.1rem, 4.4vw, 3.25rem);
+  color: var(--ink-pandan);
+  line-height: 1.05;
+  margin-bottom: 0.35em;
+}
+
+.dz-pillars-heading .script-accent {
+  display: inline-block;
+  font-size: 0.72em;
+  color: var(--red-chili);
+  margin-left: 0.2em;
+}
+
+.dz-pillars-lede {
+  font-size: 1.02rem;
+  line-height: 1.6;
+  color: var(--ink-body);
+  margin: 0 auto;
+}
+
+.dz-pillars-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: clamp(20px, 3vw, 32px);
+}
+
+.dz-pillar-card {
+  position: relative;
+  background: var(--bg-cream);
+  border: 2px solid var(--ink-pandan);
+  border-radius: 18px;
+  padding: clamp(22px, 3vw, 30px);
+  box-shadow: 6px 6px 0 var(--gold-crust);
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.22s ease, box-shadow 0.22s ease, border-color 0.22s ease;
+}
+
+.dz-pillar-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 10px 10px 0 var(--ink-pandan);
+}
+
+.dz-pillar-badge {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 16px;
+}
+
+.dz-pillar-icon {
+  font-size: 2.2rem;
+  line-height: 1;
+}
+
+.dz-pillar-tag {
+  font-family: var(--font-body);
+  font-weight: 800;
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--red-chili);
+  background: rgba(196, 43, 28, 0.08);
+  border: 1px solid rgba(196, 43, 28, 0.2);
+  padding: 4px 10px;
+  border-radius: var(--radius-pill);
+}
+
+.dz-pillar-title {
+  font-family: var(--font-display);
+  font-size: clamp(1.2rem, 1.8vw, 1.45rem);
+  font-weight: 800;
+  color: var(--ink-pandan);
+  line-height: 1.2;
+  margin-bottom: 10px;
+}
+
+.dz-pillar-text {
+  font-size: 0.94rem;
+  line-height: 1.65;
+  color: var(--ink-body);
+  margin: 0 0 18px;
+  flex-grow: 1;
+}
+
+.dz-pillar-highlight {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.84rem;
+  font-weight: 700;
+  color: var(--ink-pandan);
+  border-top: 1.5px dashed var(--line-warm);
+  padding-top: 14px;
+  margin-top: auto;
+}
+
+.dz-pillar-bullet {
+  color: var(--red-chili);
+  font-size: 1rem;
+  line-height: 1;
+}
+
+/* ==========================================================================
+   6B. SUNNY GOLD UTILITY STRIP & MOTIF RUNNER (REUSABLE)
    ========================================================================== */
 .lk-utility-strip {
   position: relative;
@@ -739,6 +995,536 @@ h4 {
 
 .lk-strip-item a:hover {
   text-decoration: underline;
+}
+
+/* ==========================================================================
+   7B. BLOCK 3: TABLEAU DU CHEF (ASYMMETRIC TASTING BOARD)
+   ========================================================================== */
+.dz-chef-section {
+  padding: clamp(56px, 8vw, 96px) 0;
+  background-color: var(--bg-cream);
+}
+
+.dz-chef-head {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 28px;
+  margin-bottom: 36px;
+  flex-wrap: wrap;
+}
+
+.dz-chef-head-copy {
+  max-width: 640px;
+}
+
+.dz-chef-head-action {
+  flex-shrink: 0;
+}
+
+.dz-tasting-container {
+  width: 100%;
+}
+
+.dz-tasting-board {
+  display: grid;
+  grid-template-columns: 1.08fr 1fr;
+  gap: clamp(24px, 3.2vw, 36px);
+  align-items: stretch;
+}
+
+/* Spotlight #1 Dish */
+.dz-spotlight-card {
+  background: var(--bg-paper);
+  border: 2.5px solid var(--ink-pandan);
+  border-radius: 20px;
+  box-shadow: 10px 10px 0 var(--gold-crust);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.22s ease, box-shadow 0.22s ease;
+}
+
+.dz-spotlight-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 12px 12px 0 var(--ink-pandan);
+}
+
+.dz-spotlight-media {
+  position: relative;
+  aspect-ratio: 16 / 10;
+  overflow: hidden;
+  background: var(--ink-pandan);
+}
+
+.dz-spotlight-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.dz-spotlight-card:hover .dz-spotlight-media img {
+  transform: scale(1.04);
+}
+
+.dz-spotlight-badge {
+  position: absolute;
+  top: 14px;
+  left: 14px;
+  z-index: 2;
+  background: var(--red-chili);
+  color: #fff;
+  font-weight: 800;
+  font-size: 0.76rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 6px 14px;
+  border-radius: var(--radius-pill);
+  box-shadow: 2px 2px 0 var(--ink-pandan);
+}
+
+.dz-spotlight-body {
+  padding: clamp(22px, 3.2vw, 32px);
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.dz-spotlight-head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 12px;
+}
+
+.dz-spotlight-kicker {
+  display: block;
+  font-family: var(--font-body);
+  font-weight: 800;
+  font-size: 0.74rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--red-chili);
+  margin-bottom: 5px;
+}
+
+.dz-spotlight-name {
+  font-family: var(--font-display);
+  font-size: clamp(1.4rem, 2.4vw, 1.9rem);
+  font-weight: 800;
+  color: var(--ink-pandan);
+  line-height: 1.15;
+  margin: 0;
+}
+
+.dz-spotlight-price {
+  font-family: var(--font-display);
+  font-size: 1.6rem;
+  font-weight: 800;
+  color: var(--red-chili);
+  white-space: nowrap;
+}
+
+.dz-spotlight-desc {
+  font-size: 0.98rem;
+  line-height: 1.65;
+  color: var(--ink-body);
+  margin: 0 0 20px;
+  flex-grow: 1;
+}
+
+.dz-spotlight-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  border-top: 1.5px solid var(--line-warm);
+  padding-top: 18px;
+  margin-top: auto;
+  flex-wrap: wrap;
+}
+
+.dz-spotlight-btn {
+  padding: 0.65rem 1.4rem;
+  font-size: 0.92rem;
+}
+
+/* 4 Satellite Dishes 2x2 Grid */
+.dz-satellite-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 18px;
+  align-content: stretch;
+}
+
+.dz-satellite-grid .dish-card {
+  margin: 0;
+  box-shadow: 6px 6px 0 var(--gold-crust);
+}
+
+.dz-satellite-grid .dish-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 8px 8px 0 var(--ink-pandan);
+}
+
+/* ==========================================================================
+   7C. BLOCK 4: GRAND FESTIN TRAITEUR (PANORAMIC CATERING ATELIER)
+   ========================================================================== */
+.dz-catering-panoramic {
+  position: relative;
+  z-index: 4;
+  background-color: var(--ink-pandan);
+  color: var(--bg-paper);
+  padding: clamp(64px, 9vw, 108px) 0 clamp(72px, 10vw, 120px);
+}
+
+.dz-catering-panoramic::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -33px;
+  height: 34px;
+  background:
+    var(--motif-pandan) repeat-x left top / 120px 34px,
+    linear-gradient(var(--ink-pandan), var(--ink-pandan)) left top / 100% 4px no-repeat;
+  pointer-events: none;
+  z-index: 2;
+}
+
+.dz-catering-head {
+  max-width: 780px;
+  margin-bottom: 38px;
+}
+
+.dz-catering-lede {
+  font-size: clamp(1rem, 1.4vw, 1.15rem);
+  line-height: 1.65;
+  color: rgba(252, 248, 240, 0.9);
+  margin-top: 10px;
+}
+
+.dz-catering-format-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: clamp(20px, 2.8vw, 32px);
+  margin-bottom: 40px;
+}
+
+.dz-catering-card {
+  background: rgba(252, 248, 240, 0.06);
+  border: 2px solid rgba(252, 248, 240, 0.22);
+  border-radius: 18px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.22s ease, border-color 0.22s ease, box-shadow 0.22s ease;
+}
+
+.dz-catering-card:hover {
+  transform: translateY(-5px);
+  border-color: var(--gold-crust);
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25);
+}
+
+.dz-catering-card.is-highlight {
+  background: rgba(230, 168, 34, 0.1);
+  border-color: var(--gold-crust);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+}
+
+.dz-cat-card-media {
+  position: relative;
+  aspect-ratio: 16 / 10;
+  overflow: hidden;
+  background: #0b2016;
+}
+
+.dz-cat-card-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.dz-catering-card:hover .dz-cat-card-media img {
+  transform: scale(1.05);
+}
+
+.dz-cat-guest-tag {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  background: var(--ink-pandan);
+  color: var(--gold-crust);
+  border: 1.5px solid var(--gold-crust);
+  border-radius: var(--radius-pill);
+  font-size: 0.74rem;
+  font-weight: 800;
+  padding: 4px 10px;
+  letter-spacing: 0.05em;
+}
+
+.dz-cat-guest-tag.is-gold {
+  background: var(--gold-crust);
+  color: var(--ink-pandan);
+  border-color: var(--ink-pandan);
+}
+
+.dz-cat-badge {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  background: var(--red-chili);
+  color: #fff;
+  font-size: 0.7rem;
+  font-weight: 900;
+  padding: 4px 9px;
+  border-radius: 6px;
+  letter-spacing: 0.08em;
+}
+
+.dz-cat-card-body {
+  padding: clamp(20px, 2.5vw, 26px);
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.dz-cat-card-title {
+  font-family: var(--font-display);
+  font-size: 1.3rem;
+  font-weight: 800;
+  color: var(--bg-cream);
+  line-height: 1.2;
+  margin-bottom: 10px;
+}
+
+.dz-catering-card.is-highlight .dz-cat-card-title {
+  color: var(--gold-crust);
+}
+
+.dz-cat-card-desc {
+  font-size: 0.92rem;
+  line-height: 1.6;
+  color: rgba(252, 248, 240, 0.85);
+  margin: 0 0 16px;
+  flex-grow: 1;
+}
+
+.dz-cat-card-features {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  border-top: 1px solid rgba(252, 248, 240, 0.15);
+  padding-top: 14px;
+}
+
+.dz-cat-card-features li {
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--bg-cream);
+  margin-bottom: 6px;
+}
+
+.dz-catering-action-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  background: rgba(252, 248, 240, 0.08);
+  border: 1.5px solid rgba(252, 248, 240, 0.2);
+  border-radius: 16px;
+  padding: 20px 28px;
+  flex-wrap: wrap;
+}
+
+.dz-cat-action-text {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.dz-cat-action-text b {
+  font-size: 1.05rem;
+  color: var(--bg-paper);
+}
+
+.dz-cat-action-text span {
+  font-size: 0.86rem;
+  color: rgba(252, 248, 240, 0.78);
+}
+
+.dz-cat-action-btns {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+/* ==========================================================================
+   7D. BLOCK 5: MAISON & QUARTIER "CARNET D'ADRESSES" (PANORAMA COMPOSITE)
+   ========================================================================== */
+.dz-atelier-section {
+  padding: clamp(64px, 9vw, 104px) 0;
+  background-color: var(--bg-paper);
+  border-top: 1.5px solid var(--line-warm);
+}
+
+.dz-atelier-head {
+  max-width: 680px;
+  margin-bottom: 38px;
+}
+
+.dz-atelier-panorama {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: clamp(20px, 2.8vw, 32px);
+}
+
+.dz-atelier-col {
+  background: var(--bg-cream);
+  border: 2px solid var(--ink-pandan);
+  border-radius: 18px;
+  box-shadow: 6px 6px 0 var(--gold-crust);
+  padding: clamp(22px, 2.8vw, 30px);
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.dz-atelier-col:hover {
+  transform: translateY(-4px);
+  box-shadow: 8px 8px 0 var(--ink-pandan);
+}
+
+.dz-col-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 16px;
+  padding-bottom: 12px;
+  border-bottom: 2px solid var(--ink-pandan);
+}
+
+.dz-col-icon {
+  font-size: 1.6rem;
+  line-height: 1;
+}
+
+.dz-col-title {
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: var(--ink-pandan);
+  margin: 0;
+}
+
+.dz-col-desc {
+  font-size: 0.94rem;
+  line-height: 1.65;
+  color: var(--ink-body);
+  margin: 0 0 20px;
+  flex-grow: 1;
+}
+
+.dz-col-cta {
+  margin-top: auto;
+}
+
+.dz-hours-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 14px;
+}
+
+.dz-hours-table td {
+  padding: 10px 0;
+  border-bottom: 1.5px dashed var(--line-warm);
+  font-size: 0.92rem;
+}
+
+.dz-hours-table td:last-child {
+  text-align: right;
+}
+
+.dz-time-pill {
+  display: inline-block;
+  background: #E7F6EC;
+  color: #14532D;
+  border: 1px solid #2E9B56;
+  font-weight: 800;
+  font-size: 0.82rem;
+  padding: 3px 10px;
+  border-radius: var(--radius-pill);
+}
+
+.dz-closed-tag {
+  display: inline-block;
+  background: #FDECEC;
+  color: #881B1B;
+  border: 1px solid #E06C62;
+  font-weight: 700;
+  font-size: 0.8rem;
+  padding: 3px 10px;
+  border-radius: var(--radius-pill);
+}
+
+.dz-hours-tip {
+  font-size: 0.82rem;
+  line-height: 1.5;
+  color: var(--text-muted);
+  margin: auto 0 0;
+  padding-top: 10px;
+  border-top: 1.5px dashed var(--line-warm);
+}
+
+.dz-score-banner {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 16px;
+  padding: 12px 14px;
+  background: var(--bg-paper);
+  border: 1.5px solid var(--line-warm);
+  border-radius: 12px;
+}
+
+.dz-score-num {
+  font-family: var(--font-display);
+  font-size: 2.2rem;
+  font-weight: 900;
+  color: var(--ink-pandan);
+  line-height: 1;
+}
+
+.dz-score-meta small {
+  display: block;
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: var(--text-muted);
+}
+
+.dz-quote {
+  font-size: 0.9rem;
+  line-height: 1.6;
+  font-style: italic;
+  color: var(--ink-pandan);
+  margin: 0 0 18px;
+  padding-left: 14px;
+  border-left: 3px solid var(--red-chili);
+  flex-grow: 1;
+}
+
+.dz-quote cite {
+  display: block;
+  font-size: 0.78rem;
+  font-style: normal;
+  font-weight: 800;
+  color: var(--text-muted);
+  margin-top: 6px;
 }
 
 /* ==========================================================================
@@ -2724,14 +3510,46 @@ h4 {
     padding: 20px 0 32px;
   }
 
-  .lk-hero-grid {
+  .lk-hero-grid,
+  .dz-hero-grid {
     grid-template-columns: 1fr;
     gap: 24px;
   }
 
-  .lk-hero-media {
+  .lk-hero-media,
+  .dz-hero-media {
     order: -1;
     margin-bottom: 10px;
+  }
+
+  .dz-pillars-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .dz-tasting-board {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  .dz-catering-format-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .dz-catering-action-bar {
+    flex-direction: column;
+    align-items: stretch;
+    text-align: center;
+  }
+
+  .dz-cat-action-btns {
+    justify-content: center;
+  }
+
+  .dz-atelier-panorama {
+    grid-template-columns: 1fr;
+    gap: 20px;
   }
 
   .lk-hero-frame {
@@ -2989,6 +3807,89 @@ h4 {
   .footer-grid,
   .form-row {
     grid-template-columns: 1fr;
+  }
+
+  /* Maison Mobile Polish & iPhone 16 Pro (402px) Zero Overflow Guarantee */
+  .dz-artisan-seal {
+    width: 78px;
+    height: 78px;
+    top: -10px;
+    right: -6px;
+  }
+
+  .dz-seal-inner {
+    width: 64px;
+    height: 64px;
+  }
+
+  .dz-seal-title {
+    font-size: 0.48rem;
+  }
+
+  .dz-seal-sub {
+    font-size: 0.38rem;
+  }
+
+  .dz-bakery-pulse-bar {
+    gap: 8px;
+    margin-top: 1.25rem;
+  }
+
+  .dz-pulse-chip {
+    width: 100%;
+    justify-content: center;
+    font-size: 0.78rem;
+    padding: 7px 12px;
+  }
+
+  .dz-chef-head {
+    gap: 16px;
+  }
+
+  .dz-chef-head-action {
+    width: 100%;
+  }
+
+  .dz-chef-head-action .btn-tactile {
+    width: 100%;
+    padding: 0.72rem 1rem;
+    font-size: 0.8rem;
+    text-align: center;
+    box-sizing: border-box;
+  }
+
+  .dz-satellite-grid {
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+
+  .dz-spotlight-head {
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  .dz-spotlight-price {
+    font-size: 1.4rem;
+  }
+
+  .dz-spotlight-footer {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 12px;
+  }
+
+  .dz-spotlight-btn {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .dz-cat-action-btns {
+    flex-direction: column;
+  }
+
+  .dz-cat-action-btns .btn-tactile {
+    width: 100%;
+    text-align: center;
   }
 
   /* Compact Boutique Horizontal Cards for Homepage 6 Signature Favorites on iPhone 16 Pro */
