@@ -2142,6 +2142,9 @@ h4 {
 .catering-luxury-card {
   display: grid;
   grid-template-columns: 0.92fr 1.08fr;
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
   background: var(--bg-paper);
   border: 2.5px solid var(--ink-pandan);
   border-radius: 20px;
@@ -2152,6 +2155,9 @@ h4 {
 .catering-media-col {
   position: relative;
   min-height: 360px;
+  min-width: 0;
+  max-width: 100%;
+  overflow: hidden;
   border-right: 2.5px solid var(--ink-pandan);
 }
 
@@ -3356,7 +3362,7 @@ h4 {
   .catering-luxury-card,
   .footer-location-card,
   .story-grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
   }
 
   .catering-media-col {
