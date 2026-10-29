@@ -56,6 +56,9 @@
 html {
   scroll-behavior: smooth;
   background-color: var(--bg-cream);
+  overflow-x: hidden;
+  max-width: 100%;
+  width: 100%;
 }
 
 body {
@@ -67,6 +70,9 @@ body {
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
   overflow-x: hidden;
+  max-width: 100%;
+  width: 100%;
+  position: relative;
 }
 
 img,
@@ -85,6 +91,8 @@ a {
   max-width: var(--container-max);
   margin-inline: auto;
   padding-inline: var(--gutter);
+  width: 100%;
+  box-sizing: border-box;
 }
 
 /* ==========================================================================
@@ -268,7 +276,7 @@ h4 {
   display: inline-flex;
   align-items: center;
   gap: 12px;
-  flex-shrink: 0;
+  min-width: 0;
 }
 
 .brand-logo-tile {
@@ -295,6 +303,8 @@ h4 {
 .brand-wordmark {
   display: flex;
   flex-direction: column;
+  min-width: 0;
+  overflow: hidden;
 }
 
 .brand-wordmark-title {
@@ -302,8 +312,11 @@ h4 {
   font-weight: 800;
   font-size: 1.35rem;
   letter-spacing: 0.03em;
-  line-height: 1;
+  line-height: 1.1;
   color: var(--ink-pandan);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .brand-wordmark-sub {
@@ -313,6 +326,9 @@ h4 {
   letter-spacing: 0.06em;
   text-transform: uppercase;
   margin-top: 2px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .site-header nav {
@@ -2552,26 +2568,56 @@ h4 {
   }
 
   .header-inner {
-    min-height: 64px;
-    gap: 10px;
+    min-height: 60px;
+    gap: 8px;
     justify-content: space-between;
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  .brand-badge-link {
+    flex: 1 1 auto;
+    min-width: 0;
+    overflow: hidden;
+    gap: 10px;
   }
 
   .header-cta-catering {
     display: none;
   }
 
+  .brand-wordmark {
+    min-width: 0;
+    overflow: hidden;
+  }
+
   .brand-wordmark-title {
-    font-size: 1.2rem;
+    font-size: 1.15rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
 
   .brand-wordmark-sub {
-    font-size: 0.64rem;
+    font-size: 0.62rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 160px;
   }
 
   .brand-logo-tile {
-    width: 44px;
-    height: 44px;
+    width: 42px;
+    height: 42px;
+    flex-shrink: 0;
+  }
+
+  .header-actions {
+    flex-shrink: 0;
+    margin-left: auto;
+    gap: 8px;
+    display: flex;
+    align-items: center;
   }
 
   .header-cta-order {
@@ -2581,6 +2627,7 @@ h4 {
 
   .mobile-toggle {
     display: flex;
+    flex-shrink: 0;
   }
 
   .site-header nav {
@@ -2769,6 +2816,9 @@ h4 {
     left: 0;
     right: 0;
     bottom: 0;
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
     z-index: 95;
     padding: 10px 14px calc(10px + env(safe-area-inset-bottom, 0px));
     background: rgba(20, 61, 43, 0.97);
@@ -2791,9 +2841,78 @@ h4 {
 
 /* iPhone 16 Pro (402px) & Smartphone Specific Polish */
 @media (max-width: 600px) {
+  html, body {
+    overflow-x: hidden;
+    max-width: 100%;
+    width: 100%;
+  }
+
+  .header-inner {
+    padding-inline: 4px;
+    gap: 6px;
+    min-height: 56px;
+  }
+
+  .brand-badge-link {
+    gap: 8px;
+    flex: 1 1 auto;
+    min-width: 0;
+    overflow: hidden;
+    max-width: calc(100% - 105px);
+  }
+
+  .brand-logo-tile {
+    width: 38px;
+    height: 38px;
+    box-shadow: 2px 2px 0 var(--gold-crust);
+    flex-shrink: 0;
+  }
+
+  .brand-wordmark-title {
+    font-size: 1.05rem;
+    line-height: 1.05;
+  }
+
+  .brand-wordmark-sub {
+    font-size: 0.54rem;
+    letter-spacing: 0.04em;
+    max-width: 125px;
+  }
+
+  .header-actions {
+    gap: 6px;
+    flex-shrink: 0;
+  }
+
+  .lang-picker-btn {
+    padding: 0.38em 0.55em;
+    font-size: 0.72rem;
+    gap: 4px;
+  }
+
+  .mobile-toggle {
+    width: 38px;
+    height: 38px;
+    padding: 7px;
+    flex-shrink: 0;
+  }
+
   /* Hide redundant top header order button on phones since bottom bar is always pinned */
   .header-cta-order {
     display: none;
+  }
+
+  .lk-mobile-order-bar {
+    width: 100%;
+    max-width: 100%;
+    left: 0;
+    right: 0;
+    box-sizing: border-box;
+  }
+
+  .lk-google-review-pill {
+    max-width: 100%;
+    box-sizing: border-box;
   }
 
   .lk-section {
