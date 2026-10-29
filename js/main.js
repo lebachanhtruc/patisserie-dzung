@@ -938,8 +938,8 @@ function renderHomeFeaturedDishes() {
     ? TRANSLATIONS[currentLang]
     : {};
   const btnAddText = t.btn_add_dish || '+ Thêm';
-  const chefLoveText = (currentLang === 'vi') ? '★ Món Ruột Của Chef' : ((currentLang === 'en') ? '★ Chef’s Favorite' : ((currentLang === 'zh') ? '★ 主厨私房力荐' : '★ Coup de Cœur du Chef'));
-  const spotlightKicker = (currentLang === 'vi') ? 'Bánh Mì Ký Danh Số 1 Sài Gòn' : ((currentLang === 'en') ? 'Signature N°1 · Artisanal Bánh Mì' : ((currentLang === 'zh') ? '招牌第一号 · 越式传统法包' : 'Signature N°1 · Bánh Mì Artisanal'));
+  const chefLoveText = t.spotlight_badge || ((currentLang === 'vi') ? '★ Món Ruột Của Chef' : ((currentLang === 'en') ? '★ Chef’s Favorite' : ((currentLang === 'zh') ? '★ 主厨私房力荐' : '★ Coup de Cœur du Chef')));
+  const spotlightKicker = t.spotlight_kicker || ((currentLang === 'vi') ? 'Bánh Mì Ký Danh Số 1 Sài Gòn' : ((currentLang === 'en') ? 'Signature N°1 · Artisanal Bánh Mì' : ((currentLang === 'zh') ? '招牌第一号 · 越式传统法包' : 'Signature N°1 · Bánh Mì Artisanal')));
 
   const featuredItems = HOME_SIGNATURE_IDS
     .map(id => MENU_ITEMS.find(item => item.id === id))
