@@ -1,0 +1,72 @@
+{
+  "cleanUrls": true,
+  "trailingSlash": false,
+  "redirects": [
+    {
+      "source": "/menu",
+      "destination": "/#menu",
+      "permanent": false
+    },
+    {
+      "source": "/menu/",
+      "destination": "/#menu",
+      "permanent": false
+    },
+    {
+      "source": "/menu.html",
+      "destination": "/#menu",
+      "permanent": false
+    },
+    {
+      "source": "/thuc-don",
+      "destination": "/#menu",
+      "permanent": false
+    },
+    {
+      "source": "/catering",
+      "destination": "/#catering",
+      "permanent": false
+    },
+    {
+      "source": "/traiteur",
+      "destination": "/#catering",
+      "permanent": false
+    },
+    {
+      "source": "/dat-tiec",
+      "destination": "/#catering",
+      "permanent": false
+    },
+    {
+      "source": "/gallery",
+      "destination": "/#gallery",
+      "permanent": false
+    },
+    {
+      "source": "/galerie",
+      "destination": "/#gallery",
+      "permanent": false
+    },
+    {
+      "source": "/visit",
+      "destination": "/#visit",
+      "permanent": false
+    },
+    {
+      "source": "/visiter",
+      "destination": "/#visit",
+      "permanent": false
+    },
+    {
+      "source": "/story",
+      "destination": "/#visit",
+      "permanent": false
+    }
+  ],
+  "rewrites": [
+    {
+      "source": "/((?!assets/|css/|js/|favicon|robots\\.txt|sitemap\\.xml).*)",
+      "destination": "/index.html"
+    }
+  ]
+}

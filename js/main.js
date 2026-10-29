@@ -329,12 +329,21 @@ document.addEventListener('DOMContentLoaded', () => {
 const VALID_VIEWS = new Set(['home', 'menu', 'catering', 'gallery', 'visit']);
 const LEGACY_HASH_TO_VIEW = {
   home: 'home',
+  accueil: 'home',
   menu: 'menu',
+  thucdon: 'menu',
+  'thuc-don': 'menu',
   catering: 'catering',
+  traiteur: 'catering',
+  'dat-tiec': 'catering',
   gallery: 'gallery',
+  galerie: 'gallery',
   visit: 'visit',
+  visiter: 'visit',
   story: 'visit',
+  histoire: 'visit',
   reviews: 'visit',
+  avis: 'visit',
   contact: 'visit'
 };
 
@@ -391,18 +400,26 @@ function navigateToView(viewName, updateHash = true) {
 }
 
 function initViewRouter() {
-  const applyFromLocationHash = () => {
+  const applyFromLocation = () => {
     const rawHash = (window.location.hash || '').replace(/^#/, '').trim().toLowerCase();
-    if (!rawHash) {
+    const pathSegment = (window.location.pathname || '')
+      .replace(/^\/|\/$/g, '')
+      .replace(/\.html$/, '')
+      .trim()
+      .toLowerCase();
+
+    const lookupKey = rawHash || pathSegment;
+    if (!lookupKey) {
       navigateToView('home', false);
       return;
     }
-    const targetView = LEGACY_HASH_TO_VIEW[rawHash] || 'home';
+    const targetView = LEGACY_HASH_TO_VIEW[lookupKey] || (VALID_VIEWS.has(lookupKey) ? lookupKey : 'home');
     navigateToView(targetView, false);
   };
 
-  applyFromLocationHash();
-  window.addEventListener('hashchange', applyFromLocationHash);
+  applyFromLocation();
+  window.addEventListener('hashchange', applyFromLocation);
+  window.addEventListener('popstate', applyFromLocation);
 }
 
 function isTempClosureActive() {
