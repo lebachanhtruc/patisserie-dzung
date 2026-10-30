@@ -111,6 +111,19 @@ h4 {
   margin: 0 0 0.4em;
 }
 
+/* Accessibility reset: remove default browser focus ring on programmatically focused non-interactive headings */
+[tabindex="-1"]:focus,
+[tabindex="-1"]:focus-visible,
+h1:focus,
+h2:focus,
+h3:focus,
+h4:focus,
+.lk-hero-title:focus,
+.lk-page-title:focus {
+  outline: none !important;
+  box-shadow: none !important;
+}
+
 .script-accent {
   font-family: var(--font-script);
   font-weight: 400;

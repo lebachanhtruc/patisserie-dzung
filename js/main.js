@@ -347,7 +347,7 @@ const LEGACY_HASH_TO_VIEW = {
   contact: 'visit'
 };
 
-function navigateToView(viewName, updateHash = true) {
+function navigateToView(viewName, updateHash = true, shouldFocus = false) {
   const normalizedView = LEGACY_HASH_TO_VIEW[viewName] || (VALID_VIEWS.has(viewName) ? viewName : 'home');
   currentView = normalizedView;
 
@@ -380,26 +380,29 @@ function navigateToView(viewName, updateHash = true) {
     window.scrollTo({ top: 0, behavior: 'instant' });
   };
 
+  const focusTargetHeading = () => {
+    if (!shouldFocus) return;
+    const heading = document.getElementById(`${normalizedView}-view-heading`);
+    if (heading) {
+      heading.focus({ preventScroll: true });
+    }
+  };
+
   if (typeof document.startViewTransition === 'function') {
     const transition = document.startViewTransition(() => {
       applyViewChange();
     });
     transition.finished.then(() => {
-      const heading = document.getElementById(`${normalizedView}-view-heading`);
-      if (heading) {
-        heading.focus({ preventScroll: true });
-      }
+      focusTargetHeading();
     }).catch(() => {});
   } else {
     applyViewChange();
-    const heading = document.getElementById(`${normalizedView}-view-heading`);
-    if (heading) {
-      heading.focus({ preventScroll: true });
-    }
+    focusTargetHeading();
   }
 }
 
 function initViewRouter() {
+  let isInitialRoute = true;
   const applyFromLocation = () => {
     const rawHash = (window.location.hash || '').replace(/^#/, '').trim().toLowerCase();
     const pathSegment = (window.location.pathname || '')
@@ -410,11 +413,13 @@ function initViewRouter() {
 
     const lookupKey = rawHash || pathSegment;
     if (!lookupKey) {
-      navigateToView('home', false);
+      navigateToView('home', false, !isInitialRoute);
+      isInitialRoute = false;
       return;
     }
     const targetView = LEGACY_HASH_TO_VIEW[lookupKey] || (VALID_VIEWS.has(lookupKey) ? lookupKey : 'home');
-    navigateToView(targetView, false);
+    navigateToView(targetView, false, !isInitialRoute);
+    isInitialRoute = false;
   };
 
   applyFromLocation();
