@@ -1112,12 +1112,12 @@ const MENU_ITEMS = [
   {
     id: 'pst-01',
     category: 'rolls',
-    price: 3,
+    price: 8,
     priceDisplay: {
-      fr: '3$ / pièce',
-      vi: '3$ / cái',
-      en: '3$ / pc',
-      zh: '3$ / 个'
+      fr: '8$ / boîte (3 mcx)',
+      vi: '8$ / hộp 3 cái',
+      en: '8$ / box of 3',
+      zh: '8$ / 3个装'
     },
     badge: 'weekend',
     name: {
@@ -1132,29 +1132,72 @@ const MENU_ITEMS = [
       en: 'Pre-order / Weekend',
       zh: '需预订 / 周末限定'
     },
+    options: {
+      icon: '📦',
+      label: {
+        fr: 'Choisir le format boîte :',
+        vi: 'Chọn quy cách hộp:',
+        en: 'Choose box size:',
+        zh: '选择包装规格：'
+      },
+      choices: [
+        {
+          id: 'box_3',
+          price: 8,
+          priceDisplay: {
+            fr: '8$ / boîte (3 mcx)',
+            vi: '8$ / hộp 3 cái',
+            en: '8$ / box of 3',
+            zh: '8$ / 3个装'
+          },
+          name: {
+            fr: 'Boîte de 3 (8$)',
+            vi: 'Hộp 3 cái (8$)',
+            en: 'Box of 3 ($8)',
+            zh: '3个装 (8$)'
+          }
+        },
+        {
+          id: 'box_6',
+          price: 15,
+          priceDisplay: {
+            fr: '15$ / boîte (6 mcx)',
+            vi: '15$ / hộp 6 cái',
+            en: '15$ / box of 6',
+            zh: '15$ / 6个装'
+          },
+          name: {
+            fr: 'Boîte de 6 (15$)',
+            vi: 'Hộp 6 cái (15$)',
+            en: 'Box of 6 ($15)',
+            zh: '6个装 (15$)'
+          }
+        }
+      ]
+    },
     desc: {
-      fr: 'Gâteau traditionnel moelleux, parfumé aux feuilles de pandan et aux haricots mungo. Ingrédients : haricots mungo, fécule de tapioca et farine de riz au parfum de pandan. ⚠️ Note : Sur commande préalable ou disponible en boutique uniquement les fins de semaine.',
-      vi: 'Món bánh quê dẻo dai, thơm nức mùi lá dứa và bùi bùi vị đậu xanh. Thành phần gồm đậu xanh, bột năng & bột gạo dẻo thơm lá dứa. ⚠️ Lưu ý: Bánh cần đặt trước hoặc chỉ có sẵn tại tiệm vào các ngày cuối tuần.',
-      en: 'A traditional chewy cake, fragrant with pandan leaves and nutty mung beans. Ingredients: mung bean, tapioca starch & rice flour with pandan flavor. ⚠️ Note: Pre-order required or available in-store on weekends only.',
-      zh: '充满家乡风味的软糯糕点，散发着斑斓叶的清香与绿豆的醇厚。成分：绿豆、木薯粉与带有斑斓叶香味的粘米粉。⚠️ 温馨提示：需提前预订，或仅限周末到店供应。'
+      fr: 'Gâteau traditionnel moelleux, parfumé aux feuilles de pandan et aux haricots mungo. Ingrédients : haricots mungo, fécule de tapioca et farine de riz au parfum de pandan. Vendu par boîte de 3 pièces (8$) ou 6 pièces (15$). ⚠️ Note : Sur commande préalable ou disponible en boutique uniquement les fins de semaine.',
+      vi: 'Món bánh quê dẻo dai, thơm nức mùi lá dứa và bùi bùi vị đậu xanh. Thành phần gồm đậu xanh, bột năng & bột gạo dẻo thơm lá dứa. Bán theo hộp: 3 cái 8$, 6 cái 15$. ⚠️ Lưu ý: Bánh cần đặt trước hoặc chỉ có sẵn tại tiệm vào các ngày cuối tuần.',
+      en: 'A traditional chewy cake, fragrant with pandan leaves and nutty mung beans. Ingredients: mung bean, tapioca starch & rice flour with pandan flavor. Sold in boxes of 3 pcs ($8) or 6 pcs ($15). ⚠️ Note: Pre-order required or available in-store on weekends only.',
+      zh: '充满家乡风味的软糯糕点，散发着斑斓叶的清香与绿豆的醇厚。成分：绿豆、木薯粉与带有斑斓叶香味的粘米粉。按盒售卖：3个装 8$、6个装 15$。⚠️ 温馨提示：需提前预订，或仅限周末到店供应。'
     },
     tags: {
-      fr: ['3$/pièce', '100% Pandan Frais', 'Sur Commande', 'Week-ends'],
-      vi: ['3$/cái', '100% Lá Dứa Tươi', 'Cần Đặt Trước', 'Có Vào Cuối Tuần'],
-      en: ['3$/pc', '100% Fresh Pandan', 'Pre-order', 'Weekends Only'],
-      zh: ['3$/个', '100%鲜榨斑斓', '提前预订', '周末供应']
+      fr: ['Boîte 3 mcx 8$', 'Boîte 6 mcx 15$', '100% Pandan Frais', 'Week-ends'],
+      vi: ['Hộp 3 cái 8$', 'Hộp 6 cái 15$', '100% Lá Dứa Tươi', 'Có Vào Cuối Tuần'],
+      en: ['Box of 3 ($8)', 'Box of 6 ($15)', '100% Fresh Pandan', 'Weekends Only'],
+      zh: ['3个装 8$', '6个装 15$', '100%鲜榨斑斓', '周末供应']
     },
     image: 'assets/images/menu-banh-da-lon.jpg'
   },
   {
     id: 'pst-02',
     category: 'rolls',
-    price: 3,
+    price: 10,
     priceDisplay: {
-      fr: '3$ / pièce',
-      vi: '3$ / cái',
-      en: '3$ / pc',
-      zh: '3$ / 个'
+      fr: '10$ / boîte (3 mcx)',
+      vi: '10$ / hộp 3 cái',
+      en: '10$ / box of 3',
+      zh: '10$ / 3个装'
     },
     badge: 'weekend',
     name: {
@@ -1169,17 +1212,60 @@ const MENU_ITEMS = [
       en: 'Pre-order / Weekend',
       zh: '需预订 / 周末限定'
     },
+    options: {
+      icon: '📦',
+      label: {
+        fr: 'Choisir le format boîte :',
+        vi: 'Chọn quy cách hộp:',
+        en: 'Choose box size:',
+        zh: '选择包装规格：'
+      },
+      choices: [
+        {
+          id: 'box_3',
+          price: 10,
+          priceDisplay: {
+            fr: '10$ / boîte (3 mcx)',
+            vi: '10$ / hộp 3 cái',
+            en: '10$ / box of 3',
+            zh: '10$ / 3个装'
+          },
+          name: {
+            fr: 'Boîte de 3 (10$)',
+            vi: 'Hộp 3 cái (10$)',
+            en: 'Box of 3 ($10)',
+            zh: '3个装 (10$)'
+          }
+        },
+        {
+          id: 'box_5',
+          price: 15,
+          priceDisplay: {
+            fr: '15$ / boîte (5 mcx)',
+            vi: '15$ / hộp 5 cái',
+            en: '15$ / box of 5',
+            zh: '15$ / 5个装'
+          },
+          name: {
+            fr: 'Boîte de 5 (15$)',
+            vi: 'Hộp 5 cái (15$)',
+            en: 'Box of 5 ($15)',
+            zh: '5个装 (15$)'
+          }
+        }
+      ]
+    },
     desc: {
-      fr: 'Croûte translucide et croquante enveloppant une garniture douce aux haricots mungo. Ingrédients : garniture douce aux haricots mungo, croûte translucide à la fécule de tapioca. ⚠️ Note : Sur commande préalable ou disponible en boutique uniquement les fins de semaine.',
-      vi: 'Lớp vỏ trong vắt giòn sần sật ôm lấy nhân đậu xanh sên ngọt ngào. Thành phần gồm đậu xanh sên ngọt, lớp vỏ bột năng trong vắt, giòn sần sật. ⚠️ Lưu ý: Bánh cần đặt trước hoặc chỉ có sẵn tại tiệm vào các ngày cuối tuần.',
-      en: 'Translucent, crunchy crust embracing a sweet mung bean filling. Ingredients: sweet mung bean filling, translucent and crunchy tapioca crust. ⚠️ Note: Pre-order required or available in-store on weekends only.',
-      zh: '晶莹剔透、爽脆的外皮包裹着香甜的绿豆内陷。成分：香甜绿豆馅，晶莹剔透的脆木薯皮。⚠️ 温馨提示：需提前预订，或仅限周末到店供应。'
+      fr: 'Croûte translucide et croquante enveloppant une garniture douce aux haricots mungo. Ingrédients : garniture douce aux haricots mungo, croûte translucide à la fécule de tapioca. Vendu par boîte de 3 pièces (10$) ou 5 pièces (15$). ⚠️ Note : Sur commande préalable ou disponible en boutique uniquement les fins de semaine.',
+      vi: 'Lớp vỏ trong vắt giòn sần sật ôm lấy nhân đậu xanh sên ngọt ngào. Thành phần gồm đậu xanh sên ngọt, lớp vỏ bột năng trong vắt, giòn sần sật. Bán theo hộp: 3 cái 10$, 5 cái 15$. ⚠️ Lưu ý: Bánh cần đặt trước hoặc chỉ có sẵn tại tiệm vào các ngày cuối tuần.',
+      en: 'Translucent, crunchy crust embracing a sweet mung bean filling. Ingredients: sweet mung bean filling, translucent and crunchy tapioca crust. Sold in boxes of 3 pcs ($10) or 5 pcs ($15). ⚠️ Note: Pre-order required or available in-store on weekends only.',
+      zh: '晶莹剔透、爽脆的外皮包裹着香甜的绿豆内陷。成分：香甜绿豆馅，晶莹剔透的脆木薯皮。按盒售卖：3个装 10$、5个装 15$。⚠️ 温馨提示：需提前预订，或仅限周末到店供应。'
     },
     tags: {
-      fr: ['3$/pièce', '100% Pandan Frais', 'Sur Commande', 'Week-ends'],
-      vi: ['3$/cái', '100% Lá Dứa Tươi', 'Cần Đặt Trước', 'Có Vào Cuối Tuần'],
-      en: ['3$/pc', '100% Fresh Pandan', 'Pre-order', 'Weekends Only'],
-      zh: ['3$/个', '100%鲜榨斑斓', '提前预订', '周末供应']
+      fr: ['Boîte 3 mcx 10$', 'Boîte 5 mcx 15$', '100% Pandan Frais', 'Week-ends'],
+      vi: ['Hộp 3 cái 10$', 'Hộp 5 cái 15$', '100% Lá Dứa Tươi', 'Có Vào Cuối Tuần'],
+      en: ['Box of 3 ($10)', 'Box of 5 ($15)', '100% Fresh Pandan', 'Weekends Only'],
+      zh: ['3个装 10$', '5个装 15$', '100%鲜榨斑斓', '周末供应']
     },
     image: 'assets/images/menu-banh-xu-xue.jpg'
   }
