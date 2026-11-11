@@ -340,7 +340,15 @@ const TRANSLATIONS = {
     perk_pairing_p2: "<strong>+ Thé au Kumquat N48</strong> (offert avec votre avis) — fraîcheur citronnée",
     perk_pairing_p3: "<strong>Option sans porc :</strong> <strong>N3 Bánh Mì Poulet (« Sans pâté »)</strong> + Chè Bưởi N28",
     perk_btn_review: "⭐ Laisser un Avis Google ↗",
-    perk_btn_menu: "🥖 Explorer les Bánh Mì ➔"
+    perk_btn_menu: "🥖 Explorer les Bánh Mì ➔",
+    bap_xao_badge: "🔥 Bientôt disponible · Street Food Saigon",
+    bap_xao_kicker: "Teaser Vidéo 20s (FR / EN)",
+    bap_xao_title: "Maïs Sauté au Beurre, Œuf Salé & Couennes Croustillantes",
+    bap_xao_desc: "Maïs doux doré au wok avec beurre parfumé, œuf salé fondant, crevettes séchées savoureuses, ciboulette fraîche et topping ultra-croustillant de couennes de porc dorées — servi avec sauce saté maison.",
+    bap_xao_note: "💡 Bientôt disponible en boutique · Recette sans arachides. Allergènes : œuf, lait (beurre), crustacés (crevettes séchées), porc.",
+    bap_xao_btn_play: "▶ Lire la vidéo 20s (avec son)",
+    bap_xao_btn_pause: "⏸ Mettre en pause",
+    bap_xao_btn_gallery: "🎬 Ouvrir dans Vidéos & Reels"
   },
 
   vi: {
@@ -679,7 +687,15 @@ const TRANSLATIONS = {
     perk_pairing_p2: "<strong>+ Trà Tắc Tươi (N48)</strong> (tặng khi review) — chua ngọt giải nhiệt cực đã",
     perk_pairing_p3: "<strong>Không ăn thịt heo :</strong> chọn <strong>N3 Bánh Mì Gà (« Bỏ patê »)</strong> + Chè Bưởi N28",
     perk_btn_review: "⭐ Viết Đánh Giá Google ↗",
-    perk_btn_menu: "🥖 Chọn Bánh Mì Ngay ➔"
+    perk_btn_menu: "🥖 Chọn Bánh Mì Ngay ➔",
+    bap_xao_badge: "🔥 Sắp Ra Mắt · Món Ăn Vặt Mới",
+    bap_xao_kicker: "Reel Giới Thiệu 20s (FR / EN)",
+    bap_xao_title: "Bắp Xào Bơ Tép Khô, Trứng Muối & Da Heo Giòn",
+    bap_xao_desc: "Bắp ngọt xào nóng hổi cùng bơ thơm ngậy, tép khô đậm vị, trứng muối bùi béo, hành lá xanh tươi và topping da heo nổ giòn rụm — kèm chén sốt sa tế nhà làm.",
+    bap_xao_note: "💡 Món sắp ra mắt tại tiệm · Công thức không đậu phộng. Thành phần dị ứng: trứng muối, bơ (sữa), tép khô (hải sản), da heo.",
+    bap_xao_btn_play: "▶ Phát Video 20s (Có tiếng)",
+    bap_xao_btn_pause: "⏸ Tạm dừng video",
+    bap_xao_btn_gallery: "🎬 Mở mục Video & Reels"
   },
 
   en: {
@@ -1018,7 +1034,15 @@ const TRANSLATIONS = {
     perk_pairing_p2: "<strong>+ Iced Kumquat Tea (N48)</strong> (Free w/ review) — bright, citrusy refresh",
     perk_pairing_p3: "<strong>Pork-free pick:</strong> <strong>N3 Chicken Bánh Mì (“No Pâté”)</strong> + N28 Pomelo Dessert",
     perk_btn_review: "⭐ Leave a Google Review ↗",
-    perk_btn_menu: "🥖 Explore Bánh Mì ➔"
+    perk_btn_menu: "🥖 Explore Bánh Mì ➔",
+    bap_xao_badge: "🔥 Coming Soon · New Saigon Street Food",
+    bap_xao_kicker: "20s Reel Preview (FR / EN)",
+    bap_xao_title: "Sizzling Salted Egg Corn with Crispy Pork Rinds",
+    bap_xao_desc: "Sweet golden corn wok-tossed with fragrant butter, savory dried shrimp, rich salted egg yolk, fresh green scallions, and crunchy puffed pork rinds — served with house chili saté.",
+    bap_xao_note: "💡 Launching soon at our Brossard counter · Peanut-free recipe. Allergens: egg, dairy (butter), shellfish (dried shrimp), pork.",
+    bap_xao_btn_play: "▶ Play 20s Reel (With Sound)",
+    bap_xao_btn_pause: "⏸ Pause Video",
+    bap_xao_btn_gallery: "🎬 Open in Videos & Reels"
   },
 
   zh: {
@@ -1357,7 +1381,15 @@ const TRANSLATIONS = {
     perk_pairing_p2: "<strong>+ 鲜榨金桔冰茶（N48）</strong>（评价免费赠）— 酸甜解腻",
     perk_pairing_p3: "<strong>无猪肉推荐：</strong><strong>N3 手撕鸡法包（去肉酱）</strong> + N28 柚子绿豆糖水",
     perk_btn_review: "⭐ 前往 Google 写评价 ↗",
-    perk_btn_menu: "🥖 挑选越式法包 ➔"
+    perk_btn_menu: "🥖 挑选越式法包 ➔",
+    bap_xao_badge: "🔥 即将上线 · 西贡人气街头小吃",
+    bap_xao_kicker: "20秒短视频抢先看 (FR / EN)",
+    bap_xao_title: "咸蛋黄黄油炒玉米配香脆炸猪皮",
+    bap_xao_desc: "香甜玉米粒以浓香黄油现炒，融入鲜美虾米、咸蛋黄与翠绿葱花，点缀现炸香脆猪皮碎，并搭配秘制辣沙茶酱。",
+    bap_xao_note: "💡 即将在 Brossard 门店上线 · 配方不含花生。过敏原：蛋类、乳制品（黄油）、甲壳类（虾米）、猪肉。",
+    bap_xao_btn_play: "▶ 播放 20 秒短视频（有声）",
+    bap_xao_btn_pause: "⏸ 暂停视频",
+    bap_xao_btn_gallery: "🎬 前往视频专区查看"
   }
 };
 

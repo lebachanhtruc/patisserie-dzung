@@ -4878,3 +4878,209 @@ h4:focus,
     font-size: 0.8rem;
   }
 }
+
+/* ==========================================================================
+   15. HOMEPAGE COMING SOON 9:16 REEL SPOTLIGHT & GALLERY VIDEO REELS
+   ========================================================================== */
+
+.reel-teaser-card {
+  margin: 34px auto 0;
+  max-width: 920px;
+  display: grid;
+  grid-template-columns: 270px 1fr;
+  gap: 28px;
+  align-items: center;
+  background: var(--bg-paper);
+  border: 2.5px solid var(--ink-pandan);
+  border-radius: 22px;
+  padding: 24px 26px;
+  box-shadow: 8px 8px 0 var(--gold-crust);
+}
+
+.reel-teaser-stage {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 9 / 16;
+  border-radius: 16px;
+  overflow: hidden;
+  border: 2px solid var(--ink-pandan);
+  background: #0F2B1D;
+  box-shadow: 4px 4px 0 rgba(20, 61, 43, 0.25);
+}
+
+.reel-teaser-video {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.reel-teaser-play-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 54px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  border: none;
+  background: linear-gradient(180deg, rgba(14, 43, 30, 0.04) 0%, rgba(14, 43, 30, 0.34) 100%);
+  cursor: pointer;
+  color: var(--bg-paper);
+  transition: background-color 0.2s ease;
+}
+
+.reel-teaser-play-overlay[hidden] {
+  display: none;
+}
+
+.reel-teaser-play-overlay:hover {
+  background: rgba(14, 43, 30, 0.28);
+}
+
+.reel-play-circle {
+  width: 58px;
+  height: 58px;
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--gold-crust);
+  color: var(--ink-pandan);
+  border: 2.5px solid var(--ink-pandan);
+  font-size: 1.3rem;
+  font-weight: 800;
+  padding-left: 3px;
+  box-shadow: 0 4px 0 var(--ink-pandan);
+  transition: transform 0.15s ease;
+}
+
+.reel-teaser-play-overlay:hover .reel-play-circle {
+  transform: scale(1.06);
+}
+
+.reel-play-duration {
+  background: rgba(20, 61, 43, 0.9);
+  color: var(--bg-paper);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  border-radius: var(--radius-pill);
+  padding: 3px 10px;
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+}
+
+.reel-teaser-body {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.reel-teaser-badges {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+}
+
+.reel-teaser-badge {
+  display: inline-block;
+  background: var(--red-chili);
+  color: var(--bg-paper);
+  border-radius: var(--radius-pill);
+  padding: 4px 12px;
+  font-size: 0.73rem;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.reel-teaser-kicker {
+  font-size: 0.78rem;
+  font-weight: 800;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.reel-teaser-title {
+  font-family: var(--font-display);
+  font-size: clamp(1.35rem, 2.4vw, 1.8rem);
+  color: var(--ink-pandan);
+  margin: 0;
+  line-height: 1.16;
+}
+
+.reel-teaser-desc {
+  margin: 0;
+  font-size: 0.94rem;
+  line-height: 1.56;
+  color: var(--ink-body);
+}
+
+.reel-teaser-note {
+  margin: 0;
+  background: var(--bg-cream);
+  border-left: 3.5px solid var(--gold-crust);
+  border-radius: 8px;
+  padding: 8px 12px;
+  font-size: 0.82rem;
+  color: var(--ink-pandan);
+  line-height: 1.45;
+  font-weight: 600;
+}
+
+.reel-teaser-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 4px;
+}
+
+.gallery-card.is-video .gallery-card-media-el {
+  object-fit: cover;
+  object-position: center 52%;
+}
+
+.gallery-video-play-icon {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--gold-crust);
+  color: var(--ink-pandan);
+  border: 2px solid var(--ink-pandan);
+  font-size: 1rem;
+  font-weight: 800;
+  padding-left: 3px;
+  box-shadow: 0 3px 0 var(--ink-pandan);
+  pointer-events: none;
+}
+
+@media (max-width: 768px) {
+  .reel-teaser-card {
+    grid-template-columns: 1fr;
+    gap: 18px;
+    padding: 18px 16px;
+    box-shadow: 6px 6px 0 var(--gold-crust);
+  }
+
+  .reel-teaser-stage {
+    max-width: 260px;
+    margin: 0 auto;
+  }
+
+  .reel-teaser-actions .btn-tactile {
+    width: 100%;
+    text-align: center;
+  }
+}

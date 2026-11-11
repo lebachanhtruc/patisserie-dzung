@@ -435,6 +435,62 @@
           <!-- Asymmetric Tasting Board: Spotlight Dish + 4 Satellite Specialties (Rendered by JS) -->
           <div class="dz-tasting-container" id="home-featured-dishes"></div>
 
+          <!-- Coming Soon Reel Spotlight: Sizzling Butter Corn (9:16 Vertical Video) -->
+          <article class="reel-teaser-card" id="home-bap-xao-coming-soon" aria-labelledby="bap-xao-teaser-title">
+            <div class="reel-teaser-stage">
+              <video
+                id="bap-xao-teaser-video"
+                class="reel-teaser-video"
+                loading="lazy"
+                preload="none"
+                controls
+                playsinline
+                loop
+                width="720"
+                height="1280"
+                poster="assets/images/bap-xao-reel-poster.jpg"
+                aria-label="Teaser Bắp Xào Bơ Tép Khô Trứng Muối & Da Heo Giòn"
+              >
+                <source src="assets/videos/bap-xao-coming-soon-reel.mp4" type="video/mp4" />
+              </video>
+              <button
+                type="button"
+                class="reel-teaser-play-overlay"
+                id="bap-xao-play-overlay"
+                onclick="toggleTeaserReelPlay()"
+                aria-label="Lire la vidéo teaser Bắp Xào"
+              >
+                <span class="reel-play-circle" aria-hidden="true">▶</span>
+                <span class="reel-play-duration">20s · FR / EN</span>
+              </button>
+            </div>
+
+            <div class="reel-teaser-body">
+              <div class="reel-teaser-badges">
+                <span class="reel-teaser-badge" data-i18n="bap_xao_badge">🔥 Bientôt disponible · Street Food Saigon</span>
+                <span class="reel-teaser-kicker" data-i18n="bap_xao_kicker">Teaser Vidéo 20s (FR / EN)</span>
+              </div>
+              <h3 class="reel-teaser-title" id="bap-xao-teaser-title" data-i18n="bap_xao_title">
+                Maïs Sauté au Beurre, Œuf Salé &amp; Couennes Croustillantes
+              </h3>
+              <p class="reel-teaser-desc" data-i18n="bap_xao_desc">
+                Maïs doux doré au wok avec beurre parfumé, œuf salé fondant, crevettes séchées savoureuses, ciboulette fraîche et topping ultra-croustillant de couennes de porc dorées — servi avec sauce saté maison.
+              </p>
+              <div class="dish-allergens-row" id="bap-xao-allergens"></div>
+              <p class="reel-teaser-note" data-i18n="bap_xao_note">
+                💡 Bientôt disponible en boutique · Recette sans arachides. Allergènes : œuf, lait (beurre), crustacés (crevettes séchées), porc.
+              </p>
+              <div class="reel-teaser-actions">
+                <button type="button" class="btn-tactile btn-tactile-gold" id="bap-xao-play-btn" onclick="toggleTeaserReelPlay()" data-i18n="bap_xao_btn_play">
+                  ▶ Lire la vidéo 20s (avec son)
+                </button>
+                <button type="button" class="btn-tactile btn-tactile-outline" onclick="openReelInGallery()" data-i18n="bap_xao_btn_gallery">
+                  🎬 Ouvrir dans Vidéos &amp; Reels
+                </button>
+              </div>
+            </div>
+          </article>
+
           <div class="lk-btn-row lk-home-menu-cta" style="margin-top: 28px; justify-content: center;">
             <button type="button" class="btn-tactile btn-tactile-outline" onclick="navigateToView('gallery')" data-i18n="home_fav_btn_gal">
               🎞️ GALERIE PHOTOS &amp; VIDÉOS

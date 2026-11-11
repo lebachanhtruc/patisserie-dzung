@@ -96,6 +96,33 @@ const GALLERY_ITEMS = [
     }
   },
   {
+    id: 'gal-reel-bap-xao',
+    type: 'video',
+    category: 'videos',
+    src: 'assets/videos/bap-xao-coming-soon-reel.mp4',
+    poster: 'assets/images/bap-xao-reel-poster.jpg',
+    width: 720,
+    height: 1280,
+    badge: {
+      fr: '🎬 Reel 20s · Bientôt disponible',
+      vi: '🎬 Reel 20s · Sắp Ra Mắt',
+      en: '🎬 20s Reel · Coming Soon',
+      zh: '🎬 20秒短视频 · 即将上线'
+    },
+    title: {
+      fr: 'Maïs Sauté Beurre, Œuf Salé & Couennes Dorées (Teaser)',
+      vi: 'Bắp Xào Bơ Tép Khô, Trứng Muối & Da Heo Giòn (Teaser)',
+      en: 'Sizzling Salted Egg Corn & Crispy Pork Rinds (Teaser)',
+      zh: '咸蛋黄黄油炒玉米配香脆炸猪皮（抢先看）'
+    },
+    desc: {
+      fr: 'Vidéo 9:16 (FR / EN) : maïs sauté au beurre, œuf salé, crevettes séchées, ciboulette et couennes de porc croustillantes.',
+      vi: 'Video dọc 9:16 song ngữ FR/EN : bắp xào bơ thơm, tép khô, trứng muối, hành lá và topping da heo giòn rụm sắp ra mắt.',
+      en: 'Vertical 9:16 reel (FR / EN): sweet corn stir-fried with butter, dried shrimp, salted egg yolk, scallions, and crispy pork rinds.',
+      zh: '竖版 9:16 双语短视频：黄油炒玉米融合虾米、咸蛋黄、葱花与脆猪皮碎。'
+    }
+  },
+  {
     id: 'gal-store-feast',
     type: 'featured',
     category: 'ambiance',
@@ -338,6 +365,9 @@ document.addEventListener('DOMContentLoaded', () => {
   initHeroSlider();
   initHeroCinema();
   renderHomeFeaturedDishes();
+  renderBapXaoAllergens();
+  initTeaserReelPlayer();
+  initLazyMedia(document);
   renderMenu(currentCategory);
   initMenuTabs();
   renderGallery(currentGalleryFilter);
@@ -680,6 +710,8 @@ function switchLanguage(lang) {
   applyTranslations(lang);
   syncHeroCinemaUI(lang);
   renderHomeFeaturedDishes();
+  renderBapXaoAllergens();
+  syncTeaserReelBtnText();
   renderMenu(currentCategory);
   renderGallery(currentGalleryFilter);
   renderCartItems();
@@ -1022,35 +1054,174 @@ function setMenuDisplayMode(mode) {
   }
 }
 
-function buildDishMetaHtml(item) {
+function buildAllergenChipsHtml(allergens = [], dietary = [], portion = null) {
   const chips = [];
 
-  if (item.portion) {
-    const portionLabel = item.portion[currentLang] || item.portion.en || item.portion.fr;
+  if (portion) {
+    const portionLabel = portion[currentLang] || portion.en || portion.fr;
     if (portionLabel) {
       chips.push(`<span class="allergen-chip is-portion">🤝 ${portionLabel}</span>`);
     }
   }
 
-  (item.dietary || []).forEach(dietKey => {
+  (dietary || []).forEach(dietKey => {
     const meta = DIETARY_META[dietKey];
     if (!meta) return;
     const label = meta.labels[currentLang] || meta.labels.fr || meta.labels.en;
     chips.push(`<span class="allergen-chip is-${meta.tone}">${meta.icon} ${label}</span>`);
   });
 
-  (item.allergens || []).forEach(algKey => {
+  (allergens || []).forEach(algKey => {
     const meta = ALLERGEN_META[algKey];
     if (!meta) return;
     const label = meta.labels[currentLang] || meta.labels.fr || meta.labels.en;
     chips.push(`<span class="allergen-chip is-${meta.tone}">${meta.icon} ${label}</span>`);
   });
 
+  return chips.join('');
+}
+
+function buildDishMetaHtml(item) {
+  const chipsHtml = buildAllergenChipsHtml(item.allergens, item.dietary, item.portion);
   const noteText = item.customNote ? (item.customNote[currentLang] || item.customNote.en || item.customNote.fr) : '';
-  const chipsRow = chips.length ? `<div class="dish-allergens-row">${chips.join('')}</div>` : '';
+  const chipsRow = chipsHtml ? `<div class="dish-allergens-row">${chipsHtml}</div>` : '';
   const noteRow = noteText ? `<p class="dish-custom-note">💡 ${noteText}</p>` : '';
 
   return `${chipsRow}${noteRow}`;
+}
+
+function renderBapXaoAllergens() {
+  const container = document.getElementById('bap-xao-allergens');
+  if (!container) return;
+  container.innerHTML = buildAllergenChipsHtml(['shellfish', 'egg', 'dairy', 'pork'], []);
+}
+
+let lazyMediaObserver = null;
+
+function restoreLazyMedia(media) {
+  if (!media) return;
+  let changed = false;
+  if (media.dataset.poster) {
+    media.poster = media.dataset.poster;
+    delete media.dataset.poster;
+    changed = true;
+  }
+  if (media.dataset.preload) {
+    media.preload = media.dataset.preload;
+    delete media.dataset.preload;
+    changed = true;
+  }
+  if (media.dataset.src) {
+    media.src = media.dataset.src;
+    delete media.dataset.src;
+    changed = true;
+  }
+  media.querySelectorAll('source[data-src]').forEach(source => {
+    source.src = source.dataset.src;
+    delete source.dataset.src;
+    changed = true;
+  });
+  if (changed && typeof media.load === 'function') {
+    media.load();
+  }
+}
+
+function initLazyMedia(root = document) {
+  const reducedMotionQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
+  if (reducedMotionQuery.matches) {
+    root.querySelectorAll('video[autoplay]').forEach(v => {
+      v.removeAttribute('autoplay');
+      v.pause();
+    });
+  }
+
+  // Fallback for browsers without native <video loading="lazy"> (e.g. Firefox, Safari)
+  if (typeof HTMLMediaElement === 'undefined' || Object.hasOwn(HTMLMediaElement.prototype, 'loading')) {
+    return;
+  }
+
+  const lazyVideos = [...root.querySelectorAll('video[loading="lazy"], audio[loading="lazy"][controls]')].filter(
+    el => !el.dataset.lazyBound
+  );
+  if (!lazyVideos.length || typeof IntersectionObserver === 'undefined') return;
+
+  if (!lazyMediaObserver) {
+    lazyMediaObserver = new IntersectionObserver(
+      (entries, observer) => {
+        entries.forEach(entry => {
+          if (!entry.isIntersecting) return;
+          restoreLazyMedia(entry.target);
+          observer.unobserve(entry.target);
+        });
+      },
+      { rootMargin: '200px 0px' }
+    );
+  }
+
+  lazyVideos.forEach(media => {
+    media.dataset.lazyBound = '1';
+    if (media.hasAttribute('poster')) {
+      media.dataset.poster = media.getAttribute('poster');
+      media.removeAttribute('poster');
+    }
+    if (media.hasAttribute('preload') && media.getAttribute('preload') !== 'none') {
+      media.dataset.preload = media.getAttribute('preload');
+    }
+    media.preload = 'none';
+    lazyMediaObserver.observe(media);
+  });
+}
+
+function syncTeaserReelBtnText() {
+  const video = document.getElementById('bap-xao-teaser-video');
+  const btn = document.getElementById('bap-xao-play-btn');
+  const overlay = document.getElementById('bap-xao-play-overlay');
+  const t = (typeof TRANSLATIONS !== 'undefined' && TRANSLATIONS[currentLang]) ? TRANSLATIONS[currentLang] : {};
+  const isPlaying = !!(video && !video.paused && !video.ended);
+  if (overlay) {
+    overlay.hidden = isPlaying;
+  }
+  if (btn) {
+    btn.textContent = isPlaying
+      ? (t.bap_xao_btn_pause || '⏸ Mettre en pause')
+      : (t.bap_xao_btn_play || '▶ Lire la vidéo 20s (avec son)');
+  }
+}
+
+function initTeaserReelPlayer() {
+  const video = document.getElementById('bap-xao-teaser-video');
+  if (!video) return;
+  ['play', 'pause', 'ended'].forEach(evt => {
+    video.addEventListener(evt, syncTeaserReelBtnText);
+  });
+  syncTeaserReelBtnText();
+}
+
+function toggleTeaserReelPlay() {
+  const video = document.getElementById('bap-xao-teaser-video');
+  if (!video) return;
+  restoreLazyMedia(video);
+  if (video.paused || video.ended) {
+    video.muted = false;
+    video.play().catch(() => {});
+    trackEvent('reel_play', { item: 'bap-xao-coming-soon', source: 'home_teaser', lang: currentLang });
+  } else {
+    video.pause();
+  }
+}
+
+function openReelInGallery() {
+  const video = document.getElementById('bap-xao-teaser-video');
+  if (video && !video.paused) {
+    video.pause();
+  }
+  navigateToView('gallery');
+  document.querySelectorAll('.gallery-filter-btn').forEach(b => {
+    b.classList.toggle('active', b.getAttribute('data-gallery-filter') === 'videos');
+  });
+  renderGallery('videos');
+  openGalleryLightbox('gal-reel-bap-xao');
+  trackEvent('reel_play', { item: 'bap-xao-coming-soon', source: 'gallery_lightbox', lang: currentLang });
 }
 
 function buildDishCardHtml(item, btnAddText) {
@@ -1324,7 +1495,7 @@ function buildGalleryCardHtml(item, isSpotlightFeatured, zoomHint) {
     : (isSpotlightFeatured ? 'gallery-card is-featured' : (isVideo ? 'gallery-card is-video' : 'gallery-card is-photo'));
 
   const mediaHtml = isVideo
-    ? `<video class="gallery-card-media-el" src="${item.src}" ${item.poster ? `poster="${item.poster}"` : ''} muted loop playsinline preload="metadata"></video>
+    ? `<video class="gallery-card-media-el" src="${item.src}" ${item.poster ? `poster="${item.poster}"` : ''} width="${item.width || 720}" height="${item.height || 1280}" loading="lazy" preload="none" muted loop playsinline></video>
        <span class="gallery-video-play-icon" aria-hidden="true">▶</span>`
     : `<img class="gallery-card-media-el" src="${item.src}" alt="${title}" loading="lazy" width="${item.width || 1024}" height="${item.height || 764}" />`;
 
@@ -1410,11 +1581,16 @@ function renderGallery(filter = 'all') {
     </div>
   `;
 
+  initLazyMedia(grid);
+
   // Enable hover video preview on video cards
   grid.querySelectorAll('.gallery-card.is-video').forEach(card => {
     const vid = card.querySelector('video');
     if (vid) {
-      card.addEventListener('mouseenter', () => vid.play().catch(() => {}));
+      card.addEventListener('mouseenter', () => {
+        restoreLazyMedia(vid);
+        vid.play().catch(() => {});
+      });
       card.addEventListener('mouseleave', () => {
         vid.pause();
         vid.currentTime = 0;
