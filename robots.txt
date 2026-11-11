@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://patisseriedzung.ca/sitemap.xml
+Sitemap: https://www.patisseriedzung.ca/sitemap.xml

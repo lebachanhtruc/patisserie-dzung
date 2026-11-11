@@ -7,18 +7,39 @@ let currentLang = 'fr'; // DEFAULT LANGUAGE: French as requested
 let currentView = 'home';
 let currentMenuDisplayMode = 'deli';
 let currentCategory = 'all';
+let currentDietaryFilter = 'all';
+let currentOrderDishId = null;
 let currentGalleryFilter = 'all';
 let currentLightboxIndex = 0;
 let cart = [];
 let selectedDishOptions = {};
 
+const ALLERGEN_META = {
+  peanuts: { icon: '🥜', tone: 'danger', labels: { fr: 'Arachides', vi: 'Đậu phộng', en: 'Peanuts', zh: '含花生' } },
+  tree_nuts: { icon: '🌰', tone: 'danger', labels: { fr: 'Amandes / Noix', vi: 'Hạnh nhân / Hạt', en: 'Almonds / Tree Nuts', zh: '含坚果（杏仁）' } },
+  shellfish: { icon: '🦐', tone: 'danger', labels: { fr: 'Crustacés', vi: 'Tôm / Giáp xác', en: 'Shellfish', zh: '含甲壳类' } },
+  fish: { icon: '🐟', tone: 'info', labels: { fr: 'Sauce poisson', vi: 'Nước mắm', en: 'Fish Sauce', zh: '含鱼露' } },
+  gluten: { icon: '🌾', tone: 'info', labels: { fr: 'Gluten', vi: 'Gluten', en: 'Gluten', zh: '含麸质' } },
+  egg: { icon: '🥚', tone: 'info', labels: { fr: 'Œuf', vi: 'Trứng', en: 'Egg', zh: '含蛋类' } },
+  dairy: { icon: '🥛', tone: 'info', labels: { fr: 'Lait / Beurre', vi: 'Sữa / Bơ', en: 'Dairy', zh: '含乳制品' } },
+  soy: { icon: '🫘', tone: 'info', labels: { fr: 'Soja', vi: 'Đậu nành', en: 'Soy', zh: '含大豆' } },
+  pork: { icon: '🥩', tone: 'info', labels: { fr: 'Porc', vi: 'Thịt / Mỡ heo', en: 'Pork', zh: '含猪肉' } },
+  beef: { icon: '🥩', tone: 'info', labels: { fr: 'Bœuf', vi: 'Khô bò', en: 'Beef', zh: '含牛肉' } },
+  spicy: { icon: '🌶️', tone: 'spice', labels: { fr: 'Épicé', vi: 'Cay', en: 'Spicy', zh: '微辣' } }
+};
+
+const DIETARY_META = {
+  vegan: { icon: '🌱', tone: 'dietary', labels: { fr: '100% Végétal', vi: 'Thuần Chay', en: 'Vegan', zh: '纯素' } },
+  pork_free_option: { icon: '✨', tone: 'option', labels: { fr: 'Sans porc possible', vi: 'Bỏ patê = 0 heo', en: 'Pork-Free if No Pâté', zh: '去肉酱=无猪肉' } },
+  gluten_free: { icon: '🌾', tone: 'dietary', labels: { fr: 'Sans gluten (recette)', vi: 'Không gluten', en: 'Gluten-Free Recipe', zh: '无麸质配方' } }
+};
+
 const HOME_SIGNATURE_IDS = [
   'bm-n1',
   'bm-n2',
   'sn-n12',
-  'sn-n14',
   'dr-n41',
-  'rl-banh-da-lon'
+  'pst-01'
 ];
 
 const GALLERY_ITEMS = [
@@ -78,7 +99,7 @@ const GALLERY_ITEMS = [
     id: 'gal-store-feast',
     type: 'featured',
     category: 'ambiance',
-    src: 'assets/images/hero-dzung-store.jpg',
+    src: 'assets/images/hero-dzung-food.jpg',
     width: 1200,
     height: 800,
     badge: {
@@ -104,7 +125,7 @@ const GALLERY_ITEMS = [
     id: 'gal-store-vibe',
     type: 'photo',
     category: 'ambiance',
-    src: 'assets/images/hero-dzung-food.jpg',
+    src: 'assets/images/menu-banh-mi-n1-thit-muoi.jpg',
     width: 1200,
     height: 800,
     badge: {
@@ -321,11 +342,29 @@ document.addEventListener('DOMContentLoaded', () => {
   initMenuTabs();
   renderGallery(currentGalleryFilter);
   initGallery();
-  initReservationModal();
   initCart();
   updateStoreOpenStatus();
   initClosureNoticeModal();
+  initAnalyticsTracking();
 });
+
+function trackEvent(eventName, params = {}) {
+  if (typeof window.gtag === 'function' && window.DZUNG_GA4_ID) {
+    window.gtag('event', eventName, params);
+  }
+}
+
+function initAnalyticsTracking() {
+  document.addEventListener('click', (e) => {
+    const tracked = e.target.closest('[data-track]');
+    if (!tracked) return;
+    trackEvent(tracked.getAttribute('data-track'), {
+      link_text: (tracked.textContent || '').trim().slice(0, 60),
+      view: currentView,
+      lang: currentLang
+    });
+  });
+}
 
 const VALID_VIEWS = new Set(['home', 'menu', 'catering', 'gallery', 'visit']);
 const LEGACY_HASH_TO_VIEW = {
@@ -389,13 +428,20 @@ function navigateToView(viewName, updateHash = true, shouldFocus = false) {
     }
   };
 
-  if (typeof document.startViewTransition === 'function') {
-    const transition = document.startViewTransition(() => {
+  if (typeof document.startViewTransition === 'function' && !document.hidden) {
+    try {
+      const transition = document.startViewTransition(() => {
+        applyViewChange();
+      });
+      transition.ready?.catch(() => {});
+      transition.updateCallbackDone?.catch(() => {});
+      transition.finished.then(() => {
+        focusTargetHeading();
+      }).catch(() => {});
+    } catch (_) {
       applyViewChange();
-    });
-    transition.finished.then(() => {
       focusTargetHeading();
-    }).catch(() => {});
+    }
   } else {
     applyViewChange();
     focusTargetHeading();
@@ -586,8 +632,16 @@ function updateStoreOpenStatus() {
    1. MULTILINGUAL ENGINE (i18n)
    ========================================================================== */
 function initLanguage() {
+  const urlLang = new URLSearchParams(window.location.search).get('lang');
+  const normalizedUrlLang = urlLang ? urlLang.toLowerCase().trim() : null;
   const savedLang = localStorage.getItem('patisserie_dzung_lang');
-  currentLang = savedLang && TRANSLATIONS[savedLang] ? savedLang : 'fr';
+
+  if (normalizedUrlLang && TRANSLATIONS[normalizedUrlLang]) {
+    currentLang = normalizedUrlLang;
+    localStorage.setItem('patisserie_dzung_lang', currentLang);
+  } else {
+    currentLang = savedLang && TRANSLATIONS[savedLang] ? savedLang : 'fr';
+  }
 
   updateLanguageUI(currentLang);
   applyTranslations(currentLang);
@@ -638,7 +692,7 @@ function updateLanguageUI(lang) {
   const flagMap = {
     fr: { flag: '🇫🇷', code: 'FR' },
     vi: { flag: '🇻🇳', code: 'VI' },
-    en: { flag: '🇬🇧', code: 'EN' },
+    en: { flag: '🇨🇦', code: 'EN' },
     zh: { flag: '🇨🇳', code: 'ZH' }
   };
 
@@ -667,19 +721,21 @@ function updateLanguageUI(lang) {
 function applyTranslations(lang) {
   if (typeof TRANSLATIONS === 'undefined' || !TRANSLATIONS[lang]) return;
   const t = TRANSLATIONS[lang];
+  const menuCount = typeof MENU_ITEMS !== 'undefined' ? String(MENU_ITEMS.length) : '34';
 
   if (t.page_title) {
     document.title = t.page_title;
   }
 
-  // Text content replacements
+  // Text content replacements with dynamic MENU_ITEMS count
   document.querySelectorAll('[data-i18n]').forEach(el => {
     const key = el.getAttribute('data-i18n');
     if (t[key] !== undefined) {
+      const value = typeof t[key] === 'string' ? t[key].replace(/\{\{COUNT\}\}/g, menuCount) : t[key];
       if (el.tagName === 'INPUT' || el.tagName === 'TEXTAREA') {
-        el.value = t[key];
+        el.value = value;
       } else {
-        el.innerHTML = t[key];
+        el.innerHTML = value;
       }
     }
   });
@@ -966,6 +1022,37 @@ function setMenuDisplayMode(mode) {
   }
 }
 
+function buildDishMetaHtml(item) {
+  const chips = [];
+
+  if (item.portion) {
+    const portionLabel = item.portion[currentLang] || item.portion.en || item.portion.fr;
+    if (portionLabel) {
+      chips.push(`<span class="allergen-chip is-portion">🤝 ${portionLabel}</span>`);
+    }
+  }
+
+  (item.dietary || []).forEach(dietKey => {
+    const meta = DIETARY_META[dietKey];
+    if (!meta) return;
+    const label = meta.labels[currentLang] || meta.labels.fr || meta.labels.en;
+    chips.push(`<span class="allergen-chip is-${meta.tone}">${meta.icon} ${label}</span>`);
+  });
+
+  (item.allergens || []).forEach(algKey => {
+    const meta = ALLERGEN_META[algKey];
+    if (!meta) return;
+    const label = meta.labels[currentLang] || meta.labels.fr || meta.labels.en;
+    chips.push(`<span class="allergen-chip is-${meta.tone}">${meta.icon} ${label}</span>`);
+  });
+
+  const noteText = item.customNote ? (item.customNote[currentLang] || item.customNote.en || item.customNote.fr) : '';
+  const chipsRow = chips.length ? `<div class="dish-allergens-row">${chips.join('')}</div>` : '';
+  const noteRow = noteText ? `<p class="dish-custom-note">💡 ${noteText}</p>` : '';
+
+  return `${chipsRow}${noteRow}`;
+}
+
 function buildDishCardHtml(item, btnAddText) {
   const name = item.name[currentLang] || item.name.fr || item.name.vi;
   const desc = item.desc[currentLang] || item.desc.fr || item.desc.vi;
@@ -1021,9 +1108,9 @@ function buildDishCardHtml(item, btnAddText) {
   }
 
   return `
-    <div class="dish-card" data-category="${item.category}">
+    <div class="dish-card" data-category="${item.category}" data-dish-id="${item.id}">
       <div class="dish-image-wrapper">
-        <img class="dish-img" src="${item.image}" alt="${name}" loading="lazy" onerror="this.src='assets/images/story-dzung.jpg'" />
+        <img class="dish-img" src="${item.image}" alt="${name}" loading="lazy" onerror="this.src='assets/images/hero-dzung-food.jpg'" />
         ${item.badge && badgeText ? `<span class="dish-badge ${item.badge}">${badgeText}</span>` : ''}
       </div>
       <div class="dish-info">
@@ -1033,6 +1120,7 @@ function buildDishCardHtml(item, btnAddText) {
             <span class="dish-price" data-dish-price-id="${item.id}">${priceDisplay}</span>
           </div>
           <p class="dish-desc" onclick="this.classList.toggle('expanded')">${desc}</p>
+          ${buildDishMetaHtml(item)}
           ${optionsHtml}
         </div>
         <div class="dish-footer">
@@ -1080,7 +1168,7 @@ function renderHomeFeaturedDishes() {
   const satellitesTitle = t.home_fav_satellites_title || "✦ 4 ĐẶC SẢN NỔI BẬT KHÁC CỦA TIỆM";
 
   const spotlightHtml = `
-    <div class="dz-spotlight-card" data-category="${spotlightItem.category}">
+    <div class="dz-spotlight-card" data-category="${spotlightItem.category}" data-dish-id="${spotlightItem.id}">
       <div class="dz-spotlight-media">
         <img src="${spotlightItem.image}" alt="${spName}" loading="lazy" onerror="this.src='assets/images/hero-dzung-food.jpg'" />
         <span class="dz-spotlight-badge">${chefLoveText}</span>
@@ -1094,6 +1182,7 @@ function renderHomeFeaturedDishes() {
           <span class="dz-spotlight-price">${spPrice}</span>
         </div>
         <p class="dz-spotlight-desc">${spDesc}</p>
+        ${buildDishMetaHtml(spotlightItem)}
         <div class="dz-spotlight-chips">
           <span class="dz-spot-chip">${chipBread}</span>
           <span class="dz-spot-chip">${chipEgg}</span>
@@ -1128,40 +1217,78 @@ function renderHomeFeaturedDishes() {
   `;
 }
 
+function matchesDietaryFilter(item, filter) {
+  if (!filter || filter === 'all') return true;
+  const dietary = item.dietary || [];
+  if (filter === 'pork_free') {
+    return dietary.includes('pork_free') || dietary.includes('pork_free_option');
+  }
+  return dietary.includes(filter);
+}
+
+function filterByDietary(filter = 'all') {
+  currentDietaryFilter = filter;
+  document.querySelectorAll('.dietary-filter-btn').forEach(btn => {
+    btn.classList.toggle('active', btn.getAttribute('data-dietary') === filter);
+  });
+  trackEvent('menu_filter', { filter_type: filter, category: currentCategory, lang: currentLang });
+  renderMenu(currentCategory);
+}
+
+function buildVeganComingSoonBannerHtml(t) {
+  return `
+    <article class="coming-soon-dish-banner" aria-label="${t.coming_soon_title || 'Vegan Bánh Mì Coming Soon'}">
+      <div class="coming-soon-icon" aria-hidden="true">🥖🌱</div>
+      <div class="coming-soon-content">
+        <span class="coming-soon-badge">${t.coming_soon_badge || '🌱 Coming Soon'}</span>
+        <h3 class="coming-soon-title">${t.coming_soon_title || 'Bánh Mì Chay — Coming Soon'}</h3>
+        <p class="coming-soon-desc">${t.coming_soon_desc || ''}</p>
+      </div>
+    </article>
+  `;
+}
+
 function renderMenu(category = 'all') {
   currentCategory = category;
   const menuContainer = document.getElementById('menu-items-grid');
   if (!menuContainer || typeof MENU_ITEMS === 'undefined') return;
 
-  const t = (typeof TRANSLATIONS !== 'undefined' && TRANSLATIONS[currentLang]) 
-    ? TRANSLATIONS[currentLang] 
+  const t = (typeof TRANSLATIONS !== 'undefined' && TRANSLATIONS[currentLang])
+    ? TRANSLATIONS[currentLang]
     : {};
 
   const btnAddText = t.btn_add_dish || '+ Thêm';
 
-  const filteredItems = category === 'all' 
-    ? MENU_ITEMS 
+  const categoryFiltered = category === 'all'
+    ? MENU_ITEMS
     : MENU_ITEMS.filter(item => item.category === category);
 
-  if (filteredItems.length === 0) {
+  const filteredItems = categoryFiltered.filter(item => matchesDietaryFilter(item, currentDietaryFilter));
+
+  const showVeganTeaser = (category === 'all' || category === 'banhmi')
+    && (currentDietaryFilter === 'all' || currentDietaryFilter === 'vegan');
+
+  if (filteredItems.length === 0 && !showVeganTeaser) {
     const emptyMsg = currentLang === 'fr'
-      ? 'Nos délicieux desserts arrivent très bientôt !'
+      ? 'Aucun plat ne correspond à ces critères pour cette catégorie.'
       : (currentLang === 'zh'
-          ? '精致甜品即将上线，敬请期待！'
+          ? '该分类下暂无符合筛选条件的菜品，试试“全部”吧！'
           : (currentLang === 'en'
-              ? 'Delicious desserts coming very soon!'
-              : 'Các món tráng miệng ngọt ngào đang được tiệm chuẩn bị và sẽ sớm ra mắt!'));
+              ? 'No items in this category match the selected dietary filter.'
+              : 'Chưa có món nào trong mục này phù hợp bộ lọc, hãy thử xem « Tất cả » nhé!'));
     menuContainer.innerHTML = `
-      <div style="grid-column: 1 / -1; text-align: center; padding: 4.5rem 1rem; color: var(--ink-muted);">
-        <div style="font-size: 3.5rem; margin-bottom: 1rem;">🍧</div>
-        <h3 style="color: var(--ink-pandan); font-size: 1.3rem; margin-bottom: 0.5rem; font-family: var(--font-serif);">${emptyMsg}</h3>
-        <p style="font-size: 0.9rem; color: var(--red-chili); font-weight: 700;">Pâtisserie Dzung</p>
+      <div style="grid-column: 1 / -1; text-align: center; padding: 3.5rem 1rem; color: var(--ink-muted);">
+        <div style="font-size: 3rem; margin-bottom: 0.75rem;">🥣</div>
+        <h3 style="color: var(--ink-pandan); font-size: 1.2rem; margin-bottom: 0.65rem; font-family: var(--font-serif);">${emptyMsg}</h3>
+        <button type="button" class="btn-tactile btn-tactile-outline" onclick="filterByDietary('all')">${(t.filter_all || 'Tout').replace(/\{\{COUNT\}\}/g, String(MENU_ITEMS.length))}</button>
       </div>
     `;
     return;
   }
 
-  menuContainer.innerHTML = filteredItems.map(item => buildDishCardHtml(item, btnAddText)).join('');
+  const cardsHtml = filteredItems.map(item => buildDishCardHtml(item, btnAddText)).join('');
+  const teaserHtml = showVeganTeaser ? buildVeganComingSoonBannerHtml(t) : '';
+  menuContainer.innerHTML = `${cardsHtml}${teaserHtml}`;
 }
 
 function initMenuTabs() {
@@ -1415,7 +1542,7 @@ function updateLightboxView() {
 
   if (thumbsEl) {
     thumbsEl.innerHTML = items.map((it, i) => {
-      const thumbSrc = it.type === 'video' ? (it.poster || 'assets/images/story-dzung.jpg') : it.src;
+      const thumbSrc = it.type === 'video' ? (it.poster || 'assets/images/hero-dzung-food.jpg') : it.src;
       const itTitle = (it.title && (it.title[currentLang] || it.title.fr || it.title.vi)) || '';
       return `
         <button type="button" class="lightbox-thumb-btn ${i === currentLightboxIndex ? 'active' : ''}" onclick="currentLightboxIndex=${i};updateLightboxView();" aria-label="${itTitle}">
@@ -1427,58 +1554,38 @@ function updateLightboxView() {
 }
 
 /* ==========================================================================
-   5. RESERVATION MODAL
+   6. QUICK ORDER DIALOG (<dialog closedby="any"> + Pointer Outside Light Dismiss)
    ========================================================================== */
-function initReservationModal() {
-  const modal = document.getElementById('reservation-modal');
-  const openBtns = document.querySelectorAll('[data-open-reservation]');
-  const closeBtn = document.getElementById('close-reservation-btn');
-  const form = document.getElementById('reservation-form');
+function isOutsideDialogRect(dialogEl, clientX, clientY) {
+  const rect = dialogEl.getBoundingClientRect();
+  return (
+    clientX < rect.left ||
+    clientX > rect.right ||
+    clientY < rect.top ||
+    clientY > rect.bottom
+  );
+}
 
-  if (!modal) return;
-
-  openBtns.forEach(btn => {
-    btn.addEventListener('click', (e) => {
-      e.preventDefault();
-      modal.classList.add('active');
-      document.body.style.overflow = 'hidden';
-    });
-  });
-
-  function closeModal() {
-    modal.classList.remove('active');
-    document.body.style.overflow = 'auto';
-  }
-
-  if (closeBtn) {
-    closeBtn.addEventListener('click', closeModal);
-  }
-
-  modal.addEventListener('click', (e) => {
-    if (e.target === modal) {
-      closeModal();
-    }
-  });
-
-  if (form) {
-    form.addEventListener('submit', (e) => {
-      e.preventDefault();
-      const guestName = document.getElementById('res-name').value;
-      const guests = document.getElementById('res-guests').value;
-      const date = document.getElementById('res-date').value;
-      const time = document.getElementById('res-time').value;
-
-      closeModal();
-      const t = TRANSLATIONS[currentLang] || TRANSLATIONS.fr;
-      showToast(`${t.toast_res_success || '✨ '}${guestName}! (${guests} - ${time}, ${date})`);
-      form.reset();
-    });
+function openOrderDialog() {
+  const cartModal = document.getElementById('cart-modal');
+  if (!cartModal) return;
+  if (typeof cartModal.showModal === 'function') {
+    if (!cartModal.open) cartModal.showModal();
+  } else {
+    cartModal.setAttribute('open', '');
   }
 }
 
-/* ==========================================================================
-   6. QUICK ORDER & CART
-   ========================================================================== */
+function closeOrderDialog() {
+  const cartModal = document.getElementById('cart-modal');
+  if (!cartModal) return;
+  if (typeof cartModal.close === 'function' && cartModal.open) {
+    cartModal.close();
+  } else {
+    cartModal.removeAttribute('open');
+  }
+}
+
 function initCart() {
   const cartBtn = document.getElementById('cart-toggle');
   const cartModal = document.getElementById('cart-modal');
@@ -1490,38 +1597,36 @@ function initCart() {
     cartBtn.addEventListener('click', (e) => {
       e.preventDefault();
       renderCartItems();
-      cartModal.classList.add('active');
-      document.body.style.overflow = 'hidden';
+      openOrderDialog();
     });
   }
 
-  function closeCart() {
-    cartModal.classList.remove('active');
-    document.body.style.overflow = 'auto';
-  }
-
   if (closeCartBtn) {
-    closeCartBtn.addEventListener('click', closeCart);
+    closeCartBtn.addEventListener('click', closeOrderDialog);
   }
 
-  cartModal.addEventListener('click', (e) => {
-    if (e.target === cartModal) {
-      closeCart();
-    }
-  });
+  // Fallback ONLY for browsers lacking <dialog closedby="any"> (test pointer press & release position)
+  if (!('closedBy' in HTMLDialogElement.prototype)) {
+    let pointerDownOutside = false;
+    cartModal.addEventListener('pointerdown', (event) => {
+      pointerDownOutside = event.target === cartModal && isOutsideDialogRect(cartModal, event.clientX, event.clientY);
+    });
+    cartModal.addEventListener('pointerup', (event) => {
+      if (pointerDownOutside && event.target === cartModal && isOutsideDialogRect(cartModal, event.clientX, event.clientY)) {
+        closeOrderDialog();
+      }
+      pointerDownOutside = false;
+    });
+  }
 }
 
 function addToCart(dishId) {
+  currentOrderDishId = dishId || null;
   const t = TRANSLATIONS[currentLang] || TRANSLATIONS.fr;
   renderCartItems();
-
-  const cartModal = document.getElementById('cart-modal');
-  if (cartModal) {
-    cartModal.classList.add('active');
-    document.body.style.overflow = 'hidden';
-  }
-
-  showToast(t.toast_added || '📞 Vui lòng gọi vào tiệm (514) 880-8388 để đặt món (Chức năng order đang hoàn thiện)!');
+  openOrderDialog();
+  trackEvent('order_dialog_open', { dish_id: currentOrderDishId || 'general', lang: currentLang });
+  showToast(t.toast_added || '📞 Appelez le (514) 880-8388 pour cueillette chaude ou commandez sur Uber Eats (Rive-Sud) !');
 }
 
 function updateCartBadge() {
@@ -1543,19 +1648,34 @@ function renderCartItems() {
   if (!cartContainer) return;
 
   const t = TRANSLATIONS[currentLang] || TRANSLATIONS.fr;
-  const badgeText = t.order_locked_badge || '🛠️ Chức năng Order Online đang hoàn thiện';
+  const badgeText = t.order_locked_badge || '🚀 Commande web directe (UEat) bientôt disponible';
+
+  let selectedDishHtml = '';
+  if (currentOrderDishId && typeof MENU_ITEMS !== 'undefined') {
+    const item = MENU_ITEMS.find(m => m.id === currentOrderDishId);
+    if (item) {
+      const itemName = item.name[currentLang] || item.name.fr || item.name.vi;
+      const itemPrice = (item.priceDisplay && typeof item.priceDisplay === 'object')
+        ? (item.priceDisplay[currentLang] || item.priceDisplay.fr || item.priceDisplay.vi)
+        : (item.priceDisplay || formatPrice(item.price));
+      selectedDishHtml = `
+        <div class="order-selected-pill">
+          <span class="order-selected-kicker">${t.order_selected_label || 'Article sélectionné :'}</span>
+          <strong>${itemName} · ${itemPrice}</strong>
+        </div>
+      `;
+    }
+  }
 
   cartContainer.innerHTML = `
-    <div style="background: rgba(232, 168, 56, 0.14); border: 1.5px solid rgba(20, 61, 43, 0.18); border-radius: 14px; padding: 1.4rem 1.2rem; margin-top: 0.5rem;">
-      <div style="display: inline-block; background: var(--gold-crust); color: var(--ink-pandan); font-weight: 800; font-size: 0.85rem; padding: 0.35rem 0.9rem; border-radius: 50px; margin-bottom: 1rem;">
+    ${selectedDishHtml}
+    <div class="order-notice-card">
+      <div class="order-notice-badge">
         ${badgeText}
       </div>
-      <p style="color: var(--ink-pandan); font-size: 0.98rem; line-height: 1.65; margin-bottom: 1rem; font-weight: 500;">
-        ${t.cart_empty}
+      <p class="order-notice-desc">
+        ${t.cart_empty || ''}
       </p>
-      <div style="font-size: 0.85rem; color: var(--ink-muted); font-weight: 600;">
-        📍 ${t.footer_address || '5918 Avenue Auteuil, Brossard, QC J4Z 1N2, Canada'}
-      </div>
     </div>
   `;
 
@@ -1570,8 +1690,9 @@ function changeCartQty(cartKey, delta) {
 
 function checkoutOrder() {
   const t = TRANSLATIONS[currentLang] || TRANSLATIONS.fr;
-  showToast(t.toast_added || '📞 Vui lòng gọi vào tiệm (514) 880-8388 để đặt món (Chức năng order đang hoàn thiện)!');
-  window.location.href = 'tel:5148808388';
+  trackEvent('call_click', { source: 'order_dialog', dish_id: currentOrderDishId || 'general', lang: currentLang });
+  showToast(t.toast_added || '📞 Appelez le (514) 880-8388 !');
+  window.location.href = 'tel:+15148808388';
 }
 
 /* ==========================================================================

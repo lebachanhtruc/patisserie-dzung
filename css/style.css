@@ -4366,3 +4366,515 @@ h4:focus,
     margin-bottom: 0.95rem;
   }
 }
+
+/* ==========================================================================
+   14. ALLERGEN TAGS, DIETARY FILTERS, FIRST-TIMER PERK & NATIVE ORDER DIALOG
+   ========================================================================== */
+
+.dz-col-cta-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.dz-col-cta-stack .btn-tactile {
+  padding: 0.72em 0.9em;
+  font-size: 0.78rem;
+  line-height: 1.25;
+}
+
+.dz-time-pill {
+  white-space: nowrap;
+}
+
+.dz-ubereats-pill {
+  width: 100%;
+  text-align: center;
+  font-size: 0.76rem;
+}
+
+/* First-Timer Google Review Free Drink Perk Card */
+.first-timer-perk-card {
+  margin-top: 28px;
+  display: grid;
+  grid-template-columns: 1.35fr 1fr;
+  gap: 24px;
+  align-items: center;
+  background: var(--bg-paper);
+  border: 2.5px solid var(--ink-pandan);
+  border-radius: 22px;
+  padding: 26px 28px;
+  box-shadow: 8px 8px 0 var(--gold-crust);
+}
+
+.first-timer-perk-card.is-compact-visit {
+  grid-template-columns: 1fr;
+  margin-top: 22px;
+  padding: 20px 24px;
+}
+
+.perk-badge {
+  display: inline-block;
+  background: var(--gold-crust);
+  color: var(--ink-pandan);
+  border: 1.5px solid var(--ink-pandan);
+  border-radius: var(--radius-pill);
+  padding: 4px 12px;
+  font-size: 0.73rem;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+}
+
+.perk-title {
+  font-family: var(--font-display);
+  font-size: clamp(1.35rem, 2.5vw, 1.85rem);
+  font-weight: 800;
+  color: var(--ink-pandan);
+  margin: 0 0 8px;
+  line-height: 1.15;
+}
+
+.perk-desc {
+  color: var(--ink-body);
+  font-size: 0.95rem;
+  line-height: 1.58;
+  margin: 0 0 14px;
+}
+
+.perk-actions-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.perk-fineprint {
+  margin: 0;
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  font-weight: 600;
+}
+
+.perk-pairing-col {
+  background: var(--mint-soft);
+  border: 2px solid var(--ink-pandan);
+  border-radius: 16px;
+  padding: 18px 20px;
+}
+
+.perk-pairing-kicker {
+  display: block;
+  font-size: 0.75rem;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--red-chili);
+  margin-bottom: 10px;
+}
+
+.perk-pairing-list {
+  margin: 0;
+  padding-left: 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  font-size: 0.87rem;
+  color: var(--ink-pandan);
+  line-height: 1.45;
+}
+
+/* Dietary Quick Filter Bar */
+.dietary-filter-wrap {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 16px;
+  margin-bottom: 14px;
+  background: var(--bg-paper);
+  border: 1.5px solid var(--ink-pandan);
+  border-radius: 14px;
+}
+
+.dietary-filter-label {
+  font-size: 0.78rem;
+  font-weight: 800;
+  color: var(--ink-pandan);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.dietary-filter-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.dietary-filter-btn {
+  border: 1.5px solid var(--ink-pandan);
+  background: var(--bg-paper);
+  color: var(--ink-pandan);
+  border-radius: var(--radius-pill);
+  padding: 5px 12px;
+  font-family: var(--font-body);
+  font-size: 0.78rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background-color 0.16s ease, color 0.16s ease, transform 0.12s ease;
+}
+
+.dietary-filter-btn:hover {
+  background: var(--mint-soft);
+  transform: translateY(-1px);
+}
+
+.dietary-filter-btn.active {
+  background: var(--ink-pandan);
+  color: var(--bg-cream);
+}
+
+/* Kitchen & Allergen Transparency Banner */
+.allergen-disclaimer-banner {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  background: var(--bg-paper);
+  border: 2px solid var(--ink-pandan);
+  border-left: 6px solid var(--gold-crust);
+  border-radius: 14px;
+  padding: 14px 18px;
+  margin-bottom: 22px;
+}
+
+.allergen-banner-icon {
+  font-size: 1.5rem;
+  line-height: 1.2;
+  flex-shrink: 0;
+}
+
+.allergen-banner-title {
+  display: block;
+  color: var(--ink-pandan);
+  font-size: 0.92rem;
+  font-weight: 800;
+  margin-bottom: 4px;
+}
+
+.allergen-banner-desc {
+  margin: 0;
+  font-size: 0.84rem;
+  line-height: 1.55;
+  color: var(--ink-body);
+}
+
+/* Allergen & Dietary Chips on Dish Cards & Spotlight */
+.dish-allergens-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin: 8px 0 6px;
+}
+
+.allergen-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 2px 9px;
+  border-radius: var(--radius-pill);
+  font-size: 0.71rem;
+  font-weight: 700;
+  line-height: 1.35;
+  border: 1px solid transparent;
+}
+
+.allergen-chip.is-danger {
+  background: #FDECEC;
+  color: #991B1B;
+  border-color: #E57373;
+}
+
+.allergen-chip.is-dietary {
+  background: #E7F6EC;
+  color: #14532D;
+  border-color: #6EE7B7;
+}
+
+.allergen-chip.is-option {
+  background: #FEF3C7;
+  color: #92400E;
+  border-color: var(--gold-crust);
+}
+
+.allergen-chip.is-portion {
+  background: #EEF2FF;
+  color: #1E3A8A;
+  border-color: #C7D2FE;
+}
+
+.allergen-chip.is-spice {
+  background: #FFF1F2;
+  color: #B91C1C;
+  border-color: #FDA4AF;
+}
+
+.allergen-chip.is-info {
+  background: var(--bg-cream);
+  color: var(--text-muted);
+  border-color: var(--line-warm);
+}
+
+.dish-custom-note {
+  margin: 4px 0 8px;
+  padding: 5px 10px;
+  border-radius: 8px;
+  background: #FEF9E7;
+  border: 1px solid var(--gold-crust);
+  color: var(--ink-pandan);
+  font-size: 0.77rem;
+  font-weight: 700;
+  line-height: 1.4;
+}
+
+/* Vegan Banh Mi Coming Soon Banner */
+.coming-soon-dish-banner {
+  grid-column: 1 / -1;
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  background: linear-gradient(135deg, #F2F9F4 0%, #FFFDF9 100%);
+  border: 2.5px dashed var(--ink-pandan);
+  border-radius: 18px;
+  padding: 18px 22px;
+  margin-top: 8px;
+}
+
+.coming-soon-icon {
+  font-size: 2rem;
+  flex-shrink: 0;
+}
+
+.coming-soon-badge {
+  display: inline-block;
+  background: #14532D;
+  color: #FFFFFF;
+  border-radius: var(--radius-pill);
+  padding: 3px 10px;
+  font-size: 0.72rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 6px;
+}
+
+.coming-soon-title {
+  margin: 0 0 4px;
+  color: var(--ink-pandan);
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+}
+
+.coming-soon-desc {
+  margin: 0;
+  font-size: 0.87rem;
+  color: var(--ink-body);
+  line-height: 1.5;
+}
+
+/* Native Order Dialog (<dialog closedby="any">) */
+.order-dialog {
+  margin: auto;
+  padding: 0;
+  width: min(94vw, 520px);
+  max-width: min(94vw, 520px);
+  max-height: 92dvh;
+  background: var(--bg-paper);
+  color: var(--ink-body);
+  border: 2.5px solid var(--ink-pandan);
+  border-radius: 20px;
+  box-shadow: 10px 10px 0 var(--gold-crust);
+  overflow-y: auto;
+}
+
+.order-dialog:modal {
+  overscroll-behavior: contain;
+}
+
+.order-dialog::backdrop {
+  background: rgba(14, 43, 30, 0.75);
+  backdrop-filter: blur(6px);
+  overflow: hidden;
+  overscroll-behavior: contain;
+}
+
+.order-dialog-card {
+  width: 100%;
+  border: none;
+  box-shadow: none;
+  background: transparent;
+  padding: 26px 24px 24px;
+}
+
+.order-dialog-body {
+  margin-bottom: 14px;
+  text-align: center;
+}
+
+.order-selected-pill {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  background: var(--mint-soft);
+  border: 1.5px solid var(--ink-pandan);
+  border-radius: 12px;
+  padding: 10px 14px;
+  margin-bottom: 10px;
+  color: var(--ink-pandan);
+  font-size: 0.88rem;
+}
+
+.order-selected-kicker {
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  font-weight: 800;
+  letter-spacing: 0.05em;
+  color: var(--text-muted);
+}
+
+.order-notice-card {
+  background: rgba(232, 168, 56, 0.14);
+  border: 1.5px solid rgba(20, 61, 43, 0.18);
+  border-radius: 14px;
+  padding: 12px 14px;
+}
+
+.order-notice-badge {
+  display: inline-block;
+  background: var(--gold-crust);
+  color: var(--ink-pandan);
+  font-weight: 800;
+  font-size: 0.78rem;
+  padding: 4px 12px;
+  border-radius: var(--radius-pill);
+  margin-bottom: 8px;
+}
+
+.order-notice-desc {
+  margin: 0;
+  color: var(--ink-pandan);
+  font-size: 0.88rem;
+  line-height: 1.5;
+  font-weight: 500;
+}
+
+.order-channels-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.order-channel-box {
+  background: var(--bg-cream);
+  border: 1.5px solid var(--ink-pandan);
+  border-radius: 14px;
+  padding: 14px 16px;
+}
+
+.order-channel-box.is-primary {
+  background: #FFFBF0;
+  border-width: 2px;
+}
+
+.order-channel-head {
+  font-size: 0.92rem;
+  color: var(--ink-pandan);
+  margin-bottom: 4px;
+}
+
+.order-channel-desc {
+  margin: 0 0 10px;
+  font-size: 0.82rem;
+  line-height: 1.45;
+  color: var(--text-muted);
+}
+
+.order-call-btn,
+.order-uber-btn {
+  display: block;
+  width: 100%;
+  text-align: center;
+  text-decoration: none;
+}
+
+@media (max-width: 768px) {
+  .first-timer-perk-card {
+    grid-template-columns: 1fr;
+    padding: 20px 18px;
+    gap: 16px;
+    box-shadow: 6px 6px 0 var(--gold-crust);
+  }
+
+  .dietary-filter-wrap {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .coming-soon-dish-banner {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+    padding: 16px;
+  }
+
+  .order-dialog-card {
+    padding: 16px 15px 15px;
+  }
+
+  .order-dialog-card .modal-header {
+    margin-bottom: 10px;
+  }
+
+  .order-dialog-card .modal-title {
+    font-size: 1.25rem;
+    line-height: 1.1;
+  }
+
+  .order-dialog-body {
+    margin-bottom: 10px;
+  }
+
+  .order-selected-pill {
+    padding: 7px 10px;
+    margin-bottom: 8px;
+    font-size: 0.82rem;
+  }
+
+  .order-notice-card {
+    padding: 9px 11px;
+  }
+
+  .order-notice-desc {
+    font-size: 0.8rem;
+    line-height: 1.4;
+  }
+
+  .order-channels-stack {
+    gap: 8px;
+  }
+
+  .order-channel-box {
+    padding: 10px 12px;
+  }
+
+  .order-channel-desc {
+    margin-bottom: 7px;
+    font-size: 0.78rem;
+  }
+
+  .order-call-btn,
+  .order-uber-btn {
+    padding: 0.65em 0.9em;
+    font-size: 0.8rem;
+  }
+}

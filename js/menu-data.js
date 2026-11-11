@@ -35,6 +35,8 @@ const MENU_ITEMS = [
       en: ['Popular', 'Salted Pork', 'Combo Drink'],
       zh: ['人气推荐', '特制咸肉', '含饮料']
     },
+    allergens: ['gluten', 'egg', 'soy', 'pork'],
+    dietary: ['peanut_free_recipe'],
     image: 'assets/images/menu-banh-mi-n1-thit-muoi.jpg'
   },
   {
@@ -67,6 +69,8 @@ const MENU_ITEMS = [
       en: ['Salted Egg Yolk', 'Meatballs', 'Combo Drink'],
       zh: ['咸蛋黄', '多汁肉丸', '含饮料']
     },
+    allergens: ['gluten', 'egg', 'soy', 'pork'],
+    dietary: ['peanut_free_recipe'],
     image: 'assets/images/menu-banh-mi-n2-xiu-mai.jpg'
   },
   {
@@ -88,16 +92,24 @@ const MENU_ITEMS = [
       zh: ''
     },
     desc: {
-      fr: "Poulet effiloché tendre, parfumé à l'ail frit croustillant, mélangé à une sauce addictive. Ingrédients complets : Baguette croustillante, pâté maison (foie de volaille et gras de porc), mayonnaise, légumes marinés, coriandre ; garni de poulet effiloché, d'ail frit et de notre sauce savoureuse (à base de sauce de poisson).",
-      vi: 'Gà xé sợi dai ngọt, thơm nức mùi tỏi phi, quyện cùng nước sốt mặn ngọt ăn là ghiền. Thành phần trọn vẹn bao gồm: Vỏ bánh mì Baguette giòn rụm, phết patê nhà làm (gan gà và mỡ heo) béo ngậy cùng bơ béo (mayonnaise), thêm đồ chua, ngò rí thanh mát; kết hợp cùng nhân gà xé sợi mềm, tỏi phi thơm và chan nước sốt đậm vị (chiết xuất từ nước mắm).',
-      en: 'Tender shredded chicken, fragrant fried garlic, tossed in an addictive savory sauce. Full ingredients: Crispy Baguette, creamy house-made pâté (chicken liver and pork fat), mayonnaise, pickled vegetables, cilantro; filled with shredded chicken, fried garlic, and a savory sauce (fish sauce based).',
-      zh: '鲜嫩鸡肉丝，散发炸蒜的浓郁香气，搭配令人上瘾的鲜香酱汁。完整成分：酥脆越式法棍、秘制肉酱（鸡肝与猪板油）、蛋黄酱、酸洗萝卜、香菜；搭配鸡肉丝、炸蒜和秘制鲜香酱汁（鱼露基底）。'
+      fr: "Poulet effiloché tendre, parfumé à l'ail frit croustillant et beurre d'ail. Ingrédients complets : Baguette croustillante, pâté maison (foie de volaille et gras de porc — peut être retiré sur demande), mayonnaise, légumes marinés, coriandre ; garni de poulet effiloché, d'ail frit et de notre sauce savoureuse (à base de sauce de poisson).",
+      vi: 'Gà xé sợi dai ngọt, thơm nức mùi bơ tỏi phi, quyện cùng nước sốt mặn ngọt ăn là ghiền. Thành phần trọn vẹn bao gồm: Vỏ bánh mì Baguette giòn rụm, patê nhà làm (gan gà & mỡ heo — có thể bỏ patê theo yêu cầu), bơ béo (mayonnaise), đồ chua, ngò rí; nhân gà xé sợi mềm, tỏi phi thơm và nước sốt đậm vị (chiết xuất từ nước mắm).',
+      en: 'Tender shredded chicken tossed in fragrant roasted garlic butter. Full ingredients: Crispy Baguette, house-made pâté (chicken liver & pork fat — can be omitted upon request), mayonnaise, pickled vegetables, cilantro; filled with shredded chicken, crispy fried garlic, and savory fish-sauce glaze.',
+      zh: '鲜嫩手撕鸡肉，散发蒜香黄油与炸蒜的浓郁香气。完整成分：酥脆越式法棍、秘制肉酱（鸡肝与猪板油——可按要求去肉酱）、蛋黄酱、酸洗萝卜、香菜；搭配手撕鸡肉丝、炸蒜及鲜香鱼露酱汁。'
     },
     tags: {
       fr: ['Beurre Ail', 'Poulet Effiloché', 'Combo Boisson'],
       vi: ['Bơ Tỏi Phi', 'Gà Xé', 'Combo Nước'],
       en: ['Garlic Butter', 'Shredded Chicken', 'Combo Drink'],
       zh: ['蒜香牛油', '手撕鸡肉', '含饮料']
+    },
+    allergens: ['gluten', 'egg', 'dairy', 'fish', 'soy', 'pork'],
+    dietary: ['peanut_free_recipe', 'pork_free_option'],
+    customNote: {
+      fr: 'Option sans porc : demandez « Sans pâté » lors de la commande — 100% sans porc.',
+      vi: 'Tùy chọn không thịt heo: dặn tiệm « Bỏ patê » khi đặt — hoàn toàn không dính tới heo.',
+      en: 'Pork-Free Option: Ask for "No Pâté" when ordering — 100% pork-free.',
+      zh: '无猪肉选项：点餐时说明「不要肉酱（No Pâté）」即可完全不含猪肉。'
     },
     image: 'assets/images/menu-banh-mi-n3-ga-xe.jpg'
   },
@@ -131,6 +143,8 @@ const MENU_ITEMS = [
       en: ['Chili Salt', 'Pork Floss', 'Combo Drink'],
       zh: ['香辣辣椒盐', '猪肉松', '含饮料']
     },
+    allergens: ['gluten', 'egg', 'dairy', 'soy', 'pork', 'spicy'],
+    dietary: ['peanut_free_recipe'],
     image: 'assets/images/menu-banh-mi-n4-muoi-ot.jpg'
   },
   {
@@ -163,6 +177,8 @@ const MENU_ITEMS = [
       en: ['Popular', 'Charcoal Grilled', 'Combo Drink'],
       zh: ['人气热销', '炭火现烤', '含饮料']
     },
+    allergens: ['gluten', 'egg', 'fish', 'soy', 'pork'],
+    dietary: ['peanut_free_recipe'],
     image: 'assets/images/menu-banh-mi-n5-thit-nuong.jpg'
   },
 
@@ -186,10 +202,10 @@ const MENU_ITEMS = [
       zh: '热销街味'
     },
     desc: {
-      fr: 'Une collation basique mais addictive avec sa saveur épicée caractéristique. Ingrédients : galettes de riz, sauce saté aux crevettes et sauce saté pimentée originale.',
-      vi: 'Món ăn vặt cơ bản nhưng cuốn hút với vị cay nồng đặc trưng. Thành phần gồm bánh tráng, sa tế tôm và sa tế cay nguyên bản.',
-      en: 'A basic yet highly addictive snack with a signature spicy kick. Ingredients: rice paper, shrimp sate sauce, and original spicy sate.',
-      zh: '简单却令人上瘾的零食，带有独特的辛辣风味。成分：米纸、虾米沙茶酱和原味辣沙茶酱。'
+      fr: 'Une collation basique mais addictive avec sa saveur épicée et parfumée aux cacahuètes. Ingrédients : galettes de riz, sauce saté aux crevettes avec cacahuètes grillées et sauce saté pimentée.',
+      vi: 'Món ăn vặt cơ bản nhưng cuốn hút với vị cay nồng đặc trưng và đậu phộng rang bùi béo. Thành phần gồm bánh tráng, sa tế tôm (có đậu phộng) và sa tế cay nguyên bản.',
+      en: 'An addictive Southern street snack with shrimp chili sate and roasted peanuts. Ingredients: rice paper, shrimp sate sauce (contains peanuts), and original spicy sate.',
+      zh: '简单却令人上瘾的街头零食，带有独特香辣风味与花生碎。成分：米纸、沙茶虾米酱（含花生）和原味辣沙茶酱。'
     },
     tags: {
       fr: ['Saté Crevettes', 'Épicé', 'Street Food'],
@@ -197,6 +213,8 @@ const MENU_ITEMS = [
       en: ['Shrimp Satay', 'Spicy', 'Street Snack'],
       zh: ['沙茶虾味', '浓香微辣', '街头小吃']
     },
+    allergens: ['peanuts', 'shellfish', 'spicy'],
+    dietary: ['dairy_free', 'pork_free'],
     image: 'assets/images/menu-banh-trang-n10.jpg'
   },
   {
@@ -224,11 +242,14 @@ const MENU_ITEMS = [
       zh: '充满嚼劲的米纸卷，搭配满满的丰富配料，味道爆发。成分：米纸、鹌鹑蛋、牛肉干、炸猪皮、越南香菜、酸芒果。调料：沙茶酱（虾与辣椒）、辣椒盐、炸蒜、蛋黄酱和金桔酱。'
     },
     tags: {
-      fr: ['Full Topping', 'Sauce Beurre Me', 'Incontournable'],
+      fr: ['Full Topping', 'Sauce Beurre Tamarin', 'Incontournable'],
       vi: ['Full Topping', 'Sốt Bơ Me', 'Best Seller'],
-      en: ['Full Topping', 'Tamarind Butter', 'Best Seller'],
+      en: ['Full Topping', 'Butter Tamarind', 'Best Seller'],
       zh: ['全配料', '黄油罗望子', '招牌热销']
     },
+    allergens: ['shellfish', 'egg', 'soy', 'pork', 'beef', 'spicy'],
+    dietary: ['peanut_free_recipe', 'dairy_free'],
+    portion: { fr: 'À partager · 2–3 pers.', vi: 'Phần lớn · 2–3 người', en: 'Sharing · 2–3 pers.', zh: '分享装 · 2–3人份' },
     image: 'assets/images/menu-banh-trang-n11-full.jpg'
   },
   {
@@ -261,6 +282,9 @@ const MENU_ITEMS = [
       en: ['DIY Kit', 'Fun to Mix', 'Fresh'],
       zh: ['DIY套盒', '自拌美味', '新鲜丰富']
     },
+    allergens: ['shellfish', 'egg', 'soy', 'pork', 'beef', 'spicy'],
+    dietary: ['peanut_free_recipe', 'dairy_free'],
+    portion: { fr: 'À partager · 1–2 pers.', vi: 'Phần 1–2 người', en: 'Sharing · 1–2 pers.', zh: '分享装 · 1–2人份' },
     image: 'assets/images/menu-banh-trang-n12.jpg'
   },
   {
@@ -326,6 +350,9 @@ const MENU_ITEMS = [
       en: ['Small 20$', 'Large 25$', 'Dew-wetted'],
       zh: ['小份20$', '大份25$', '露水米纸']
     },
+    allergens: ['shellfish', 'egg', 'soy', 'pork', 'beef', 'spicy'],
+    dietary: ['peanut_free_recipe', 'dairy_free'],
+    portion: { fr: 'À partager · 2–3 pers.', vi: 'Phần lớn · 2–3 người', en: 'Sharing · 2–3 pers.', zh: '分享装 · 2–3人份' },
     image: 'assets/images/menu-banh-trang-n13.jpg'
   },
   {
@@ -358,6 +385,9 @@ const MENU_ITEMS = [
       en: ['20$', 'Crispy Rice', 'Pork Floss', 'Scallion Oil'],
       zh: ['20$', '香脆锅巴', '蓬松肉松', '咸甜蘸酱']
     },
+    allergens: ['pork', 'fish', 'soy'],
+    dietary: ['peanut_free_recipe', 'dairy_free'],
+    portion: { fr: 'À partager · 2–3 pers.', vi: 'Phần lớn · 2–3 người', en: 'Sharing · 2–3 pers.', zh: '分享装 · 2–3人份' },
     image: 'assets/images/menu-streetfood-com-chay.jpg'
   },
 
@@ -422,6 +452,8 @@ const MENU_ITEMS = [
       en: ['2 Flavors', 'Traditional', 'Jasmine Oolong'],
       zh: ['双风味可选', '经典原味', '茉莉乌龙']
     },
+    allergens: ['dairy'],
+    dietary: ['vegetarian', 'gluten_free', 'pork_free', 'peanut_free_recipe'],
     image: 'assets/images/menu-drink-n40.jpg'
   },
   {
@@ -482,6 +514,8 @@ const MENU_ITEMS = [
       en: ['2 Flavors', 'Traditional', 'Jasmine Oolong'],
       zh: ['双风味可选', '经典原味', '茉莉乌龙']
     },
+    allergens: ['dairy', 'egg'],
+    dietary: ['vegetarian', 'gluten_free', 'pork_free', 'peanut_free_recipe'],
     image: 'assets/images/menu-drink-n41.jpg'
   },
   {
@@ -509,6 +543,8 @@ const MENU_ITEMS = [
       en: ['Fresh Fruits', 'Refreshing', 'Crisp'],
       zh: ['鲜切水果', '清爽解腻', '维C满满']
     },
+    allergens: [],
+    dietary: ['vegan', 'vegetarian', 'gluten_free', 'dairy_free', 'pork_free', 'peanut_free_recipe'],
     image: 'assets/images/menu-drink-n42.jpg'
   },
   {
@@ -541,6 +577,8 @@ const MENU_ITEMS = [
       en: ['Chocolate Milo', 'Crushed Ice', 'Sweet'],
       zh: ['香浓可可', '冰沙甜品', '香脆爽口']
     },
+    allergens: ['dairy', 'gluten', 'soy'],
+    dietary: ['vegetarian', 'pork_free', 'peanut_free_recipe'],
     image: 'assets/images/menu-drink-n43.jpg'
   },
   {
@@ -568,6 +606,8 @@ const MENU_ITEMS = [
       en: ['Traditional Phin', 'Bold & Strong', 'Coffee'],
       zh: ['传统滴漏', '浓郁苦香', '提神原味']
     },
+    allergens: [],
+    dietary: ['vegan', 'vegetarian', 'gluten_free', 'dairy_free', 'pork_free', 'peanut_free_recipe'],
     image: 'assets/images/menu-drink-n44.jpg'
   },
   {
@@ -600,6 +640,8 @@ const MENU_ITEMS = [
       en: ['Condensed Milk', 'Iconic Coffee', 'Creamy'],
       zh: ['香甜炼乳', '经典越式', '冰爽醇香']
     },
+    allergens: ['dairy'],
+    dietary: ['vegetarian', 'gluten_free', 'pork_free', 'peanut_free_recipe'],
     image: 'assets/images/menu-drink-n45.jpg'
   },
   {
@@ -632,6 +674,8 @@ const MENU_ITEMS = [
       en: ['Salted Cream', 'Velvety', 'Trending'],
       zh: ['海盐奶盖', '咸甜交织', '热门推荐']
     },
+    allergens: ['dairy'],
+    dietary: ['vegetarian', 'gluten_free', 'pork_free', 'peanut_free_recipe'],
     image: 'assets/images/menu-drink-n46.jpg'
   },
   {
@@ -659,6 +703,8 @@ const MENU_ITEMS = [
       en: ['Milky Latte', 'Sweet & Smooth', 'Mild Coffee'],
       zh: ['奶香浓郁', '微苦甘甜', '西贡风味']
     },
+    allergens: ['dairy'],
+    dietary: ['vegetarian', 'gluten_free', 'pork_free', 'peanut_free_recipe'],
     image: 'assets/images/menu-drink-n47.jpg'
   },
   {
@@ -691,6 +737,8 @@ const MENU_ITEMS = [
       en: ['Popular', 'Fresh Kumquat', 'Refreshing'],
       zh: ['人气推荐', '鲜榨金桔', '清凉解渴']
     },
+    allergens: [],
+    dietary: ['vegan', 'vegetarian', 'gluten_free', 'dairy_free', 'pork_free', 'peanut_free_recipe'],
     image: 'assets/images/menu-drink-n48.jpg'
   },
 
@@ -727,6 +775,8 @@ const MENU_ITEMS = [
       en: ['Fresh Durian', 'Jackfruit', 'Coconut Milk', 'Popular'],
       zh: ['新鲜榴莲', '香甜波罗蜜', '浓郁椰浆', '热带风味']
     },
+    allergens: ['dairy'],
+    dietary: ['vegetarian', 'gluten_free', 'pork_free', 'peanut_free_recipe'],
     image: 'assets/images/menu-dessert-n20.jpg'
   },
   {
@@ -736,10 +786,10 @@ const MENU_ITEMS = [
     priceDisplay: '10$',
     badge: 'bestseller',
     name: {
-      fr: 'N21. Chè Mỹ (Dessert "Américain")',
+      fr: 'N21. Chè Mỹ (Dessert Tropical au Lait de Coco)',
       vi: 'N21. Chè Mỹ',
-      en: 'N21. "American" Dessert (Chè Mỹ)',
-      zh: 'N21. 美式甜汤（Chè Mỹ）'
+      en: 'N21. Tropical Fruit & Jelly Bowl (Chè Mỹ)',
+      zh: 'N21. 美式热带糖水（Chè Mỹ）'
     },
     badgeText: {
       fr: 'Populaire',
@@ -750,7 +800,7 @@ const MENU_ITEMS = [
     desc: {
       fr: 'La version rafraîchissante du Chè Thái sans durian, facile à déguster. Ingrédients : jacquier, longane, litchi, graines de palmier (Attap), gelée, lait et lait de coco.',
       vi: 'Phiên bản thanh mát không sầu riêng của Chè Thái, dễ ăn và giải nhiệt cực tốt. Thành phần gồm mít, nhãn, trái vải, hạt đác, rau câu, thạch, sữa, nước cốt dừa.',
-      en: 'The refreshing, durian-free version of the Thai Sweet Soup. Ingredients: jackfruit, longan, lychee, Attap seeds, agar jelly, milk, and coconut milk.',
+      en: 'The refreshing, durian-free cousin of Chè Thái with sweet tropical fruits. Ingredients: jackfruit, longan, lychee, Attap seeds, agar jelly, milk, and coconut milk.',
       zh: '无榴莲版本的泰式糖水，清凉解渴，老少咸宜。成分：菠萝蜜、龙眼、荔枝、亚答籽、燕菜果冻、牛奶和椰奶。'
     },
     tags: {
@@ -759,6 +809,8 @@ const MENU_ITEMS = [
       en: ['Refreshing', 'Fruit Jelly', 'Young Coconut', 'Light Sweet'],
       zh: ['清凉解暑', '多重果冻', '鲜嫩椰肉', '香甜可口']
     },
+    allergens: ['dairy'],
+    dietary: ['vegetarian', 'gluten_free', 'pork_free', 'peanut_free_recipe'],
     image: 'assets/images/menu-dessert-n21.jpg'
   },
   {
@@ -774,17 +826,19 @@ const MENU_ITEMS = [
       zh: 'N22. 冷豆腐布丁（Tàu Hủ Lạnh）'
     },
     desc: {
-      fr: 'Tofu fondement doux avec une touche de sirop de gingembre chaud. Ingrédients : tofu soyeux, sirop de gingembre et lait de coco.',
+      fr: 'Tofu fondant doux avec une touche de sirop de gingembre parfumé et lait de coco. Ingrédients : tofu soyeux (soja), sirop de gingembre et lait de coco.',
       vi: 'Tàu hủ mềm tan trong miệng, thoảng hương gừng ấm áp. Thành phần gồm tàu hủ mềm mịn, nước đường gừng, nước cốt dừa.',
-      en: 'Melt-in-your-mouth silken tofu with a hint of warm ginger syrup. Ingredients: silken tofu, ginger syrup, and coconut milk.',
-      zh: '入口即化的细腻豆腐花，散发着温暖的姜汁香气。成分：嫩滑豆腐花、姜汁糖水和椰奶。'
+      en: 'Melt-in-your-mouth silken tofu topped with fragrant ginger syrup and creamy coconut milk. Ingredients: silken tofu (soy), ginger syrup, and coconut milk.',
+      zh: '入口即化的细腻豆腐花，散发着温暖的姜汁香气。成分：嫩滑豆腐花（大豆）、姜汁糖水和椰奶。'
     },
     tags: {
-      fr: ['Ultra Soyeux', 'Perles de Tapioca', 'Lait de Coco', 'Léger'],
-      vi: ['Mềm Mịn Tan Chảy', 'Trân Châu Dẻo', 'Cốt Dừa Béo', 'Thanh Mát'],
-      en: ['Silky Smooth', 'Chewy Boba', 'Coconut Cream', 'Refreshing'],
-      zh: ['细腻滑嫩', 'Q弹波霸', '香浓椰浆', '健康清凉']
+      fr: ['Ultra Soyeux', 'Sirop Gingembre', 'Lait de Coco', 'Léger'],
+      vi: ['Mềm Mịn Tan Chảy', 'Đường Gừng', 'Cốt Dừa Béo', 'Thanh Mát'],
+      en: ['Silky Smooth', 'Ginger Syrup', 'Coconut Cream', 'Refreshing'],
+      zh: ['细腻滑嫩', '姜汁清香', '香浓椰浆', '健康清凉']
     },
+    allergens: ['soy'],
+    dietary: ['vegan', 'vegetarian', 'gluten_free', 'dairy_free', 'pork_free', 'peanut_free_recipe'],
     image: 'assets/images/menu-dessert-n22.jpg'
   },
   {
@@ -806,10 +860,10 @@ const MENU_ITEMS = [
       zh: '特色推荐'
     },
     desc: {
-      fr: 'Version améliorée avec du jeune riz gluant vert aromatique et moelleux. Ingrédients : tofu soyeux, jeune riz gluant vert et lait de coco.',
+      fr: 'Version améliorée avec du jeune riz gluant vert aromatique et moelleux. Ingrédients : tofu soyeux (soja), jeune riz gluant vert et lait de coco.',
       vi: 'Phiên bản nâng cấp với hạt cốm xanh dẻo dẻo, thơm lừng. Thành phần gồm tàu hủ mềm mịn, cốm xanh dẻo thơm, nước cốt dừa.',
-      en: 'Upgraded version featuring chewy and aromatic green sticky rice flakes. Ingredients: silken tofu, green sticky rice flakes, and coconut milk.',
-      zh: '升级版本，加入软糯香甜的绿扁米。成分：嫩滑豆腐花、软糯绿扁米和椰奶。'
+      en: 'Upgraded version featuring chewy and aromatic young green sticky rice flakes. Ingredients: silken tofu (soy), green sticky rice flakes, and coconut milk.',
+      zh: '升级版本，加入软糯香甜的绿扁米。成分：嫩滑豆腐花（大豆）、软糯绿扁米和椰奶。'
     },
     tags: {
       fr: ['Riz Vert Cốm', 'Tofu Fondant', 'Lait de Coco', 'Unique'],
@@ -817,6 +871,8 @@ const MENU_ITEMS = [
       en: ['Young Green Rice', 'Silky Tofu', 'Coconut Cream', 'Aromatic'],
       zh: ['软糯青糯米', '细腻豆腐花', '浓郁椰浆', '层次分明']
     },
+    allergens: ['soy'],
+    dietary: ['vegan', 'vegetarian', 'gluten_free', 'dairy_free', 'pork_free', 'peanut_free_recipe'],
     image: 'assets/images/menu-dessert-n23.jpg'
   },
   {
@@ -849,6 +905,8 @@ const MENU_ITEMS = [
       en: ['Fresh Custard', 'Rich Caramel', 'Velvety Smooth', 'Classic'],
       zh: ['新鲜蛋奶', '浓郁焦糖', '丝滑口感', '经典甜品']
     },
+    allergens: ['egg', 'dairy'],
+    dietary: ['vegetarian', 'gluten_free', 'pork_free', 'peanut_free_recipe'],
     image: 'assets/images/menu-dessert-n24.jpg'
   },
   {
@@ -876,10 +934,18 @@ const MENU_ITEMS = [
       zh: '柔软细腻的奶冻块漂浮在清甜的冰糖水中。成分：香滑白玉奶冻、荔枝、杏仁片、清淡冰糖水和吉利丁。'
     },
     tags: {
-      fr: ['Khúc Bạch Pastel', 'Fruits Frais', 'Fraises & Mangue', 'Ultra Frais'],
-      vi: ['Khúc Bạch Cầu Vồng', 'Trái Cây Tươi', 'Dâu Tây & Xoài', 'Thanh Mát'],
-      en: ['Rainbow Panna Cotta', 'Fresh Fruits', 'Strawberry & Mango', 'Chilled'],
-      zh: ['彩虹奶酪冻', '丰富鲜果', '草莓芒果', '人气甜品']
+      fr: ['Khúc Bạch', 'Amandes Effilées', 'Litchi Frais', 'Ultra Frais'],
+      vi: ['Khúc Bạch', 'Hạnh Nhân Lát', 'Trái Vải', 'Thanh Mát'],
+      en: ['Almond Panna Cotta', 'Lychee', 'Sliced Almonds', 'Chilled'],
+      zh: ['白玉奶冻', '香脆杏仁片', '鲜甜荔枝', '人气甜品']
+    },
+    allergens: ['dairy', 'tree_nuts'],
+    dietary: ['gluten_free', 'peanut_free_recipe'],
+    customNote: {
+      fr: 'Contient des amandes effilées et de la gélatine.',
+      vi: 'Có hạnh nhân lát và gelatin.',
+      en: 'Contains sliced almonds & gelatin.',
+      zh: '含杏仁片与食用吉利丁。'
     },
     image: 'assets/images/menu-dessert-n25.jpg'
   },
@@ -913,6 +979,9 @@ const MENU_ITEMS = [
       en: ['20$/Box', 'Floral Jelly', 'Pandan & Coconut', 'To Share'],
       zh: ['20$/大盒', '立体花形', '斑斓椰香', '家庭分享']
     },
+    allergens: ['dairy'],
+    dietary: ['vegetarian', 'gluten_free', 'pork_free', 'peanut_free_recipe'],
+    portion: { fr: 'Boîte familiale · 4–6 pers.', vi: 'Hộp gia đình · 4–6 người', en: 'Family Box · 4–6 pers.', zh: '家庭大盒 · 4–6人份' },
     image: 'assets/images/menu-dessert-n26.jpg'
   },
   {
@@ -945,6 +1014,8 @@ const MENU_ITEMS = [
       en: ['Real Pomelo Rind', 'Green Sticky Rice', 'Crunchy', '100% Natural'],
       zh: ['真柚子肉', '清香青糯米', '爽脆可口', '天然纯手工']
     },
+    allergens: [],
+    dietary: ['vegan', 'vegetarian', 'gluten_free', 'dairy_free', 'pork_free', 'peanut_free_recipe'],
     image: 'assets/images/menu-dessert-n27.jpg'
   },
   {
@@ -977,6 +1048,8 @@ const MENU_ITEMS = [
       en: ['Real Pomelo', 'Mung Beans', 'Coconut Milk', 'Traditional'],
       zh: ['纯正真柚子', '脱皮绿豆', '现榨椰奶', '越式经典']
     },
+    allergens: [],
+    dietary: ['vegan', 'vegetarian', 'gluten_free', 'dairy_free', 'pork_free', 'peanut_free_recipe'],
     image: 'assets/images/menu-dessert-n28.jpg'
   },
   {
@@ -1009,6 +1082,8 @@ const MENU_ITEMS = [
       en: ['Red Dates', 'Lotus Seeds', 'Seaweed', 'Super Refreshing'],
       zh: ['养生清补', '红枣莲子', '桂圆龙眼', '清热解暑']
     },
+    allergens: [],
+    dietary: ['vegan', 'vegetarian', 'gluten_free', 'dairy_free', 'pork_free', 'peanut_free_recipe'],
     image: 'assets/images/menu-dessert-n29.jpg'
   },
   {
@@ -1041,6 +1116,8 @@ const MENU_ITEMS = [
       en: ['Green Grass Jelly', 'Black Grass Jelly', 'Real Pomelo Rind', 'Coconut Milk'],
       zh: ['天然绿草冻', '清爽仙草', '真柚子肉', '香浓椰浆']
     },
+    allergens: ['dairy'],
+    dietary: ['vegetarian', 'gluten_free', 'pork_free', 'peanut_free_recipe'],
     image: 'assets/images/menu-dessert-n30.jpg'
   },
   {
@@ -1063,7 +1140,7 @@ const MENU_ITEMS = [
     },
     desc: {
       fr: "L'acidité douce fermentée naturellement se marie parfaitement avec le fromage onctueux. Ingrédients : yaourt fermenté naturellement combiné à du fromage crémeux.",
-      vi: 'Vị chua thanh lên men tự nhiên hòa quyện hoàn hảo cùng phô mai béo mịn. Thành phần gồm sữa chua lên men tự nhiên kết hợp phô mai béo mịn.',
+      vi: 'Vị chua thanh lên men tự nhiên hòa quyện hoàn quyện cùng phô mai béo mịn. Thành phần gồm sữa chua lên men tự nhiên kết hợp phô mai béo mịn.',
       en: 'Natural fermented tanginess perfectly blended with creamy cheese. Ingredients: naturally fermented yogurt combined with creamy cheese.',
       zh: '天然发酵的清酸味与顺滑的芝士完美融合。成分：天然发酵酸奶结合浓郁芝士。'
     },
@@ -1073,6 +1150,8 @@ const MENU_ITEMS = [
       en: ['3$/Jar', 'House Yogurt', 'Cream Cheese', 'Probiotic'],
       zh: ['3$/杯', '手工酸奶', '浓郁芝士', '天然发酵']
     },
+    allergens: ['dairy'],
+    dietary: ['vegetarian', 'gluten_free', 'pork_free', 'peanut_free_recipe'],
     image: 'assets/images/menu-dessert-sua-chua.jpg'
   },
   {
@@ -1096,7 +1175,7 @@ const MENU_ITEMS = [
     desc: {
       fr: 'Boisson rustique et rafraîchissante, très efficace pour se désaltérer. Ingrédients : sève de sterculia croquante et gomme de kapok rafraîchissante.',
       vi: 'Thức uống mộc mạc, nhai dòn dai vui miệng, giải nhiệt cực tốt. Thành phần gồm mủ trôm dòn dai, mủ gòn thanh mát.',
-      en: 'A rustic, thirst-quenching drink with fun-to-chew jelly-like textures. Ingredients: crunchy sterculia gum and refreshing kapok gum.',
+      en: 'A rustic, thirst-quenching botanical drink with fun-to-chew natural plant jelly textures. Ingredients: crunchy sterculia gum and refreshing kapok gum.',
       zh: '纯朴的天然解渴饮品，具有有趣的咀嚼口感，非常适合消暑。成分：爽脆胖大海树胶与清凉雪燕（木棉树胶）。'
     },
     tags: {
@@ -1105,6 +1184,8 @@ const MENU_ITEMS = [
       en: ['Sterculia Gum', 'Kapok Gum', 'Thirst Quencher', 'Healthy'],
       zh: ['爽脆树胶', '天然雪燕', '清凉消暑', '润喉生津']
     },
+    allergens: [],
+    dietary: ['vegan', 'vegetarian', 'gluten_free', 'dairy_free', 'pork_free', 'peanut_free_recipe'],
     image: 'assets/images/menu-dessert-mu-trom.jpg'
   },
 
@@ -1187,6 +1268,8 @@ const MENU_ITEMS = [
       en: ['Box of 3 ($8)', 'Box of 6 ($15)', '100% Fresh Pandan', 'Weekends Only'],
       zh: ['3个装 8$', '6个装 15$', '100%鲜榨斑斓', '周末供应']
     },
+    allergens: [],
+    dietary: ['vegan', 'vegetarian', 'gluten_free', 'dairy_free', 'pork_free', 'peanut_free_recipe'],
     image: 'assets/images/menu-banh-da-lon.jpg'
   },
   {
@@ -1267,6 +1350,8 @@ const MENU_ITEMS = [
       en: ['Box of 3 ($10)', 'Box of 5 ($15)', '100% Fresh Pandan', 'Weekends Only'],
       zh: ['3个装 10$', '5个装 15$', '100%鲜榨斑斓', '周末供应']
     },
+    allergens: [],
+    dietary: ['vegan', 'vegetarian', 'gluten_free', 'dairy_free', 'pork_free', 'peanut_free_recipe'],
     image: 'assets/images/menu-banh-xu-xue.jpg'
   }
 ];
