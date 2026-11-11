@@ -315,6 +315,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initNavbar();
   initViewRouter();
   initHeroSlider();
+  initHeroCinema();
   renderHomeFeaturedDishes();
   renderMenu(currentCategory);
   initMenuTabs();
@@ -623,6 +624,7 @@ function switchLanguage(lang) {
   localStorage.setItem('patisserie_dzung_lang', lang);
   updateLanguageUI(lang);
   applyTranslations(lang);
+  syncHeroCinemaUI(lang);
   renderHomeFeaturedDishes();
   renderMenu(currentCategory);
   renderGallery(currentGalleryFilter);
@@ -797,6 +799,119 @@ function initHeroSlider() {
   }
 
   startAutoSlide();
+}
+
+/* ==========================================================================
+   3B. HERO LIVING CINEMA CONTROLS (SOUND TOGGLE & LIGHTBOX)
+   ========================================================================== */
+function syncHeroCinemaUI(lang = currentLang) {
+  const video = document.getElementById('hero-cinema-video');
+  const soundBtn = document.getElementById('hero-sound-btn');
+  const expandBtn = document.getElementById('hero-fullscreen-btn');
+  if (!video || !soundBtn) return;
+
+  const t = (typeof TRANSLATIONS !== 'undefined' && TRANSLATIONS[lang]) ? TRANSLATIONS[lang] : {};
+  const isUnmuted = !video.muted;
+  const iconEl = soundBtn.querySelector('.dz-cinema-btn-icon');
+  const labelEl = document.getElementById('hero-sound-label');
+
+  soundBtn.setAttribute('aria-pressed', isUnmuted ? 'true' : 'false');
+  soundBtn.setAttribute(
+    'aria-label',
+    isUnmuted
+      ? (t.hero_cinema_sound_aria_off || 'Couper le son de la vidéo')
+      : (t.hero_cinema_sound_aria_on || 'Activer le son de la vidéo')
+  );
+
+  if (iconEl) iconEl.textContent = isUnmuted ? '🔊' : '🔇';
+  if (labelEl) {
+    labelEl.textContent = isUnmuted
+      ? (t.hero_cinema_sound_on || 'Muet')
+      : (t.hero_cinema_sound_off || 'Son');
+  }
+
+  if (expandBtn && t.hero_cinema_expand_aria) {
+    expandBtn.setAttribute('aria-label', t.hero_cinema_expand_aria);
+  }
+}
+
+function initHeroCinema() {
+  const heroVideo = document.getElementById('hero-cinema-video');
+  const soundBtn = document.getElementById('hero-sound-btn');
+  const expandBtn = document.getElementById('hero-fullscreen-btn');
+  const modal = document.getElementById('hero-video-modal');
+  const modalVideo = document.getElementById('hero-modal-video');
+  const modalCloseBtn = document.getElementById('hero-modal-close-btn');
+
+  if (!heroVideo) return;
+
+  // Ensure muted inline autoplay reliably starts on mobile Safari & Chromium
+  heroVideo.muted = true;
+  heroVideo.playsInline = true;
+  const playPromise = heroVideo.play();
+  if (playPromise && typeof playPromise.catch === 'function') {
+    playPromise.catch(() => {
+      // Autoplay blocked cleanly falls back to the frame-0 crisp poster image
+    });
+  }
+
+  syncHeroCinemaUI(currentLang);
+
+  if (soundBtn) {
+    soundBtn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      heroVideo.muted = !heroVideo.muted;
+      if (heroVideo.paused) {
+        heroVideo.play().catch(() => {});
+      }
+      syncHeroCinemaUI(currentLang);
+    });
+  }
+
+  if (expandBtn && modal && modalVideo) {
+    expandBtn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      const targetTime = Number.isFinite(heroVideo.currentTime) ? heroVideo.currentTime : 0;
+      heroVideo.pause();
+
+      modalVideo.muted = false;
+      try {
+        modalVideo.currentTime = targetTime;
+      } catch (_) {
+        // Ignore seek failure before metadata settles
+      }
+
+      if (!modal.open && typeof modal.showModal === 'function') {
+        modal.showModal();
+      }
+      modalVideo.play().catch(() => {});
+    });
+  }
+
+  if (modalCloseBtn && modal) {
+    modalCloseBtn.addEventListener('click', () => modal.close());
+  }
+
+  if (modal) {
+    modal.addEventListener('close', () => {
+      if (modalVideo) modalVideo.pause();
+      heroVideo.play().catch(() => {});
+    });
+
+    if (!('closedBy' in HTMLDialogElement.prototype)) {
+      modal.addEventListener('click', (event) => {
+        if (event.target !== modal) return;
+        const rect = modal.getBoundingClientRect();
+        const isInside = (
+          rect.top <= event.clientY &&
+          event.clientY <= rect.top + rect.height &&
+          rect.left <= event.clientX &&
+          event.clientX <= rect.left + rect.width
+        );
+        if (!isInside) modal.close();
+      });
+    }
+  }
 }
 
 function setDishOption(dishId, choiceId) {

@@ -234,28 +234,49 @@
             </div>
           </div>
 
-          <!-- Right Photo Frame with Artisan Wax Seal Medallion -->
+          <!-- Right Living Cinema Video Frame with Artisan Wax Seal Medallion -->
           <div class="lk-hero-media dz-hero-media">
             <div class="lk-hero-frame dz-hero-frame">
-              <div class="hero-slider-container">
-                <div class="hero-slide active">
-                  <img src="assets/images/hero-dzung-store.jpg" alt="Le Grand Festin de Saigon chez Pâtisserie Dzung Brossard" width="1200" height="900" fetchpriority="high" />
-                </div>
-                <div class="hero-slide">
-                  <img src="assets/images/hero-dzung-food.jpg" alt="Bánh Mì croustillants et spécialités vietnamiennes Pâtisserie Dzung" width="1200" height="900" fetchpriority="low" loading="lazy" />
-                </div>
-                <div class="hero-slide">
-                  <img src="assets/images/hero-dzung-store2.jpg" alt="Espace chaleureux Pâtisserie Dzung au 5918 Avenue Auteuil" width="1200" height="900" fetchpriority="low" loading="lazy" />
-                </div>
-              </div>
-              <div class="lk-hero-slider-nav">
-                <button type="button" class="hero-arrow-btn hero-prev-btn" aria-label="Photo précédente">&#10094;</button>
-                <button type="button" class="hero-arrow-btn hero-next-btn" aria-label="Photo suivante">&#10095;</button>
+              <div class="dz-hero-cinema-wrap">
+                <video
+                  id="hero-cinema-video"
+                  class="dz-hero-video"
+                  autoplay
+                  muted
+                  loop
+                  playsinline
+                  preload="auto"
+                  width="1200"
+                  height="990"
+                  poster="assets/images/hero-cinema-poster.jpg"
+                >
+                  <source src="assets/videos/patisseriedzung-hero-cinema.mp4" type="video/mp4" />
+                </video>
               </div>
 
-              <!-- Bakery Caption Ribbon at Bottom of Image -->
+              <!-- Bakery Caption Ribbon + Cinema Controls at Bottom of Frame -->
               <div class="dz-hero-photo-ribbon">
-                <span data-i18n="hero_ribbon_caption">🥖 Baguettes fraîches livrées chaque jour de Montréal, dorées minute</span>
+                <span class="dz-hero-ribbon-text" data-i18n="hero_ribbon_caption">🥖 Baguettes fraîches livrées chaque jour de Montréal, dorées minute</span>
+                <div class="dz-hero-cinema-controls">
+                  <button
+                    type="button"
+                    id="hero-sound-btn"
+                    class="dz-cinema-pill-btn"
+                    aria-pressed="false"
+                    aria-label="Activer le son de la vidéo"
+                  >
+                    <span class="dz-cinema-btn-icon" aria-hidden="true">🔇</span>
+                    <span class="dz-cinema-btn-label" id="hero-sound-label" data-i18n="hero_cinema_sound_off">Son</span>
+                  </button>
+                  <button
+                    type="button"
+                    id="hero-fullscreen-btn"
+                    class="dz-cinema-pill-btn dz-cinema-pill-expand"
+                    aria-label="Voir la vidéo en grand format"
+                  >
+                    <span class="dz-cinema-btn-icon" aria-hidden="true">⛶</span>
+                  </button>
+                </div>
               </div>
             </div>
 
@@ -1215,6 +1236,38 @@
         <h4 class="lightbox-title" id="lightbox-caption-title">Pâtisserie Dzung</h4>
         <p class="lightbox-desc" id="lightbox-caption-desc"></p>
         <div class="lightbox-thumbs" id="lightbox-thumbs"></div>
+      </div>
+    </div>
+  </dialog>
+
+  <!-- ==========================================================================
+       MODAL 3B: HERO LIVING CINEMA LIGHTBOX DIALOG
+       ========================================================================== -->
+  <dialog id="hero-video-modal" class="gallery-lightbox-dialog hero-video-dialog" closedby="any" aria-labelledby="hero-modal-title">
+    <div class="lightbox-shell">
+      <div class="lightbox-topbar">
+        <span class="lightbox-badge" data-i18n="hero_modal_badge">🎬 CINÉMA MAISON DZUNG · BROSSARD</span>
+        <button type="button" class="lightbox-close-btn" id="hero-modal-close-btn" aria-label="Fermer">&times;</button>
+      </div>
+
+      <div class="lightbox-stage hero-video-stage">
+        <video
+          id="hero-modal-video"
+          class="hero-modal-video-el"
+          controls
+          loop
+          playsinline
+          preload="metadata"
+          width="1200"
+          height="990"
+          poster="assets/images/hero-cinema-poster.jpg"
+        >
+          <source src="assets/videos/patisseriedzung-hero-cinema.mp4" type="video/mp4" />
+        </video>
+      </div>
+
+      <div class="lightbox-footer">
+        <h4 class="lightbox-title" id="hero-modal-title" data-i18n="hero_modal_title">Du four croustillant au Cà Phê Sữa Đá — FR · EN · VI</h4>
       </div>
     </div>
   </dialog>
