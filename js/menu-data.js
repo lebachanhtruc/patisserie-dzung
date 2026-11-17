@@ -182,7 +182,45 @@ const MENU_ITEMS = [
     image: 'assets/images/menu-banh-mi-n5-thit-nuong.jpg'
   },
 
-  // 🍢 ĐỒ ĂN VẶT ĐƯỜNG PHỐ (STREET FOOD & SNACKS - 4 MÓN CHÍNH THỨC)
+  // 🔥 MÓN NÓNG (PLATS CHAUDS / HOT DISHES - 1 MÓN ĐẶC BIỆT)
+  {
+    id: 'hot-xoi-ga',
+    category: 'hot',
+    price: 20,
+    priceDisplay: '20$',
+    badge: 'hot',
+    badgeText: {
+      fr: '🔥 Plat Chaud · Nouveau',
+      vi: '🔥 Món Nóng · Mới',
+      en: '🔥 Hot Dish · New',
+      zh: '🔥 特色热菜 · 新品'
+    },
+    name: {
+      fr: 'Xôi Gà Mắm Nhĩ · Riz Gluant Poulet Caramélisé',
+      vi: 'Xôi Gà Mắm Nhĩ',
+      en: 'Xôi Gà Mắm Nhĩ · Sticky Rice & Fish Sauce Chicken',
+      zh: '极品鱼露焖鸡糯米饭（Xôi Gà Mắm Nhĩ）'
+    },
+    desc: {
+      fr: 'Plat chaud préparé à la commande : cuisse de poulet dorée et caramélisée dans notre glaçage maison au nước mắm nhĩ grand cru, servie sur riz gluant parfumé moelleux avec légumes marinés (đồ chua), coriandre fraîche et ciboulette.',
+      vi: 'Món nóng phục vụ nóng hổi: đùi gà góc tư rim nước mắm nhĩ thượng hạng óng ánh đậm đà, đặt trên xôi nếp dẻo thơm thấm đẫm sốt mắm nhĩ, ăn kèm đồ chua củ cải cà rốt giòn thanh, ngò rí và hành lá.',
+      en: 'Served piping hot: tender whole chicken leg quarter glazed in caramelized first-press fish sauce (nước mắm nhĩ), nestled over fragrant steamed sticky rice with crunchy pickled daikon & carrot, cilantro, and scallions.',
+      zh: '热气腾腾现做呈献：整只鸡腿以特调头道鱼露慢火焖至油亮焦香，铺在软糯弹牙的香蒸糯米饭上，佐以爽脆酸白红萝卜丝、鲜香菜与翠绿葱花。'
+    },
+    tags: {
+      fr: ['20$ · Plat Chaud', 'Glaçage Mắm Nhĩ', 'Riz Gluant Moelleux'],
+      vi: ['20$ · Món Nóng', 'Gà Rim Mắm Nhĩ', 'Xôi Nếp Dẻo'],
+      en: ['$20 · Hot Dish', 'Fish Sauce Glaze', 'Sticky Rice'],
+      zh: ['20$ · 热食', '头道鱼露鸡腿', '软糯香米饭']
+    },
+    allergens: ['fish'],
+    dietary: ['peanut_free_recipe', 'pork_free', 'dairy_free'],
+    portion: { fr: 'Bol généreux chaud', vi: 'Tô lớn nóng hổi', en: 'Hearty hot bowl', zh: '热腾腾大碗装' },
+    videoReel: 'gal-reel-xoi-ga',
+    image: 'assets/images/menu-hot-xoi-ga.jpg'
+  },
+
+  // 🍢 ĐỒ ĂN VẶT ĐƯỜNG PHỐ (STREET FOOD & SNACKS - 5 MÓN CHÍNH THỨC)
   {
     id: 'sn-n10',
     category: 'streetfood',

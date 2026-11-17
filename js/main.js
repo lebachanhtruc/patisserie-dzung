@@ -125,6 +125,33 @@ const GALLERY_ITEMS = [
     }
   },
   {
+    id: 'gal-reel-xoi-ga',
+    type: 'video',
+    category: 'videos',
+    src: 'assets/videos/xoi-ga-mam-nhi-reel.mp4',
+    poster: 'assets/images/xoi-ga-mam-nhi-poster.jpg',
+    width: 720,
+    height: 1280,
+    badge: {
+      fr: '🔥 Plat Chaud · Reel 20s',
+      vi: '🔥 Món Nóng Mới · Reel 20s',
+      en: '🔥 Hot Dish · 20s Reel',
+      zh: '🔥 特色热菜 · 20秒视频'
+    },
+    title: {
+      fr: 'Xôi Gà Mắm Nhĩ · Riz Gluant Poulet Caramélisé ($20)',
+      vi: 'Xôi Gà Mắm Nhĩ Đậm Đà ($20)',
+      en: 'Xôi Gà Mắm Nhĩ · Sticky Rice Fish Sauce Chicken ($20)',
+      zh: '极品鱼露焖鸡糯米饭 Xôi Gà Mắm Nhĩ ($20)'
+    },
+    desc: {
+      fr: 'Vidéo 9:16 : cuisse de poulet dorée caramélisée au nước mắm nhĩ première pression sur riz gluant parfumé, légumes marinés et coriandre fraîche.',
+      vi: 'Video dọc 9:16 : đùi gà rim mắm nhĩ óng ánh phục vụ nóng hổi trên xôi nếp dẻo thấm sốt, kèm đồ chua và hành ngò tươi.',
+      en: 'Vertical 9:16 reel: glossy first-press fish sauce caramelized chicken leg over warm sticky rice with pickled veggies and fresh herbs.',
+      zh: '竖版 9:16 短视频：头道鱼露焦香焖鸡腿配热蒸软糯米饭、酸脆萝卜丝与鲜香菜。'
+    }
+  },
+  {
     id: 'gal-store-feast',
     type: 'featured',
     category: 'ambiance',
@@ -762,7 +789,7 @@ function updateLanguageUI(lang) {
 function applyTranslations(lang) {
   if (typeof TRANSLATIONS === 'undefined' || !TRANSLATIONS[lang]) return;
   const t = TRANSLATIONS[lang];
-  const menuCount = typeof MENU_ITEMS !== 'undefined' ? String(MENU_ITEMS.length) : '34';
+  const menuCount = typeof MENU_ITEMS !== 'undefined' ? String(MENU_ITEMS.length) : '35';
 
   if (t.page_title) {
     document.title = t.page_title;
@@ -1311,11 +1338,15 @@ function buildDishCardHtml(item, btnAddText) {
     `;
   }
 
+  const reelBtnLabel = (typeof TRANSLATIONS !== 'undefined' && TRANSLATIONS[currentLang] && TRANSLATIONS[currentLang].dish_watch_reel) || '▶ Video 20s';
+  const reelShortText = reelBtnLabel.replace(/^▶\s*/, '');
+
   return `
     <div class="dish-card" data-category="${item.category}" data-dish-id="${item.id}">
       <div class="dish-image-wrapper">
         <img class="dish-img" src="${item.image}" alt="${name}" loading="lazy" onerror="this.src='assets/images/hero-dzung-food.jpg'" />
         ${item.badge && badgeText ? `<span class="dish-badge ${item.badge}">${badgeText}</span>` : ''}
+        ${item.videoReel ? `<button type="button" class="dish-reel-pill" onclick="event.stopPropagation(); openDishVideoReel('${item.videoReel}')" aria-label="${name} — ${reelBtnLabel}"><span aria-hidden="true">▶</span><span class="dish-reel-label"> ${reelShortText}</span></button>` : ''}
       </div>
       <div class="dish-info">
         <div>
@@ -1540,7 +1571,7 @@ function syncMenuTabsToggleLabel() {
   const t = (typeof TRANSLATIONS !== 'undefined' && TRANSLATIONS[currentLang]) || {};
   const label = isExpanded
     ? (t.menu_cats_collapse || 'Thu gọn ▴')
-    : (t.menu_cats_expand || 'Xem cả 6 ▾');
+    : (t.menu_cats_expand || 'Xem cả 7 ▾');
   const span = btn.querySelector('span');
   if (span) {
     span.setAttribute('data-i18n', isExpanded ? 'menu_cats_collapse' : 'menu_cats_expand');
@@ -1785,9 +1816,23 @@ function initGallery() {
   });
 }
 
+function openDishVideoReel(reelId) {
+  currentGalleryFilter = 'all';
+  document.querySelectorAll('.gallery-filter-btn').forEach(b => {
+    b.classList.toggle('active', b.getAttribute('data-gallery-filter') === 'all');
+  });
+  trackEvent('reel_play', { item: reelId, source: 'menu_card', lang: currentLang });
+  openGalleryLightbox(reelId);
+}
+
 function openGalleryLightbox(itemId) {
-  const items = getFilteredGalleryItems(currentGalleryFilter);
-  const idx = items.findIndex(i => i.id === itemId);
+  let items = getFilteredGalleryItems(currentGalleryFilter);
+  let idx = items.findIndex(i => i.id === itemId);
+  if (idx < 0 && currentGalleryFilter !== 'all') {
+    currentGalleryFilter = 'all';
+    items = getFilteredGalleryItems('all');
+    idx = items.findIndex(i => i.id === itemId);
+  }
   currentLightboxIndex = idx >= 0 ? idx : 0;
   updateLightboxView();
 
