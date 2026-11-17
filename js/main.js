@@ -3,9 +3,11 @@
  * Multilingual Engine (fr default, vi, en, zh), Slider, Menu Filter, Cart & Reservation
  */
 
+const MOBILE_MENU_BREAKPOINT_PX = 820;
 let currentLang = 'fr'; // DEFAULT LANGUAGE: French as requested
 let currentView = 'home';
 let currentMenuDisplayMode = 'deli';
+let hasUserSelectedMenuMode = false;
 let currentCategory = 'all';
 let currentDietaryFilter = 'all';
 let currentOrderDishId = null;
@@ -361,6 +363,7 @@ const GALLERY_ITEMS = [
 document.addEventListener('DOMContentLoaded', () => {
   initLanguage();
   initNavbar();
+  initMenuDisplayMode();
   initViewRouter();
   initHeroSlider();
   initHeroCinema();
@@ -1036,7 +1039,15 @@ function setDishOption(dishId, choiceId) {
 /* ==========================================================================
    4. MENU FILTER, DELI MENU-BOARD & HOME CURATED FAVORITES
    ========================================================================== */
-function setMenuDisplayMode(mode) {
+/** Return 'cards' (large photo cards) by default on mobile viewports, 'deli' on desktop. */
+function getDefaultMenuDisplayMode() {
+  return window.matchMedia(`(max-width: ${MOBILE_MENU_BREAKPOINT_PX}px)`).matches ? 'cards' : 'deli';
+}
+
+function setMenuDisplayMode(mode, isUserAction = true) {
+  if (isUserAction) {
+    hasUserSelectedMenuMode = true;
+  }
   currentMenuDisplayMode = mode === 'cards' ? 'cards' : 'deli';
   const menuContainer = document.getElementById('menu-items-grid');
   const btnDeli = document.getElementById('btn-layout-deli');
@@ -1048,9 +1059,25 @@ function setMenuDisplayMode(mode) {
   }
   if (btnDeli) {
     btnDeli.classList.toggle('active', currentMenuDisplayMode === 'deli');
+    btnDeli.setAttribute('aria-pressed', String(currentMenuDisplayMode === 'deli'));
   }
   if (btnCards) {
     btnCards.classList.toggle('active', currentMenuDisplayMode === 'cards');
+    btnCards.setAttribute('aria-pressed', String(currentMenuDisplayMode === 'cards'));
+  }
+}
+
+function initMenuDisplayMode() {
+  setMenuDisplayMode(getDefaultMenuDisplayMode(), false);
+
+  const mobileMq = window.matchMedia(`(max-width: ${MOBILE_MENU_BREAKPOINT_PX}px)`);
+  const handleViewportChange = () => {
+    if (!hasUserSelectedMenuMode) {
+      setMenuDisplayMode(getDefaultMenuDisplayMode(), false);
+    }
+  };
+  if (typeof mobileMq.addEventListener === 'function') {
+    mobileMq.addEventListener('change', handleViewportChange);
   }
 }
 
