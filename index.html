@@ -738,13 +738,25 @@
         <!-- Sticky Category Filter Bar + Deli Board Toggle -->
         <div class="lk-menu-sticky-bar">
           <div class="container lk-menu-bar-inner">
-            <div class="menu-tabs-wrapper">
-              <button class="menu-tab-btn active" data-category="all" data-i18n="tab_all">Tous les plats</button>
-              <button class="menu-tab-btn" data-category="banhmi" data-i18n="tab_banhmi">🥖 Bánh Mì</button>
-              <button class="menu-tab-btn" data-category="streetfood" data-i18n="tab_streetfood">🍢 Street Food &amp; Snacks</button>
-              <button class="menu-tab-btn" data-category="drinks" data-i18n="tab_drinks">☕ Boissons</button>
-              <button class="menu-tab-btn" data-category="desserts" data-i18n="tab_desserts">🍧 Desserts</button>
-              <button class="menu-tab-btn" data-category="rolls" data-i18n="tab_rolls">🥮 Pâtisseries Traditionnelles VN</button>
+            <div class="menu-tabs-shell" id="menu-tabs-shell">
+              <div class="menu-tabs-meta-row">
+                <span class="menu-tabs-hint" data-i18n="menu_cats_hint">✦ 6 catégories (34 plats) · Glisser →</span>
+                <button type="button" class="menu-cats-toggle-btn" id="btn-toggle-all-cats" onclick="toggleMenuTabsExpanded()" aria-expanded="false" aria-controls="menu-tabs-list">
+                  <span data-i18n="menu_cats_expand">Voir les 6 ▾</span>
+                </button>
+              </div>
+              <div class="menu-tabs-scroll-wrap">
+                <button type="button" class="menu-tabs-arrow is-left" id="menu-tabs-prev" onclick="scrollMenuTabs(-1)" aria-label="Défiler les catégories vers la gauche">&#8249;</button>
+                <div class="menu-tabs-wrapper" id="menu-tabs-list">
+                  <button class="menu-tab-btn active" data-category="all"><span data-i18n="tab_all">Tous les plats</span> <span class="menu-tab-count"></span></button>
+                  <button class="menu-tab-btn" data-category="banhmi"><span data-i18n="tab_banhmi">🥖 Bánh Mì</span> <span class="menu-tab-count"></span></button>
+                  <button class="menu-tab-btn" data-category="streetfood"><span data-i18n="tab_streetfood">🍢 Street Food &amp; Snacks</span> <span class="menu-tab-count"></span></button>
+                  <button class="menu-tab-btn" data-category="drinks"><span data-i18n="tab_drinks">☕ Boissons</span> <span class="menu-tab-count"></span></button>
+                  <button class="menu-tab-btn" data-category="desserts"><span data-i18n="tab_desserts">🍧 Desserts</span> <span class="menu-tab-count"></span></button>
+                  <button class="menu-tab-btn" data-category="rolls"><span data-i18n="tab_rolls">🥮 Pâtisseries Traditionnelles VN</span> <span class="menu-tab-count"></span></button>
+                </div>
+                <button type="button" class="menu-tabs-arrow is-right" id="menu-tabs-next" onclick="scrollMenuTabs(1)" aria-label="Défiler les catégories vers la droite">&#8250;</button>
+              </div>
             </div>
 
             <div class="lk-menu-layout-switch" role="group" aria-label="Mode d'affichage du menu">
