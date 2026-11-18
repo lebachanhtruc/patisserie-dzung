@@ -101,27 +101,27 @@ const GALLERY_ITEMS = [
     id: 'gal-reel-bap-xao',
     type: 'video',
     category: 'videos',
-    src: 'assets/videos/bap-xao-coming-soon-reel.mp4',
+    src: 'assets/videos/bap-xao-reel.mp4',
     poster: 'assets/images/bap-xao-reel-poster.jpg',
     width: 720,
     height: 1280,
     badge: {
-      fr: '🎬 Reel 20s · Bientôt disponible',
-      vi: '🎬 Reel 20s · Sắp Ra Mắt',
-      en: '🎬 20s Reel · Coming Soon',
-      zh: '🎬 20秒短视频 · 即将上线'
+      fr: '🎬 Reel 20s · 12$ · Plat Chaud',
+      vi: '🎬 Reel 20s · 12$ · Món Nóng',
+      en: '🎬 20s Reel · $12 · Hot Dish',
+      zh: '🎬 20秒短视频 · 12$ · 热食'
     },
     title: {
-      fr: 'Maïs Sauté Beurre, Œuf Salé & Couennes Dorées (Teaser)',
-      vi: 'Bắp Xào Bơ Tép Khô, Trứng Muối & Da Heo Giòn (Teaser)',
-      en: 'Sizzling Salted Egg Corn & Crispy Pork Rinds (Teaser)',
-      zh: '咸蛋黄黄油炒玉米配香脆炸猪皮（抢先看）'
+      fr: 'Maïs Sauté Beurre, Crevettes Séchées & Couennes Dorées (12$)',
+      vi: 'Bắp Xào Bơ Tép Khô & Da Heo Giòn (12$)',
+      en: 'Sizzling Saigon Butter Corn & Crispy Pork Rinds ($12)',
+      zh: '西贡黄油虾米脆猪皮炒玉米（12$）'
     },
     desc: {
-      fr: 'Vidéo 9:16 (FR / EN) : maïs sauté au beurre, œuf salé, crevettes séchées, ciboulette et couennes de porc croustillantes.',
-      vi: 'Video dọc 9:16 song ngữ FR/EN : bắp xào bơ thơm, tép khô, trứng muối, hành lá và topping da heo giòn rụm sắp ra mắt.',
-      en: 'Vertical 9:16 reel (FR / EN): sweet corn stir-fried with butter, dried shrimp, salted egg yolk, scallions, and crispy pork rinds.',
-      zh: '竖版 9:16 双语短视频：黄油炒玉米融合虾米、咸蛋黄、葱花与脆猪皮碎。'
+      fr: 'Vidéo 9:16 (FR / EN) · 12$ : maïs doux doré au wok avec beurre à l’ail, crevettes séchées, ciboulette, couennes de porc croustillantes et sauce saté maison. Préparé chaud en ~15 min (appelez ~1 h avant pour éviter l’attente).',
+      vi: 'Video dọc 9:16 (FR / EN) · 12$ : bắp Mỹ xào bơ tỏi thơm ngậy, tép khô rang, hành lá, da heo nổ giòn rụm và sốt sa tế nhà làm. Xào nóng trong ~15 phút tại tiệm (khuyên gọi đặt trước ~1 tiếng).',
+      en: 'Vertical 9:16 reel (FR / EN) · $12: sweet golden corn wok-tossed in garlic butter with dried shrimp, scallions, crunchy puffed pork rinds, and house chili saté. Cooked fresh hot in ~15 min (1h call-ahead recommended).',
+      zh: '竖版 9:16 短视频 (FR / EN) · 12$：蒜蓉黄油大火现炒玉米粒，配虾米、葱花、酥脆猪皮与秘制微辣沙茶酱。到店现炒约 15 分钟（建议提前 1 小时致电预订）。'
     }
   },
   {
@@ -789,7 +789,7 @@ function updateLanguageUI(lang) {
 function applyTranslations(lang) {
   if (typeof TRANSLATIONS === 'undefined' || !TRANSLATIONS[lang]) return;
   const t = TRANSLATIONS[lang];
-  const menuCount = typeof MENU_ITEMS !== 'undefined' ? String(MENU_ITEMS.length) : '35';
+  const menuCount = typeof MENU_ITEMS !== 'undefined' ? String(MENU_ITEMS.length) : '36';
 
   if (t.page_title) {
     document.title = t.page_title;
@@ -1153,7 +1153,7 @@ function buildDishMetaHtml(item) {
 function renderBapXaoAllergens() {
   const container = document.getElementById('bap-xao-allergens');
   if (!container) return;
-  container.innerHTML = buildAllergenChipsHtml(['shellfish', 'egg', 'dairy', 'pork'], []);
+  container.innerHTML = buildAllergenChipsHtml(['dairy', 'shellfish', 'pork', 'spicy'], []);
 }
 
 let lazyMediaObserver = null;
@@ -1264,7 +1264,7 @@ function toggleTeaserReelPlay() {
   if (video.paused || video.ended) {
     video.muted = false;
     video.play().catch(() => {});
-    trackEvent('reel_play', { item: 'bap-xao-coming-soon', source: 'home_teaser', lang: currentLang });
+    trackEvent('reel_play', { item: 'hot-bap-xao', source: 'home_teaser', lang: currentLang });
   } else {
     video.pause();
   }
@@ -1281,7 +1281,7 @@ function openReelInGallery() {
   });
   renderGallery('videos');
   openGalleryLightbox('gal-reel-bap-xao');
-  trackEvent('reel_play', { item: 'bap-xao-coming-soon', source: 'gallery_lightbox', lang: currentLang });
+  trackEvent('reel_play', { item: 'hot-bap-xao', source: 'gallery_lightbox', lang: currentLang });
 }
 
 function buildDishCardHtml(item, btnAddText) {

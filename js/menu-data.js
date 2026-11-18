@@ -182,7 +182,7 @@ const MENU_ITEMS = [
     image: 'assets/images/menu-banh-mi-n5-thit-nuong.jpg'
   },
 
-  // 🔥 MÓN NÓNG (PLATS CHAUDS / HOT DISHES - 1 MÓN ĐẶC BIỆT)
+  // 🔥 MÓN NÓNG (PLATS CHAUDS / HOT DISHES - 2 MÓN ĐẶC BIỆT)
   {
     id: 'hot-xoi-ga',
     category: 'hot',
@@ -218,6 +218,53 @@ const MENU_ITEMS = [
     portion: { fr: 'Bol généreux chaud', vi: 'Tô lớn nóng hổi', en: 'Hearty hot bowl', zh: '热腾腾大碗装' },
     videoReel: 'gal-reel-xoi-ga',
     image: 'assets/images/menu-hot-xoi-ga.jpg'
+  },
+  {
+    id: 'hot-bap-xao',
+    category: 'hot',
+    price: 12,
+    priceDisplay: '12$',
+    badge: 'hot',
+    badgeText: {
+      fr: '🔥 Plat Chaud · Nouveau',
+      vi: '🔥 Món Nóng · Mới',
+      en: '🔥 Hot Dish · New',
+      zh: '🔥 特色热菜 · 新品'
+    },
+    name: {
+      fr: 'Maïs Sauté au Beurre, Crevettes Séchées & Couennes Croustillantes',
+      vi: 'Bắp Xào Bơ Tép Khô & Da Heo Giòn',
+      en: 'Sizzling Saigon Butter Corn & Crispy Pork Rinds',
+      zh: '西贡黄油虾米脆猪皮炒玉米'
+    },
+    desc: {
+      fr: "Un grand classique de la street food de Saigon préparé chaud à la commande : maïs doux doré au wok avec beurre parfumé à l'ail, crevettes séchées savoureuses, ciboulette fraîche et généreux topping de couennes de porc soufflées ultra-croustillantes — servi avec notre sauce saté maison légèrement pimentée. Pas besoin de réserver 24h à l'avance (~15 min de préparation chaude sur place).",
+      vi: 'Hương vị đường phố Sài Gòn nóng hổi giữa lòng Brossard : từng hạt bắp Mỹ ngọt dẻo xào thơm lừng cùng bơ tỏi béo ngậy, quyện tép khô rang đậm vị, hành lá xanh tươi và topping da heo nổ giòn rụm, ăn kèm chén sốt sa tế nhà làm cay nhẹ cực cuốn. Không cần đặt trước 24h — gọi tại tiệm xào nóng ~15 phút (khuyên gọi đặt trước 1 tiếng).',
+      en: 'A true Saigon street-food favorite freshly wok-tossed to warm perfection: sweet golden corn glazed in fragrant garlic butter with savory dried shrimp, crisp green scallions, crunchy puffed pork rinds, and a side of house-made chili saté sauce. No 24h pre-order required (~15 min freshly wok-tossed when ordered in-store).',
+      zh: '地道西贡街头热食，鲜甜玉米粒搭配浓香蒜蓉黄油、鲜味虾米、翠绿葱花与现炸香脆猪皮碎，淋上秘制微辣沙茶酱。无需提前 24 小时预订，到店下单现炒约 15 分钟出锅（建议提前约 1 小时致电预订免久等）。'
+    },
+    tags: {
+      fr: ['12$ · Plat Chaud', 'Prêt en ~15 min', 'Sans Arachides'],
+      vi: ['12$ · Món Nóng', 'Xào Nóng 15 Phút', 'Không Đậu Phộng'],
+      en: ['$12 · Hot Dish', 'Fresh ~15 Min', 'Peanut-Free'],
+      zh: ['12$ · 热食', '现炒约15分钟', '无花生']
+    },
+    allergens: ['dairy', 'shellfish', 'pork', 'spicy'],
+    dietary: ['peanut_free_recipe'],
+    portion: {
+      fr: 'Boîte chaude généreuse',
+      vi: 'Hộp lớn nóng hổi',
+      en: 'Hot generous box',
+      zh: '热腾腾大份装'
+    },
+    customNote: {
+      fr: 'Sans précommande 24h : préparé chaud en ~15 min sur place. Conseil : appelez le (514) 880-8388 ~1 h avant pour récupérer chaud sans attente ! Recette sans arachides.',
+      vi: 'Không cần đặt trước 24h : ghé tiệm gọi món xào nóng mất ~15 phút. Khuyên bạn nên gọi (514) 880-8388 hoặc inbox IG @patisseriedzung đặt trước ~1 tiếng để lấy nóng liền khỏi chờ ! Công thức không đậu phộng.',
+      en: 'No 24h pre-order required: freshly cooked in ~15 min at the shop. Tip: call (514) 880-8388 ~1 hour ahead for zero-wait pickup! Peanut-free recipe.',
+      zh: '无需提前 24 小时预订：到店下单现炒约需 15 分钟。建议提前约 1 小时致电 (514) 880-8388 预约取餐免久等！配方不含花生。'
+    },
+    videoReel: 'gal-reel-bap-xao',
+    image: 'assets/images/menu-hot-bap-xao.jpg'
   },
 
   // 🍢 ĐỒ ĂN VẶT ĐƯỜNG PHỐ (STREET FOOD & SNACKS - 5 MÓN CHÍNH THỨC)
