@@ -1274,7 +1274,60 @@ const MENU_ITEMS = [
     image: 'assets/images/menu-dessert-mu-trom.jpg'
   },
 
-  // 🥮 MÓN BÁNH TRUYỀN THỐNG VN (PÂTISSERIES TRADITIONNELLES VN - 2 MÓN CHÍNH THỨC)
+  // 🥮 MÓN BÁNH TRUYỀN THỐNG VN (PÂTISSERIES TRADITIONNELLES VN - 3 MÓN CHÍNH THỨC)
+  {
+    id: 'pst-03',
+    category: 'rolls',
+    price: 20,
+    priceDisplay: {
+      fr: '20$ / boîte',
+      vi: '20$ / hộp',
+      en: '$20 / box',
+      zh: '20$ / 盒'
+    },
+    badge: 'new',
+    name: {
+      fr: 'Gâteau Éponge aux Œufs Salés (Bánh Bông Lan Trứng Muối)',
+      vi: 'Bánh Bông Lan Trứng Muối',
+      en: 'Vietnamese Salted Egg Sponge Cake (Bánh Bông Lan Trứng Muối)',
+      zh: '越式咸蛋黄肉松蛋糕（Bánh Bông Lan Trứng Muối）'
+    },
+    badgeText: {
+      fr: '✨ Nouveau · Dispo Chaque Jour',
+      vi: '✨ Mới · Có Sẵn Mỗi Ngày',
+      en: '✨ New · Available Daily',
+      zh: '✨ 新品 · 每日现做现货'
+    },
+    desc: {
+      fr: "Un grand classique adoré pour son équilibre parfait entre douceur et saveurs salées ! Une génoise légère et aérienne cuite fraîche chaque jour, généreusement garnie de notre sauce maison onctueuse aux jaunes d’œufs et fromage, d’effiloché de porc savoureux (chà bông) et de jaunes d’œufs salés dorés et fondants. Disponible chaque jour au comptoir à Brossard (20$ / boîte).",
+      vi: 'Chiếc bánh "gây thương nhớ" với cốt bánh bông lan nướng mới mềm mịn, xốp nhẹ thơm hương bơ sữa, phủ tràn sốt dầu trứng phô mai béo ngậy tan chảy, chà bông heo tơi sợi đậm đà cùng trứng muối hoàng kim bùi béo mằn mặn cực kỳ bắt vị. Hộp đầy đặn 20$ — có sẵn mỗi ngày tại tủ bánh Pâtisserie Dzung!',
+      en: 'Soft, creamy, savory-sweet perfection — freshly baked and ready in our display case daily! A pillowy-light golden vanilla sponge topped generously with luscious house-made egg-yolk & cheese glaze, fluffy savory pork floss (chà bông), and rich, crumbly golden salted egg yolks ($20 / box).',
+      zh: '甜咸交织的人气经典越式蛋糕，每日新鲜现烤上架！松软绵密的黄金海绵蛋糕，满满淋上秘制香浓蛋黄芝士酱，铺满蓬松咸香猪肉松（Chà Bông）与沙糯金黄咸蛋黄，每一口都让人欲罢不能（20$ / 盒）。'
+    },
+    tags: {
+      fr: ['20$ / Boîte', 'Dispo Chaque Jour', 'Sauce Œufs & Fromage', 'Sans Arachides'],
+      vi: ['20$ / Hộp', 'Có Sẵn Mỗi Ngày', 'Sốt Trứng Phô Mai', 'Không Đậu Phộng'],
+      en: ['$20 / Box', 'Available Daily', 'Egg & Cheese Glaze', 'Peanut-Free'],
+      zh: ['20$ / 盒', '每日现货', '蛋黄芝士酱', '无花生配方']
+    },
+    allergens: ['egg', 'dairy', 'gluten', 'pork'],
+    dietary: ['peanut_free_recipe'],
+    portion: {
+      fr: 'Boîte généreuse (à partager)',
+      vi: 'Hộp đầy đặn',
+      en: 'Generous sharing box',
+      zh: '满满一整盒（适合分享）'
+    },
+    customNote: {
+      fr: 'Disponible chaque jour en comptoir ! Passez directement en boutique à Brossard, ou écrivez-nous en DM @patisseriedzung / appelez le (514) 880-8388 pour réserver votre boîte ou commander pour une réception. Recette sans arachides.',
+      vi: 'Có sẵn mỗi ngày tại tủ bánh! Quý khách có thể ghé tiệm mua trực tiếp trong ngày, hoặc inbox Instagram @patisseriedzung / gọi (514) 880-8388 để tiệm giữ phần hoặc đặt trước cho tiệc gia đình nhé. Công thức không đậu phộng.',
+      en: 'Available daily in our display case! Drop by our Brossard shop anytime, or DM @patisseriedzung / call (514) 880-8388 to reserve a box or pre-order for family gatherings. Peanut-free recipe.',
+      zh: '门店糕点柜每日新鲜现货供应！欢迎直接到 Brossard 门店选购，或私信 IG @patisseriedzung / 致电 (514) 880-8388 预留或提前预订家庭聚会分量。配方不含花生。'
+    },
+    videoReel: 'gal-reel-bltm',
+    videoReelDuration: '30',
+    image: 'assets/images/menu-banh-bong-lan-trung-muoi.jpg'
+  },
   {
     id: 'pst-01',
     category: 'rolls',

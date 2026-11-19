@@ -98,6 +98,33 @@ const GALLERY_ITEMS = [
     }
   },
   {
+    id: 'gal-reel-bltm',
+    type: 'video',
+    category: 'videos',
+    src: 'assets/videos/banh-bong-lan-trung-muoi-reel.mp4',
+    poster: 'assets/images/banh-bong-lan-trung-muoi-reel-poster.jpg',
+    width: 720,
+    height: 1280,
+    badge: {
+      fr: '✨ Pâtisserie VN · Reel 30s · 20$',
+      vi: '✨ Bánh VN Mới · Reel 30s · 20$',
+      en: '✨ VN Pastry · 30s Reel · $20',
+      zh: '✨ 越式蛋糕新品 · 30秒视频 · 20$'
+    },
+    title: {
+      fr: 'Gâteau Éponge aux Œufs Salés · Bánh Bông Lan Trứng Muối (20$)',
+      vi: 'Bánh Bông Lan Trứng Muối Sốt Phô Mai Chà Bông (20$)',
+      en: 'Vietnamese Salted Egg Sponge Cake · Bánh Bông Lan Trứng Muối ($20)',
+      zh: '越式咸蛋黄肉松蛋糕 · Bánh Bông Lan Trứng Muối (20$)'
+    },
+    desc: {
+      fr: 'Vidéo 9:16 · 20$ / boîte : génoise légère cuite fraîche chaque jour, sauce maison aux jaunes d’œufs et fromage, effiloché de porc (chà bông) et jaunes d’œufs salés dorés. Disponible chaque jour en comptoir à Brossard !',
+      vi: 'Video dọc 9:16 · 20$ / hộp : cốt bánh bông lan nướng mới mềm mịn, phủ tràn sốt dầu trứng phô mai béo ngậy, chà bông heo tơi sợi và trứng muối hoàng kim. Có sẵn mỗi ngày tại tủ bánh!',
+      en: 'Vertical 9:16 reel · $20 / box: pillowy vanilla sponge topped with rich egg-yolk & cheese glaze, savory pork floss, and golden salted egg yolks. Available fresh daily at our Brossard counter!',
+      zh: '竖版 9:16 短视频 · 20$ / 盒：每日新鲜现烤松软海绵蛋糕，淋满秘制蛋黄芝士酱，铺满蓬松猪肉松与金黄咸蛋黄。门店每日现货供应！'
+    }
+  },
+  {
     id: 'gal-reel-bap-xao',
     type: 'video',
     category: 'videos',
@@ -789,7 +816,7 @@ function updateLanguageUI(lang) {
 function applyTranslations(lang) {
   if (typeof TRANSLATIONS === 'undefined' || !TRANSLATIONS[lang]) return;
   const t = TRANSLATIONS[lang];
-  const menuCount = typeof MENU_ITEMS !== 'undefined' ? String(MENU_ITEMS.length) : '36';
+  const menuCount = typeof MENU_ITEMS !== 'undefined' ? String(MENU_ITEMS.length) : '37';
 
   if (t.page_title) {
     document.title = t.page_title;
@@ -1338,7 +1365,10 @@ function buildDishCardHtml(item, btnAddText) {
     `;
   }
 
-  const reelBtnLabel = (typeof TRANSLATIONS !== 'undefined' && TRANSLATIONS[currentLang] && TRANSLATIONS[currentLang].dish_watch_reel) || '▶ Video 20s';
+  const baseReelBtnLabel = (typeof TRANSLATIONS !== 'undefined' && TRANSLATIONS[currentLang] && TRANSLATIONS[currentLang].dish_watch_reel) || '▶ Video 20s';
+  const reelBtnLabel = item.videoReelDuration
+    ? baseReelBtnLabel.replace(/20/, String(item.videoReelDuration))
+    : baseReelBtnLabel;
   const reelShortText = reelBtnLabel.replace(/^▶\s*/, '');
 
   return `

@@ -111,6 +111,7 @@
           "@type": "MenuSection",
           "name": "Pâtisseries Traditionnelles Vietnamiennes & Desserts (Chè)",
           "hasMenuItem": [
+            { "@type": "MenuItem", "name": "Bánh Bông Lan Trứng Muối / Le Gâteau Éponge aux Œufs Salés", "offers": { "@type": "Offer", "price": "20.00", "priceCurrency": "CAD" } },
             { "@type": "MenuItem", "name": "Bánh Da Lợn Lá Dứa Tươi / Gâteau Étagé Vapeur au Pandan Frais et Haricot Mungo" },
             { "@type": "MenuItem", "name": "Bánh Xu Xuê (Bánh Phu Thê) Lá Dứa Đậu Xanh" },
             { "@type": "MenuItem", "name": "Sâm Bổ Lượng & Chè Bưởi Cùi Bưởi Tươi" },
@@ -430,12 +431,12 @@
                 <span class="script-accent" data-i18n="home_fav_script">faites maison</span>
               </h2>
               <p class="lk-section-sub" data-i18n="home_fav_sub">
-                Un aperçu de nos spécialités les plus convoitées sur la Rive-Sud. Explorez notre carte complète de 36 créations artisanales.
+                Un aperçu de nos spécialités les plus convoitées sur la Rive-Sud. Explorez notre carte complète de 37 créations artisanales.
               </p>
             </div>
             <div class="dz-chef-head-action">
               <button type="button" class="btn-tactile btn-tactile-dark" onclick="navigateToView('menu')" data-i18n="home_fav_btn_all">
-                📖 TOUT LE MENU (36 SPÉCIALITÉS) ➔
+                📖 TOUT LE MENU (37 SPÉCIALITÉS) ➔
               </button>
             </div>
           </div>
@@ -717,7 +718,7 @@
     </div>
 
     <!-- ========================================================================
-         VIEW 2: FULL MENU (All 36 Dishes in Classic Deli Menu-Board or Photo Cards)
+         VIEW 2: FULL MENU (All 37 Dishes in Classic Deli Menu-Board or Photo Cards)
          ======================================================================== -->
     <div id="view-menu" class="app-view" data-view-panel="menu" hidden>
       <!-- Sunny Baguette-Gold Page Header with Scalloped Bottom -->
@@ -726,7 +727,7 @@
           <p class="lk-eyebrow is-dark" data-i18n="menu_tagline">Sélection Gastronomique</p>
           <h1 class="lk-page-title" id="menu-view-heading" tabindex="-1">
             <span data-i18n="menu_title">BÁNH MÌ &amp; STREET FOOD VIETNAMIEN</span>
-            <span class="script-accent is-red" data-i18n="menu_script_sub">36 spécialités maison</span>
+            <span class="script-accent is-red" data-i18n="menu_script_sub">37 spécialités maison</span>
           </h1>
           <p class="lk-page-lead" data-i18n="menu_page_lead">
             Tous nos Bánh Mì, snacks de Saigon, pâtisseries au pandan frais, chè et boissons sont préparés artisanalement. Choisissez une catégorie ou le mode d'affichage ci-dessous.
@@ -748,7 +749,7 @@
           <div class="container lk-menu-bar-inner">
             <div class="menu-tabs-shell" id="menu-tabs-shell">
               <div class="menu-tabs-meta-row">
-                <span class="menu-tabs-hint" data-i18n="menu_cats_hint">✦ 7 catégories (36 plats) · Glisser →</span>
+                <span class="menu-tabs-hint" data-i18n="menu_cats_hint">✦ 7 catégories (37 plats) · Glisser →</span>
                 <button type="button" class="menu-cats-toggle-btn" id="btn-toggle-all-cats" onclick="toggleMenuTabsExpanded()" aria-expanded="false" aria-controls="menu-tabs-list">
                   <span data-i18n="menu_cats_expand">Voir les 7 ▾</span>
                 </button>
@@ -784,7 +785,7 @@
           <div class="dietary-filter-wrap">
             <span class="dietary-filter-label" data-i18n="filter_label">Allergènes &amp; Préférences :</span>
             <div class="dietary-filter-bar" role="group" aria-label="Filtres alimentaires">
-              <button type="button" class="dietary-filter-btn active" data-dietary="all" onclick="filterByDietary('all')" data-i18n="filter_all">Tout (36)</button>
+              <button type="button" class="dietary-filter-btn active" data-dietary="all" onclick="filterByDietary('all')" data-i18n="filter_all">Tout (37)</button>
               <button type="button" class="dietary-filter-btn" data-dietary="peanut_free_recipe" onclick="filterByDietary('peanut_free_recipe')" data-i18n="filter_peanut_free">🥜 Sans arachides (recette)</button>
               <button type="button" class="dietary-filter-btn" data-dietary="vegan" onclick="filterByDietary('vegan')" data-i18n="filter_vegan">🌱 100% Végétal</button>
               <button type="button" class="dietary-filter-btn" data-dietary="pork_free" onclick="filterByDietary('pork_free')" data-i18n="filter_pork_free">🚫🐷 Sans porc / Option</button>
