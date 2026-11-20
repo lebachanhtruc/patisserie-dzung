@@ -65,7 +65,7 @@
   ],
   "rewrites": [
     {
-      "source": "/((?!assets/|css/|js/|favicon|robots\\.txt|sitemap\\.xml).*)",
+      "source": "/((?!assets/|css/|js/|goi-bo(?:/|$)|favicon|robots\\.txt|sitemap\\.xml).*)",
       "destination": "/index.html"
     }
   ]
