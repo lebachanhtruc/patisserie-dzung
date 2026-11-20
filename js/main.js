@@ -27,6 +27,7 @@ const ALLERGEN_META = {
   soy: { icon: '🫘', tone: 'info', labels: { fr: 'Soja', vi: 'Đậu nành', en: 'Soy', zh: '含大豆' } },
   pork: { icon: '🥩', tone: 'info', labels: { fr: 'Porc', vi: 'Thịt / Mỡ heo', en: 'Pork', zh: '含猪肉' } },
   beef: { icon: '🥩', tone: 'info', labels: { fr: 'Bœuf', vi: 'Khô bò', en: 'Beef', zh: '含牛肉' } },
+  beef_fresh: { icon: '🥩', tone: 'info', labels: { fr: 'Bœuf', vi: 'Thịt bò', en: 'Beef', zh: '含牛肉' } },
   spicy: { icon: '🌶️', tone: 'spice', labels: { fr: 'Épicé', vi: 'Cay', en: 'Spicy', zh: '微辣' } }
 };
 
@@ -95,6 +96,33 @@ const GALLERY_ITEMS = [
       vi: 'Từng cuộn bánh tráng dẻo mềm ôm trọn trứng cút, xoài xanh, khô bò, tép sấy và sốt bơ me sánh mịn.',
       en: 'Soft rice paper rolls packed with quail eggs, green mango, dried shrimp, and rich tamarind-butter sauce.',
       zh: '柔韧米纸包裹鹌鹑蛋、青芒丝、虾米与香浓罗望子黄油酱。'
+    }
+  },
+  {
+    id: 'gal-tutorial-goi-bo-khoai-mon',
+    type: 'video',
+    category: 'videos',
+    src: 'assets/videos/goi-bo-khoai-mon-huong-dan.mp4',
+    poster: 'assets/images/goi-bo-khoai-mon-huong-dan-poster.jpg',
+    width: 720,
+    height: 900,
+    badge: {
+      fr: '🍽️ Guide 4:5 · 28s · 45$ / 100$',
+      vi: '🍽️ Hướng Dẫn 4:5 · 28s · 45$ / 100$',
+      en: '🍽️ 4:5 Guide · 28s · $45 / $100',
+      zh: '🍽️ 4:5 拌制指南 · 28秒 · 45$ / 100$'
+    },
+    title: {
+      fr: 'Gỏi Bò Khoai Môn · Guide de Mélange Avant Service (45$ / 100$)',
+      vi: 'Gỏi Bò Khoai Môn · Video Hướng Dẫn Trộn Gỏi Trước Khi Ăn (45$ / 100$)',
+      en: 'Gỏi Bò Khoai Môn · How to Toss Before Eating ($45 / $100)',
+      zh: '越式炸芋丝牛肉凉拌拼盘 · 食用前拌匀指南 (45$ / 100$)'
+    },
+    desc: {
+      fr: 'Vidéo 4:5 (VI · FR · EN) : versez notre sauce nuoc-mâm maison, mélangez délicatement de bas en haut pour garder les filaments de taro croustillants et dégustez avec les chips aux crevettes incluses ! Plateau 3–4 pers. (45$) · Grand plateau 9–10 pers. (100$).',
+      vi: 'Video 4:5 (Việt · Pháp · Anh) : rưới đều nước mắm pha nhà làm, trộn nhẹ từ dưới lên để giữ sợi khoai môn chiên giòn rụm và thưởng thức cùng bánh phồng tôm kèm sẵn! Khay 3–4 người (45$) · Khay tiệc 9–10 người (100$).',
+      en: '4:5 trilingual video (VI · FR · EN): pour our house nuoc-mam dressing evenly, toss gently from bottom up to keep the crispy taro airy and crunchy, and enjoy with included shrimp crackers! 3–4 ppl ($45) · 9–10 ppl ($100).',
+      zh: '4:5 三语教学视频（越·法·英）：均匀淋上秘制鱼露酱，从底向上轻柔翻拌以保持炸芋头丝香脆，搭配附赠虾片即刻享用！3–4人份拼盘 (45$) · 9–10人宴席大盘 (100$)。'
     }
   },
   {
@@ -816,7 +844,7 @@ function updateLanguageUI(lang) {
 function applyTranslations(lang) {
   if (typeof TRANSLATIONS === 'undefined' || !TRANSLATIONS[lang]) return;
   const t = TRANSLATIONS[lang];
-  const menuCount = typeof MENU_ITEMS !== 'undefined' ? String(MENU_ITEMS.length) : '37';
+  const menuCount = typeof MENU_ITEMS !== 'undefined' ? String(MENU_ITEMS.length) : '38';
 
   if (t.page_title) {
     document.title = t.page_title;
@@ -1311,7 +1339,34 @@ function openReelInGallery() {
   trackEvent('reel_play', { item: 'hot-bap-xao', source: 'gallery_lightbox', lang: currentLang });
 }
 
+function handleDishTutorialToggle(detailsEl) {
+  if (!detailsEl) return;
+  const video = detailsEl.querySelector('video.dish-tutorial-video');
+  if (!video) return;
+
+  if (detailsEl.open) {
+    restoreLazyMedia(video);
+    const dishCard = detailsEl.closest('[data-dish-id]');
+    trackEvent('tutorial_video_open', {
+      dish_id: dishCard ? dishCard.getAttribute('data-dish-id') : 'unknown',
+      lang: currentLang
+    });
+  } else if (!video.paused) {
+    video.pause();
+  }
+}
+
+function openDishTutorialFullscreen(btnEl, reelId) {
+  const detailsEl = btnEl ? btnEl.closest('details.dish-tutorial-box') : null;
+  const video = detailsEl ? detailsEl.querySelector('video.dish-tutorial-video') : null;
+  if (video && !video.paused) {
+    video.pause();
+  }
+  openDishVideoReel(reelId);
+}
+
 function buildDishCardHtml(item, btnAddText) {
+  const t = (typeof TRANSLATIONS !== 'undefined' && TRANSLATIONS[currentLang]) ? TRANSLATIONS[currentLang] : {};
   const name = item.name[currentLang] || item.name.fr || item.name.vi;
   const desc = item.desc[currentLang] || item.desc.fr || item.desc.vi;
   const badgeText = item.badgeText ? (item.badgeText[currentLang] || item.badgeText.fr || item.badgeText.vi) : '';
@@ -1365,7 +1420,59 @@ function buildDishCardHtml(item, btnAddText) {
     `;
   }
 
-  const baseReelBtnLabel = (typeof TRANSLATIONS !== 'undefined' && TRANSLATIONS[currentLang] && TRANSLATIONS[currentLang].dish_watch_reel) || '▶ Video 20s';
+  // Inline 4:5 Mixing Tutorial Video Box (if available on dish)
+  let tutorialHtml = '';
+  if (item.tutorialVideo && item.tutorialVideo.src) {
+    const tv = item.tutorialVideo;
+    const tvTitle = (tv.title && (tv.title[currentLang] || tv.title.fr || tv.title.vi)) || '🎬 Video 4:5';
+    const tvHint = (tv.hint && (tv.hint[currentLang] || tv.hint.fr || tv.hint.vi)) || '';
+    const tvOpenLabel = t.dish_tutorial_open || '▶ Voir';
+    const tvCloseLabel = t.dish_tutorial_close || '▴ Fermer';
+    const tvFsLabel = t.dish_tutorial_fullscreen || '⛶ Plein écran';
+    const tvWidth = tv.width || 720;
+    const tvHeight = tv.height || 900;
+    const tvReelId = tv.reelId || item.videoReel || '';
+
+    tutorialHtml = `
+      <details class="dish-tutorial-box" ontoggle="handleDishTutorialToggle(this)">
+        <summary class="dish-tutorial-summary">
+          <span class="dish-tutorial-thumb-wrap" aria-hidden="true">
+            <img class="dish-tutorial-thumb" src="${tv.poster || item.image}" alt="" loading="lazy" width="44" height="55" />
+            <span class="dish-tutorial-thumb-play">▶</span>
+          </span>
+          <span class="dish-tutorial-meta">
+            <span class="dish-tutorial-title">${tvTitle}</span>
+            ${tvHint ? `<span class="dish-tutorial-hint">${tvHint}</span>` : ''}
+          </span>
+          <span class="dish-tutorial-toggle-pill">
+            <span class="dish-tutorial-pill-open">${tvOpenLabel}</span>
+            <span class="dish-tutorial-pill-close">${tvCloseLabel}</span>
+          </span>
+        </summary>
+        <div class="dish-tutorial-player-wrap">
+          <video
+            class="dish-tutorial-video"
+            controls
+            loading="lazy"
+            preload="none"
+            playsinline
+            width="${tvWidth}"
+            height="${tvHeight}"
+            ${tv.poster ? `poster="${tv.poster}"` : ''}
+            aria-label="${tvTitle}"
+          >
+            <source src="${tv.src}" type="video/mp4" />
+          </video>
+          <div class="dish-tutorial-actions">
+            <span class="dish-tutorial-ratio-tag">4:5 · VI · FR · EN</span>
+            ${tvReelId ? `<button type="button" class="dish-tutorial-fs-btn" onclick="openDishTutorialFullscreen(this, '${tvReelId}')">${tvFsLabel}</button>` : ''}
+          </div>
+        </div>
+      </details>
+    `;
+  }
+
+  const baseReelBtnLabel = (t && t.dish_watch_reel) || '▶ Video 20s';
   const reelBtnLabel = item.videoReelDuration
     ? baseReelBtnLabel.replace(/20/, String(item.videoReelDuration))
     : baseReelBtnLabel;
@@ -1387,6 +1494,7 @@ function buildDishCardHtml(item, btnAddText) {
           <p class="dish-desc" onclick="this.classList.toggle('expanded')">${desc}</p>
           ${buildDishMetaHtml(item)}
           ${optionsHtml}
+          ${tutorialHtml}
         </div>
         <div class="dish-footer">
           <div class="dish-tags">
@@ -1554,6 +1662,7 @@ function renderMenu(category = 'all') {
   const cardsHtml = filteredItems.map(item => buildDishCardHtml(item, btnAddText)).join('');
   const teaserHtml = showVeganTeaser ? buildVeganComingSoonBannerHtml(t) : '';
   menuContainer.innerHTML = `${cardsHtml}${teaserHtml}`;
+  initLazyMedia(menuContainer);
 }
 
 function updateMenuTabCounts() {
@@ -1601,7 +1710,7 @@ function syncMenuTabsToggleLabel() {
   const t = (typeof TRANSLATIONS !== 'undefined' && TRANSLATIONS[currentLang]) || {};
   const label = isExpanded
     ? (t.menu_cats_collapse || 'Thu gọn ▴')
-    : (t.menu_cats_expand || 'Xem cả 7 ▾');
+    : (t.menu_cats_expand || 'Xem cả 8 ▾');
   const span = btn.querySelector('span');
   if (span) {
     span.setAttribute('data-i18n', isExpanded ? 'menu_cats_collapse' : 'menu_cats_expand');
@@ -1902,7 +2011,10 @@ function updateLightboxView() {
 
   if (mediaContainer) {
     if (item.type === 'video') {
-      mediaContainer.innerHTML = `<video class="lightbox-media-el" src="${item.src}" ${item.poster ? `poster="${item.poster}"` : ''} controls autoplay playsinline></video>`;
+      const reducedMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      const w = item.width || 720;
+      const h = item.height || 1280;
+      mediaContainer.innerHTML = `<video class="lightbox-media-el" src="${item.src}" ${item.poster ? `poster="${item.poster}"` : ''} width="${w}" height="${h}" controls ${reducedMotion ? '' : 'autoplay'} playsinline></video>`;
     } else {
       mediaContainer.innerHTML = `<img class="lightbox-media-el" src="${item.src}" alt="${title}" />`;
     }
@@ -2023,13 +2135,34 @@ function renderCartItems() {
     const item = MENU_ITEMS.find(m => m.id === currentOrderDishId);
     if (item) {
       const itemName = item.name[currentLang] || item.name.fr || item.name.vi;
-      const itemPrice = (item.priceDisplay && typeof item.priceDisplay === 'object')
+      let itemPrice = (item.priceDisplay && typeof item.priceDisplay === 'object')
         ? (item.priceDisplay[currentLang] || item.priceDisplay.fr || item.priceDisplay.vi)
         : (item.priceDisplay || formatPrice(item.price));
+      let choiceName = '';
+
+      if (item.options && Array.isArray(item.options.choices) && item.options.choices.length > 0) {
+        const activeChoiceId = selectedDishOptions[item.id] || item.options.choices[0].id;
+        const activeChoice = item.options.choices.find(c => c.id === activeChoiceId) || item.options.choices[0];
+        if (activeChoice) {
+          choiceName = (activeChoice.name && (activeChoice.name[currentLang] || activeChoice.name.fr || activeChoice.name.vi)) || '';
+          if (activeChoice.priceDisplay || activeChoice.price !== undefined) {
+            itemPrice = activeChoice.priceDisplay
+              ? (typeof activeChoice.priceDisplay === 'object'
+                  ? (activeChoice.priceDisplay[currentLang] || activeChoice.priceDisplay.fr || activeChoice.priceDisplay.vi)
+                  : activeChoice.priceDisplay)
+              : formatPrice(activeChoice.price);
+          }
+        }
+      }
+
+      const selectedSummary = choiceName
+        ? (choiceName.includes(itemPrice) ? `${itemName} — ${choiceName}` : `${itemName} (${choiceName}) · ${itemPrice}`)
+        : `${itemName} · ${itemPrice}`;
+
       selectedDishHtml = `
         <div class="order-selected-pill">
           <span class="order-selected-kicker">${t.order_selected_label || 'Article sélectionné :'}</span>
-          <strong>${itemName} · ${itemPrice}</strong>
+          <strong>${selectedSummary}</strong>
         </div>
       `;
     }

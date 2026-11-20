@@ -2310,6 +2310,13 @@ h4:focus,
   box-shadow: 2px 2px 0 var(--gold-crust);
 }
 
+.dish-badge.feast {
+  background: linear-gradient(135deg, #143D2B 0%, #1F6044 100%);
+  color: var(--gold-soft);
+  border-color: var(--gold-crust);
+  box-shadow: 2px 2px 0 var(--gold-crust);
+}
+
 .dish-reel-pill {
   position: absolute;
   right: 10px;
@@ -2502,6 +2509,203 @@ h4:focus,
 .menu-grid.is-deli-board .dish-footer {
   border-top: none;
   padding-top: 6px;
+}
+
+/* Inline 4:5 Mixing Tutorial Video Box inside Dish Cards */
+.dish-tutorial-box {
+  margin: 10px 0 12px;
+  border: 1.5px solid var(--ink-pandan);
+  border-radius: 12px;
+  background: linear-gradient(180deg, #FFFDF7 0%, var(--bg-cream) 100%);
+  box-shadow: 2.5px 2.5px 0 var(--gold-crust);
+  overflow: hidden;
+  transition: box-shadow 0.2s ease, border-color 0.2s ease;
+}
+
+.dish-tutorial-box[open] {
+  box-shadow: 3.5px 3.5px 0 var(--ink-pandan);
+}
+
+.dish-tutorial-summary {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 9px 11px;
+  cursor: pointer;
+  user-select: none;
+}
+
+.dish-tutorial-summary::-webkit-details-marker {
+  display: none;
+}
+
+.dish-tutorial-summary:hover {
+  background: rgba(235, 180, 62, 0.14);
+}
+
+.dish-tutorial-summary:focus-visible {
+  outline: 2px solid var(--gold-crust);
+  outline-offset: -2px;
+}
+
+.dish-tutorial-thumb-wrap {
+  position: relative;
+  width: 44px;
+  height: 55px;
+  border-radius: 8px;
+  overflow: hidden;
+  border: 1.5px solid var(--ink-pandan);
+  background: #0E1F16;
+  flex-shrink: 0;
+}
+
+.dish-tutorial-thumb {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.dish-tutorial-thumb-play {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  background: rgba(20, 61, 43, 0.32);
+  color: #FFFDF7;
+  font-size: 0.78rem;
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.7);
+}
+
+.dish-tutorial-meta {
+  flex: 1;
+  min-width: 0;
+}
+
+.dish-tutorial-title {
+  display: block;
+  font-family: var(--font-body);
+  font-size: 0.8rem;
+  font-weight: 800;
+  color: var(--ink-pandan);
+  line-height: 1.25;
+}
+
+.dish-tutorial-hint {
+  display: block;
+  font-size: 0.72rem;
+  line-height: 1.35;
+  color: var(--text-muted);
+  margin-top: 2px;
+}
+
+.dish-tutorial-toggle-pill {
+  flex-shrink: 0;
+  padding: 5px 10px;
+  border-radius: var(--radius-pill);
+  border: 1.5px solid var(--ink-pandan);
+  background: var(--gold-crust);
+  color: var(--ink-pandan);
+  font-family: var(--font-body);
+  font-size: 0.7rem;
+  font-weight: 800;
+  white-space: nowrap;
+  box-shadow: 1.5px 1.5px 0 var(--ink-pandan);
+}
+
+.dish-tutorial-box[open] .dish-tutorial-toggle-pill {
+  background: var(--ink-pandan);
+  color: var(--gold-soft);
+}
+
+.dish-tutorial-pill-close {
+  display: none;
+}
+
+.dish-tutorial-box[open] .dish-tutorial-pill-open {
+  display: none;
+}
+
+.dish-tutorial-box[open] .dish-tutorial-pill-close {
+  display: inline;
+}
+
+.dish-tutorial-player-wrap {
+  padding: 10px 12px 12px;
+  border-top: 1px dashed var(--line-warm);
+  background: #0E1F16;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 9px;
+}
+
+.dish-tutorial-video {
+  display: block;
+  width: 100%;
+  max-width: 320px;
+  height: auto;
+  aspect-ratio: 4 / 5;
+  border-radius: 10px;
+  background: #07120C;
+  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.38);
+}
+
+.dish-tutorial-actions {
+  width: 100%;
+  max-width: 320px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.dish-tutorial-ratio-tag {
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  color: rgba(252, 248, 240, 0.78);
+}
+
+.dish-tutorial-fs-btn {
+  border: 1.5px solid var(--gold-crust);
+  background: rgba(235, 180, 62, 0.16);
+  color: var(--gold-soft);
+  font-family: var(--font-body);
+  font-size: 0.72rem;
+  font-weight: 800;
+  padding: 5px 11px;
+  border-radius: var(--radius-pill);
+  cursor: pointer;
+  transition: background-color 0.15s ease, color 0.15s ease;
+}
+
+.dish-tutorial-fs-btn:hover {
+  background: var(--gold-crust);
+  color: var(--ink-pandan);
+}
+
+.menu-grid.is-deli-board .dish-tutorial-box {
+  margin: 8px 0 10px;
+}
+
+.menu-grid.is-deli-board .dish-tutorial-summary {
+  padding: 7px 9px;
+  gap: 8px;
+}
+
+.menu-grid.is-deli-board .dish-tutorial-thumb-wrap {
+  width: 38px;
+  height: 48px;
+}
+
+.menu-grid.is-deli-board .dish-tutorial-video {
+  max-width: 280px;
+}
+
+.menu-grid.is-deli-board .dish-tutorial-actions {
+  max-width: 280px;
 }
 
 /* Flavor Option Pills inside Dish Cards */
@@ -3524,8 +3728,11 @@ h4:focus,
 
 .lightbox-media-container img,
 .lightbox-media-container video {
+  max-width: 100%;
   max-height: 60dvh;
   width: auto;
+  height: auto;
+  object-fit: contain;
   margin: auto;
 }
 
@@ -4255,10 +4462,6 @@ h4:focus,
     flex-wrap: wrap;
     gap: 4px;
     text-align: center;
-  }
-
-  .menu-tabs-shell.is-expanded .menu-tab-btn[data-category="all"] {
-    grid-column: 1 / -1;
   }
 
   .menu-tabs-shell.is-expanded .menu-cats-toggle-btn {

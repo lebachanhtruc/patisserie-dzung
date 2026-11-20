@@ -99,6 +99,20 @@
         },
         {
           "@type": "MenuSection",
+          "name": "Plats de Fête Vietnamiens / Món Ăn Bàn Tiệc Việt Nam",
+          "hasMenuItem": [
+            {
+              "@type": "MenuItem",
+              "name": "Gỏi Bò Khoai Môn / Salade de Bœuf & Taro Croustillant",
+              "offers": [
+                { "@type": "Offer", "name": "Plateau 3–4 personnes / Khay 3–4 người", "price": "45.00", "priceCurrency": "CAD" },
+                { "@type": "Offer", "name": "Grand plateau 9–10 personnes / Khay tiệc 9–10 người", "price": "100.00", "priceCurrency": "CAD" }
+              ]
+            }
+          ]
+        },
+        {
+          "@type": "MenuSection",
           "name": "Street Food de Saigon & Snacks",
           "hasMenuItem": [
             { "@type": "MenuItem", "name": "N10. Bánh Tráng Sa Tế Tôm / Feuilles de Riz au Saté de Crevettes", "offers": { "@type": "Offer", "price": "10.00", "priceCurrency": "CAD" } },
@@ -158,7 +172,7 @@
   </script>
 
   <!-- Stylesheets -->
-  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/style.css?v=20261120" />
 </head>
 <body>
 
@@ -431,12 +445,12 @@
                 <span class="script-accent" data-i18n="home_fav_script">faites maison</span>
               </h2>
               <p class="lk-section-sub" data-i18n="home_fav_sub">
-                Un aperçu de nos spécialités les plus convoitées sur la Rive-Sud. Explorez notre carte complète de 37 créations artisanales.
+                Un aperçu de nos spécialités les plus convoitées sur la Rive-Sud. Explorez notre carte complète de 38 créations artisanales.
               </p>
             </div>
             <div class="dz-chef-head-action">
               <button type="button" class="btn-tactile btn-tactile-dark" onclick="navigateToView('menu')" data-i18n="home_fav_btn_all">
-                📖 TOUT LE MENU (37 SPÉCIALITÉS) ➔
+                📖 TOUT LE MENU (38 SPÉCIALITÉS) ➔
               </button>
             </div>
           </div>
@@ -718,7 +732,7 @@
     </div>
 
     <!-- ========================================================================
-         VIEW 2: FULL MENU (All 37 Dishes in Classic Deli Menu-Board or Photo Cards)
+         VIEW 2: FULL MENU (All 38 Dishes in Classic Deli Menu-Board or Photo Cards)
          ======================================================================== -->
     <div id="view-menu" class="app-view" data-view-panel="menu" hidden>
       <!-- Sunny Baguette-Gold Page Header with Scalloped Bottom -->
@@ -727,7 +741,7 @@
           <p class="lk-eyebrow is-dark" data-i18n="menu_tagline">Sélection Gastronomique</p>
           <h1 class="lk-page-title" id="menu-view-heading" tabindex="-1">
             <span data-i18n="menu_title">BÁNH MÌ &amp; STREET FOOD VIETNAMIEN</span>
-            <span class="script-accent is-red" data-i18n="menu_script_sub">37 spécialités maison</span>
+            <span class="script-accent is-red" data-i18n="menu_script_sub">38 spécialités maison</span>
           </h1>
           <p class="lk-page-lead" data-i18n="menu_page_lead">
             Tous nos Bánh Mì, snacks de Saigon, pâtisseries au pandan frais, chè et boissons sont préparés artisanalement. Choisissez une catégorie ou le mode d'affichage ci-dessous.
@@ -749,9 +763,9 @@
           <div class="container lk-menu-bar-inner">
             <div class="menu-tabs-shell" id="menu-tabs-shell">
               <div class="menu-tabs-meta-row">
-                <span class="menu-tabs-hint" data-i18n="menu_cats_hint">✦ 7 catégories (37 plats) · Glisser →</span>
+                <span class="menu-tabs-hint" data-i18n="menu_cats_hint">✦ 8 catégories (38 plats) · Glisser →</span>
                 <button type="button" class="menu-cats-toggle-btn" id="btn-toggle-all-cats" onclick="toggleMenuTabsExpanded()" aria-expanded="false" aria-controls="menu-tabs-list">
-                  <span data-i18n="menu_cats_expand">Voir les 7 ▾</span>
+                  <span data-i18n="menu_cats_expand">Voir les 8 ▾</span>
                 </button>
               </div>
               <div class="menu-tabs-scroll-wrap">
@@ -760,6 +774,7 @@
                   <button class="menu-tab-btn active" data-category="all"><span data-i18n="tab_all">Tous les plats</span> <span class="menu-tab-count"></span></button>
                   <button class="menu-tab-btn" data-category="banhmi"><span data-i18n="tab_banhmi">🥖 Bánh Mì</span> <span class="menu-tab-count"></span></button>
                   <button class="menu-tab-btn" data-category="hot"><span data-i18n="tab_hot">🔥 Plats Chauds</span> <span class="menu-tab-count"></span></button>
+                  <button class="menu-tab-btn" data-category="feast"><span data-i18n="tab_feast">🍽️ Plats de Fête Vietnamiens</span> <span class="menu-tab-count"></span></button>
                   <button class="menu-tab-btn" data-category="streetfood"><span data-i18n="tab_streetfood">🍢 Street Food &amp; Snacks</span> <span class="menu-tab-count"></span></button>
                   <button class="menu-tab-btn" data-category="drinks"><span data-i18n="tab_drinks">☕ Boissons</span> <span class="menu-tab-count"></span></button>
                   <button class="menu-tab-btn" data-category="desserts"><span data-i18n="tab_desserts">🍧 Desserts</span> <span class="menu-tab-count"></span></button>
@@ -785,7 +800,7 @@
           <div class="dietary-filter-wrap">
             <span class="dietary-filter-label" data-i18n="filter_label">Allergènes &amp; Préférences :</span>
             <div class="dietary-filter-bar" role="group" aria-label="Filtres alimentaires">
-              <button type="button" class="dietary-filter-btn active" data-dietary="all" onclick="filterByDietary('all')" data-i18n="filter_all">Tout (37)</button>
+              <button type="button" class="dietary-filter-btn active" data-dietary="all" onclick="filterByDietary('all')" data-i18n="filter_all">Tout (38)</button>
               <button type="button" class="dietary-filter-btn" data-dietary="peanut_free_recipe" onclick="filterByDietary('peanut_free_recipe')" data-i18n="filter_peanut_free">🥜 Sans arachides (recette)</button>
               <button type="button" class="dietary-filter-btn" data-dietary="vegan" onclick="filterByDietary('vegan')" data-i18n="filter_vegan">🌱 100% Végétal</button>
               <button type="button" class="dietary-filter-btn" data-dietary="pork_free" onclick="filterByDietary('pork_free')" data-i18n="filter_pork_free">🚫🐷 Sans porc / Option</button>
@@ -800,7 +815,7 @@
             <div class="allergen-banner-body">
               <strong class="allergen-banner-title" data-i18n="allergen_banner_title">Allergènes &amp; Transparence Cuisine</strong>
               <p class="allergen-banner-desc" data-i18n="allergen_banner_desc">
-                <strong>Arachides :</strong> Seul le snack <strong>N10 (Bánh Tráng Sa Tế Tôm)</strong> contient des arachides dans sa recette — tous nos autres plats sont préparés sans arachides. <strong>Option sans porc :</strong> nos Bánh Mì contiennent du pâté maison au gras de porc, mais le <strong>N3 (Poulet Beurre Ail) devient 100% sans porc sur demande (« Sans pâté »)</strong>. Cuisine artisanale partagée (traces possibles).
+                <strong>Arachides :</strong> Seuls le snack <strong>N10 (Bánh Tráng Sa Tế Tôm)</strong> et la <strong>Gỏi Bò Khoai Môn (arachides grillées, option à part)</strong> contiennent des arachides dans leur recette — tous nos autres plats sont préparés sans arachides. <strong>Option sans porc :</strong> nos Bánh Mì contiennent du pâté maison au gras de porc, mais le <strong>N3 (Poulet Beurre Ail) devient 100% sans porc sur demande (« Sans pâté »)</strong>. Cuisine artisanale partagée (traces possibles).
               </p>
             </div>
           </aside>
@@ -1463,8 +1478,8 @@
   </dialog>
 
   <!-- Scripts: translations -> menu-data -> main -->
-  <script src="js/translations.js"></script>
-  <script src="js/menu-data.js"></script>
-  <script src="js/main.js"></script>
+  <script src="js/translations.js?v=20261120"></script>
+  <script src="js/menu-data.js?v=20261120"></script>
+  <script src="js/main.js?v=20261120"></script>
 </body>
 </html>

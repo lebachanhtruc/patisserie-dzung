@@ -267,6 +267,123 @@ const MENU_ITEMS = [
     image: 'assets/images/menu-hot-bap-xao.jpg'
   },
 
+  // 🍽️ MÓN ĂN BÀN TIỆC VIỆT NAM (PLATS DE FÊTE VN - 1 MÓN ĐẶC BIỆT)
+  {
+    id: 'feast-goi-bo-khoai-mon',
+    category: 'feast',
+    price: 45,
+    priceDisplay: {
+      fr: '45$',
+      vi: '45$',
+      en: '$45',
+      zh: '45$'
+    },
+    badge: 'feast',
+    badgeText: {
+      fr: '🍽️ Plateau Fête · 2 Tailles',
+      vi: '🍽️ Bàn Tiệc · 2 Size',
+      en: '🍽️ Party Platter · 2 Sizes',
+      zh: '🍽️ 宴席拼盘 · 双规格'
+    },
+    name: {
+      fr: 'Gỏi Bò Khoai Môn · Salade de Bœuf & Taro Croustillant',
+      vi: 'Gỏi Bò Khoai Môn',
+      en: 'Gỏi Bò Khoai Môn · Crispy Taro & Beef Salad Platter',
+      zh: '越式炸芋丝牛肉凉拌拼盘（Gỏi Bò Khoai Môn）'
+    },
+    desc: {
+      fr: "Grand classique des tables de fête vietnamiennes ! Bœuf tendre mariné et sauté, fins filaments de taro frits ultra-croustillants, herbes fraîches, légumes marinés croquants et arachides grillées. Servi non mélangé avec notre sauce nuoc-mâm maison à part et chips aux crevettes incluses (bánh phồng tôm) pour garder tout le croquant jusqu’au service — regardez la vidéo guide 4:5 (28s) ci-dessous avant de déguster !",
+      vi: 'Món gỏi khai vị trứ danh không thể thiếu trên bàn tiệc Việt Nam! Thịt bò xào thấm vị mềm ngọt, sợi khoai môn chiên vàng giòn rụm, rau thơm tươi xanh, đồ chua hài hòa và đậu phộng rang bùi béo. Tiệm giao phần gỏi chưa trộn, kèm sẵn nước mắm pha và bánh phồng tôm giòn để khách tự trộn trước khi ăn cho trọn độ giòn — xem ngay video hướng dẫn 4:5 (28s) bên dưới!',
+      en: 'A signature centerpiece of Vietnamese family feasts! Tender marinated beef, airy golden crispy shredded taro, fresh herbs, crisp pickled veggies, and roasted peanuts. Packed unmixed with house nuoc-mam dressing on the side and shrimp crackers (bánh phồng tôm) included so every bite stays ultra-crunchy — watch our 28s 4:5 mixing guide below before tossing!',
+      zh: '越南宴席餐桌必点招牌凉拌拼盘！鲜嫩腌炒牛肉、金黄酥脆炸芋头丝、新鲜香草、爽口酸菜与香脆烤花生。为保持最佳酥脆口感，拼盘与秘制鱼露酱汁分装，并附赠酥脆虾片（Bánh Phồng Tôm）——食用前请点击下方 4:5 拌制视频指南！'
+    },
+    options: {
+      icon: '🍽️',
+      label: {
+        fr: 'Choisir la taille du plateau :',
+        vi: 'Chọn kích cỡ khay tiệc:',
+        en: 'Choose platter size:',
+        zh: '选择宴席拼盘规格：'
+      },
+      choices: [
+        {
+          id: 'tray_3_4',
+          price: 45,
+          priceDisplay: {
+            fr: '45$',
+            vi: '45$',
+            en: '$45',
+            zh: '45$'
+          },
+          name: {
+            fr: 'Plateau 3–4 pers. (45$)',
+            vi: 'Khay 3–4 người (45$)',
+            en: 'Platter 3–4 ppl ($45)',
+            zh: '3–4人份拼盘 (45$)'
+          }
+        },
+        {
+          id: 'tray_9_10',
+          price: 100,
+          priceDisplay: {
+            fr: '100$',
+            vi: '100$',
+            en: '$100',
+            zh: '100$'
+          },
+          name: {
+            fr: 'Grand plateau 9–10 pers. (100$)',
+            vi: 'Khay tiệc 9–10 người (100$)',
+            en: 'Party Platter 9–10 ppl ($100)',
+            zh: '9–10人宴席大盘 (100$)'
+          }
+        }
+      ]
+    },
+    tags: {
+      fr: ['45$ (3–4p) · 100$ (9–10p)', 'Sauce & Chips Incluses', 'Mélanger Avant Service'],
+      vi: ['45$ (3–4ng) · 100$ (9–10ng)', 'Kèm Mắm & Bánh Phồng Tôm', 'Trộn Khi Ăn Giòn Rụm'],
+      en: ['$45 (3–4p) · $100 (9–10p)', 'Sauce & Crackers Included', 'Toss Fresh to Serve'],
+      zh: ['45$(3–4人) · 100$(9–10人)', '附鱼露酱与虾片', '吃前现拌更酥脆']
+    },
+    allergens: ['beef_fresh', 'fish', 'shellfish', 'peanuts', 'spicy'],
+    dietary: ['pork_free', 'dairy_free'],
+    portion: {
+      fr: '3–4 pers. (45$) ou 9–10 pers. (100$)',
+      vi: 'Khay 3–4 người (45$) hoặc 9–10 người (100$)',
+      en: '3–4 ppl ($45) or 9–10 ppl ($100)',
+      zh: '3–4人份 (45$) 或 9–10人份 (100$)'
+    },
+    customNote: {
+      fr: 'Livré non mélangé avec sauce nuoc-mâm maison & chips aux crevettes incluses ! Prévenez-nous si vous souhaitez les arachides à part ou sans piment. Appelez le (514) 880-8388 pour réserver votre plateau.',
+      vi: 'Tiệm giao gỏi chưa trộn kèm nước mắm pha sẵn & bánh phồng tôm giòn! Có thể dặn để riêng đậu phộng hoặc không cay. Gọi (514) 880-8388 hoặc inbox IG @patisseriedzung để đặt khay tiệc nhé.',
+      en: 'Packed unmixed with house nuoc-mam dressing & shrimp crackers included! Let us know if you prefer peanuts on the side or no chili. Call (514) 880-8388 to reserve your platter.',
+      zh: '拼盘与秘制鱼露酱、虾片均随餐附赠分装，食用前拌匀最佳！如需花生分装或免辣请告知，欢迎致电 (514) 880-8388 预订。'
+    },
+    videoReel: 'gal-tutorial-goi-bo-khoai-mon',
+    videoReelDuration: '28',
+    tutorialVideo: {
+      src: 'assets/videos/goi-bo-khoai-mon-huong-dan.mp4',
+      poster: 'assets/images/goi-bo-khoai-mon-huong-dan-poster.jpg',
+      width: 720,
+      height: 900,
+      reelId: 'gal-tutorial-goi-bo-khoai-mon',
+      title: {
+        fr: '🎬 Vidéo 4:5 : Comment mélanger la salade (28s)',
+        vi: '🎬 Video 4:5 Hướng Dẫn Trộn Gỏi Trước Khi Ăn (28s)',
+        en: '🎬 4:5 Video Guide: How to Toss Before Eating (28s)',
+        zh: '🎬 4:5 拌制视频指南：食用前3步拌匀 (28秒)'
+      },
+      hint: {
+        fr: 'Guide VI · FR · EN : versez le nuoc-mâm, mélangez délicatement de bas en haut et savourez avec les chips aux crevettes !',
+        vi: 'Hướng dẫn 3 bước (Việt · Pháp · Anh): rưới đều nước mắm pha, trộn nhẹ từ dưới lên & ăn kèm bánh phồng tôm giòn!',
+        en: '3 quick trilingual steps (VI · FR · EN): pour dressing, toss gently from bottom up & enjoy with included shrimp crackers!',
+        zh: '三语示范（越·法·英）：淋匀鱼露酱、轻柔翻拌、搭配附赠虾片享用！'
+      }
+    },
+    image: 'assets/images/menu-feast-goi-bo-khoai-mon.jpg'
+  },
+
   // 🍢 ĐỒ ĂN VẶT ĐƯỜNG PHỐ (STREET FOOD & SNACKS - 5 MÓN CHÍNH THỨC)
   {
     id: 'sn-n10',
