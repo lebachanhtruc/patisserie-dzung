@@ -444,6 +444,7 @@ const GALLERY_ITEMS = [
 
 document.addEventListener('DOMContentLoaded', () => {
   initLanguage();
+  initHeroCtaExperiment();
   initNavbar();
   initMenuDisplayMode();
   initViewRouter();
@@ -463,10 +464,72 @@ document.addEventListener('DOMContentLoaded', () => {
   initAnalyticsTracking();
 });
 
+const AB_HERO_STORAGE_KEY = 'dzung_ab_hero_cta_v1';
+let activeHeroVariant = 'A';
+let hasTrackedInitialView = false;
+
+function setClarityTag(key, value) {
+  if (typeof window.clarity === 'function') {
+    window.clarity('set', key, String(value));
+  }
+}
+
 function trackEvent(eventName, params = {}) {
   if (typeof window.gtag === 'function' && window.DZUNG_GA4_ID) {
-    window.gtag('event', eventName, params);
+    window.gtag('event', eventName, {
+      ab_hero_cta: activeHeroVariant,
+      view: currentView,
+      lang: currentLang,
+      ...params
+    });
   }
+}
+
+function initHeroCtaExperiment() {
+  const row = document.getElementById('hero-btn-row');
+  const callBtn = document.getElementById('hero-cta-call');
+  const menuBtn = document.getElementById('hero-cta-menu');
+  if (!row || !callBtn || !menuBtn) return;
+
+  let variant = null;
+  try {
+    const urlParam = new URLSearchParams(window.location.search).get('ab');
+    if (urlParam && (urlParam.toUpperCase() === 'A' || urlParam.toUpperCase() === 'B')) {
+      variant = urlParam.toUpperCase();
+    } else {
+      const saved = window.localStorage.getItem(AB_HERO_STORAGE_KEY);
+      if (saved === 'A' || saved === 'B') {
+        variant = saved;
+      } else {
+        variant = Math.random() < 0.5 ? 'A' : 'B';
+        window.localStorage.setItem(AB_HERO_STORAGE_KEY, variant);
+      }
+    }
+  } catch (_) {
+    variant = 'A';
+  }
+
+  activeHeroVariant = variant;
+  row.dataset.abVariant = variant;
+
+  // Variant A (Control): Gold = Call to Order, Outline = Discover Menu
+  // Variant B (Treatment): Gold = Discover Menu (first), Outline = Call to Order (second)
+  if (variant === 'B') {
+    menuBtn.classList.remove('btn-tactile-outline');
+    menuBtn.classList.add('btn-tactile-gold');
+    callBtn.classList.remove('btn-tactile-gold');
+    callBtn.classList.add('btn-tactile-outline');
+    row.insertBefore(menuBtn, callBtn);
+  }
+
+  if (typeof window.gtag === 'function' && window.DZUNG_GA4_ID) {
+    window.gtag('set', 'user_properties', { ab_hero_cta: variant });
+  }
+  setClarityTag('ab_hero_cta', variant);
+  trackEvent('experiment_exposure', {
+    experiment_id: 'hero_cta_hierarchy_v1',
+    variant
+  });
 }
 
 function initAnalyticsTracking() {
@@ -475,6 +538,7 @@ function initAnalyticsTracking() {
     if (!tracked) return;
     trackEvent(tracked.getAttribute('data-track'), {
       link_text: (tracked.textContent || '').trim().slice(0, 60),
+      source_id: tracked.id || '',
       view: currentView,
       lang: currentLang
     });
@@ -503,6 +567,7 @@ const LEGACY_HASH_TO_VIEW = {
 };
 
 function navigateToView(viewName, updateHash = true, shouldFocus = false) {
+  const prevView = currentView;
   const normalizedView = LEGACY_HASH_TO_VIEW[viewName] || (VALID_VIEWS.has(viewName) ? viewName : 'home');
   currentView = normalizedView;
 
@@ -531,6 +596,23 @@ function navigateToView(viewName, updateHash = true, shouldFocus = false) {
     if (updateHash && window.location.hash !== `#${normalizedView}`) {
       history.pushState({ view: normalizedView }, '', `#${normalizedView}`);
     }
+
+    setClarityTag('active_view', normalizedView);
+    if (hasTrackedInitialView && prevView !== normalizedView) {
+      trackEvent('view_change', {
+        view_name: normalizedView,
+        prev_view: prevView
+      });
+      if (typeof window.gtag === 'function' && window.DZUNG_GA4_ID) {
+        window.gtag('event', 'page_view', {
+          page_title: `Pâtisserie Dzung — ${normalizedView}`,
+          page_location: window.location.href,
+          page_path: `/#${normalizedView}`,
+          ab_hero_cta: activeHeroVariant
+        });
+      }
+    }
+    hasTrackedInitialView = true;
 
     window.scrollTo({ top: 0, behavior: 'instant' });
 

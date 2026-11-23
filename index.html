@@ -156,9 +156,9 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700;800&family=Playball&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
 
-  <!-- Google Analytics 4 (GA4): Paste your Measurement ID (e.g. 'G-XXXXXXXXXX') below to activate analytics -->
+  <!-- Google Analytics 4 (GA4) -->
   <script>
-    window.DZUNG_GA4_ID = '';
+    window.DZUNG_GA4_ID = 'G-W9FL83TS52';
     window.dataLayer = window.dataLayer || [];
     window.gtag = window.gtag || function () { window.dataLayer.push(arguments); };
     if (window.DZUNG_GA4_ID && /^G-[A-Z0-9]+$/i.test(window.DZUNG_GA4_ID)) {
@@ -169,6 +169,15 @@
       window.gtag('js', new Date());
       window.gtag('config', window.DZUNG_GA4_ID, { send_page_view: true });
     }
+  </script>
+
+  <!-- Microsoft Clarity (Heatmaps & Session Recordings) -->
+  <script type="text/javascript">
+    (function(c,l,a,r,i,t,y){
+      c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+      t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+      y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "zibylbhr9v");
   </script>
 
   <!-- Stylesheets -->
@@ -265,11 +274,11 @@
               Baguettes fraîches de Montréal dorées au four, pâté maison recette familiale, pâtisseries aux vraies feuilles de pandan fraîches mixées et chè artisanaux.
             </p>
 
-            <div class="lk-btn-row dz-hero-btn-row">
-              <a href="tel:+15148808388" class="btn-tactile btn-tactile-gold" data-track="call_click" data-i18n="hero_btn_call">
+            <div class="lk-btn-row dz-hero-btn-row" id="hero-btn-row">
+              <a href="tel:+15148808388" id="hero-cta-call" class="btn-tactile btn-tactile-gold" data-track="call_click" data-i18n="hero_btn_call">
                 📞 APPELER POUR COMMANDER
               </a>
-              <button type="button" class="btn-tactile btn-tactile-outline" onclick="navigateToView('menu')" data-i18n="hero_btn_menu">
+              <button type="button" id="hero-cta-menu" class="btn-tactile btn-tactile-outline" onclick="navigateToView('menu')" data-track="hero_menu_click" data-i18n="hero_btn_menu">
                 📖 DÉCOUVRIR LE MENU
               </button>
             </div>
@@ -1480,6 +1489,6 @@
   <!-- Scripts: translations -> menu-data -> main -->
   <script src="js/translations.js?v=20261120"></script>
   <script src="js/menu-data.js?v=20261120"></script>
-  <script src="js/main.js?v=20261120"></script>
+  <script src="js/main.js?v=20261123"></script>
 </body>
 </html>

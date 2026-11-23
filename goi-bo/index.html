@@ -13,6 +13,24 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@500;600;700;800&family=Playfair+Display:ital,wght@0,700;0,800;1,700&display=swap" rel="stylesheet" />
+
+  <!-- Google Analytics 4 (GA4) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-W9FL83TS52"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-W9FL83TS52', { send_page_view: true });
+  </script>
+
+  <!-- Microsoft Clarity -->
+  <script type="text/javascript">
+    (function(c,l,a,r,i,t,y){
+      c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+      t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+      y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "zibylbhr9v");
+  </script>
   <style>
     :root {
       --bg-paper: #FCF8F0;
@@ -395,9 +413,53 @@
         }
       });
 
-      video.addEventListener('play', syncBtn);
+      var hasTrackedPlay = false;
+      var hasTrackedComplete = false;
+      function sendQrEvent(name, params) {
+        if (typeof window.gtag === 'function') {
+          window.gtag('event', name, Object.assign({ page_source: 'goi_bo_qr' }, params || {}));
+        }
+      }
+
+      if (typeof window.clarity === 'function') {
+        window.clarity('set', 'page_source', 'goi_bo_qr');
+      }
+      sendQrEvent('qr_guide_view', { dish: 'goi-bo-khoai-mon' });
+
+      video.addEventListener('play', function () {
+        syncBtn();
+        if (!hasTrackedPlay) {
+          hasTrackedPlay = true;
+          sendQrEvent('tutorial_video_play', { dish: 'goi-bo-khoai-mon' });
+        }
+      });
       video.addEventListener('pause', syncBtn);
-      video.addEventListener('ended', syncBtn);
+      video.addEventListener('ended', function () {
+        syncBtn();
+        if (!hasTrackedComplete) {
+          hasTrackedComplete = true;
+          sendQrEvent('tutorial_video_complete', { dish: 'goi-bo-khoai-mon' });
+        }
+      });
+
+      var callBtn = document.querySelector('.top-call-btn');
+      if (callBtn) {
+        callBtn.addEventListener('click', function () {
+          sendQrEvent('call_click', { source: 'goi_bo_qr' });
+        });
+      }
+      var menuLink = document.querySelector('a[href="/#menu"]');
+      if (menuLink) {
+        menuLink.addEventListener('click', function () {
+          sendQrEvent('qr_to_menu_click', { dish: 'goi-bo-khoai-mon' });
+        });
+      }
+      var igLink = document.querySelector('a[href*="instagram.com"]');
+      if (igLink) {
+        igLink.addEventListener('click', function () {
+          sendQrEvent('instagram_perk_click', { source: 'goi_bo_qr' });
+        });
+      }
     })();
   </script>
 </body>
