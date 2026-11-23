@@ -195,6 +195,25 @@ const TRANSLATIONS = {
     closure_status_open: "Ouvert 10h30 – 20h00",
     closure_btn_ok: "J'AI COMPRIS • DÉCOUVRIR LE MENU",
 
+    // Québec Law 25 (Loi 25) Cookie Consent & Privacy Policy
+    footer_privacy_link: "🔒 Confidentialité &amp; Cookies (Loi 25)",
+    consent_banner_title: "🔒 Confidentialité &amp; Témoins (Loi 25)",
+    consent_banner_desc: "Nous utilisons Google Analytics 4 et Microsoft Clarity pour améliorer notre menu et votre expérience. Aucun témoin analytique n'est activé sans votre accord.",
+    consent_btn_accept: "Accepter",
+    consent_btn_decline: "Refuser",
+    consent_btn_policy: "Politique (Loi 25)",
+    privacy_modal_title: "Politique de confidentialité &amp; Témoins (Loi 25)",
+    privacy_status_granted: "✅ Statut actuel : Témoins analytiques acceptés (GA4 &amp; Clarity actifs)",
+    privacy_status_denied: "🛡️ Statut actuel : Témoins analytiques refusés (mode privé sans témoins)",
+    privacy_status_unset: "⏳ Statut actuel : En attente de votre choix (aucun témoin analytique actif)",
+    privacy_intro: "Conformément à la Loi 25 du Québec sur la protection des renseignements personnels, Pâtisserie Dzung respecte votre vie privée et recueille uniquement des statistiques anonymisées avec votre consentement explicite.",
+    privacy_tools_heading: "Outils utilisés (uniquement si vous acceptez)",
+    privacy_tool_ga4: "<strong>Google Analytics 4 (Consent Mode v2) :</strong> mesure la fréquentation du menu, des vidéos et des clics de commande.",
+    privacy_tool_clarity: "<strong>Microsoft Clarity :</strong> cartes de chaleur (heatmaps) et amélioration ergonomique, avec masquage automatique des données sensibles.",
+    privacy_tool_storage: "<strong>Stockage local essentiel :</strong> mémorise uniquement votre choix de langue, votre préférence de témoins et l'affichage de la page.",
+    privacy_officer_heading: "Responsable de la protection des renseignements personnels",
+    privacy_officer_desc: "Pour toute demande d'accès, de rectification ou de retrait de consentement : <strong>Pâtisserie Dzung</strong> · 5918 Avenue Auteuil, Brossard, QC J4Z 1N2 · <a href=\"mailto:patisseriedzung@gmail.com\">patisseriedzung@gmail.com</a> · (514) 880-8388.",
+
     // Franco-Saigon Daylight Boulangerie & Multi-View Keys
     nav_visit: "Visiter",
     header_btn_order: "📞 Commander",
@@ -551,6 +570,25 @@ const TRANSLATIONS = {
     closure_days_open: "Từ Thứ Sáu này",
     closure_status_open: "Mở cửa 10:30 – 20:00",
     closure_btn_ok: "ĐÃ HIỂU • XEM THỰC ĐƠN",
+
+    // Québec Law 25 (Loi 25) Cookie Consent & Privacy Policy
+    footer_privacy_link: "🔒 Bảo mật &amp; Cookie (Luật 25 QC)",
+    consent_banner_title: "🔒 Quyền riêng tư &amp; Cookie (Luật 25 Québec)",
+    consent_banner_desc: "Chúng tôi dùng Google Analytics 4 và Microsoft Clarity để cải thiện thực đơn và trải nghiệm trang web. Cookie phân tích chỉ bật khi bạn đồng ý.",
+    consent_btn_accept: "Đồng ý",
+    consent_btn_decline: "Từ chối",
+    consent_btn_policy: "Chính sách (Luật 25)",
+    privacy_modal_title: "Chính sách Bảo mật &amp; Cookie (Luật 25 Québec)",
+    privacy_status_granted: "✅ Trạng thái hiện tại: Đã đồng ý cookie phân tích (GA4 &amp; Clarity đang bật)",
+    privacy_status_denied: "🛡️ Trạng thái hiện tại: Đã từ chối cookie phân tích (chế độ riêng tư)",
+    privacy_status_unset: "⏳ Trạng thái hiện tại: Chưa chọn (chưa bật cookie phân tích)",
+    privacy_intro: "Tuân thủ Luật 25 (Loi 25) của Québec về bảo vệ thông tin cá nhân, Pâtisserie Dzung tôn trọng quyền riêng tư của bạn và chỉ thu thập thống kê ẩn danh khi có sự đồng ý rõ ràng.",
+    privacy_tools_heading: "Công cụ sử dụng (chỉ kích hoạt khi bạn đồng ý)",
+    privacy_tool_ga4: "<strong>Google Analytics 4 (Consent Mode v2):</strong> đo lường lượt xem thực đơn, video hướng dẫn và nút đặt món.",
+    privacy_tool_clarity: "<strong>Microsoft Clarity:</strong> bản đồ nhiệt (heatmap) tối ưu giao diện, tự động che toàn bộ thông tin nhạy cảm.",
+    privacy_tool_storage: "<strong>Lưu trữ cục bộ thiết yếu:</strong> chỉ lưu ngôn ngữ hiển thị, lựa chọn cookie và bố cục trang.",
+    privacy_officer_heading: "Người phụ trách bảo vệ thông tin cá nhân",
+    privacy_officer_desc: "Mọi yêu cầu tra cứu, chỉnh sửa hoặc rút lại sự đồng ý, vui lòng liên hệ: <strong>Pâtisserie Dzung</strong> · 5918 Avenue Auteuil, Brossard, QC J4Z 1N2 · <a href=\"mailto:patisseriedzung@gmail.com\">patisseriedzung@gmail.com</a> · (514) 880-8388.",
 
     // Franco-Saigon Daylight Boulangerie & Multi-View Keys
     nav_visit: "Ghé Tiệm",
@@ -909,6 +947,25 @@ const TRANSLATIONS = {
     closure_status_open: "Open 10:30 AM – 8:00 PM",
     closure_btn_ok: "GOT IT • EXPLORE MENU",
 
+    // Québec Law 25 (Loi 25) Cookie Consent & Privacy Policy
+    footer_privacy_link: "🔒 Privacy &amp; Cookies (Québec Law 25)",
+    consent_banner_title: "🔒 Privacy &amp; Cookies (Québec Law 25)",
+    consent_banner_desc: "We use Google Analytics 4 and Microsoft Clarity to improve our menu and site experience. No analytics cookies are enabled without your consent.",
+    consent_btn_accept: "Accept",
+    consent_btn_decline: "Decline",
+    consent_btn_policy: "Privacy Policy",
+    privacy_modal_title: "Privacy &amp; Cookie Policy (Québec Law 25)",
+    privacy_status_granted: "✅ Current status: Analytics cookies accepted (GA4 &amp; Clarity active)",
+    privacy_status_denied: "🛡️ Current status: Analytics cookies declined (privacy-first cookieless mode)",
+    privacy_status_unset: "⏳ Current status: Pending your choice (no analytics cookies active)",
+    privacy_intro: "In compliance with Québec's Law 25 on the protection of personal information, Pâtisserie Dzung respects your privacy and collects anonymized analytics only with your explicit opt-in consent.",
+    privacy_tools_heading: "Tools used (only if you accept)",
+    privacy_tool_ga4: "<strong>Google Analytics 4 (Consent Mode v2):</strong> measures menu views, video interactions, and order clicks.",
+    privacy_tool_clarity: "<strong>Microsoft Clarity:</strong> UX heatmaps and usability insights, with automatic masking of sensitive inputs.",
+    privacy_tool_storage: "<strong>Essential local storage:</strong> remembers only your language selection, cookie preference, and page layout.",
+    privacy_officer_heading: "Privacy Officer (Person in Charge of Personal Information)",
+    privacy_officer_desc: "To request access, correction, or withdraw consent at any time: <strong>Pâtisserie Dzung</strong> · 5918 Avenue Auteuil, Brossard, QC J4Z 1N2 · <a href=\"mailto:patisseriedzung@gmail.com\">patisseriedzung@gmail.com</a> · (514) 880-8388.",
+
     // Franco-Saigon Daylight Boulangerie & Multi-View Keys
     nav_visit: "Visit",
     header_btn_order: "📞 Order Now",
@@ -1265,6 +1322,25 @@ const TRANSLATIONS = {
     closure_days_open: "本周五起",
     closure_status_open: "正常营业 10:30 – 20:00",
     closure_btn_ok: "我知道了 • 浏览菜单",
+
+    // Québec Law 25 (Loi 25) Cookie Consent & Privacy Policy
+    footer_privacy_link: "🔒 隐私与 Cookie (魁北克 25 号法案)",
+    consent_banner_title: "🔒 隐私与 Cookie 偏好 (魁北克第 25 号法案)",
+    consent_banner_desc: "我们使用 Google Analytics 4 和 Microsoft Clarity 来优化菜单和浏览体验。未经您同意，不会启用任何分析类 Cookie。",
+    consent_btn_accept: "同意",
+    consent_btn_decline: "拒绝",
+    consent_btn_policy: "隐私政策",
+    privacy_modal_title: "隐私与 Cookie 政策 (魁北克第 25 号法案)",
+    privacy_status_granted: "✅ 当前状态：已同意分析类 Cookie（GA4 与 Clarity 已启用）",
+    privacy_status_denied: "🛡️ 当前状态：已拒绝分析类 Cookie（无 Cookie 隐私模式）",
+    privacy_status_unset: "⏳ 当前状态：待选择（尚未启用分析类 Cookie）",
+    privacy_intro: "根据魁北克省第 25 号个人信息保护法案（Loi 25），Pâtisserie Dzung 尊重您的隐私，仅在获得您明确同意后收集匿名统计数据。",
+    privacy_tools_heading: "使用的工具（仅在您同意后启用）",
+    privacy_tool_ga4: "<strong>Google Analytics 4 (Consent Mode v2)：</strong>统计菜单浏览、视频播放与订餐点击。",
+    privacy_tool_clarity: "<strong>Microsoft Clarity：</strong>热力图与交互体验优化，自动屏蔽敏感信息。",
+    privacy_tool_storage: "<strong>必要本地存储：</strong>仅用于记住您的语言选择、Cookie 偏好及页面布局。",
+    privacy_officer_heading: "个人信息保护负责人",
+    privacy_officer_desc: "如需查询、更正或撤回同意，请联系：<strong>Pâtisserie Dzung</strong> · 5918 Avenue Auteuil, Brossard, QC J4Z 1N2 · <a href=\"mailto:patisseriedzung@gmail.com\">patisseriedzung@gmail.com</a> · (514) 880-8388。",
 
     // Franco-Saigon Daylight Boulangerie & Multi-View Keys
     nav_visit: "探店指南",

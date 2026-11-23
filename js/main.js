@@ -461,6 +461,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initCart();
   updateStoreOpenStatus();
   initClosureNoticeModal();
+  initLaw25Consent();
   initAnalyticsTracking();
 });
 
@@ -543,6 +544,113 @@ function initAnalyticsTracking() {
       lang: currentLang
     });
   });
+}
+
+function getSavedConsent() {
+  try {
+    return window.localStorage.getItem(window.DZUNG_CONSENT_KEY || 'dzung_consent_v1');
+  } catch (_) {
+    return null;
+  }
+}
+
+function updatePrivacyStatusPill() {
+  const pill = document.getElementById('privacy-status-pill');
+  if (!pill) return;
+  const t = TRANSLATIONS[currentLang] || TRANSLATIONS.fr;
+  const status = getSavedConsent();
+  if (status === 'granted') {
+    pill.innerHTML = t.privacy_status_granted || '✅ Analytics cookies accepted';
+  } else if (status === 'denied') {
+    pill.innerHTML = t.privacy_status_denied || '🛡️ Analytics cookies declined';
+  } else {
+    pill.innerHTML = t.privacy_status_unset || '⏳ Pending your choice';
+  }
+}
+
+function applyConsentChoice(choice) {
+  const normalized = choice === 'granted' ? 'granted' : 'denied';
+  try {
+    window.localStorage.setItem(window.DZUNG_CONSENT_KEY || 'dzung_consent_v1', normalized);
+  } catch (_) {}
+
+  if (typeof window.gtag === 'function') {
+    window.gtag('consent', 'update', {
+      analytics_storage: normalized,
+      ad_storage: 'denied',
+      ad_user_data: 'denied',
+      ad_personalization: 'denied'
+    });
+  }
+
+  if (normalized === 'granted') {
+    if (typeof window.dzungLoadClarity === 'function') {
+      window.dzungLoadClarity();
+    }
+    if (typeof window.clarity === 'function') {
+      window.clarity('consent', true);
+      window.clarity('set', 'ab_hero_cta', activeHeroVariant);
+      window.clarity('set', 'active_view', currentView);
+    }
+    trackEvent('consent_updated', { consent_state: 'granted' });
+  } else if (typeof window.clarity === 'function') {
+    window.clarity('consent', false);
+  }
+
+  const banner = document.getElementById('consent-banner');
+  if (banner) banner.hidden = true;
+  updatePrivacyStatusPill();
+}
+
+function initLaw25Consent() {
+  const banner = document.getElementById('consent-banner');
+  const modal = document.getElementById('privacy-modal');
+  const saved = getSavedConsent();
+
+  if (banner && saved !== 'granted' && saved !== 'denied') {
+    banner.hidden = false;
+  }
+  updatePrivacyStatusPill();
+
+  const acceptHandler = () => {
+    applyConsentChoice('granted');
+    if (modal && modal.open) modal.close('accept');
+  };
+  const declineHandler = () => {
+    applyConsentChoice('denied');
+    if (modal && modal.open) modal.close('decline');
+  };
+
+  document.getElementById('consent-accept-btn')?.addEventListener('click', acceptHandler);
+  document.getElementById('consent-decline-btn')?.addEventListener('click', declineHandler);
+  document.getElementById('privacy-accept-btn')?.addEventListener('click', acceptHandler);
+  document.getElementById('privacy-decline-btn')?.addEventListener('click', declineHandler);
+
+  const openPrivacyModal = () => {
+    if (!modal || modal.open) return;
+    updatePrivacyStatusPill();
+    modal.showModal();
+  };
+
+  document.getElementById('consent-policy-btn')?.addEventListener('click', openPrivacyModal);
+  document.getElementById('footer-privacy-btn')?.addEventListener('click', openPrivacyModal);
+
+  if (modal) {
+    modal.addEventListener('close', () => {
+      modal.returnValue = '';
+    });
+
+    // Safari fallback for <dialog closedby="any"> light-dismiss
+    if (!('closedBy' in HTMLDialogElement.prototype)) {
+      const isOutside = (e) => {
+        const r = modal.getBoundingClientRect();
+        return e.clientX < r.left || e.clientX > r.right || e.clientY < r.top || e.clientY > r.bottom;
+      };
+      let pressedOutside = false;
+      modal.addEventListener('pointerdown', (e) => { pressedOutside = isOutside(e); });
+      modal.addEventListener('pointerup', (e) => { if (pressedOutside && isOutside(e)) modal.close(); });
+    }
+  }
 }
 
 const VALID_VIEWS = new Set(['home', 'menu', 'catering', 'gallery', 'visit']);
@@ -952,6 +1060,10 @@ function applyTranslations(lang) {
       el.setAttribute('placeholder', t[key]);
     }
   });
+
+  if (typeof updatePrivacyStatusPill === 'function') {
+    updatePrivacyStatusPill();
+  }
 }
 
 /* ==========================================================================

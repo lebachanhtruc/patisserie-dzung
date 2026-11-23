@@ -156,11 +156,27 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700;800&family=Playball&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
 
-  <!-- Google Analytics 4 (GA4) -->
+  <!-- Google Analytics 4 (GA4) + Google Consent Mode v2 (Québec Law 25 Opt-in) -->
   <script>
     window.DZUNG_GA4_ID = 'G-W9FL83TS52';
+    window.DZUNG_CLARITY_ID = 'zibylbhr9v';
+    window.DZUNG_CONSENT_KEY = 'dzung_consent_v1';
     window.dataLayer = window.dataLayer || [];
     window.gtag = window.gtag || function () { window.dataLayer.push(arguments); };
+
+    var dzungSavedConsent = null;
+    try {
+      dzungSavedConsent = window.localStorage.getItem(window.DZUNG_CONSENT_KEY);
+    } catch (_) {}
+
+    window.gtag('consent', 'default', {
+      analytics_storage: dzungSavedConsent === 'granted' ? 'granted' : 'denied',
+      ad_storage: 'denied',
+      ad_user_data: 'denied',
+      ad_personalization: 'denied',
+      wait_for_update: 500
+    });
+
     if (window.DZUNG_GA4_ID && /^G-[A-Z0-9]+$/i.test(window.DZUNG_GA4_ID)) {
       var gaScript = document.createElement('script');
       gaScript.async = true;
@@ -169,19 +185,24 @@
       window.gtag('js', new Date());
       window.gtag('config', window.DZUNG_GA4_ID, { send_page_view: true });
     }
-  </script>
 
-  <!-- Microsoft Clarity (Heatmaps & Session Recordings) -->
-  <script type="text/javascript">
-    (function(c,l,a,r,i,t,y){
-      c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
-      t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
-      y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
-    })(window, document, "clarity", "script", "zibylbhr9v");
+    // Microsoft Clarity loader — strictly gated on Law 25 analytics opt-in
+    window.dzungLoadClarity = function () {
+      if (window.__dzungClarityLoaded || !window.DZUNG_CLARITY_ID) return;
+      window.__dzungClarityLoaded = true;
+      (function (c, l, a, r, i, t, y) {
+        c[a] = c[a] || function () { (c[a].q = c[a].q || []).push(arguments); };
+        t = l.createElement(r); t.async = 1; t.src = 'https://www.clarity.ms/tag/' + i;
+        y = l.getElementsByTagName(r)[0]; y.parentNode.insertBefore(t, y);
+      })(window, document, 'clarity', 'script', window.DZUNG_CLARITY_ID);
+    };
+    if (dzungSavedConsent === 'granted') {
+      window.dzungLoadClarity();
+    }
   </script>
 
   <!-- Stylesheets -->
-  <link rel="stylesheet" href="css/style.css?v=20261120" />
+  <link rel="stylesheet" href="css/style.css?v=20261123b" />
 </head>
 <body>
 
@@ -1318,7 +1339,12 @@
         <div data-i18n="footer_rights">
           © 2026 Pâtisserie Dzung. Tous droits réservés. Créé avec passion pour la gastronomie vietnamienne.
         </div>
-        <div>5918 Avenue Auteuil · Brossard · Rive-Sud Montréal</div>
+        <div class="footer-legal-row">
+          <span>5918 Avenue Auteuil · Brossard · Rive-Sud Montréal</span>
+          <button type="button" class="footer-privacy-trigger" id="footer-privacy-btn" data-i18n="footer_privacy_link">
+            🔒 Confidentialité &amp; Cookies (Loi 25)
+          </button>
+        </div>
       </div>
     </div>
   </footer>
@@ -1486,9 +1512,73 @@
     </div>
   </dialog>
 
+  <!-- ==========================================================================
+       QUÉBEC LAW 25 (LOI 25) COOKIE CONSENT BANNER & PRIVACY POLICY DIALOG
+       ========================================================================== -->
+  <aside id="consent-banner" class="dz-consent-banner" aria-label="Préférences de confidentialité" hidden>
+    <div class="dz-consent-body">
+      <div class="dz-consent-title" data-i18n="consent_banner_title">🔒 Confidentialité &amp; Témoins (Loi 25)</div>
+      <p class="dz-consent-text" data-i18n="consent_banner_desc">
+        Nous utilisons Google Analytics 4 et Microsoft Clarity pour améliorer notre menu et votre expérience. Aucun témoin analytique n'est activé sans votre accord.
+      </p>
+    </div>
+    <div class="dz-consent-actions">
+      <button type="button" id="consent-accept-btn" class="btn-tactile btn-tactile-gold dz-consent-btn" data-i18n="consent_btn_accept">
+        Accepter
+      </button>
+      <button type="button" id="consent-decline-btn" class="btn-tactile btn-tactile-outline dz-consent-btn" data-i18n="consent_btn_decline">
+        Refuser
+      </button>
+      <button type="button" id="consent-policy-btn" class="dz-consent-link" data-i18n="consent_btn_policy">
+        Politique (Loi 25)
+      </button>
+    </div>
+  </aside>
+
+  <dialog id="privacy-modal" class="privacy-dialog" closedby="any" aria-labelledby="privacy-modal-title">
+    <div class="privacy-dialog-card">
+      <div class="privacy-dialog-head">
+        <h1 id="privacy-modal-title" class="privacy-dialog-title" data-i18n="privacy_modal_title">
+          Politique de confidentialité &amp; Témoins (Loi 25)
+        </h1>
+        <form method="dialog">
+          <button type="submit" class="privacy-close-btn" value="close" aria-label="Fermer">✕</button>
+        </form>
+      </div>
+
+      <div class="privacy-dialog-body">
+        <p class="privacy-status-pill" id="privacy-status-pill"></p>
+        <p data-i18n="privacy_intro">
+          Conformément à la Loi 25 du Québec sur la protection des renseignements personnels, Pâtisserie Dzung respecte votre vie privée et recueille uniquement des statistiques anonymisées avec votre consentement explicite.
+        </p>
+
+        <h2 data-i18n="privacy_tools_heading">Outils utilisés (uniquement si vous acceptez)</h2>
+        <ul class="privacy-list">
+          <li data-i18n="privacy_tool_ga4"><strong>Google Analytics 4 (Consent Mode v2) :</strong> mesure la fréquentation du menu, des vidéos et des clics de commande.</li>
+          <li data-i18n="privacy_tool_clarity"><strong>Microsoft Clarity :</strong> cartes de chaleur (heatmaps) et amélioration ergonomique, avec masquage automatique des données sensibles.</li>
+          <li data-i18n="privacy_tool_storage"><strong>Stockage local essentiel :</strong> mémorise uniquement votre choix de langue, votre préférence de témoins et l'affichage de la page.</li>
+        </ul>
+
+        <h2 data-i18n="privacy_officer_heading">Responsable de la protection des renseignements personnels</h2>
+        <p data-i18n="privacy_officer_desc">
+          Pour toute demande d'accès, de rectification ou de retrait de consentement : <strong>Pâtisserie Dzung</strong> · 5918 Avenue Auteuil, Brossard, QC J4Z 1N2 · <a href="mailto:patisseriedzung@gmail.com">patisseriedzung@gmail.com</a> · (514) 880-8388.
+        </p>
+      </div>
+
+      <div class="privacy-dialog-footer">
+        <button type="button" id="privacy-accept-btn" class="btn-tactile btn-tactile-gold dz-consent-btn" data-i18n="consent_btn_accept">
+          Accepter
+        </button>
+        <button type="button" id="privacy-decline-btn" class="btn-tactile btn-tactile-outline dz-consent-btn" data-i18n="consent_btn_decline">
+          Refuser
+        </button>
+      </div>
+    </div>
+  </dialog>
+
   <!-- Scripts: translations -> menu-data -> main -->
-  <script src="js/translations.js?v=20261120"></script>
+  <script src="js/translations.js?v=20261123b"></script>
   <script src="js/menu-data.js?v=20261120"></script>
-  <script src="js/main.js?v=20261123"></script>
+  <script src="js/main.js?v=20261123b"></script>
 </body>
 </html>
