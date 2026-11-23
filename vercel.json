@@ -61,6 +61,31 @@
       "source": "/story",
       "destination": "/#visit",
       "permanent": false
+    },
+    {
+      "source": "/ig",
+      "destination": "/?utm_source=instagram&utm_medium=bio&utm_campaign=storefront",
+      "permanent": false
+    },
+    {
+      "source": "/fb",
+      "destination": "/?utm_source=facebook&utm_medium=social&utm_campaign=storefront",
+      "permanent": false
+    },
+    {
+      "source": "/maps",
+      "destination": "/?utm_source=google&utm_medium=organic_gbp&utm_campaign=maps_listing",
+      "permanent": false
+    },
+    {
+      "source": "/qr",
+      "destination": "/?utm_source=instore&utm_medium=qr&utm_campaign=counter_menu#menu",
+      "permanent": false
+    },
+    {
+      "source": "/qr-goibo",
+      "destination": "/goi-bo?utm_source=packaging&utm_medium=qr&utm_campaign=goi_bo_box",
+      "permanent": false
     }
   ],
   "rewrites": [
