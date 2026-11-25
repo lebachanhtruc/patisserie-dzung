@@ -285,6 +285,32 @@ const GALLERY_ITEMS = [
     }
   },
   {
+    id: 'gal-hot-mi-ga-cay',
+    type: 'photo',
+    category: 'culinary',
+    src: 'assets/images/menu-hot-mi-ga-cay-pho-mai.jpg',
+    width: 1200,
+    height: 900,
+    badge: {
+      fr: '🔥 Plat Chaud · 20$',
+      vi: '🔥 Món Nóng Mới · 20$',
+      en: '🔥 Hot Dish · $20',
+      zh: '🔥 特色热菜 · 20$'
+    },
+    title: {
+      fr: 'Nouilles Coréennes au Poulet Épicé & Fromage (20$)',
+      vi: 'Mì Gà Cay Phô Mai Hàn Quốc (20$)',
+      en: 'Korean Spicy Cheese Chicken Noodles ($20)',
+      zh: '韩式芝士辣鸡面 (20$)'
+    },
+    desc: {
+      fr: 'Cuisse de poulet entière laquée de sauce épicée coréenne et fromage gratiné fondant, nouilles ondulées, bok choy croquant et bouillon épicé servi à part (2 bols séparés à emporter).',
+      vi: 'Nguyên đùi gà góc tư áo sốt cay ngọt Hàn Quốc phủ phô mai nướng chảy, mì xoăn dai ngon, cải thìa và tô nước súp nóng để riêng (2 hộp riêng khi mang đi).',
+      en: 'Whole chicken leg quarter glazed in sweet-and-spicy Korean sauce with melted cheese, chewy wavy noodles, crisp bok choy, and hot spicy broth served separately (2-bowl takeout).',
+      zh: '整只大鸡腿裹满韩式香辣酱与炙烤芝士，搭配劲道卷面、爽脆青江菜，另配热辣汤底（外带双碗分装）。'
+    }
+  },
+  {
     id: 'gal-banh-mi-ga',
     type: 'photo',
     category: 'culinary',
@@ -1034,7 +1060,7 @@ function updateLanguageUI(lang) {
 function applyTranslations(lang) {
   if (typeof TRANSLATIONS === 'undefined' || !TRANSLATIONS[lang]) return;
   const t = TRANSLATIONS[lang];
-  const menuCount = typeof MENU_ITEMS !== 'undefined' ? String(MENU_ITEMS.length) : '38';
+  const menuCount = typeof MENU_ITEMS !== 'undefined' ? String(MENU_ITEMS.length) : '39';
 
   if (t.page_title) {
     document.title = t.page_title;

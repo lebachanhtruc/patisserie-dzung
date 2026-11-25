@@ -182,7 +182,7 @@ const MENU_ITEMS = [
     image: 'assets/images/menu-banh-mi-n5-thit-nuong.jpg'
   },
 
-  // 🔥 MÓN NÓNG (PLATS CHAUDS / HOT DISHES - 2 MÓN ĐẶC BIỆT)
+  // 🔥 MÓN NÓNG (PLATS CHAUDS / HOT DISHES - 3 MÓN ĐẶC BIỆT)
   {
     id: 'hot-xoi-ga',
     category: 'hot',
@@ -218,6 +218,52 @@ const MENU_ITEMS = [
     portion: { fr: 'Bol généreux chaud', vi: 'Tô lớn nóng hổi', en: 'Hearty hot bowl', zh: '热腾腾大碗装' },
     videoReel: 'gal-reel-xoi-ga',
     image: 'assets/images/menu-hot-xoi-ga.jpg'
+  },
+  {
+    id: 'hot-mi-ga-cay-pho-mai',
+    category: 'hot',
+    price: 20,
+    priceDisplay: '20$',
+    badge: 'hot',
+    badgeText: {
+      fr: '🔥 Plat Chaud · Nouveau',
+      vi: '🔥 Món Nóng · Mới',
+      en: '🔥 Hot Dish · New',
+      zh: '🔥 特色热菜 · 新品'
+    },
+    name: {
+      fr: 'Nouilles Coréennes au Poulet Épicé & Fromage',
+      vi: 'Mì Gà Cay Phô Mai Hàn Quốc',
+      en: 'Korean Spicy Cheese Chicken Noodles',
+      zh: '韩式芝士辣鸡面'
+    },
+    desc: {
+      fr: "Repas complet préparé chaud : cuisse de poulet entière nappée de sauce épicée coréenne et de fromage gratiné fondant, servie avec des nouilles coréennes ondulées, du bok choy croquant et un bol de soupe épicée chaude à part (coffret 2 bols séparés pour emporter). Ingrédients : cuisse de poulet entière, fromage fondant, sauce épicée coréenne, nouilles ondulées, bok choy croquant et soupe épicée.",
+      vi: 'Phần ăn nóng hổi đầy đặn gồm nguyên đùi gà góc tư áo sốt cay ngọt kiểu Hàn, phủ phô mai nướng chảy béo ngậy, ăn cùng sợi mì xoăn Hàn Quốc dai ngon, cải thìa giòn ngọt và tô nước súp nóng để riêng (đóng gói 2 hộp riêng khi mang đi để giữ trọn độ dai của mì). Thành phần gồm đùi gà góc tư, phô mai nướng chảy, sốt cay ngọt Hàn Quốc, mì xoăn Hàn Quốc, cải thìa giòn ngọt và nước dùng cay đậm đà.',
+      en: 'A hearty piping-hot meal featuring a whole chicken leg quarter glazed in sweet-and-spicy Korean sauce and topped with melted gratinated cheese, served with chewy wavy Korean noodles, crisp bok choy, and a separate bowl of hot spicy soup (packed in 2 separate bowls for takeout to keep noodles bouncy). Ingredients: whole chicken leg quarter, melted cheese, Korean sweet-and-spicy sauce, wavy Korean noodles, crisp bok choy, and rich spicy soup.',
+      zh: '热气腾腾的丰盛韩式套餐：整只大鸡腿裹满韩式香辣微甜酱汁并铺上炙烤芝士，搭配劲道韩式卷面与爽脆青江菜，另配一碗热腾腾的香辣汤（外带采用双碗分装，完美保留面条劲道口感）。成分：整只大鸡腿、炙烤芝士、韩式香辣甜酱、韩式卷面、爽脆青江菜和浓郁香辣汤。'
+    },
+    tags: {
+      fr: ['20$ · Plat Chaud', 'Fromage Fondant', '2 Bols Séparés (To-Go)'],
+      vi: ['20$ · Món Nóng', 'Phô Mai Nướng Chảy', '2 Hộp Riêng Mang Đi'],
+      en: ['$20 · Hot Dish', 'Melted Cheese', '2-Bowl Takeout'],
+      zh: ['20$ · 热食', '炙烤芝士', '外带双碗分装']
+    },
+    allergens: ['gluten', 'dairy', 'soy', 'spicy'],
+    dietary: ['peanut_free_recipe', 'pork_free'],
+    portion: {
+      fr: 'Assiette généreuse ou 2 bols séparés (à emporter)',
+      vi: 'Dĩa lớn tại bàn · 2 hộp riêng khi mang đi',
+      en: 'Hearty plate or 2 separate bowls (takeout)',
+      zh: '堂食大盘 · 外带双碗分装'
+    },
+    customNote: {
+      fr: 'À emporter : livré en 2 bols séparés (nouilles & poulet au fromage + bouillon épicé chaud à part) pour préserver toute la texture des nouilles. Recette sans porc et sans arachides.',
+      vi: 'Khi mang đi gồm 2 hộp riêng biệt (hộp mì đùi gà phô mai + hộp súp cay nóng) giúp sợi mì luôn dai ngon đến khi dùng. Công thức không thịt heo & không đậu phộng.',
+      en: 'Takeout comes in 2 separate bowls (cheesy chicken & noodles + hot spicy broth) so noodles stay perfectly bouncy until you pour. Pork-free & peanut-free recipe.',
+      zh: '外带提供双碗分装（芝士辣鸡面碗 + 热辣汤碗），食用前现浇汤底保持面条劲道。配方不含猪肉及花生。'
+    },
+    image: 'assets/images/menu-hot-mi-ga-cay-pho-mai.jpg'
   },
   {
     id: 'hot-bap-xao',
