@@ -6381,6 +6381,22 @@ dialog.privacy-dialog::backdrop {
   text-wrap: balance;
 }
 
+.dz-banquet-flex-pill {
+  display: inline-block;
+  margin: 14px auto 0;
+  padding: 8px 18px;
+  border-radius: var(--radius-pill);
+  border: 1.5px solid var(--ink-pandan);
+  background: var(--mint-soft);
+  color: var(--ink-pandan);
+  font-family: var(--font-body);
+  font-size: 0.82rem;
+  font-weight: 800;
+  line-height: 1.4;
+  text-wrap: balance;
+  box-shadow: 2.5px 2.5px 0 var(--gold-crust);
+}
+
 .dz-banquet-ornament {
   display: flex;
   align-items: center;
