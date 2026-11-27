@@ -2060,6 +2060,7 @@ h4:focus,
 /* Sticky Menu Category Pill Bar — State-Aware Editorial Rail */
 .lk-menu-page-section {
   overflow-anchor: none;
+  padding-top: 30px;
   min-height: calc(100dvh - var(--site-header-h, 60px));
 }
 
@@ -2083,9 +2084,9 @@ h4:focus,
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 14px;
+  gap: 18px;
   flex-wrap: nowrap;
-  padding-block: 18px 12px;
+  padding-block: 12px 12px;
   padding-inline: max(var(--gutter), calc((100% - var(--container-max)) / 2 + var(--gutter)));
   background: rgba(252, 248, 240, 0.96);
   backdrop-filter: blur(12px);
@@ -2158,48 +2159,20 @@ h4:focus,
   position: relative;
   display: flex;
   align-items: center;
+  gap: 8px;
   min-width: 0;
 }
 
-.menu-tabs-scroll-wrap::before,
-.menu-tabs-scroll-wrap::after {
-  content: '';
-  position: absolute;
-  top: 0;
-  bottom: 4px;
-  width: 44px;
-  pointer-events: none;
-  opacity: 0;
-  transition: opacity 0.2s ease;
-  z-index: 3;
-}
-
-.menu-tabs-scroll-wrap::before {
-  left: 0;
-  background: linear-gradient(90deg, rgba(252, 248, 240, 0.98) 25%, rgba(252, 248, 240, 0) 100%);
-}
-
-.menu-tabs-scroll-wrap::after {
-  right: 0;
-  background: linear-gradient(270deg, rgba(252, 248, 240, 0.98) 25%, rgba(252, 248, 240, 0) 100%);
-}
-
-.menu-tabs-shell.can-scroll-left:not(.is-expanded) .menu-tabs-scroll-wrap::before,
-.menu-tabs-shell.can-scroll-right:not(.is-expanded) .menu-tabs-scroll-wrap::after {
-  opacity: 1;
-}
-
 .menu-tabs-arrow {
-  position: absolute;
-  top: 50%;
-  transform: translateY(calc(-50% - 2px));
-  width: 30px;
-  height: 30px;
+  position: static;
+  flex: none;
+  width: 34px;
+  height: 34px;
   border-radius: 50%;
   border: 2px solid var(--ink-pandan);
   background: var(--gold-crust);
   color: var(--ink-pandan);
-  font-size: 1.2rem;
+  font-size: 1.25rem;
   font-weight: 900;
   line-height: 1;
   display: none;
@@ -2208,15 +2181,11 @@ h4:focus,
   padding: 0 0 2px;
   box-shadow: 2px 2px 0 var(--ink-pandan);
   cursor: pointer;
-  z-index: 4;
+  transition: transform 0.14s ease, background-color 0.15s ease;
 }
 
-.menu-tabs-arrow.is-left {
-  left: 0;
-}
-
-.menu-tabs-arrow.is-right {
-  right: 0;
+.menu-tabs-arrow:hover {
+  background: var(--gold-crust-hover);
 }
 
 .menu-tabs-shell.can-scroll-left:not(.is-expanded) .menu-tabs-arrow.is-left,
@@ -2231,11 +2200,12 @@ h4:focus,
 }
 
 @keyframes menu-arrow-nudge {
-  0%, 100% { transform: translateY(calc(-50% - 2px)) translateX(0); }
-  50% { transform: translateY(calc(-50% - 2px)) translateX(2.5px); }
+  0%, 100% { transform: translateX(0); }
+  50% { transform: translateX(2.5px); }
 }
 
 .menu-tabs-wrapper {
+  flex: 1 1 auto;
   display: flex;
   align-items: center;
   flex-wrap: nowrap;
@@ -2243,12 +2213,12 @@ h4:focus,
   overflow-x: auto;
   scrollbar-width: none;
   scroll-snap-type: inline proximity;
-  scroll-padding-inline: 32px;
-  padding: 2px 36px 6px 2px;
+  scroll-padding-inline: 24px;
+  padding: 4px 8px 6px 2px;
   scroll-behavior: smooth;
   min-width: 0;
-  width: 100%;
-  --fade-size: 2.25rem;
+  width: auto;
+  --fade-size: 2rem;
   mask:
     linear-gradient(black, black) no-clip subtract,
     linear-gradient(to right, black, transparent) 0 0 / var(--fade-start) 100% no-repeat no-clip,
@@ -2298,9 +2268,9 @@ h4:focus,
   opacity: 0.75;
 }
 
-.menu-tab-btn:hover {
-  background: var(--ink-pandan);
-  color: var(--bg-paper);
+.menu-tab-btn:hover:not(.active):not([aria-selected="true"]) {
+  background: var(--mint-soft);
+  color: var(--ink-pandan);
 }
 
 .menu-tab-btn.active,
@@ -4501,6 +4471,10 @@ h4:focus,
     scroll-padding-bottom: calc(82px + env(safe-area-inset-bottom, 0px));
   }
 
+  .lk-menu-page-section {
+    padding-top: 24px;
+  }
+
   .lk-menu-sticky-bar {
     top: var(--site-header-h, 60px);
   }
@@ -4509,7 +4483,7 @@ h4:focus,
     flex-direction: column;
     align-items: stretch;
     gap: 8px;
-    padding-block: 14px 10px;
+    padding-block: 10px 10px;
   }
 
   .menu-tabs-meta-row {
