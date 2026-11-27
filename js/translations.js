@@ -381,7 +381,18 @@ const TRANSLATIONS = {
     bap_xao_note: "💡 Sans précommande 24h : préparé chaud en ~15 min à l'arrivée. Conseil : appelez le (514) 880-8388 ~1 h avant votre venue ! Recette sans arachides · Allergènes : lait/beurre, crustacés (crevettes séchées), porc, épicé.",
     bap_xao_btn_play: "▶ Lire la vidéo 20s (avec son)",
     bap_xao_btn_pause: "⏸ Mettre en pause",
-    bap_xao_btn_gallery: "🎬 Ouvrir dans Vidéos & Reels"
+    bap_xao_btn_gallery: "🎬 Ouvrir dans Vidéos & Reels",
+    banquet_eyebrow: "✦ Thực Đơn Tiệc · Tables de 10 Convives",
+    banquet_title: "SET MENU TIỆC — MENUS BANQUET",
+    banquet_script: "5 services complets pour 10 convives",
+    banquet_subtitle: "Menus de réception complets pour 10 personnes · Fêtes de famille, anniversaires, mariages intimes & événements d'entreprise.",
+    banquet_price_label: "Tarif sur demande · Selon saison & nombre de tables",
+    banquet_footnote: "* Tous nos menus sont préparés pour 10 convives · Un menu supérieur peut échanger son dessert contre celui d'un menu inférieur.",
+    banquet_blessing: "✦ Au plaisir de vous servir pour vos moments précieux ✦",
+    banquet_quote_kicker: "Devis rapide & personnalisation par téléphone :",
+    banquet_quote_btn: "📞 Appeler le (514) 880-8388 pour les tarifs",
+    banquet_show_all_mobile: "Comparer les 3 Sets en liste ▾",
+    banquet_show_tabs_mobile: "Revenir à la vue par onglets ▴"
   },
 
   vi: {
@@ -761,7 +772,18 @@ const TRANSLATIONS = {
     bap_xao_note: "💡 Không cần đặt trước 24h : ghé tiệm cần khoảng 15 phút để xào nóng giòn. Khuyên bạn gọi (514) 880-8388 đặt trước ~1 tiếng để lấy nóng liền không phải đợi ! Công thức không đậu phộng · Có: bơ (sữa), tép khô, da heo, cay nhẹ.",
     bap_xao_btn_play: "▶ Phát Video 20s (Có tiếng)",
     bap_xao_btn_pause: "⏸ Tạm dừng video",
-    bap_xao_btn_gallery: "🎬 Mở mục Video & Reels"
+    bap_xao_btn_gallery: "🎬 Mở mục Video & Reels",
+    banquet_eyebrow: "✦ Thực Đơn Tiệc Trọn Gói · Bàn 10 Khách",
+    banquet_title: "SET MENU TIỆC",
+    banquet_script: "trọn gói 5 món · bàn 10 khách",
+    banquet_subtitle: "Thực đơn chọn gói dành cho 10 khách · Tiệc gia đình, liên hoan, sinh nhật & sự kiện trọng đại.",
+    banquet_price_label: "Giá theo thời giá & số bàn · Liên hệ tiệm báo giá",
+    banquet_footnote: "* Tất cả các set đều đủ cho 10 khách · Set cao hơn có thể đổi sang món tráng miệng của set thấp hơn.",
+    banquet_blessing: "✦ Hân hạnh được phục vụ quý khách ✦",
+    banquet_quote_kicker: "Cần báo giá nhanh & tư vấn đổi món theo yêu cầu?",
+    banquet_quote_btn: "📞 Gọi (514) 880-8388 để biết giá",
+    banquet_show_all_mobile: "Xem so sánh cả 3 Set cùng lúc ▾",
+    banquet_show_tabs_mobile: "Thu gọn về dạng thẻ Set ▴"
   },
 
   en: {
@@ -1141,7 +1163,18 @@ const TRANSLATIONS = {
     bap_xao_note: "💡 No 24h pre-order required: ~15 min wait when ordered in-store. Tip: call (514) 880-8388 ~1 hour ahead for piping-hot zero-wait pickup! Peanut-free recipe · Contains dairy (butter), shellfish (dried shrimp), pork, mild chili.",
     bap_xao_btn_play: "▶ Play 20s Reel (With Sound)",
     bap_xao_btn_pause: "⏸ Pause Video",
-    bap_xao_btn_gallery: "🎬 Open in Videos & Reels"
+    bap_xao_btn_gallery: "🎬 Open in Videos & Reels",
+    banquet_eyebrow: "✦ Banquet Catering · Tables of 10 Guests",
+    banquet_title: "BANQUET SET MENUS",
+    banquet_script: "complete 5-course feasts for 10",
+    banquet_subtitle: "Curated 5-course banquet sets for 10 guests · Family celebrations, milestones, gatherings & corporate events.",
+    banquet_price_label: "Price on request · Call bakery for live quote",
+    banquet_footnote: "* Every set menu serves 10 guests · Higher tiers may swap their dessert for any dessert from a lower tier.",
+    banquet_blessing: "✦ Honored to serve your celebration ✦",
+    banquet_quote_kicker: "Call us directly for current set pricing & custom requests:",
+    banquet_quote_btn: "📞 Call (514) 880-8388 for Pricing",
+    banquet_show_all_mobile: "Compare all 3 Sets vertically ▾",
+    banquet_show_tabs_mobile: "Back to single-tier tabs ▴"
   },
 
   zh: {
@@ -1521,7 +1554,18 @@ const TRANSLATIONS = {
     bap_xao_note: "💡 无需提前 24 小时预订：到店下单约需 15 分钟现炒出锅。建议提前约 1 小时致电 (514) 880-8388 预约取餐免久等！配方不含花生 · 含乳制品（黄油）、甲壳类（虾米）、猪肉、微辣。",
     bap_xao_btn_play: "▶ 播放 20 秒短视频（有声）",
     bap_xao_btn_pause: "⏸ 暂停视频",
-    bap_xao_btn_gallery: "🎬 前往视频专区查看"
+    bap_xao_btn_gallery: "🎬 前往视频专区查看",
+    banquet_eyebrow: "✦ 宴席精选套餐 · 十人桌席",
+    banquet_title: "十人桌宴席套餐",
+    banquet_script: "五道式精选全席 · 10人份",
+    banquet_subtitle: "十人份全套宴席精选 · 家庭聚会、庆生寿宴、团圆联欢与商务宴请。",
+    banquet_price_label: "时价报价 · 按桌数致电门店咨询",
+    banquet_footnote: "* 所有套餐均为10人份 · 高阶套餐可自由更换为低阶套餐中的任意甜品。",
+    banquet_blessing: "✦ 诚挚期待为您呈现圆满宴席 ✦",
+    banquet_quote_kicker: "了解最新套餐价格与定制需求，欢迎直接致电门店：",
+    banquet_quote_btn: "📞 致电 (514) 880-8388 咨询报价",
+    banquet_show_all_mobile: "同时展开对比三款套餐 ▾",
+    banquet_show_tabs_mobile: "切换回单页标签浏览 ▴"
   }
 };
 

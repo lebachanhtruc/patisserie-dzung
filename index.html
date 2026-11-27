@@ -206,7 +206,7 @@
   </script>
 
   <!-- Stylesheets -->
-  <link rel="stylesheet" href="css/style.css?v=20261127b" />
+  <link rel="stylesheet" href="css/style.css?v=20261127c" />
 </head>
 <body>
 
@@ -899,8 +899,63 @@
         </div>
       </section>
 
+      <!-- BANQUET SET MENUS (3 Curated 5-Course Feasts for 10 Guests — Saigon-Paris Folio) -->
+      <section class="dz-banquet-section" id="catering-banquet-sets" aria-labelledby="banquet-folio-heading">
+        <div class="container">
+          <div class="dz-banquet-folio">
+            <span class="dz-folio-corner is-tl" aria-hidden="true"></span>
+            <span class="dz-folio-corner is-tr" aria-hidden="true"></span>
+            <span class="dz-folio-corner is-bl" aria-hidden="true"></span>
+            <span class="dz-folio-corner is-br" aria-hidden="true"></span>
+
+            <header class="dz-banquet-head">
+              <p class="dz-banquet-eyebrow" data-i18n="banquet_eyebrow">✦ Thực Đơn Tiệc · Tables de 10 Convives</p>
+              <h2 class="dz-banquet-title" id="banquet-folio-heading">
+                <span data-i18n="banquet_title">SET MENU TIỆC — MENUS BANQUET</span>
+                <span class="script-accent dz-banquet-script" data-i18n="banquet_script">5 services complets pour 10 convives</span>
+              </h2>
+              <p class="dz-banquet-subtitle" data-i18n="banquet_subtitle">
+                Menus de réception complets pour 10 personnes · Fêtes de famille, anniversaires, mariages intimes &amp; événements d'entreprise.
+              </p>
+              <div class="dz-banquet-ornament" aria-hidden="true">
+                <span class="dz-ornament-line"></span>
+                <span class="dz-ornament-star">✦</span>
+                <span class="dz-ornament-line"></span>
+              </div>
+            </header>
+
+            <!-- Mobile Tier Switcher (Hidden on Desktop where all 3 tiers sit side-by-side) -->
+            <div class="dz-banquet-mobile-nav">
+              <div class="dz-banquet-tabs" id="banquet-mobile-tabs" role="tablist" aria-label="Set Menu Tiers"></div>
+              <button type="button" class="dz-banquet-compare-btn" id="banquet-compare-toggle" onclick="toggleBanquetMobileCompare()">
+                <span data-i18n="banquet_show_all_mobile">Comparer les 3 Sets en liste ▾</span>
+              </button>
+            </div>
+
+            <!-- 3-Tier Banquet Grid Rendered Dynamically for 4 Languages (FR / VI / EN / ZH) -->
+            <div class="dz-banquet-grid" id="banquet-sets-grid"></div>
+
+            <!-- Heritage Closing Footnote & Direct Phone Quote Concierge Bar -->
+            <footer class="dz-banquet-footer">
+              <p class="dz-banquet-footnote" data-i18n="banquet_footnote">
+                * Tous nos menus sont préparés pour 10 convives · Un menu supérieur peut échanger son dessert contre celui d'un menu inférieur.
+              </p>
+              <p class="dz-banquet-blessing" data-i18n="banquet_blessing">
+                ✦ Au plaisir de vous servir pour vos moments précieux ✦
+              </p>
+              <div class="dz-banquet-quote-bar">
+                <span class="dz-banquet-quote-kicker" data-i18n="banquet_quote_kicker">Devis rapide &amp; personnalisation par téléphone :</span>
+                <a href="tel:+15148808388" class="btn-tactile btn-tactile-gold dz-banquet-quote-btn" data-track="catering_banquet_quote_call" data-i18n="banquet_quote_btn">
+                  📞 Appeler le (514) 880-8388 pour les tarifs
+                </a>
+              </div>
+            </footer>
+          </div>
+        </div>
+      </section>
+
       <!-- 3 Easy Steps Section (Like Little Kirin's Catering Page) -->
-      <section class="lk-section lk-bg-cream" style="padding-bottom: 1.5rem;">
+      <section class="lk-section lk-bg-cream" style="padding-top: 2rem; padding-bottom: 1.5rem;">
         <div class="container">
           <div class="lk-section-head">
             <p class="lk-eyebrow" data-i18n="cat_steps_eyebrow">Comment Ça Marche</p>
@@ -1628,8 +1683,8 @@
   </dialog>
 
   <!-- Scripts: translations -> menu-data -> main -->
-  <script src="js/translations.js?v=20261127"></script>
-  <script src="js/menu-data.js?v=20261120"></script>
-  <script src="js/main.js?v=20261127"></script>
+  <script src="js/translations.js?v=20261127c"></script>
+  <script src="js/menu-data.js?v=20261127c"></script>
+  <script src="js/main.js?v=20261127c"></script>
 </body>
 </html>

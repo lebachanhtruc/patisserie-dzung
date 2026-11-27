@@ -484,6 +484,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initLazyMedia(document);
   renderMenu(currentCategory);
   initMenuTabs();
+  renderBanquetSetMenus();
   renderGallery(currentGalleryFilter);
   initGallery();
   initCart();
@@ -1066,6 +1067,7 @@ function switchLanguage(lang) {
   if (typeof renderMobileCategorySheet === 'function') renderMobileCategorySheet();
   if (typeof syncMobileBarCategoryLabel === 'function') syncMobileBarCategoryLabel();
   if (typeof updateMenuTabsScrollCue === 'function') requestAnimationFrame(updateMenuTabsScrollCue);
+  if (typeof renderBanquetSetMenus === 'function') renderBanquetSetMenus();
   renderGallery(currentGalleryFilter);
   renderCartItems();
   updateStoreOpenStatus();
@@ -2243,6 +2245,155 @@ function initMenuTabs() {
   }
   window.addEventListener('resize', updateMenuTabsScrollCue, { passive: true });
   requestAnimationFrame(updateMenuTabsScrollCue);
+}
+
+/* ==========================================================================
+   4A. BANQUET SET MENUS (3 Curated 5-Course Feasts for 10 Guests)
+   ========================================================================== */
+let activeBanquetSetId = 'set-01';
+let banquetShowAllMobile = false;
+
+function selectBanquetSet(setId) {
+  activeBanquetSetId = setId;
+  banquetShowAllMobile = false;
+  renderBanquetSetMenus();
+}
+
+function toggleBanquetMobileCompare() {
+  banquetShowAllMobile = !banquetShowAllMobile;
+  renderBanquetSetMenus();
+}
+
+function renderBanquetSetMenus() {
+  const grid = document.getElementById('banquet-sets-grid');
+  const tabsWrap = document.getElementById('banquet-mobile-tabs');
+  const compareBtn = document.getElementById('banquet-compare-toggle');
+  if (!grid || typeof BANQUET_SET_MENUS === 'undefined' || !Array.isArray(BANQUET_SET_MENUS)) return;
+
+  const lang = currentLang || 'fr';
+  const t = (typeof TRANSLATIONS !== 'undefined' && TRANSLATIONS[lang]) || {};
+  const priceLabel = t.banquet_price_label || 'Tarif sur demande · Selon saison & nombre de tables';
+
+  if (tabsWrap) {
+    tabsWrap.innerHTML = BANQUET_SET_MENUS.map((set, idx) => {
+      const isSelected = !banquetShowAllMobile && set.id === activeBanquetSetId;
+      const tabName = (set.name && (set.name[lang] || set.name.vi)) || set.code;
+      const shortName = tabName.includes('·') ? tabName.split('·')[0].trim() : tabName;
+      return `
+        <button
+          type="button"
+          class="dz-banquet-tab-btn is-${set.tier}"
+          role="tab"
+          aria-selected="${String(isSelected)}"
+          tabindex="${isSelected || (banquetShowAllMobile && idx === 0) ? '0' : '-1'}"
+          data-banquet-tab="${set.id}"
+        >
+          <span class="dz-banquet-tab-code">${set.code}</span>
+          <span class="dz-banquet-tab-name">${shortName}</span>
+        </button>
+      `;
+    }).join('');
+
+    const tabBtns = Array.from(tabsWrap.querySelectorAll('.dz-banquet-tab-btn'));
+    tabBtns.forEach((btn, idx) => {
+      btn.addEventListener('click', () => {
+        const targetId = btn.getAttribute('data-banquet-tab');
+        if (targetId) selectBanquetSet(targetId);
+      });
+      btn.addEventListener('keydown', (e) => {
+        let nextIdx = -1;
+        if (e.key === 'ArrowRight') nextIdx = (idx + 1) % tabBtns.length;
+        else if (e.key === 'ArrowLeft') nextIdx = (idx - 1 + tabBtns.length) % tabBtns.length;
+        if (nextIdx >= 0) {
+          e.preventDefault();
+          const nextBtn = tabBtns[nextIdx];
+          const targetId = nextBtn.getAttribute('data-banquet-tab');
+          if (targetId) {
+            selectBanquetSet(targetId);
+            const refreshed = tabsWrap.querySelector(`[data-banquet-tab="${targetId}"]`);
+            refreshed?.focus();
+          }
+        }
+      });
+    });
+  }
+
+  if (compareBtn) {
+    const compareLabel = banquetShowAllMobile
+      ? (t.banquet_show_tabs_mobile || 'Revenir à la vue par onglets ▴')
+      : (t.banquet_show_all_mobile || 'Comparer les 3 Sets en liste ▾');
+    compareBtn.setAttribute('aria-pressed', String(banquetShowAllMobile));
+    const span = compareBtn.querySelector('span');
+    if (span) span.textContent = compareLabel;
+    else compareBtn.textContent = compareLabel;
+  }
+
+  grid.classList.toggle('is-show-all', banquetShowAllMobile);
+
+  grid.innerHTML = BANQUET_SET_MENUS.map(set => {
+    const isMobileActive = set.id === activeBanquetSetId;
+    const ribbonText = (set.ribbon && (set.ribbon[lang] || set.ribbon.vi)) || '';
+    const setName = (set.name && (set.name[lang] || set.name.vi)) || set.code;
+    const setMeaning = (set.meaning && (set.meaning[lang] || set.meaning.vi)) || '';
+    const setServes = (set.serves && (set.serves[lang] || set.serves.vi)) || '';
+    const ctaText = (set.ctaLabel && (set.ctaLabel[lang] || set.ctaLabel.vi)) || '📞 (514) 880-8388';
+    const ctaBtnClass = set.tier === 'prestige'
+      ? 'btn-tactile btn-tactile-gold dz-banquet-call-cta'
+      : (set.tier === 'featured'
+          ? 'btn-tactile btn-tactile-dark dz-banquet-call-cta'
+          : 'btn-tactile btn-tactile-outline dz-banquet-call-cta');
+
+    const coursesHtml = set.courses.map(course => {
+      const cTitle = (course.title && (course.title[lang] || course.title.vi)) || '';
+      const cBadge = course.badge ? (course.badge[lang] || course.badge.vi || '') : '';
+      const itemsHtml = course.items.map(item => {
+        const iName = (item.name && (item.name[lang] || item.name.vi)) || '';
+        const iNote = item.note ? (item.note[lang] || item.note.vi || '') : '';
+        return `
+          <li class="dz-course-item">
+            <span class="dz-course-diamond" aria-hidden="true">◆</span>
+            <div class="dz-course-item-copy">
+              <span class="dz-course-dish">${iName}</span>
+              ${iNote ? `<span class="dz-course-note">${iNote}</span>` : ''}
+            </div>
+          </li>
+        `;
+      }).join('');
+
+      return `
+        <li class="dz-banquet-course">
+          <div class="dz-course-head">
+            <span class="dz-course-label">${course.num} · ${cTitle}</span>
+            ${cBadge ? `<span class="dz-course-badge">${cBadge}</span>` : ''}
+          </div>
+          <ul class="dz-course-items">${itemsHtml}</ul>
+        </li>
+      `;
+    }).join('');
+
+    return `
+      <article class="dz-banquet-card is-${set.tier}${isMobileActive ? ' is-mobile-active' : ''}" data-banquet-card="${set.id}">
+        <div class="dz-banquet-card-top">
+          ${ribbonText ? `<span class="dz-banquet-ribbon">${ribbonText}</span>` : ''}
+          <span class="dz-banquet-code">${set.code}</span>
+          <h3 class="dz-banquet-name">${setName}</h3>
+          ${setMeaning ? `<p class="dz-banquet-meaning">${setMeaning}</p>` : ''}
+          <span class="dz-banquet-serves">${setServes}</span>
+        </div>
+
+        <ol class="dz-banquet-courses">
+          ${coursesHtml}
+        </ol>
+
+        <div class="dz-banquet-card-foot">
+          <p class="dz-banquet-price-hint">${priceLabel}</p>
+          <a href="tel:+15148808388" class="${ctaBtnClass}" data-track="catering_set_call_click">
+            ${ctaText}
+          </a>
+        </div>
+      </article>
+    `;
+  }).join('');
 }
 
 /* ==========================================================================

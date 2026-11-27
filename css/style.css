@@ -366,7 +366,7 @@ h4:focus,
   padding: 0;
   display: flex;
   align-items: center;
-  gap: 24px;
+  gap: clamp(14px, 1.8vw, 24px);
 }
 
 .nav-link {
@@ -377,6 +377,7 @@ h4:focus,
   letter-spacing: 0.06em;
   color: var(--ink-pandan);
   padding: 6px 2px;
+  white-space: nowrap;
   border-bottom: 3px solid transparent;
   transition: border-color 0.15s ease, color 0.15s ease;
 }
@@ -6263,5 +6264,625 @@ dialog.privacy-dialog::backdrop {
   .dz-cat-sheet[popover],
   .lk-menu-sticky-bar > .lk-menu-bar-inner {
     transition: none;
+  }
+}
+
+/* ==========================================================================
+   BANQUET SET MENUS FOLIO (Saigon-Paris Editorial 3-Tier Banquet Menu)
+   ========================================================================== */
+.dz-banquet-section {
+  padding: 54px 0 34px;
+  background: var(--bg-cream);
+}
+
+.dz-banquet-folio {
+  position: relative;
+  background: var(--bg-paper);
+  border: 2px solid var(--ink-pandan);
+  border-radius: 22px;
+  padding: clamp(26px, 4vw, 48px) clamp(18px, 3.6vw, 44px) clamp(24px, 3.4vw, 38px);
+  box-shadow: 10px 10px 0 var(--gold-crust);
+}
+
+/* Refined heritage L-corner brackets echoing printed Saigon banquet invitations */
+.dz-folio-corner {
+  position: absolute;
+  width: 22px;
+  height: 22px;
+  pointer-events: none;
+  border-color: var(--gold-crust);
+  border-style: solid;
+  border-width: 0;
+}
+
+.dz-folio-corner.is-tl {
+  top: 12px;
+  left: 12px;
+  border-top-width: 2.5px;
+  border-left-width: 2.5px;
+  border-top-left-radius: 6px;
+}
+
+.dz-folio-corner.is-tr {
+  top: 12px;
+  right: 12px;
+  border-top-width: 2.5px;
+  border-right-width: 2.5px;
+  border-top-right-radius: 6px;
+}
+
+.dz-folio-corner.is-bl {
+  bottom: 12px;
+  left: 12px;
+  border-bottom-width: 2.5px;
+  border-left-width: 2.5px;
+  border-bottom-left-radius: 6px;
+}
+
+.dz-folio-corner.is-br {
+  bottom: 12px;
+  right: 12px;
+  border-bottom-width: 2.5px;
+  border-right-width: 2.5px;
+  border-bottom-right-radius: 6px;
+}
+
+.dz-banquet-head {
+  text-align: center;
+  max-width: 740px;
+  margin: 0 auto 30px;
+}
+
+.dz-banquet-eyebrow {
+  margin: 0 0 6px;
+  font-family: var(--font-body);
+  font-size: 0.76rem;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--red-chili);
+  text-wrap: balance;
+}
+
+.dz-banquet-title {
+  margin: 0 0 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+  font-family: var(--font-display);
+  font-size: clamp(2.15rem, 4.4vw, 3.25rem);
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  line-height: 1.02;
+  color: #8E2219;
+}
+
+.dz-banquet-script {
+  font-size: clamp(1.35rem, 2.4vw, 1.8rem);
+  color: var(--ink-pandan);
+  font-weight: 400;
+  letter-spacing: 0;
+  text-transform: none;
+}
+
+.dz-banquet-subtitle {
+  margin: 0 auto;
+  max-width: 62ch;
+  font-size: 0.94rem;
+  font-weight: 500;
+  color: var(--text-muted);
+  line-height: 1.55;
+  text-wrap: balance;
+}
+
+.dz-banquet-ornament {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  margin-top: 18px;
+}
+
+.dz-ornament-line {
+  width: clamp(56px, 12vw, 110px);
+  height: 1.5px;
+  background: linear-gradient(90deg, transparent, var(--gold-crust), transparent);
+}
+
+.dz-ornament-star {
+  color: var(--gold-crust);
+  font-size: 0.95rem;
+  line-height: 1;
+}
+
+/* Mobile-only Tier Switcher (Desktop shows all 3 tiers side-by-side) */
+.dz-banquet-mobile-nav {
+  display: none;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 10px;
+  margin-bottom: 18px;
+}
+
+.dz-banquet-tabs {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 8px;
+}
+
+.dz-banquet-tab-btn {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2px;
+  min-height: 54px;
+  padding: 8px 6px 10px;
+  border-radius: 14px;
+  border: 2px solid var(--ink-pandan);
+  background: var(--bg-cream);
+  color: var(--ink-pandan);
+  cursor: pointer;
+  transition: background-color 0.16s ease, color 0.16s ease, box-shadow 0.16s ease;
+}
+
+.dz-banquet-tab-code {
+  font-family: var(--font-body);
+  font-size: 0.62rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  opacity: 0.72;
+}
+
+.dz-banquet-tab-name {
+  font-family: var(--font-display);
+  font-size: 0.95rem;
+  font-weight: 800;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  line-height: 1.05;
+  text-align: center;
+}
+
+.dz-banquet-tab-btn[aria-selected="true"] {
+  background: var(--ink-pandan);
+  color: var(--bg-paper);
+  box-shadow: 3px 3px 0 var(--gold-crust);
+}
+
+.dz-banquet-tab-btn[aria-selected="true"] .dz-banquet-tab-code {
+  color: var(--gold-soft);
+  opacity: 1;
+}
+
+/* Non-color active indicator (WCAG 1.4.1) */
+.dz-banquet-tab-btn[aria-selected="true"]::after {
+  content: "";
+  position: absolute;
+  inset-inline: 16px;
+  inset-block-end: 4px;
+  border-block-end: 2.5px solid var(--gold-crust);
+  border-radius: 2px;
+}
+
+.dz-banquet-tab-btn.is-prestige[aria-selected="true"] {
+  border-color: var(--gold-crust);
+  box-shadow: 3px 3px 0 var(--red-chili);
+}
+
+.dz-banquet-compare-btn {
+  align-self: center;
+  min-height: 44px;
+  padding: 6px 16px;
+  border-radius: var(--radius-pill);
+  border: 1.5px dashed var(--ink-pandan);
+  background: transparent;
+  color: var(--ink-pandan);
+  font-family: var(--font-body);
+  font-size: 0.78rem;
+  font-weight: 800;
+  cursor: pointer;
+}
+
+/* 3-Column Architectural Banquet Grid */
+.dz-banquet-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 22px;
+  align-items: stretch;
+}
+
+.dz-banquet-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  background: var(--bg-cream);
+  border: 2px solid var(--ink-pandan);
+  border-radius: 18px;
+  padding: 24px 22px 20px;
+  box-shadow: 6px 6px 0 var(--line-warm);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.dz-banquet-card:hover {
+  transform: translateY(-3px);
+}
+
+.dz-banquet-card.is-featured {
+  background: linear-gradient(180deg, #FFFDF8 0%, #FDF4DC 100%);
+  border: 2.5px solid var(--ink-pandan);
+  box-shadow: 8px 8px 0 var(--gold-crust);
+  transform: translateY(-6px);
+}
+
+.dz-banquet-card.is-featured:hover {
+  transform: translateY(-9px);
+}
+
+.dz-banquet-card.is-prestige {
+  background: linear-gradient(168deg, #164430 0%, #0D291D 100%);
+  color: var(--bg-cream);
+  border: 2.5px solid var(--gold-crust);
+  box-shadow: 8px 8px 0 var(--red-chili);
+}
+
+.dz-banquet-card-top {
+  text-align: center;
+  padding-bottom: 16px;
+  margin-bottom: 16px;
+  border-bottom: 2px solid #8E2219;
+}
+
+.dz-banquet-card.is-prestige .dz-banquet-card-top {
+  border-bottom-color: var(--gold-crust);
+}
+
+.dz-banquet-ribbon {
+  display: inline-block;
+  margin-bottom: 10px;
+  padding: 4px 12px;
+  border-radius: var(--radius-pill);
+  border: 1.5px solid var(--ink-pandan);
+  background: var(--bg-paper);
+  color: var(--ink-pandan);
+  font-family: var(--font-body);
+  font-size: 0.68rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.dz-banquet-card.is-featured .dz-banquet-ribbon {
+  background: var(--gold-crust);
+  color: var(--ink-pandan);
+  box-shadow: 2px 2px 0 var(--ink-pandan);
+}
+
+.dz-banquet-card.is-prestige .dz-banquet-ribbon {
+  background: rgba(232, 168, 56, 0.16);
+  border-color: var(--gold-crust);
+  color: var(--gold-soft);
+}
+
+.dz-banquet-code {
+  display: block;
+  font-family: var(--font-body);
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin-bottom: 4px;
+}
+
+.dz-banquet-card.is-prestige .dz-banquet-code {
+  color: var(--gold-soft);
+}
+
+.dz-banquet-name {
+  margin: 0 0 4px;
+  font-family: var(--font-display);
+  font-size: 1.9rem;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  line-height: 1.05;
+  color: #8E2219;
+  text-transform: uppercase;
+}
+
+.dz-banquet-card.is-prestige .dz-banquet-name {
+  color: var(--gold-crust);
+}
+
+.dz-banquet-meaning {
+  margin: 0 0 6px;
+  font-family: var(--font-body);
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--ink-pandan);
+}
+
+.dz-banquet-card.is-prestige .dz-banquet-meaning {
+  color: rgba(252, 248, 240, 0.9);
+}
+
+.dz-banquet-serves {
+  display: inline-block;
+  font-family: var(--font-body);
+  font-size: 0.74rem;
+  font-weight: 600;
+  color: var(--text-muted);
+}
+
+.dz-banquet-card.is-prestige .dz-banquet-serves {
+  color: rgba(247, 223, 168, 0.82);
+}
+
+/* 5-Course Structured Progression List */
+.dz-banquet-courses {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  flex: 1;
+}
+
+.dz-banquet-course {
+  padding-bottom: 11px;
+  border-bottom: 1px dashed var(--line-warm);
+}
+
+.dz-banquet-course:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.dz-banquet-card.is-prestige .dz-banquet-course {
+  border-bottom-color: rgba(232, 168, 56, 0.28);
+}
+
+.dz-course-head {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 6px;
+}
+
+.dz-course-label {
+  font-family: var(--font-body);
+  font-size: 0.7rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #8E2219;
+}
+
+.dz-banquet-card.is-prestige .dz-course-label {
+  color: var(--gold-crust);
+}
+
+.dz-course-badge {
+  font-family: var(--font-body);
+  font-size: 0.65rem;
+  font-weight: 800;
+  padding: 1px 7px;
+  border-radius: var(--radius-pill);
+  background: rgba(20, 61, 43, 0.08);
+  color: var(--ink-pandan);
+}
+
+.dz-banquet-card.is-prestige .dz-course-badge {
+  background: rgba(232, 168, 56, 0.2);
+  color: var(--gold-soft);
+}
+
+.dz-course-items {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.dz-course-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+}
+
+.dz-course-diamond {
+  flex: none;
+  font-size: 0.56rem;
+  line-height: 1;
+  margin-top: 6px;
+  color: var(--gold-crust);
+}
+
+.dz-course-item-copy {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+  min-width: 0;
+}
+
+.dz-course-dish {
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  font-weight: 700;
+  line-height: 1.38;
+  color: var(--ink-pandan);
+}
+
+.dz-banquet-card.is-prestige .dz-course-dish {
+  color: #FCF8F0;
+}
+
+.dz-course-note {
+  font-family: var(--font-body);
+  font-size: 0.78rem;
+  font-style: italic;
+  line-height: 1.38;
+  color: var(--text-muted);
+}
+
+.dz-banquet-card.is-prestige .dz-course-note {
+  color: rgba(247, 223, 168, 0.84);
+}
+
+/* Price-on-Request Card Footer */
+.dz-banquet-card-foot {
+  margin-top: 18px;
+  padding-top: 14px;
+  border-top: 1.5px solid var(--line-warm);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.dz-banquet-card.is-prestige .dz-banquet-card-foot {
+  border-top-color: rgba(232, 168, 56, 0.35);
+}
+
+.dz-banquet-price-hint {
+  margin: 0;
+  text-align: center;
+  font-family: var(--font-body);
+  font-size: 0.74rem;
+  font-weight: 700;
+  color: var(--text-muted);
+}
+
+.dz-banquet-card.is-prestige .dz-banquet-price-hint {
+  color: var(--gold-soft);
+}
+
+.dz-banquet-call-cta {
+  width: 100%;
+  min-height: 46px;
+  font-size: 0.78rem;
+  padding: 0.72em 0.9em;
+  text-align: center;
+  justify-content: center;
+}
+
+/* Closing Editorial Policy Plaque + Direct Phone Concierge */
+.dz-banquet-footer {
+  margin-top: 28px;
+  padding-top: 20px;
+  border-top: 1.5px dashed var(--line-warm);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+
+.dz-banquet-footnote {
+  margin: 0;
+  font-size: 0.86rem;
+  font-style: italic;
+  font-weight: 600;
+  color: var(--ink-body);
+  text-wrap: balance;
+}
+
+.dz-banquet-blessing {
+  margin: 0 0 6px;
+  font-family: var(--font-body);
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #8E2219;
+}
+
+.dz-banquet-quote-bar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 12px 16px;
+  width: 100%;
+  max-width: 780px;
+  margin-top: 6px;
+  padding: 14px 18px;
+  border-radius: 16px;
+  border: 2px solid var(--ink-pandan);
+  background: var(--mint-soft);
+}
+
+.dz-banquet-quote-kicker {
+  font-family: var(--font-body);
+  font-size: 0.84rem;
+  font-weight: 700;
+  color: var(--ink-pandan);
+}
+
+.dz-banquet-quote-btn {
+  min-height: 44px;
+  font-size: 0.8rem;
+  padding: 0.68em 1.25em;
+}
+
+@media (max-width: 960px) {
+  .dz-banquet-section {
+    padding: 40px 0 24px;
+  }
+
+  .dz-banquet-folio {
+    box-shadow: 6px 6px 0 var(--gold-crust);
+  }
+
+  .dz-banquet-mobile-nav {
+    display: flex;
+  }
+
+  .dz-banquet-grid {
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+
+  .dz-banquet-card.is-featured {
+    transform: none;
+  }
+
+  .dz-banquet-card:hover,
+  .dz-banquet-card.is-featured:hover {
+    transform: none;
+  }
+
+  .dz-banquet-grid:not(.is-show-all) .dz-banquet-card:not(.is-mobile-active) {
+    display: none;
+  }
+}
+
+@media (max-width: 600px) {
+  .dz-banquet-folio {
+    padding: 22px 14px 20px;
+    border-radius: 18px;
+  }
+
+  .dz-folio-corner {
+    width: 16px;
+    height: 16px;
+  }
+
+  .dz-banquet-card {
+    padding: 20px 16px 18px;
+  }
+
+  .dz-banquet-tab-name {
+    font-size: 0.84rem;
+  }
+
+  .dz-banquet-quote-btn {
+    width: 100%;
+    justify-content: center;
   }
 }

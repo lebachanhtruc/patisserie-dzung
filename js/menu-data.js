@@ -1657,6 +1657,436 @@ const MENU_ITEMS = [
   }
 ];
 
+const BANQUET_SET_MENUS = [
+  {
+    id: 'set-01',
+    code: 'SET 01',
+    tier: 'classic',
+    ribbon: {
+      vi: 'Ấm Cúng · Gia Đình',
+      fr: 'Convivial · Famille',
+      en: 'Warm & Classic',
+      zh: '经典温馨'
+    },
+    name: {
+      vi: 'SUM VẦY',
+      fr: 'SUM VẦY',
+      en: 'SUM VẦY',
+      zh: '团圆宴 · SUM VẦY'
+    },
+    meaning: {
+      vi: 'Tiệc Gia Đình & Liên Hoan',
+      fr: 'Convivialité & Partage',
+      en: 'Family Gathering',
+      zh: '合家欢聚 · 温馨团圆'
+    },
+    serves: {
+      vi: 'Bàn 10 khách · 5 món tròn vị',
+      fr: 'Table de 10 convives · 5 services',
+      en: 'Table for 10 Guests · 5 Courses',
+      zh: '10人桌席 · 五道全宴'
+    },
+    ctaLabel: {
+      vi: '📞 Hỏi giá Set 01 · (514) 880-8388',
+      fr: '📞 Tarif Set 01 · (514) 880-8388',
+      en: '📞 Quote Set 01 · (514) 880-8388',
+      zh: '📞 询套餐一报价 · (514) 880-8388'
+    },
+    courses: [
+      {
+        num: '01',
+        title: { vi: 'GỎI / KHAI VỊ', fr: 'SALADE / ENTRÉE', en: 'SALAD / APPETIZER', zh: '开胃凉菜' },
+        items: [
+          {
+            name: {
+              vi: 'Gỏi gà xé bắp cải',
+              fr: 'Salade de poulet effiloché au chou croquant (Gỏi gà xé bắp cải)',
+              en: 'Shredded Chicken & Crunchy Cabbage Salad (Gỏi Gà Xé Bắp Cải)',
+              zh: '越式手撕鸡丝包菜沙拉'
+            }
+          }
+        ]
+      },
+      {
+        num: '02',
+        title: { vi: 'SÚP', fr: 'SOUPE', en: 'SOUP', zh: '汤品' },
+        items: [
+          {
+            name: {
+              vi: 'Súp bắp cua',
+              fr: 'Velouté de crabe et maïs doux (Súp bắp cua)',
+              en: 'Sweet Corn & Crab Meat Soup (Súp Bắp Cua)',
+              zh: '蟹肉玉米羹'
+            }
+          }
+        ]
+      },
+      {
+        num: '03',
+        title: { vi: 'MÓN CHÍNH', fr: 'PLATS PRINCIPAUX', en: 'MAIN COURSES', zh: '主菜' },
+        items: [
+          {
+            name: {
+              vi: 'Gà nướng muối ớt + Xôi',
+              fr: 'Poulet grillé au sel pimenté + Riz gluant parfumé',
+              en: 'Chili-Salt Grilled Chicken + Sticky Rice',
+              zh: '椒盐烤鸡配香糯米饭'
+            }
+          },
+          {
+            name: {
+              vi: 'Bò (hoặc Sườn) nấu lagu rau củ',
+              fr: 'Ragoût mijoté au bœuf (ou côtes de porc) et légumes (Lagu)',
+              en: 'Vietnamese Beef (or Pork Rib) Vegetable Ragout (Lagu)',
+              zh: '越式茄汁蔬菜炖牛肉（或炖排骨）'
+            }
+          }
+        ]
+      },
+      {
+        num: '04',
+        title: { vi: 'LẨU', fr: 'FONDUE / HOTPOT', en: 'HOTPOT', zh: '火锅' },
+        items: [
+          {
+            name: {
+              vi: 'Lẩu hải sản nấm',
+              fr: 'Fondue aux fruits de mer et champignons',
+              en: 'Seafood & Mushroom Hotpot',
+              zh: '菌菇海鲜火锅'
+            },
+            note: {
+              vi: '(tôm, mực, hải sản theo mùa · kèm Mì trứng)',
+              fr: '(crevettes, calmar, fruits de mer de saison · nouilles aux œufs)',
+              en: '(shrimp, squid, seasonal seafood · served with egg noodles)',
+              zh: '（大虾、鱿鱼、时令海鲜 · 配鸡蛋面）'
+            }
+          }
+        ]
+      },
+      {
+        num: '05',
+        title: { vi: 'TRÁNG MIỆNG', fr: 'DESSERT', en: 'DESSERT', zh: '甜品' },
+        items: [
+          {
+            name: {
+              vi: '10 tofu nhỏ',
+              fr: '10 douceurs de tofu soyeux',
+              en: '10 Individual Silken Tofu Puddings',
+              zh: '10份手工嫩豆花'
+            },
+            note: {
+              vi: '(hoặc Chè sâm bổ lượng / Da Ua)',
+              fr: '(ou Chè sâm bổ lượng / Yaourt maison)',
+              en: '(or Sâm Bổ Lượng Sweet Soup / House Yogurt)',
+              zh: '（或可换清补凉 / 手工酸奶）'
+            }
+          }
+        ]
+      }
+    ]
+  },
+  {
+    id: 'set-02',
+    code: 'SET 02',
+    tier: 'featured',
+    ribbon: {
+      vi: '★ Được Chọn Nhiều',
+      fr: '★ Le Plus Populaire',
+      en: '★ Most Popular',
+      zh: '★ 人气首选'
+    },
+    name: {
+      vi: 'PHÚ QUÝ',
+      fr: 'PHÚ QUÝ',
+      en: 'PHÚ QUÝ',
+      zh: '富贵宴 · PHÚ QUÝ'
+    },
+    meaning: {
+      vi: 'Tiệc Đãi Khách & Mừng Thọ',
+      fr: 'Prospérité & Célébration',
+      en: 'Prosperity Feast',
+      zh: '宾主尽欢 · 富贵满堂'
+    },
+    serves: {
+      vi: 'Bàn 10 khách · 5 món đặc sắc',
+      fr: 'Table de 10 convives · 5 services',
+      en: 'Table for 10 Guests · 5 Courses',
+      zh: '10人桌席 · 五道臻宴'
+    },
+    ctaLabel: {
+      vi: '📞 Hỏi giá Set 02 · (514) 880-8388',
+      fr: '📞 Tarif Set 02 · (514) 880-8388',
+      en: '📞 Quote Set 02 · (514) 880-8388',
+      zh: '📞 询套餐二报价 · (514) 880-8388'
+    },
+    courses: [
+      {
+        num: '01',
+        title: { vi: 'KHAI VỊ', fr: 'ENTRÉES', en: 'APPETIZERS', zh: '开胃拼盘' },
+        badge: { vi: '3 món', fr: '3 choix', en: '3 dishes', zh: '三拼' },
+        items: [
+          {
+            name: {
+              vi: 'Gỏi bò khoai môn',
+              fr: 'Salade de bœuf au taro croustillant (Gỏi bò khoai môn)',
+              en: 'Crispy Taro & Beef Salad (Gỏi Bò Khoai Môn)',
+              zh: '炸芋丝牛肉凉拌'
+            },
+            note: {
+              vi: '(khoai môn chiên + rau thơm)',
+              fr: '(taro frit doré + herbes fraîches)',
+              en: '(crispy fried taro + fresh herbs)',
+              zh: '（金黄炸芋丝 + 新鲜香草）'
+            }
+          },
+          {
+            name: {
+              vi: 'Gỏi cuốn tôm thịt',
+              fr: 'Rouleaux de printemps frais aux crevettes et porc',
+              en: 'Fresh Shrimp & Pork Summer Rolls (Gỏi Cuốn)',
+              zh: '越式鲜虾猪肉春卷'
+            }
+          },
+          {
+            name: {
+              vi: 'Nem nướng',
+              fr: 'Brochettes de porc grillé parfumé (Nem nướng)',
+              en: 'Grilled Vietnamese Pork Skewers (Nem Nướng)',
+              zh: '炭烤越式香肠串（Nem Nướng）'
+            }
+          }
+        ]
+      },
+      {
+        num: '02',
+        title: { vi: 'SÚP', fr: 'SOUPE', en: 'SOUP', zh: '汤品' },
+        items: [
+          {
+            name: {
+              vi: 'Súp hải sản chua cay',
+              fr: 'Soupe aigre-piquante aux fruits de mer',
+              en: 'Hot & Sour Seafood Soup',
+              zh: '酸辣海鲜汤'
+            }
+          }
+        ]
+      },
+      {
+        num: '03',
+        title: { vi: 'MÓN CHÍNH', fr: 'PLATS PRINCIPAUX', en: 'MAIN COURSES', zh: '主菜' },
+        items: [
+          {
+            name: {
+              vi: 'Sườn hầm pate + Bánh mì',
+              fr: 'Côtes de porc mijotées au pâté maison + Baguettes',
+              en: 'Braised Pork Ribs in House Pâté + Crusty Baguettes',
+              zh: '秘制肝酱炖排骨配脆皮法包'
+            }
+          },
+          {
+            name: {
+              vi: 'Sườn bò nướng đặc biệt',
+              fr: 'Côtes de bœuf grillées spécialité du chef',
+              en: "Chef's Signature Grilled Beef Short Ribs",
+              zh: '招牌特制炭烤牛小排'
+            }
+          }
+        ]
+      },
+      {
+        num: '04',
+        title: { vi: 'LẨU', fr: 'FONDUE / HOTPOT', en: 'HOTPOT', zh: '火锅' },
+        items: [
+          {
+            name: {
+              vi: 'Lẩu Thái hải sản',
+              fr: 'Fondue thaïlandaise aux fruits de mer',
+              en: 'Thai-Style Seafood Hotpot',
+              zh: '泰式冬阴功海鲜火锅'
+            },
+            note: {
+              vi: '(kèm Bún tươi)',
+              fr: '(accompagnée de vermicelles de riz frais)',
+              en: '(served with fresh rice vermicelli)',
+              zh: '（配新鲜米粉）'
+            }
+          }
+        ]
+      },
+      {
+        num: '05',
+        title: { vi: 'TRÁNG MIỆNG', fr: 'DESSERT', en: 'DESSERT', zh: '甜品' },
+        items: [
+          {
+            name: {
+              vi: 'Bánh Flan',
+              fr: 'Flan au caramel fondant (Bánh Flan)',
+              en: 'Silky Caramel Custard Flan (Bánh Flan)',
+              zh: '手工焦糖布丁'
+            },
+            note: {
+              vi: '(hoặc Chè Khúc Bạch / chọn từ Set 1)',
+              fr: '(ou Chè Khúc Bạch / au choix depuis le Set 01)',
+              en: '(or Chè Khúc Bạch / any Set 01 dessert)',
+              zh: '（或可换杏仁豆腐糖水 / 任选套餐一甜品）'
+            }
+          }
+        ]
+      }
+    ]
+  },
+  {
+    id: 'set-03',
+    code: 'SET 03',
+    tier: 'prestige',
+    ribbon: {
+      vi: '✦ Đẳng Cấp Thượng Hạng',
+      fr: '✦ Grand Prestige',
+      en: '✦ Imperial Prestige',
+      zh: '✦ 至尊御宴'
+    },
+    name: {
+      vi: 'THƯỢNG HẠNG',
+      fr: 'THƯỢNG HẠNG',
+      en: 'THƯỢNG HẠNG',
+      zh: '至尊御宴 · THƯỢNG HẠNG'
+    },
+    meaning: {
+      vi: 'Đại Tiệc & Sự Kiện Trọng Đại',
+      fr: 'Prestige & Grandes Réceptions',
+      en: 'Imperial Celebration',
+      zh: '山珍海味 · 至尊礼遇'
+    },
+    serves: {
+      vi: 'Bàn 10 khách · 5 món hảo hạng',
+      fr: 'Table de 10 convives · 5 services d’exception',
+      en: 'Table for 10 Guests · 5 Prestige Courses',
+      zh: '10人桌席 · 五道至尊御宴'
+    },
+    ctaLabel: {
+      vi: '📞 Hỏi giá Set 03 · (514) 880-8388',
+      fr: '📞 Tarif Set 03 · (514) 880-8388',
+      en: '📞 Quote Set 03 · (514) 880-8388',
+      zh: '📞 询套餐三报价 · (514) 880-8388'
+    },
+    courses: [
+      {
+        num: '01',
+        title: { vi: 'KHAI VỊ', fr: 'ENTRÉES', en: 'APPETIZERS', zh: '开胃拼盘' },
+        badge: { vi: '3 món', fr: '3 choix', en: '3 dishes', zh: '三拼' },
+        items: [
+          {
+            name: {
+              vi: 'Gỏi bưởi tai heo, tôm',
+              fr: 'Salade de pomélo frais, crevettes et oreille de porc croquante',
+              en: 'Fresh Pomelo, Shrimp & Crispy Pork Ear Salad',
+              zh: '鲜柚鲜虾脆耳沙拉'
+            }
+          },
+          {
+            name: {
+              vi: 'Chạo tôm',
+              fr: 'Mousse de crevettes grillées sur canne à sucre (Chạo tôm)',
+              en: 'Grilled Sugarcane Shrimp Paste (Chạo Tôm)',
+              zh: '越式甘蔗虾'
+            }
+          },
+          {
+            name: {
+              vi: 'Bò bía',
+              fr: 'Rouleaux Bò Bía traditionnels de Saigon',
+              en: 'Saigon-Style Popiah Fresh Rolls (Bò Bía)',
+              zh: '西贡传统薄饼卷（Bò Bía）'
+            }
+          }
+        ]
+      },
+      {
+        num: '02',
+        title: { vi: 'SÚP', fr: 'SOUPE', en: 'SOUP', zh: '汤品' },
+        items: [
+          {
+            name: {
+              vi: 'Súp sơn hào hải vị',
+              fr: 'Soupe impériale aux trésors de la mer',
+              en: 'Imperial Eight-Treasure Seafood Soup',
+              zh: '海味珍品皇汤'
+            },
+            note: {
+              vi: '(tôm, bào ngư, bong bóng cá, sò điệp)',
+              fr: '(crevettes, ormeau, vessie de poisson, pétoncles)',
+              en: '(shrimp, abalone, fish maw, scallops)',
+              zh: '（大虾、鲍鱼、花胶、鲜带子）'
+            }
+          }
+        ]
+      },
+      {
+        num: '03',
+        title: { vi: 'MÓN CHÍNH', fr: 'PLATS PRINCIPAUX', en: 'MAIN COURSES', zh: '主菜' },
+        items: [
+          {
+            name: {
+              vi: 'Cá hấp Hồng Kông (Cá hồi hoặc Cá mú)',
+              fr: 'Poisson vapeur façon Hong Kong (Saumon ou Mérou)',
+              en: 'Hong Kong-Style Steamed Fish (Salmon or Grouper)',
+              zh: '港式清蒸鲜鱼（三文鱼或石斑鱼）'
+            }
+          },
+          {
+            name: {
+              vi: 'Sườn non BBQ',
+              fr: 'Travers de porc tendres laqués BBQ',
+              en: 'Glazed BBQ Baby Back Pork Ribs',
+              zh: '蜜汁炭烤猪肋排'
+            }
+          }
+        ]
+      },
+      {
+        num: '04',
+        title: { vi: 'LẨU', fr: 'FONDUE / HOTPOT', en: 'HOTPOT', zh: '火锅' },
+        items: [
+          {
+            name: {
+              vi: 'Lẩu bò mắm ruốc Huế',
+              fr: 'Fondue de bœuf impériale de Hué au mắm ruốc',
+              en: 'Hue-Style Beef & Fermented Shrimp Paste Hotpot',
+              zh: '顺化虾酱牛肉火锅'
+            },
+            note: {
+              vi: '(hoặc Lẩu riêu cua bắp bò)',
+              fr: '(ou Fondue au crabe d’eau douce et jarret de bœuf)',
+              en: '(or Crab Paste & Beef Shank Hotpot)',
+              zh: '（或可换蟹膏牛腱火锅）'
+            }
+          }
+        ]
+      },
+      {
+        num: '05',
+        title: { vi: 'TRÁNG MIỆNG', fr: 'DESSERT', en: 'DESSERT', zh: '甜品' },
+        items: [
+          {
+            name: {
+              vi: 'Chè Mỹ',
+              fr: 'Chè Mỹ gourmand aux fruits et gelées',
+              en: 'House Special Chè Mỹ Dessert',
+              zh: '招牌越式美式糖水（Chè Mỹ）'
+            },
+            note: {
+              vi: '(hoặc Chè Thái / chọn từ Set 1 & 2)',
+              fr: '(ou Chè Thái / au choix depuis les Sets 01 & 02)',
+              en: '(or Chè Thái / any dessert from Sets 01 & 02)',
+              zh: '（或可换泰式糖水 / 任选套餐一、二甜品）'
+            }
+          }
+        ]
+      }
+    ]
+  }
+];
+
 if (typeof module !== 'undefined' && module.exports) {
   module.exports = MENU_ITEMS;
 }
