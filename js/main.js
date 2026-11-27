@@ -469,6 +469,8 @@ const GALLERY_ITEMS = [
 ];
 
 document.addEventListener('DOMContentLoaded', () => {
+  ensurePopoverPolyfill();
+  initSiteHeaderHeightObserver();
   initLanguage();
   initHeroCtaExperiment();
   initNavbar();
@@ -490,6 +492,37 @@ document.addEventListener('DOMContentLoaded', () => {
   initLaw25Consent();
   initAnalyticsTracking();
 });
+
+function ensurePopoverPolyfill() {
+  if (typeof HTMLElement === 'undefined' || Object.hasOwn(HTMLElement.prototype, 'popover')) {
+    return;
+  }
+  import('https://unpkg.com/@oddbird/popover-polyfill@latest/dist/popover.min.js').catch(() => {});
+}
+
+let lastMeasuredHeaderH = 0;
+function syncSiteHeaderHeight() {
+  const header = document.querySelector('.site-header');
+  if (!header) return;
+  const h = Math.round(header.getBoundingClientRect().height);
+  if (h > 0 && h !== lastMeasuredHeaderH) {
+    lastMeasuredHeaderH = h;
+    document.documentElement.style.setProperty('--site-header-h', `${h}px`);
+    if (typeof initStickyMenuBarState === 'function') {
+      initStickyMenuBarState();
+    }
+  }
+}
+
+function initSiteHeaderHeightObserver() {
+  syncSiteHeaderHeight();
+  const header = document.querySelector('.site-header');
+  if (header && typeof ResizeObserver === 'function') {
+    const ro = new ResizeObserver(() => syncSiteHeaderHeight());
+    ro.observe(header);
+  }
+  window.addEventListener('resize', () => requestAnimationFrame(syncSiteHeaderHeight), { passive: true });
+}
 
 const AB_HERO_STORAGE_KEY = 'dzung_ab_hero_cta_v1';
 let activeHeroVariant = 'A';
@@ -712,6 +745,9 @@ function navigateToView(viewName, updateHash = true, shouldFocus = false) {
       section.hidden = !isTarget;
     });
 
+    document.body.classList.toggle('is-menu-view', normalizedView === 'menu');
+    closeMobileCategorySheet();
+
     document.querySelectorAll('.nav-link[data-nav-view], .nav-link[data-view]').forEach(link => {
       const linkView = link.getAttribute('data-nav-view') || link.getAttribute('data-view');
       link.classList.toggle('active', linkView === normalizedView);
@@ -750,8 +786,16 @@ function navigateToView(viewName, updateHash = true, shouldFocus = false) {
 
     window.scrollTo({ top: 0, behavior: 'instant' });
 
-    if (normalizedView === 'menu' && typeof updateMenuTabsScrollCue === 'function') {
-      requestAnimationFrame(updateMenuTabsScrollCue);
+    if (normalizedView === 'menu') {
+      requestAnimationFrame(() => {
+        syncSiteHeaderHeight();
+        if (typeof initStickyMenuBarState === 'function') initStickyMenuBarState();
+        if (typeof updateMenuTabsScrollCue === 'function') updateMenuTabsScrollCue();
+        if (typeof syncMobileBarCategoryLabel === 'function') syncMobileBarCategoryLabel();
+      });
+    } else {
+      const stickyBar = document.getElementById('menu-sticky-bar');
+      if (stickyBar) stickyBar.classList.remove('is-stuck');
     }
   };
 
@@ -1018,7 +1062,9 @@ function switchLanguage(lang) {
   renderBapXaoAllergens();
   syncTeaserReelBtnText();
   renderMenu(currentCategory);
-  if (typeof syncMenuTabsToggleLabel === 'function') syncMenuTabsToggleLabel();
+  if (typeof updateMenuTabCounts === 'function') updateMenuTabCounts();
+  if (typeof renderMobileCategorySheet === 'function') renderMobileCategorySheet();
+  if (typeof syncMobileBarCategoryLabel === 'function') syncMobileBarCategoryLabel();
   if (typeof updateMenuTabsScrollCue === 'function') requestAnimationFrame(updateMenuTabsScrollCue);
   renderGallery(currentGalleryFilter);
   renderCartItems();
@@ -1358,20 +1404,25 @@ function setMenuDisplayMode(mode, isUserAction = true) {
   }
   currentMenuDisplayMode = mode === 'cards' ? 'cards' : 'deli';
   const menuContainer = document.getElementById('menu-items-grid');
-  const btnDeli = document.getElementById('btn-layout-deli');
-  const btnCards = document.getElementById('btn-layout-cards');
+  const deliBtns = [document.getElementById('btn-layout-deli'), document.getElementById('sheet-layout-deli')];
+  const cardBtns = [document.getElementById('btn-layout-cards'), document.getElementById('sheet-layout-cards')];
 
   if (menuContainer) {
     menuContainer.classList.toggle('is-deli-board', currentMenuDisplayMode === 'deli');
     menuContainer.classList.toggle('is-card-grid', currentMenuDisplayMode === 'cards');
   }
-  if (btnDeli) {
-    btnDeli.classList.toggle('active', currentMenuDisplayMode === 'deli');
-    btnDeli.setAttribute('aria-pressed', String(currentMenuDisplayMode === 'deli'));
-  }
-  if (btnCards) {
-    btnCards.classList.toggle('active', currentMenuDisplayMode === 'cards');
-    btnCards.setAttribute('aria-pressed', String(currentMenuDisplayMode === 'cards'));
+  deliBtns.forEach(btn => {
+    if (!btn) return;
+    btn.classList.toggle('active', currentMenuDisplayMode === 'deli');
+    btn.setAttribute('aria-pressed', String(currentMenuDisplayMode === 'deli'));
+  });
+  cardBtns.forEach(btn => {
+    if (!btn) return;
+    btn.classList.toggle('active', currentMenuDisplayMode === 'cards');
+    btn.setAttribute('aria-pressed', String(currentMenuDisplayMode === 'cards'));
+  });
+  if (isUserAction) {
+    closeMobileCategorySheet();
   }
 }
 
@@ -1885,9 +1936,31 @@ function renderMenu(category = 'all') {
   initLazyMedia(menuContainer);
 }
 
+let menuStickyObserver = null;
+let menuTabsFadeObserver = null;
+
+function isPopoverSheetOpen(sheet) {
+  if (!sheet) return false;
+  try {
+    if (sheet.matches(':popover-open')) return true;
+  } catch (_) {}
+  return sheet.classList.contains(':popover-open');
+}
+
+function closeMobileCategorySheet() {
+  const sheet = document.getElementById('mobile-cat-sheet');
+  if (!sheet || !isPopoverSheetOpen(sheet)) return;
+  if (typeof sheet.hidePopover === 'function') {
+    try {
+      sheet.hidePopover();
+    } catch (_) {}
+  }
+}
+
 function updateMenuTabCounts() {
   if (typeof MENU_ITEMS === 'undefined') return;
-  document.querySelectorAll('.menu-tab-btn[data-category]').forEach(btn => {
+  const tabButtons = document.querySelectorAll('.menu-tab-btn[data-category]');
+  tabButtons.forEach(btn => {
     const countEl = btn.querySelector('.menu-tab-count');
     if (!countEl) return;
     const category = btn.getAttribute('data-category');
@@ -1896,17 +1969,17 @@ function updateMenuTabCounts() {
       : MENU_ITEMS.filter(item => item.category === category).length;
     countEl.textContent = `(${count})`;
   });
+
+  const badge = document.querySelector('#menu-stuck-sheet-btn .menu-stuck-sheet-badge');
+  if (badge && tabButtons.length > 0) {
+    badge.textContent = String(tabButtons.length);
+  }
 }
 
 function updateMenuTabsScrollCue() {
   const shell = document.getElementById('menu-tabs-shell');
   const list = document.getElementById('menu-tabs-list');
   if (!shell || !list) return;
-
-  if (shell.classList.contains('is-expanded')) {
-    shell.classList.remove('can-scroll-left', 'can-scroll-right');
-    return;
-  }
 
   const maxScroll = list.scrollWidth - list.clientWidth;
   shell.classList.toggle('can-scroll-left', list.scrollLeft > 8);
@@ -1920,58 +1993,248 @@ function scrollMenuTabs(direction) {
   list.scrollBy({ left: (direction < 0 ? -step : step), behavior: 'smooth' });
 }
 
-function syncMenuTabsToggleLabel() {
-  const shell = document.getElementById('menu-tabs-shell');
-  const btn = document.getElementById('btn-toggle-all-cats');
-  if (!shell || !btn) return;
-  const isExpanded = shell.classList.contains('is-expanded');
-  btn.setAttribute('aria-expanded', String(isExpanded));
+function getCategoryLabelFromTab(btn) {
+  if (!btn) return '';
+  const labelSpan = btn.querySelector('span[data-i18n]');
+  return (labelSpan ? labelSpan.textContent : btn.textContent || '').trim();
+}
+
+function renderMobileCategorySheet() {
+  const grid = document.getElementById('mobile-cat-sheet-grid');
+  if (!grid) return;
+
+  const tabButtons = Array.from(document.querySelectorAll('.menu-tab-btn[data-category]'));
+  grid.innerHTML = tabButtons.map(btn => {
+    const cat = btn.getAttribute('data-category');
+    const label = getCategoryLabelFromTab(btn);
+    const countText = (btn.querySelector('.menu-tab-count')?.textContent || '').replace(/[()]/g, '').trim();
+    const isActive = cat === currentCategory;
+    return `
+      <button
+        type="button"
+        class="dz-cat-sheet-item${isActive ? ' active' : ''}"
+        role="listitem"
+        data-sheet-category="${cat}"
+        ${isActive ? 'aria-current="true"' : ''}
+      >
+        <span class="dz-cat-sheet-item-label">${label}</span>
+        ${countText ? `<span class="dz-cat-sheet-item-count">${countText}</span>` : ''}
+      </button>
+    `;
+  }).join('');
+
+  grid.querySelectorAll('.dz-cat-sheet-item[data-sheet-category]').forEach(itemBtn => {
+    itemBtn.addEventListener('click', () => {
+      const cat = itemBtn.getAttribute('data-sheet-category');
+      if (cat) {
+        selectMenuCategory(cat, { scrollToGrid: true, closeSheet: true });
+      }
+    });
+  });
+}
+
+function syncMobileBarCategoryLabel() {
+  const labelEl = document.getElementById('mobile-bar-cats-label');
+  if (!labelEl) return;
 
   const t = (typeof TRANSLATIONS !== 'undefined' && TRANSLATIONS[currentLang]) || {};
-  const label = isExpanded
-    ? (t.menu_cats_collapse || 'Thu gọn ▴')
-    : (t.menu_cats_expand || 'Xem cả 8 ▾');
-  const span = btn.querySelector('span');
-  if (span) {
-    span.setAttribute('data-i18n', isExpanded ? 'menu_cats_collapse' : 'menu_cats_expand');
-    span.textContent = label;
-  } else {
-    btn.textContent = label;
+  if (currentCategory === 'all') {
+    labelEl.textContent = t.menu_sheet_open_short || 'Catégories';
+    return;
+  }
+
+  const activeTab = document.querySelector(`.menu-tab-btn[data-category="${currentCategory}"]`);
+  const activeLabel = getCategoryLabelFromTab(activeTab);
+  labelEl.textContent = activeLabel || (t.menu_sheet_open_short || 'Catégories');
+}
+
+function centerActiveMenuTab(activeBtn) {
+  const list = document.getElementById('menu-tabs-list');
+  if (!list || !activeBtn) return;
+  const maxScroll = Math.max(0, list.scrollWidth - list.clientWidth);
+  if (maxScroll <= 0) return;
+  const targetLeft = activeBtn.offsetLeft - (list.clientWidth - activeBtn.offsetWidth) / 2;
+  const clampedLeft = Math.max(0, Math.min(maxScroll, targetLeft));
+  list.scrollTo({ left: clampedLeft, behavior: 'smooth' });
+}
+
+function scrollMenuGridIntoViewIfDeep() {
+  const sentinel = document.getElementById('menu-sticky-sentinel');
+  const stickyBar = document.getElementById('menu-sticky-bar');
+  const anchor = document.getElementById('menu-items-grid');
+  if (!sentinel || !stickyBar || !anchor) return;
+
+  const headerH = lastMeasuredHeaderH || parseInt(getComputedStyle(document.documentElement).getPropertyValue('--site-header-h'), 10) || 60;
+  // Only smoothly reset scroll when the user has already scrolled down past the sticky bar top
+  if (sentinel.getBoundingClientRect().top >= headerH - 4) {
+    return;
+  }
+
+  const stickyH = Math.round(stickyBar.getBoundingClientRect().height) || 60;
+  const anchorDocTop = window.scrollY + anchor.getBoundingClientRect().top;
+  const targetY = Math.max(0, anchorDocTop - headerH - stickyH - 14);
+
+  if (Math.abs(window.scrollY - targetY) > 12) {
+    const prefersReducedMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    window.scrollTo({
+      top: targetY,
+      behavior: prefersReducedMotion ? 'auto' : 'smooth'
+    });
   }
 }
 
-function setMenuTabsExpanded(expanded) {
-  const shell = document.getElementById('menu-tabs-shell');
-  if (!shell) return;
-  shell.classList.toggle('is-expanded', Boolean(expanded));
-  syncMenuTabsToggleLabel();
-  requestAnimationFrame(updateMenuTabsScrollCue);
+function selectMenuCategory(category, { scrollToGrid = true, closeSheet = true } = {}) {
+  const tabButtons = document.querySelectorAll('.menu-tab-btn[data-category]');
+  let activeBtn = null;
+
+  tabButtons.forEach(btn => {
+    const isMatch = btn.getAttribute('data-category') === category;
+    btn.classList.toggle('active', isMatch);
+    btn.setAttribute('aria-selected', String(isMatch));
+    btn.setAttribute('tabindex', isMatch ? '0' : '-1');
+    if (isMatch) activeBtn = btn;
+  });
+
+  renderMenu(category);
+
+  document.querySelectorAll('#mobile-cat-sheet-grid .dz-cat-sheet-item[data-sheet-category]').forEach(item => {
+    const isMatch = item.getAttribute('data-sheet-category') === category;
+    item.classList.toggle('active', isMatch);
+    if (isMatch) {
+      item.setAttribute('aria-current', 'true');
+    } else {
+      item.removeAttribute('aria-current');
+    }
+  });
+
+  syncMobileBarCategoryLabel();
+
+  if (closeSheet) {
+    closeMobileCategorySheet();
+  }
+
+  requestAnimationFrame(() => {
+    centerActiveMenuTab(activeBtn);
+    updateMenuTabsScrollCue();
+    if (scrollToGrid) {
+      scrollMenuGridIntoViewIfDeep();
+    }
+  });
 }
 
-function toggleMenuTabsExpanded() {
-  const shell = document.getElementById('menu-tabs-shell');
-  if (!shell) return;
-  setMenuTabsExpanded(!shell.classList.contains('is-expanded'));
+function initStickyMenuBarState() {
+  const sentinel = document.getElementById('menu-sticky-sentinel');
+  const stickyBar = document.getElementById('menu-sticky-bar');
+  if (!sentinel || !stickyBar) return;
+
+  // Native CSS @container scroll-state(stuck: top) handles Chromium; use IntersectionObserver fallback elsewhere
+  const supportsScrollState = typeof CSS !== 'undefined' && typeof CSS.supports === 'function' && CSS.supports('container-type', 'scroll-state');
+  if (supportsScrollState) {
+    stickyBar.classList.remove('is-stuck');
+    return;
+  }
+
+  if (menuStickyObserver) {
+    menuStickyObserver.disconnect();
+    menuStickyObserver = null;
+  }
+
+  if (typeof IntersectionObserver !== 'function') return;
+
+  const headerH = lastMeasuredHeaderH || parseInt(getComputedStyle(document.documentElement).getPropertyValue('--site-header-h'), 10) || 60;
+  menuStickyObserver = new IntersectionObserver(
+    (entries) => {
+      const entry = entries[0];
+      if (!entry) return;
+      const menuView = document.getElementById('view-menu');
+      const isMenuVisible = menuView && !menuView.hidden;
+      const isStuck = Boolean(isMenuVisible && !entry.isIntersecting && entry.boundingClientRect.top <= headerH + 2);
+      stickyBar.classList.toggle('is-stuck', isStuck);
+    },
+    {
+      root: null,
+      rootMargin: `-${headerH}px 0px 0px 0px`,
+      threshold: 0
+    }
+  );
+  menuStickyObserver.observe(sentinel);
+}
+
+function initMenuTabsScrollFades() {
+  const list = document.getElementById('menu-tabs-list');
+  if (!list) return;
+
+  // Use IntersectionObserver fallback for scroll edge fades only when CSS scroll-driven animation-timeline is unsupported
+  if (typeof CSS !== 'undefined' && typeof CSS.supports === 'function' && CSS.supports('animation-timeline', 'scroll()')) {
+    list.classList.remove('more-start', 'more-end');
+    return;
+  }
+
+  if (menuTabsFadeObserver) {
+    menuTabsFadeObserver.disconnect();
+    menuTabsFadeObserver = null;
+  }
+
+  const tabs = list.querySelectorAll('.menu-tab-btn');
+  if (!tabs.length || typeof IntersectionObserver !== 'function') return;
+  const firstTab = tabs[0];
+  const lastTab = tabs[tabs.length - 1];
+
+  menuTabsFadeObserver = new IntersectionObserver(
+    (entries) => {
+      entries.forEach(entry => {
+        if (entry.target === firstTab) {
+          list.classList.toggle('more-start', !entry.isIntersecting);
+        }
+        if (entry.target === lastTab) {
+          list.classList.toggle('more-end', !entry.isIntersecting);
+        }
+      });
+    },
+    { root: list, threshold: 0.99 }
+  );
+  menuTabsFadeObserver.observe(firstTab);
+  menuTabsFadeObserver.observe(lastTab);
 }
 
 function initMenuTabs() {
-  const tabButtons = document.querySelectorAll('.menu-tab-btn');
+  const tabButtons = Array.from(document.querySelectorAll('.menu-tab-btn[data-category]'));
   const list = document.getElementById('menu-tabs-list');
 
   updateMenuTabCounts();
-  syncMenuTabsToggleLabel();
+  renderMobileCategorySheet();
+  syncMobileBarCategoryLabel();
+  initStickyMenuBarState();
+  initMenuTabsScrollFades();
 
-  tabButtons.forEach(btn => {
+  tabButtons.forEach((btn, idx) => {
+    const isInitialActive = btn.getAttribute('data-category') === currentCategory;
+    btn.setAttribute('aria-selected', String(isInitialActive));
+    btn.setAttribute('tabindex', isInitialActive ? '0' : '-1');
+
     btn.addEventListener('click', () => {
-      tabButtons.forEach(b => b.classList.remove('active'));
-      btn.classList.add('active');
-      setMenuTabsExpanded(false);
-      requestAnimationFrame(() => {
-        btn.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
-        updateMenuTabsScrollCue();
-      });
       const category = btn.getAttribute('data-category');
-      renderMenu(category);
+      if (category) {
+        selectMenuCategory(category, { scrollToGrid: true, closeSheet: false });
+      }
+    });
+
+    btn.addEventListener('keydown', (e) => {
+      let nextIdx = -1;
+      if (e.key === 'ArrowRight') nextIdx = (idx + 1) % tabButtons.length;
+      else if (e.key === 'ArrowLeft') nextIdx = (idx - 1 + tabButtons.length) % tabButtons.length;
+      else if (e.key === 'Home') nextIdx = 0;
+      else if (e.key === 'End') nextIdx = tabButtons.length - 1;
+
+      if (nextIdx >= 0) {
+        e.preventDefault();
+        const targetBtn = tabButtons[nextIdx];
+        const category = targetBtn.getAttribute('data-category');
+        if (category) {
+          selectMenuCategory(category, { scrollToGrid: false, closeSheet: false });
+          targetBtn.focus();
+        }
+      }
     });
   });
 

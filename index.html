@@ -206,7 +206,7 @@
   </script>
 
   <!-- Stylesheets -->
-  <link rel="stylesheet" href="css/style.css?v=20261123b" />
+  <link rel="stylesheet" href="css/style.css?v=20261127" />
 </head>
 <body>
 
@@ -792,29 +792,39 @@
       </section>
 
       <section id="menu" class="lk-menu-page-section">
+        <div class="menu-sticky-sentinel" id="menu-sticky-sentinel" aria-hidden="true"></div>
         <!-- Sticky Category Filter Bar + Deli Board Toggle -->
-        <div class="lk-menu-sticky-bar">
+        <div class="lk-menu-sticky-bar" id="menu-sticky-bar">
           <div class="container lk-menu-bar-inner">
             <div class="menu-tabs-shell" id="menu-tabs-shell">
               <div class="menu-tabs-meta-row">
                 <span class="menu-tabs-hint" data-i18n="menu_cats_hint">✦ 8 catégories (39 plats) · Glisser →</span>
-                <button type="button" class="menu-cats-toggle-btn" id="btn-toggle-all-cats" onclick="toggleMenuTabsExpanded()" aria-expanded="false" aria-controls="menu-tabs-list">
+                <button type="button" class="menu-cats-toggle-btn" id="btn-toggle-all-cats" popovertarget="mobile-cat-sheet" aria-haspopup="dialog" aria-controls="mobile-cat-sheet">
                   <span data-i18n="menu_cats_expand">Voir les 8 ▾</span>
                 </button>
               </div>
               <div class="menu-tabs-scroll-wrap">
                 <button type="button" class="menu-tabs-arrow is-left" id="menu-tabs-prev" onclick="scrollMenuTabs(-1)" aria-label="Défiler les catégories vers la gauche">&#8249;</button>
-                <div class="menu-tabs-wrapper" id="menu-tabs-list">
-                  <button class="menu-tab-btn active" data-category="all"><span data-i18n="tab_all">Tous les plats</span> <span class="menu-tab-count"></span></button>
-                  <button class="menu-tab-btn" data-category="banhmi"><span data-i18n="tab_banhmi">🥖 Bánh Mì</span> <span class="menu-tab-count"></span></button>
-                  <button class="menu-tab-btn" data-category="hot"><span data-i18n="tab_hot">🔥 Plats Chauds</span> <span class="menu-tab-count"></span></button>
-                  <button class="menu-tab-btn" data-category="feast"><span data-i18n="tab_feast">🍽️ Plats de Fête Vietnamiens</span> <span class="menu-tab-count"></span></button>
-                  <button class="menu-tab-btn" data-category="streetfood"><span data-i18n="tab_streetfood">🍢 Street Food &amp; Snacks</span> <span class="menu-tab-count"></span></button>
-                  <button class="menu-tab-btn" data-category="drinks"><span data-i18n="tab_drinks">☕ Boissons</span> <span class="menu-tab-count"></span></button>
-                  <button class="menu-tab-btn" data-category="desserts"><span data-i18n="tab_desserts">🍧 Desserts</span> <span class="menu-tab-count"></span></button>
-                  <button class="menu-tab-btn" data-category="rolls"><span data-i18n="tab_rolls">🥮 Pâtisseries Traditionnelles VN</span> <span class="menu-tab-count"></span></button>
+                <div class="menu-tabs-wrapper" id="menu-tabs-list" role="tablist" aria-label="Catégories du menu">
+                  <button type="button" class="menu-tab-btn active" role="tab" aria-selected="true" data-category="all"><span data-i18n="tab_all">Tous les plats</span> <span class="menu-tab-count"></span></button>
+                  <button type="button" class="menu-tab-btn" role="tab" aria-selected="false" data-category="banhmi"><span data-i18n="tab_banhmi">🥖 Bánh Mì</span> <span class="menu-tab-count"></span></button>
+                  <button type="button" class="menu-tab-btn" role="tab" aria-selected="false" data-category="hot"><span data-i18n="tab_hot">🔥 Plats Chauds</span> <span class="menu-tab-count"></span></button>
+                  <button type="button" class="menu-tab-btn" role="tab" aria-selected="false" data-category="feast"><span data-i18n="tab_feast">🍽️ Plats de Fête Vietnamiens</span> <span class="menu-tab-count"></span></button>
+                  <button type="button" class="menu-tab-btn" role="tab" aria-selected="false" data-category="streetfood"><span data-i18n="tab_streetfood">🍢 Street Food &amp; Snacks</span> <span class="menu-tab-count"></span></button>
+                  <button type="button" class="menu-tab-btn" role="tab" aria-selected="false" data-category="drinks"><span data-i18n="tab_drinks">☕ Boissons</span> <span class="menu-tab-count"></span></button>
+                  <button type="button" class="menu-tab-btn" role="tab" aria-selected="false" data-category="desserts"><span data-i18n="tab_desserts">🍧 Desserts</span> <span class="menu-tab-count"></span></button>
+                  <button type="button" class="menu-tab-btn" role="tab" aria-selected="false" data-category="rolls"><span data-i18n="tab_rolls">🥮 Pâtisseries Traditionnelles VN</span> <span class="menu-tab-count"></span></button>
                 </div>
                 <button type="button" class="menu-tabs-arrow is-right" id="menu-tabs-next" onclick="scrollMenuTabs(1)" aria-label="Défiler les catégories vers la droite">&#8250;</button>
+                <button type="button" class="menu-stuck-sheet-btn" id="menu-stuck-sheet-btn" popovertarget="mobile-cat-sheet" aria-label="Voir toutes les catégories du menu" aria-haspopup="dialog" aria-controls="mobile-cat-sheet">
+                  <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+                    <rect x="1.5" y="1.5" width="5" height="5" rx="1.2" stroke="currentColor" stroke-width="1.6"/>
+                    <rect x="9.5" y="1.5" width="5" height="5" rx="1.2" stroke="currentColor" stroke-width="1.6"/>
+                    <rect x="1.5" y="9.5" width="5" height="5" rx="1.2" stroke="currentColor" stroke-width="1.6"/>
+                    <rect x="9.5" y="9.5" width="5" height="5" rx="1.2" stroke="currentColor" stroke-width="1.6"/>
+                  </svg>
+                  <span class="menu-stuck-sheet-badge">8</span>
+                </button>
               </div>
             </div>
 
@@ -1354,7 +1364,7 @@
   </footer>
 
   <!-- ==========================================================================
-       MOBILE STICKY BOTTOM ORDER & MENU BAR (Like Little Kirin Mobile Bar)
+       MOBILE STICKY BOTTOM ORDER & MENU BAR (Thumb-Zone Category Drawer on #menu)
        ========================================================================== -->
   <div class="lk-mobile-order-bar" id="mobile-floating-call-btn">
     <a href="tel:+15148808388" class="btn-tactile btn-tactile-gold lk-mobile-bar-btn" data-track="call_click">
@@ -1364,6 +1374,43 @@
     <button type="button" class="btn-tactile btn-tactile-ghost-light lk-mobile-bar-btn is-menu" onclick="navigateToView('menu')" data-i18n="nav_menu">
       Menu
     </button>
+    <button type="button" class="btn-tactile btn-tactile-cream lk-mobile-bar-btn is-cats" id="mobile-bar-cats-btn" popovertarget="mobile-cat-sheet" aria-haspopup="dialog" aria-controls="mobile-cat-sheet">
+      <svg width="15" height="15" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+        <rect x="1.5" y="1.5" width="5" height="5" rx="1.2" stroke="currentColor" stroke-width="1.65"/>
+        <rect x="9.5" y="1.5" width="5" height="5" rx="1.2" stroke="currentColor" stroke-width="1.65"/>
+        <rect x="1.5" y="9.5" width="5" height="5" rx="1.2" stroke="currentColor" stroke-width="1.65"/>
+        <rect x="9.5" y="9.5" width="5" height="5" rx="1.2" stroke="currentColor" stroke-width="1.65"/>
+      </svg>
+      <span class="mobile-bar-cats-label" id="mobile-bar-cats-label" data-i18n="menu_sheet_open_short">Catégories</span>
+    </button>
+  </div>
+
+  <!-- ==========================================================================
+       MOBILE CATEGORY BOTTOM SHEET (Native Popover API — Light-Dismiss & Top Layer)
+       ========================================================================== -->
+  <div id="mobile-cat-sheet" class="dz-cat-sheet" popover="auto" aria-labelledby="mobile-cat-sheet-title">
+    <div class="dz-cat-sheet-handle" aria-hidden="true"></div>
+    <div class="dz-cat-sheet-head">
+      <div class="dz-cat-sheet-titles">
+        <span class="dz-cat-sheet-eyebrow" data-i18n="menu_sheet_eyebrow">Navigation Rapide · 8 Catégories</span>
+        <h2 class="dz-cat-sheet-title" id="mobile-cat-sheet-title" data-i18n="menu_sheet_title">Catégories du Menu (39)</h2>
+      </div>
+      <button type="button" class="dz-cat-sheet-close" popovertarget="mobile-cat-sheet" popovertargetaction="hide" aria-label="Fermer">&times;</button>
+    </div>
+
+    <div class="dz-cat-sheet-grid" id="mobile-cat-sheet-grid" role="list"></div>
+
+    <div class="dz-cat-sheet-footer">
+      <span class="dz-cat-sheet-view-label" data-i18n="menu_sheet_view_label">Mode d'affichage</span>
+      <div class="lk-menu-layout-switch is-sheet-switch" role="group" aria-label="Mode d'affichage du menu">
+        <button type="button" class="lk-layout-btn" id="sheet-layout-deli" onclick="setMenuDisplayMode('deli')" data-i18n="menu_view_deli">
+          📋 Vue Deli Rapide
+        </button>
+        <button type="button" class="lk-layout-btn" id="sheet-layout-cards" onclick="setMenuDisplayMode('cards')" data-i18n="menu_view_cards">
+          🗂️ Vue Cartes Photo
+        </button>
+      </div>
+    </div>
   </div>
 
   <!-- ==========================================================================
@@ -1581,8 +1628,8 @@
   </dialog>
 
   <!-- Scripts: translations -> menu-data -> main -->
-  <script src="js/translations.js?v=20261123b"></script>
+  <script src="js/translations.js?v=20261127"></script>
   <script src="js/menu-data.js?v=20261120"></script>
-  <script src="js/main.js?v=20261123b"></script>
+  <script src="js/main.js?v=20261127"></script>
 </body>
 </html>
