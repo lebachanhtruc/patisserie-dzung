@@ -146,10 +146,10 @@ const GALLERY_ITEMS = [
       zh: '越式咸蛋黄肉松蛋糕 · Bánh Bông Lan Trứng Muối (20$)'
     },
     desc: {
-      fr: 'Vidéo 9:16 · 20$ / boîte : génoise légère cuite fraîche chaque jour, sauce maison aux jaunes d’œufs et fromage, effiloché de porc (chà bông) et jaunes d’œufs salés dorés. Disponible chaque jour en comptoir à Brossard !',
-      vi: 'Video dọc 9:16 · 20$ / hộp : cốt bánh bông lan nướng mới mềm mịn, phủ tràn sốt dầu trứng phô mai béo ngậy, chà bông heo tơi sợi và trứng muối hoàng kim. Có sẵn mỗi ngày tại tủ bánh!',
-      en: 'Vertical 9:16 reel · $20 / box: pillowy vanilla sponge topped with rich egg-yolk & cheese glaze, savory pork floss, and golden salted egg yolks. Available fresh daily at our Brossard counter!',
-      zh: '竖版 9:16 短视频 · 20$ / 盒：每日新鲜现烤松软海绵蛋糕，淋满秘制蛋黄芝士酱，铺满蓬松猪肉松与金黄咸蛋黄。门店每日现货供应！'
+      fr: "Vidéo 9:16 · 20$ / boîte : génoise légère fraîchement cuite, sauce maison aux jaunes d’œufs et fromage, effiloché de porc (chà bông) et jaunes d’œufs salés dorés. Précommande 1 jour à l'avance ou appelez le (514) 880-8388 pour vérifier la disponibilité du jour !",
+      vi: 'Video dọc 9:16 · 20$ / hộp : cốt bánh bông lan nướng mới mềm mịn, phủ tràn sốt dầu trứng phô mai béo ngậy, chà bông heo tơi sợi và trứng muối hoàng kim. Vui lòng đặt trước 1 ngày hoặc gọi trước (514) 880-8388 để hỏi xem tiệm có sẵn không nhé!',
+      en: 'Vertical 9:16 reel · $20 / box: freshly baked pillowy vanilla sponge topped with rich egg-yolk & cheese glaze, savory pork floss, and golden salted egg yolks. Please pre-order 1 day ahead or call (514) 880-8388 to check same-day availability!',
+      zh: '竖版 9:16 短视频 · 20$ / 盒：现烤松软海绵蛋糕，淋满秘制蛋黄芝士酱，铺满蓬松猪肉松与金黄咸蛋黄。请提前 1 天预订，或致电 (514) 880-8388 询问当天现货！'
     }
   },
   {

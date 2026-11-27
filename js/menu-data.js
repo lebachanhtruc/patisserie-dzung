@@ -1456,22 +1456,22 @@ const MENU_ITEMS = [
       zh: '越式咸蛋黄肉松蛋糕（Bánh Bông Lan Trứng Muối）'
     },
     badgeText: {
-      fr: '✨ Nouveau · Dispo Chaque Jour',
-      vi: '✨ Mới · Có Sẵn Mỗi Ngày',
-      en: '✨ New · Available Daily',
-      zh: '✨ 新品 · 每日现做现货'
+      fr: '📅 Précommande 24h / Appeler',
+      vi: '📅 Đặt Trước 1 Ngày / Gọi Hỏi',
+      en: '📅 24h Pre-Order / Call Ahead',
+      zh: '📅 提前1天预订 / 致电询现货'
     },
     desc: {
-      fr: "Un grand classique adoré pour son équilibre parfait entre douceur et saveurs salées ! Une génoise légère et aérienne cuite fraîche chaque jour, généreusement garnie de notre sauce maison onctueuse aux jaunes d’œufs et fromage, d’effiloché de porc savoureux (chà bông) et de jaunes d’œufs salés dorés et fondants. Disponible chaque jour au comptoir à Brossard (20$ / boîte).",
-      vi: 'Chiếc bánh "gây thương nhớ" với cốt bánh bông lan nướng mới mềm mịn, xốp nhẹ thơm hương bơ sữa, phủ tràn sốt dầu trứng phô mai béo ngậy tan chảy, chà bông heo tơi sợi đậm đà cùng trứng muối hoàng kim bùi béo mằn mặn cực kỳ bắt vị. Hộp đầy đặn 20$ — có sẵn mỗi ngày tại tủ bánh Pâtisserie Dzung!',
-      en: 'Soft, creamy, savory-sweet perfection — freshly baked and ready in our display case daily! A pillowy-light golden vanilla sponge topped generously with luscious house-made egg-yolk & cheese glaze, fluffy savory pork floss (chà bông), and rich, crumbly golden salted egg yolks ($20 / box).',
-      zh: '甜咸交织的人气经典越式蛋糕，每日新鲜现烤上架！松软绵密的黄金海绵蛋糕，满满淋上秘制香浓蛋黄芝士酱，铺满蓬松咸香猪肉松（Chà Bông）与沙糯金黄咸蛋黄，每一口都让人欲罢不能（20$ / 盒）。'
+      fr: "Un grand classique adoré pour son équilibre parfait entre douceur et saveurs salées ! Une génoise légère et aérienne fraîchement cuite, généreusement garnie de notre sauce maison onctueuse aux jaunes d’œufs et fromage, d’effiloché de porc savoureux (chà bông) et de jaunes d’œufs salés dorés et fondants (20$ / boîte). Précommande 1 jour à l'avance, ou appelez le (514) 880-8388 avant de passer pour vérifier la disponibilité du jour.",
+      vi: 'Chiếc bánh "gây thương nhớ" với cốt bánh bông lan nướng mới mềm mịn, xốp nhẹ thơm hương bơ sữa, phủ tràn sốt dầu trứng phô mai béo ngậy tan chảy, chà bông heo tơi sợi đậm đà cùng trứng muối hoàng kim bùi béo mằn mặn cực kỳ bắt vị (hộp đầy đặn 20$). Vui lòng đặt trước 1 ngày, hoặc gọi trước (514) 880-8388 để hỏi xem tiệm có sẵn bánh trong ngày không nhé!',
+      en: 'Soft, creamy, savory-sweet perfection! A pillowy-light golden vanilla sponge freshly baked and topped generously with luscious house-made egg-yolk & cheese glaze, fluffy savory pork floss (chà bông), and rich, crumbly golden salted egg yolks ($20 / box). Please pre-order 1 day in advance, or call (514) 880-8388 beforehand to check same-day availability.',
+      zh: '甜咸交织的人气经典越式蛋糕！新鲜现烤的松软黄金海绵蛋糕，满满淋上秘制香浓蛋黄芝士酱，铺满蓬松咸香猪肉松（Chà Bông）与沙糯金黄咸蛋黄（20$ / 盒）。请提前 1 天预订，或提前致电 (514) 880-8388 询问当天是否有现货。'
     },
     tags: {
-      fr: ['20$ / Boîte', 'Dispo Chaque Jour', 'Sauce Œufs & Fromage', 'Sans Arachides'],
-      vi: ['20$ / Hộp', 'Có Sẵn Mỗi Ngày', 'Sốt Trứng Phô Mai', 'Không Đậu Phộng'],
-      en: ['$20 / Box', 'Available Daily', 'Egg & Cheese Glaze', 'Peanut-Free'],
-      zh: ['20$ / 盒', '每日现货', '蛋黄芝士酱', '无花生配方']
+      fr: ['20$ / Boîte', 'Précommande 24h', 'Sauce Œufs & Fromage', 'Sans Arachides'],
+      vi: ['20$ / Hộp', 'Đặt Trước 1 Ngày', 'Sốt Trứng Phô Mai', 'Không Đậu Phộng'],
+      en: ['$20 / Box', '24h Pre-Order', 'Egg & Cheese Glaze', 'Peanut-Free'],
+      zh: ['20$ / 盒', '提前1天预订', '蛋黄芝士酱', '无花生配方']
     },
     allergens: ['egg', 'dairy', 'gluten', 'pork'],
     dietary: ['peanut_free_recipe'],
@@ -1482,10 +1482,10 @@ const MENU_ITEMS = [
       zh: '满满一整盒（适合分享）'
     },
     customNote: {
-      fr: 'Disponible chaque jour en comptoir ! Passez directement en boutique à Brossard, ou écrivez-nous en DM @patisseriedzung / appelez le (514) 880-8388 pour réserver votre boîte ou commander pour une réception. Recette sans arachides.',
-      vi: 'Có sẵn mỗi ngày tại tủ bánh! Quý khách có thể ghé tiệm mua trực tiếp trong ngày, hoặc inbox Instagram @patisseriedzung / gọi (514) 880-8388 để tiệm giữ phần hoặc đặt trước cho tiệc gia đình nhé. Công thức không đậu phộng.',
-      en: 'Available daily in our display case! Drop by our Brossard shop anytime, or DM @patisseriedzung / call (514) 880-8388 to reserve a box or pre-order for family gatherings. Peanut-free recipe.',
-      zh: '门店糕点柜每日新鲜现货供应！欢迎直接到 Brossard 门店选购，或私信 IG @patisseriedzung / 致电 (514) 880-8388 预留或提前预订家庭聚会分量。配方不含花生。'
+      fr: '📅 Précommande 1 jour (24h) à l’avance recommandée — ou appelez le (514) 880-8388 avant de passer pour vérifier si nous en avons de disponible aujourd’hui ! Recette sans arachides.',
+      vi: '📅 Bánh cần đặt trước 1 ngày — hoặc gọi trước (514) 880-8388 để hỏi xem hôm nay tiệm có sẵn không nhé! Công thức không đậu phộng.',
+      en: '📅 Please pre-order 1 day (24h) in advance — or call (514) 880-8388 ahead of time to check if we have boxes available today! Peanut-free recipe.',
+      zh: '📅 建议提前 1 天（24小时）预订 — 或到店前先致电 (514) 880-8388 询问当天是否有现货！配方不含花生。'
     },
     videoReel: 'gal-reel-bltm',
     videoReelDuration: '30',
