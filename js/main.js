@@ -126,6 +126,33 @@ const GALLERY_ITEMS = [
     }
   },
   {
+    id: 'gal-reel-lau-thai',
+    type: 'video',
+    category: 'videos',
+    src: 'assets/videos/lau-thai-tom-yum-reel.mp4',
+    poster: 'assets/images/lau-thai-tom-yum-reel-poster.jpg',
+    width: 720,
+    height: 1280,
+    badge: {
+      fr: '🍲 Plat de Fête · Reel 20s · 60$ / 150$',
+      vi: '🍲 Lẩu Bàn Tiệc · Reel 20s · 60$ / 150$',
+      en: '🍲 Party Hotpot · 20s Reel · $60 / $150',
+      zh: '🍲 宴席火锅 · 20秒视频 · 60$ / 150$'
+    },
+    title: {
+      fr: 'Fondue Thaïlandaise Tom-Yum · Lẩu Thái Tom-Yum (60$ / 150$)',
+      vi: 'Lẩu Thái Tom-Yum Tôm Tiger & Bò Cuộn (60$ / 150$)',
+      en: 'Thai Tom-Yum Hotpot Feast · Black Tiger Prawns ($60 / $150)',
+      zh: '泰式冬阴功海鲜肥牛火锅 · 黑虎虾大拼盘 (60$ / 150$)'
+    },
+    desc: {
+      fr: 'Vidéo 9:16 (20s) · Format 3–4 pers. (60$) ou Grand format 8–10 pers. (150$) : bouillon Tom-Yum parfumé, grosses crevettes tigrées (Tiger), bœuf persillé roulé, moules vertes, calmar, champignons, légumes frais & nouilles aux œufs.',
+      vi: 'Video dọc 9:16 (20s) · Size 3–4 người (60$) hoặc Size 8–10 người (150$) : nước lẩu Tom-Yum chua cay đậm đà kèm mâm đồ bổi tươi sống đầy ắp tôm Tiger nguyên con, bò cuộn, vẹm xanh, mực khứa, nấm tươi, rau xanh & mì trứng.',
+      en: 'Vertical 9:16 reel (20s) · Size 3–4 ppl ($60) or Party Size 8–10 ppl ($150): rich aromatic Tom-Yum broth, jumbo Black Tiger prawns, marbled beef rolls, green mussels, squid, mushrooms, fresh greens & golden egg noodles.',
+      zh: '竖版 9:16 短视频 (20秒) · 3–4人份 (60$) / 8–10人宴席大份 (150$)：浓郁泰式冬阴功汤底配黑虎虾、雪花肥牛卷、青口贝、鲜鱿鱼、多款鲜菌、时蔬与鸡蛋面。'
+    }
+  },
+  {
     id: 'gal-reel-bltm',
     type: 'video',
     category: 'videos',
@@ -1108,7 +1135,7 @@ function updateLanguageUI(lang) {
 function applyTranslations(lang) {
   if (typeof TRANSLATIONS === 'undefined' || !TRANSLATIONS[lang]) return;
   const t = TRANSLATIONS[lang];
-  const menuCount = typeof MENU_ITEMS !== 'undefined' ? String(MENU_ITEMS.length) : '39';
+  const menuCount = typeof MENU_ITEMS !== 'undefined' ? String(MENU_ITEMS.length) : '40';
 
   if (t.page_title) {
     document.title = t.page_title;

@@ -313,7 +313,103 @@ const MENU_ITEMS = [
     image: 'assets/images/menu-hot-bap-xao.jpg'
   },
 
-  // 🍽️ MÓN ĂN BÀN TIỆC VIỆT NAM (PLATS DE FÊTE VN - 1 MÓN ĐẶC BIỆT)
+  // 🍽️ MÓN ĂN BÀN TIỆC VIỆT NAM (PLATS DE FÊTE VN - 2 MÓN ĐẶC BIỆT)
+  {
+    id: 'feast-lau-thai-tom-yum',
+    category: 'feast',
+    price: 60,
+    priceDisplay: {
+      fr: '60$',
+      vi: '60$',
+      en: '$60',
+      zh: '60$'
+    },
+    badge: 'feast',
+    badgeText: {
+      fr: '🍲 Fondue Fête · 2 Tailles',
+      vi: '🍲 Lẩu Tiệc · 2 Size',
+      en: '🍲 Party Hotpot · 2 Sizes',
+      zh: '🍲 宴席火锅 · 双规格'
+    },
+    name: {
+      fr: 'Lẩu Thái Tom-Yum · Fondue Thaïlandaise Tom-Yum',
+      vi: 'Lẩu Thái Tom-Yum',
+      en: 'Lẩu Thái Tom-Yum · Thai Tom-Yum Hotpot Set',
+      zh: '泰式冬阴功海鲜肥牛火锅（Lẩu Thái Tom-Yum）'
+    },
+    desc: {
+      fr: "Coffret fondue Tom-Yum généreux prêt à savourer à la maison ! Bouillon Tom-Yum thaïlandais riche et parfumé (citronnelle, feuilles de combava, pointe de piment), accompagné d'un grand plateau garni frais : grosses crevettes tigrées (Black Tiger) entières, tranches de bœuf persillé roulées, moules vertes, calmar, bâtonnets de crabe, maïs sucré, champignons variés, bok choy, chou napa et nouilles aux œufs dorées.",
+      vi: 'Set Lẩu Thái Tom-Yum mang về đầy đặn chuẩn bàn tiệc! Nước lẩu Tom-Yum chua cay đậm đà thơm mùi sả, lá chanh, ăn kèm mâm đồ bổi tươi sống chất lượng: tôm Tiger nguyên con to chắc thịt, thịt bò cuộn lát, vẹm xanh, mực khứa, thanh cua, bắp Mỹ, nấm rơm, nấm linh chi/kim châm, cải thìa, cải thảo và khay mì trứng vàng sợi mảnh.',
+      en: 'Generous take-home Thai Tom-Yum hotpot feast ready to simmer and share! Rich aromatic spicy-tangy Tom-Yum broth infused with lemongrass and kaffir lime leaves, paired with an abundant fresh platter of jumbo whole Black Tiger prawns, rolled marbled beef slices, green-lipped mussels, scored squid, crab sticks, sweet corn, assorted mushrooms, bok choy, napa cabbage, and golden curly egg noodles.',
+      zh: '丰盛的家庭聚会外带泰式冬阴功火锅套餐！浓郁酸辣的泰式冬阴功汤底，散发香茅与青柠叶清香，搭配新鲜丰盛大拼盘：整只特大黑虎虾（Black Tiger）、雪花肥牛卷、青口贝、鲜鱿鱼花、蟹柳、甜玉米、草菇及多种鲜菌、青江菜、大白菜与金黄鸡蛋面。'
+    },
+    options: {
+      icon: '🍲',
+      label: {
+        fr: 'Choisir le format de fondue :',
+        vi: 'Chọn size phần lẩu:',
+        en: 'Choose hotpot size:',
+        zh: '选择火锅规格：'
+      },
+      choices: [
+        {
+          id: 'hotpot_3_4',
+          price: 60,
+          priceDisplay: {
+            fr: '60$',
+            vi: '60$',
+            en: '$60',
+            zh: '60$'
+          },
+          name: {
+            fr: 'Format 3–4 pers. (60$)',
+            vi: 'Size 3–4 người (60$)',
+            en: 'Size 3–4 ppl ($60)',
+            zh: '3–4人份 (60$)'
+          }
+        },
+        {
+          id: 'hotpot_8_10',
+          price: 150,
+          priceDisplay: {
+            fr: '150$',
+            vi: '150$',
+            en: '$150',
+            zh: '150$'
+          },
+          name: {
+            fr: 'Grand format 8–10 pers. (150$)',
+            vi: 'Size 8–10 người (150$)',
+            en: 'Party Size 8–10 ppl ($150)',
+            zh: '8–10人宴席大份 (150$)'
+          }
+        }
+      ]
+    },
+    tags: {
+      fr: ['60$ (3–4p) · 150$ (8–10p)', 'Crevettes Tiger & Bœuf', 'Bouillon & Nouilles Inclus'],
+      vi: ['60$ (3–4ng) · 150$ (8–10ng)', 'Tôm Tiger & Bò Cuộn', 'Kèm Nước Lẩu & Mì Trứng'],
+      en: ['$60 (3–4p) · $150 (8–10p)', 'Black Tiger Prawns & Beef', 'Broth & Noodles Included'],
+      zh: ['60$(3–4人) · 150$(8–10人)', '黑虎虾与肥牛卷', '附冬阴功汤底与鸡蛋面']
+    },
+    allergens: ['shellfish', 'fish', 'beef_fresh', 'gluten', 'egg', 'spicy'],
+    dietary: ['peanut_free_recipe', 'pork_free', 'dairy_free'],
+    portion: {
+      fr: '3–4 pers. (60$) ou 8–10 pers. (150$)',
+      vi: 'Size 3–4 người (60$) hoặc 8–10 người (150$)',
+      en: '3–4 ppl ($60) or 8–10 ppl ($150)',
+      zh: '3–4人份 (60$) 或 8–10人份 (150$)'
+    },
+    customNote: {
+      fr: 'Livré en coffret complet (bouillon Tom-Yum, plateau frais garni de crevettes Tiger & bœuf, nouilles aux œufs) — il suffit de faire bouillir et déguster ! Recette sans porc et sans arachides. Appelez le (514) 880-8388 ou écrivez sur IG @patisseriedzung pour commander.',
+      vi: 'Đóng gói trọn bộ 3 phần gọn sạch (hũ nước lẩu Tom-Yum, tô topping tôm Tiger & bò cuộn rau nấm, khay mì trứng) — về nhà chỉ cần đun sôi là dùng ngay! Công thức không thịt heo & không đậu phộng. Gọi (514) 880-8388 hoặc inbox IG @patisseriedzung để đặt nhé.',
+      en: 'Packed cleanly as a complete 3-part take-home feast (rich Tom-Yum broth, fresh Black Tiger prawn & beef platter, golden egg noodles) — just simmer and enjoy! Pork-free & peanut-free recipe. Call (514) 880-8388 or DM @patisseriedzung to order.',
+      zh: '全套三件精致分装外带（冬阴功汤底、黑虎虾肥牛鲜蔬拼盘、鸡蛋面），回家煮沸即可享用！配方不含猪肉及花生。欢迎致电 (514) 880-8388 或私信 IG @patisseriedzung 预订。'
+    },
+    videoReel: 'gal-reel-lau-thai',
+    videoReelDuration: '20',
+    image: 'assets/images/menu-feast-lau-thai-tom-yum.jpg'
+  },
   {
     id: 'feast-goi-bo-khoai-mon',
     category: 'feast',
